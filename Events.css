@@ -1,0 +1,295 @@
+
+#bandeaupresevent{
+	width:100%;
+	clear:both;
+	float:left;
+    height:900px;
+    background-color:#95DCDC;
+    padding:0;
+	margin:0;
+	background:0.75;
+    box-shadow: rgba(0,0,0,0.2) 2px 2px ;
+	text-align:center;
+	font-weight:bold;
+	font-size:1.5em;
+	z-index:5;
+
+}
+
+	
+.Bouton2{
+	width:90%;
+	float:right;
+	clear:both;
+	margin:0;
+	margin-bottom:2px;
+	right:2%;
+	Font-size:0.7em;
+	position:relative;
+	background-color:white;
+	box-shadow: rgba(0,0,0,0.2) 2px 2px;
+	display:inline-block;
+	font-weight:bold;
+	color:grey;
+	text-align:center;
+	border-radius: 5px;
+
+}
+.Bouton2:hover{
+	background-color:#e1e1e1;
+	
+	
+}
+.Bouton2 p{
+
+	position:absolute;
+	margin:0;
+	left:50%;
+	top:50%;
+	transform:translate(-50%,-50%);
+	
+}
+
+.bleft{
+	display:inline-block;
+	height:100%;
+	width:40%;
+	margin:0;
+	position:relative;
+	float:left;
+	
+	
+}
+.bright{
+	display:inline-block;
+	height:100%;
+	width:60%;
+	margin:0;
+	position:relative;
+	float:right;
+	color:white;
+	
+}
+.bleft .bandeauhaut{
+	height:60%;	
+	
+}
+.bleft .bandeaubas{
+	height:40%;
+}
+#map{
+	position:relative;
+	display:block;
+	top:50%;
+	left:50%;
+	transform: translate(-50%,-50%);
+	width:95%;
+	height:95%;
+	/*max-width:500px;*/
+	border:0;	
+}
+
+.Eventpic{	
+	position:relative;
+	display:block;
+	width:95%;
+	height:95%;
+	/*max-width:500px;*/
+	max-height:500px;
+	top:50%;
+	left:50%;
+	transform: translate(-50%,-50%);
+	box-shadow: rgba(0,0,0,0.2) 2px 2px;
+	background-color:black;
+	background-repeat:no-repeat;
+	background-size:100% 100%;
+
+	
+}
+
+.bandeaumilieu{
+	height:70%;
+	width:100%;
+	float:left;
+	clear:left;
+	margin:0;
+
+}
+.carroussel{
+	width:100%;
+	height:100%;
+	float:left;
+	position: relative;
+    }
+.Eventcarr{
+	display:inline-block;
+	margin-right:5px;
+	position:relative;
+	top: 50%;
+    transform: translate(0,-50%);
+	width:10%;
+	height:75%;
+	background-color:black;
+	background-repeat:no-repeat;
+	background-size:100% 100%;
+	
+}
+
+.Eventcarr:hover{
+	opacity:0.8;
+	-moz-transition: opacity 0.5s;
+	-webkit-transition: opacity 0.5s;
+
+}
+
+#bandeau1{
+	position:relative;
+	margin:0;
+	width:100%;
+    height:400px;
+    background-color:white;
+    /*opacity:0.75;*/
+    box-shadow: rgba(0,0,0,0.2) 1px 2px;
+	float:left;
+	clear: both;
+	text-align:center;
+	font-weight:bold;
+	font-size:1.5em;
+	z-index:5;
+
+    }
+
+	
+#bandeau2{
+	position:relative;
+	margin:0;
+	width:100%;
+    height:500px;
+    background-color:#9FE774;
+    /*opacity:0.75;*/
+    box-shadow: rgba(0,0,0,0.2) 1px 2px;
+	float:left;
+	clear: both;
+	text-align:center;
+	font-weight:bold;
+	font-size:1.5em;
+	z-index:5;
+
+    }
+#bandeau2_1{
+	position:relative;
+	margin:0;
+	padding:0;
+	width:100%;
+    height:500px;
+    background-color:#9FE774;
+    /*opacity:0.75;*/
+    box-shadow: rgba(0,0,0,0.2) 1px 2px;
+	float:left;
+	clear: both;
+	text-align:center;
+	font-weight:bold;
+	font-size:1.5em;
+	z-index:5;
+
+    }
+#bandeau2_1 .Bouton2{
+	position:absolute;
+	top:50%;
+	left:50%;
+	transform:translate(-50%, -50%);
+}
+#bandeau2_2{
+	position:relative;
+	margin:0;
+	padding:0;
+	width:100%;
+    height:100px;
+    background-color:#9FE774;
+    /*opacity:0.75;*/
+    box-shadow: rgba(0,0,0,0.2) 1px 2px;
+	float:left;
+	clear: both;
+	text-align:center;
+	font-weight:bold;
+	font-size:1.5em;
+	z-index:5;
+	
+}
+
+#Boutoncom{
+	color:grey;
+	font-size:0.7em;
+	float:left;
+	position:relative;
+	background-color:white;
+	box-shadow: 1px 2px 5px #bfbfbf, 0px -2px 5px #bfbfbf;
+	width: 15%;
+	height:50%;
+	margin:0;
+	margin-left:30px;
+	display:inline-block;
+	font-weight:bold;
+	top: 50%;
+    transform: translate(0,-50%);
+	text-align:center;
+	border:none;
+	border-top-right-radius:5px;
+	border-bottom-right-radius:5px;
+}
+#Boutoncom:hover{
+	background-color:#e1e1e1;
+	cursor:pointer;
+}
+#Zonecom{
+	position:relative;
+	float:left;
+	display:inline-block;
+	height:90%;
+	width:70%;
+	margin:0;
+	margin-left:2%;
+	font-size:0.7em;
+	top: 50%;
+	transform:translate(0,-50%);
+	box-shadow: -1px 2px 5px #bfbfbf, 0px -2px 5px #bfbfbf;
+	border:none;
+	z-index:1;
+	resize:none;
+	border-radius:5px;
+}
+.bandeaucom{
+	position:relative;
+	color:white;
+	margin:0;
+	padding:0;
+	width:100%;
+    height:125px;
+    background-color:#9FE774;
+    /*opacity:0.75;*/
+    box-shadow: rgba(0,0,0,0.2) 1px 2px;
+	float:left;
+	clear: both;
+	text-align:left;
+	font-weight:bold;
+	font-size:0.7em;
+	z-index:5;
+	border-bottom:1px solid white;
+}
+#bandeau3{
+	position:relative;
+	margin:0;
+	width:100%;
+    height:200px;
+    background-color:white;
+    /*opacity:0.75;*/
+    box-shadow: rgba(0,0,0,0.2) 1px 2px;
+	float:left;
+	clear: both;
+	text-align:center;
+	font-weight:bold;
+	font-size:1.5em;
+	z-index:5;
+	
+	
+}

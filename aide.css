@@ -1,0 +1,43 @@
+body {
+	width : 100%;
+	margin:0;
+	
+}
+
+#partie_aide {
+	background-color:#62cbcb;
+	width : 100%;
+	float:left;
+	
+}
+
+#bloc_question {
+	background-color:#62cbcb;
+	width : 100%;
+}
+
+.question {
+	background-color:#62cbcb;
+	color:white;
+}
+
+#questions {
+	background-color:#62cbcb;
+	width : 100%;
+}
+
+#titre {
+	color:white;
+}
+
+.reponse {
+	color:white;
+	background-color:#95DCDC;
+	width:100%;
+	
+}
+
+.question:hover {
+	cursor:pointer;
+	color:#e5e5e5;
+}

@@ -1,0 +1,45 @@
+.gestion_categ{
+    background-color: #95DCDC;
+
+    float:left;
+    clear:both;
+    position:relative;
+    width:100%;
+}
+
+.titre_gestion_categ{
+    color:white;
+    font-size: 20px;
+}
+
+#bouton_back{
+    font-size:1em;
+    position:relative;
+    background-color:#9FE774;
+    box-shadow: 1px 2px 5px #bfbfbf, 0px -2px 5px #bfbfbf;
+    width:200px;
+    height:30px;
+    display:inline-block;
+    font-weight:bold;
+    transform: translate(0,-50%);
+    color:white;
+    
+    border:none;
+    border-radius:5px;
+}
+
+#bloc_gestion_categ{
+    display: inline-block;
+    width: 49.5%;
+    text-align: left;
+}
+
+.bouton_suppression_categ{
+    color: red;
+    border: 2px solid;
+    
+}
+
+#nom_categ{
+    text-align: left;
+}

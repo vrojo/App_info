@@ -1,0 +1,308 @@
+
+body 
+{ 
+	margin: 0; 
+	padding: 0; 
+	width: 100%; 
+	background-color: white; 
+	font-family:Roboto, sans-serif;
+	overflow-y:scroll;
+	min-width:700px;
+} 
+a{
+	text-decoration:none;
+	color:white;
+	
+}
+#header{
+	float:left;
+	margin:0;
+    height:200px;
+    width:100%;
+    background-color:black;
+    z-index:11;
+    box-shadow: rgba(0,0,0,0.2) 1px 2px;
+    position: relative;
+	background-image:url(https://www.dropbox.com/s/yy8muxqh4qhntzh/feuartifices.jpg?raw=1);
+	background-repeat:no-repeat;
+	min-width:700px;
+	margin:0;
+    }
+.bandeauhaut{
+	height:75%;
+	width:100%;
+	float:left;
+}
+.bandeaubas{
+	clear:left;
+	width:100%;
+	height:25%;
+}
+#menu{
+	width:70%;
+	height:100%;
+	float:left;
+	position: relative;
+    }
+.Boutonmenu{	
+	font-size:1.2em;
+	position:relative;
+	width: 24%;
+	height:100%;
+	right: 0;
+	bottom: 0;
+	display:inline-block;
+	font-weight:bold;
+	top: 50%;
+    transform: translateY(-50%);
+	text-align:center;
+	border-radius:5px;
+}
+.Boutonmenu:hover{
+	color:#95DCDC;
+	
+}
+.Bouton{	
+	font-size:1em;
+	position:relative;
+	background-color:white;
+	box-shadow: rgba(0,0,0,0.2) 1px 2px;
+	width: 200px;
+	height:50px;
+	margin:0;
+	display:inline-block;
+	font-weight:bold;
+	top: 50%;
+    transform: translateY(-50%);
+	color:grey;
+	text-align:center;
+	border-radius:5px;
+}
+.Bouton:hover{
+	background-color:#e1e1e1;
+	
+	
+}
+.Bouton p{
+
+	position:absolute;
+	margin:0;
+	left:50%;
+	top:50%;
+	transform:translate(-50%,-50%);
+	
+}
+#headerdroit .Bouton {
+	float: right;
+} 
+#headergauche{
+	display:inline-block;
+	position: relative;
+	float:left;
+	height:100%;
+	width:50%;
+    }
+#headerdroit{
+	display:inline-block;
+	position: relative;
+	height:100%;
+	width:50%;
+    }
+.imagebandeau{
+	position: relative;
+    margin:1% 0px 0px 2%;
+	width:100%;
+	max-width:500px;
+	}
+
+ 
+#bandeau1{
+	position:relative;
+	margin-top:0px;
+	width:100%;
+    height:250px;
+    background-color:white;
+    /*opacity:0.75;*/
+    box-shadow: rgba(0,0,0,0.2) 1px 2px;
+	float:left;
+	clear: left;
+	text-align:center;
+	font-weight:bold;
+	font-size:1.5em;
+	z-index:5;
+
+    }
+    
+#bandeau2{
+	position:relative;
+    width:100%;
+    height:400px;
+	background:#95DCDC;
+	float:left;
+	clear:both;
+    /*opacity:0.75;*/
+    box-shadow: rgba(0,0,0,0.2) 1px 2px;
+    padding:0;
+	margin:0;
+	color:White;
+	font-weight:bold;
+	font-size:2em;
+	z-index:3;
+	text-align:center;
+}
+#bandeau3{
+    width:100%;
+    height:500px;
+	margin:0;
+	background-color:white;
+    /*opacity:0.75;*/
+    box-shadow: rgba(0,0,0,0.2) 1px 2px;
+	float:left;
+	clear: both;
+	text-align:center;
+	font-weight:bold;
+	font-size:2em;
+	z-index:2;
+    }
+    
+#bandeau1 .bandeauhaut{
+	height:75%; 	
+}
+#bandeau1 .bandeaubas{
+	height:25%;
+	
+}
+#bandeau1 .Bouton{
+	width:50%;
+	background-color:#9FE774;
+	color:white;
+	
+	
+}
+
+#bandeau1 .Bouton:hover{
+	background-color:#87e052;
+	color:white;
+	
+}
+
+#bandeau1 form{
+	position:relative;
+	display:inline-block;
+	width:100%;
+	height:75%;
+	float:left;
+}
+#b1bas{
+	position:relative;
+	clear:left;
+	height:25%;
+	
+}
+#recherche{
+	position:relative;
+	float:left;
+	display:inline-block;
+	height:50px;
+	width:50%;
+	margin:0;
+	margin-left:2%;
+	font-size:1em;
+	top: 50%;
+	transform:translate(0,-50%);
+	box-shadow: -1px 2px 5px #bfbfbf, 0px -2px 5px #bfbfbf;
+	border:none;
+	z-index:1;
+	border-top-left-radius:5px;
+	border-bottom-left-radius:5px;
+}
+
+.boutonrecherche{
+	font-size:1em;
+	float:left;
+	position:relative;
+	background-color:#9FE774;
+	box-shadow: 1px 2px 5px #bfbfbf, 0px -2px 5px #bfbfbf;
+	width: 40%;
+	height:50px;
+	margin:0;
+	display:inline-block;
+	font-weight:bold;
+	top: 50%;
+    transform: translate(0,-50%);
+	color:white;
+	text-align:center;
+	border:none;
+	border-top-right-radius:5px;
+	border-bottom-right-radius:5px;
+}
+.boutonrecherche:hover{
+	background-color:#87e052;
+	cursor:pointer;
+}
+#carroussel{
+	width:100%;
+	height:100%;
+	float:left;
+	position: relative;
+    }
+.Eventcarr{
+	display:inline-block;
+	margin:0;
+	position:relative;
+	top: 50%;
+    transform: translate(0,-50%);
+	width:22%;
+	height:75%;
+	background-color:black;
+	background-repeat:no-repeat;
+	background-size:100% 100%;
+	vertical-align:middle;
+	
+}
+#Eventcarr1{
+	background-image:url(http://www.rockenseine.com/wp-content/uploads/2015/09/VP2_7163RES-1024x683.jpg);
+}
+#Eventcarr2{
+	background-image:url(http://www.mycontact.fr/public/images_manager/Artistes_/2015/tomorrowland-2014.jpg);
+}					
+#Eventcarr3{
+	background-image:url(http://life.wnmu.edu/wp-content/uploads/sites/39/2015/09/color-run.jpg);
+}									
+#Eventcarr4{
+	background-image:url(http://www.veldmanfamily.com/Images-2009/10-Oct-ACDC/IMG_0104.jpg);
+}
+.Eventcarr	p {
+		opacity:0;
+			}
+.Eventcarr:hover p {
+	font-size:90%;
+	position:absolute;
+	margin:0;
+	top:50%;
+	left:50%;
+	transform:translate(-50%,-50%);
+	display: inline-block;
+	opacity:1;
+				}
+.Eventcarr:hover{
+	opacity:0.8;
+	-moz-transition: opacity 0.5s;
+	-webkit-transition: opacity 0.5s;
+
+}
+.blocsresume{	
+	font-size:1.2em;
+	margin:0;
+	position:relative;
+	width: 24%;
+	height:90%;
+	display:inline-block;
+	top:50%;
+	transform:translate(0,-50%);
+	font-weight:bold;
+	text-align:center;
+	border-radius:5px;
+}
+	
+

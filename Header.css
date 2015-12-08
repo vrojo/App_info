@@ -1,0 +1,263 @@
+body 
+{ 
+	margin: 0; 
+	padding: 0; 
+	width: 100%; 
+	background-color: white; 
+	font-family:Roboto, sans-serif;
+	overflow-y:scroll;
+	min-width:700px;
+} 
+a{
+	text-decoration:none;
+	color:white;
+	
+}
+#header{
+    height:200px;
+    width:100%;
+    background-color:black;
+    z-index:12;
+    box-shadow: rgba(0,0,0,0.2) 1px 2px;
+    position: relative;
+	background-image:url(https://www.dropbox.com/s/yy8muxqh4qhntzh/feuartifices.jpg?raw=1);
+	background-repeat:no-repeat;
+    float:left;
+}
+#headerdroit .bandeaubas{
+	height:50%;
+	
+}
+#headerdroit .bandeauhaut{
+	height:50%;
+	
+}
+.bandeauhaut{
+	height:70%;
+	width:100%;
+	float:left;
+	margin:0;
+}
+.bandeaubas{
+	clear:left;
+	width:100%;
+	height:30%;
+	margin:0;
+	
+}
+#menu{
+	width:100%;
+	height:100%;
+	float:left;
+	position: relative;
+    }
+.Boutonmenu{	
+	font-size:1.2em;
+	position:relative;
+	width: 20%;
+	margin:0;
+	margin-left:10%;
+	height:100%;
+	color:white;
+	right: 0;
+	bottom: 0;
+	display:inline-block;
+	font-weight:bold;
+	text-align:center;
+	border-radius: 5px 5px 0 0;
+	transition: 0.2s background 0.1s;
+}
+
+.Boutonmenu:hover{
+	color:#95DCDC;
+	
+}
+
+#menuderoul{
+	position:absolute;
+	margin:0;
+	height:0px;
+	width:100%;
+	background-color: white;
+	color:#95DCDC;
+	overflow: hidden;
+	transition: 0.1s height 0.3s;
+	border-radius: 0 0 5px 5px;
+	text-align:center;
+	z-index:11;
+	}
+
+#boutonmenuachov:hover{
+	color:#95DCDC;
+	background:white;
+}
+
+.profpic{
+	overflow:hidden;
+    border-radius:50px;
+    width:75px;
+    height:75px;
+	position:relative;
+	float:left;
+	top:50%;
+	transform:translate(0, -50%);
+	display:inline-block;
+	margin:0;
+	left:2%;
+}
+.Boutonmenu:hover #menuderoul{
+	color:#95DCDC;
+	background:white;
+	height: 150px;
+}
+.Bouton{	
+	font-size:1em;
+	position:relative;
+	background-color:white;
+	box-shadow: rgba(0,0,0,0.2) 2px 2px;
+	width: 200px;
+	height:50px;
+	margin:0;
+	display:inline-block;
+	font-weight:bold;
+	top: 50%;
+    transform: translateY(-50%);
+	color:grey;
+	text-align:center;
+	border-radius: 5px;
+
+}
+.Bouton:hover{
+	background-color:#e1e1e1;
+	
+	
+}
+.Bouton p{
+
+	position:absolute;
+	margin:0;
+	left:50%;
+	top:50%;
+	transform:translate(-50%,-50%);
+	
+}
+#Boutoncrea{
+	font-size:1em;
+	float:left;
+	position:relative;
+	background-color:#9FE774;
+	box-shadow: rgba(0,0,0,0.2) 2px 2px;
+	width:40%;
+	height:50px;
+	margin:0;
+	display:inline-block;
+	font-weight:bold;
+	color:white;
+	text-align:center;
+	border-top-right-radius:0px;
+	border-top-left-radius:0px;
+	border-bottom-left-radius:5px;
+	border-bottom-right-radius:5px;
+	border-top:1px solid grey;
+}
+#Boutoncrea:hover{
+	background-color:#87e052;
+	
+	
+}
+#Boutoncrea p{
+
+	position:absolute;
+	margin:0;
+	left:50%;
+	top:50%;
+	transform:translate(-50%,-50%);
+	
+}
+#headerdroit form{
+	position:relative;
+	display:inline-block;
+	width:100%;
+	height:100%;
+	float:left;
+}
+
+#headergauche{
+	display:inline-block;
+	position: relative;
+	float:left;
+	height:100%;
+	width:40%;
+    }
+#headerdroit{
+
+	display:inline-block;
+	position: relative;
+	height:100%;
+	float:right;
+	width:60%;
+    }
+.imagebandeau{
+	position: relative;
+    margin:1% 0px 0px 2%;
+	width:100%;
+	max-width:500px;
+	}
+#decal{
+	
+	float:left;
+	position:relative;
+	display:inline-block;
+	height:50px;
+	width:50%;
+	margin:0;
+	margin-left:2%;
+	font-size:1em;
+	top: 100%;
+	transform:translate(0,-100%);
+	border:none;
+	z-index:1;
+	
+}
+#recherche{
+	float:left;
+	position:relative;
+	display:inline-block;
+	height:50px;
+	width:50%;
+	margin:0;
+	margin-left:2%;
+	font-size:1em;
+	top: 100%;
+	transform:translate(0,-100%);
+	box-shadow: rgba(0,0,0,0.2) 1px 2px;
+	border:none;
+	z-index:1;
+	border-top-left-radius: 5px;
+	border-bottom-left-radius: 5px;
+	
+}
+.boutonrecherche{
+	float:left;
+	font-size:1em;
+	position:relative;
+	background-color:#9FE774;
+	color:white;
+	box-shadow: rgba(0,0,0,0.2) 1px 2px;
+	width: 40%;
+	height:50px;
+	margin:0;
+	display:inline-block;
+	font-weight:bold;
+	top: 100%;
+	transform:translate(0,-100%);
+	text-align:center;
+	border:none;
+	border-top-right-radius: 5px;
+
+}
+.boutonrecherche:hover{
+	cursor:pointer;
+	background-color:#87e052;
+	
+}

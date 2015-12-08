@@ -1,0 +1,53 @@
+
+#titre_inscritpion{
+    color:white;
+    font-size: 28px;
+	cursor:default;
+}
+#titre_connexion{
+    color:white;
+    font-size: 28px;
+	cursor:default;
+}
+
+#bouton_connexion{
+    font-size:1em;
+    position:relative;
+    background-color:#9FE774;
+    box-shadow: 1px 2px 5px #bfbfbf, 0px -2px 5px #bfbfbf;
+    width:120px;
+    height:30px;
+    display:inline-block;
+    font-weight:bold;
+    transform: translate(0,-50%);
+    color:white;
+    text-align:center;
+    border:none;
+    border-radius:5px;
+}
+
+#bouton_connexion:hover{
+	cursor:pointer;
+}
+
+.Inscription{
+    background-color: #95DCDC;
+    text-align: center;
+    height:100%;
+	width:49.5%;
+	display:inline-block;
+}
+
+.Connexion{
+    background-color: #95DCDC;
+    text-align: center;
+    height:100%;
+	width:49.5%;
+	display:inline-block;
+}
+
+.regroupement_connexion_inscription{
+    width:100%;
+	position:relative;
+	background-color:#95DCDC;
+}
