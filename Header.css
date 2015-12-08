@@ -70,6 +70,7 @@ a{
 
 .Boutonmenu:hover{
 	color:#74def1;
+	background:white;
 	
 }
 
@@ -92,10 +93,7 @@ a{
 	
 }
 
-#boutonmenuachov:hover{
-	color:#74def1;
-	background:white;
-}
+
 
 .profpic{
 	overflow:hidden;

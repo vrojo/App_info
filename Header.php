@@ -27,7 +27,7 @@
 				<div id="menu">
 					<a href="Accueil.php"><div class="Boutonmenu"><p>Accueil</p> 
 					</div></a>
-					<a href="Events.php?Event_id=1"><div class="Boutonmenu" id="boutonmenuachov">
+					<a href="Events.php?Event_id=1"><div class="Boutonmenu">
 						<a href="#" style="color:inherit"><p>Evénements</p></a>
 						<div id="menuderoul" >
 							<a href="#" style="color:inherit"><div class="bandeaubas" style="height:33%">
@@ -41,7 +41,7 @@
 							</div></a>
 						</div>	
 					</div></a>
-					<div class="Boutonmenu" id="boutonmenuachov">
+					<div class="Boutonmenu" >
 						<a href="#" style="color:inherit"><p>Mon Compte</p></a>
 						<div id="menuderoul" >
 							<div class="bandeaubas" style="height:65%">
