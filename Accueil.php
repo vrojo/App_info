@@ -12,17 +12,19 @@ $Accueil=TRUE;
 		<title>Accueil</title>
 	</head>
 	<body>
-		<?php include("Header.php");
-		 if (!isset($_SESSION['mot_de_passe']) OR !isset($_SESSION['id_utilisateur'])){
+		<?php 
+		include("Header.php");
+		if (!isset($_SESSION['mot_de_passe']) OR !isset($_SESSION['id_utilisateur'])){
 			header("Refresh:0 ,url=Simplevent.php");
 			session_destroy();
 			exit();
- }
+			}
 		if(verifco($_SESSION['mot_de_passe'],$_SESSION['id_utilisateur'])==FALSE){
 			header("Refresh:0 ,url=Simplevent.php");
 			session_destroy();
 			exit();
-	}?>
+			}
+		?>
 	    <div id="bandeau1">
 			<div class="bandeauhaut">
 				<form method="post" action="">
