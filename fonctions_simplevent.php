@@ -1,5 +1,4 @@
 <?php
-session_start();
 $connect_e = mysqli_connect("localhost", "root", "", "bddsimplevent");
 if (!$connect_e) {
     printf("Echec de la connexion : %s\n", mysqli_connect_error());

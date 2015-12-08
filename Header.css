@@ -74,7 +74,7 @@ a{
 	
 }
 
-#menuderoul{
+.menuderoul{
 	position:absolute;
 	margin:0;
 	height:0px;
@@ -87,13 +87,11 @@ a{
 	text-align:center;
 	z-index:11;
 	}
-#menuderoul a .bandeaubas:hover{
+.menuderoul a .bandeaubas:hover{
 	border-top:1px solid #e1e1e1;
 	border-bottom:1px solid #e1e1e1;
 	
 }
-
-
 
 .profpic{
 	overflow:hidden;
@@ -108,7 +106,7 @@ a{
 	margin:0;
 	left:2%;
 }
-.Boutonmenu:hover #menuderoul{
+.Boutonmenu:hover .menuderoul{
 	color:#74def1;
 	background:white;
 	height:150px;
