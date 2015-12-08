@@ -1,17 +1,17 @@
 #titre_recherche{
    text-align: center;
-   background-color: #95DCDC;
+   background-color: #74def1;
    font-size: 40px;
    color:white;
    
 }
 
-/*Couleur bleu: 95DCDC
-couleur vert: 9FE774*/
+/*Couleur bleu: 74def1
+couleur vert: 80ff80*/
 
 
 #formulaire_recherche{
-    background-color: #95DCDC;
+    background-color: #74def1;
 }
 
 
@@ -90,7 +90,7 @@ couleur vert: 9FE774*/
     	font-size:1em;
 	float:left;
 	position:relative;
-	background-color:#9FE774;
+	background-color:#80ff80;
 	box-shadow: 1px 2px 5px #bfbfbf, 0px -2px 5px #bfbfbf;
 	width: 40%;
 	height:50px;

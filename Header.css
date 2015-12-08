@@ -69,7 +69,7 @@ a{
 }
 
 .Boutonmenu:hover{
-	color:#95DCDC;
+	color:#74def1;
 	
 }
 
@@ -79,16 +79,21 @@ a{
 	height:0px;
 	width:100%;
 	background-color: white;
-	color:#95DCDC;
+	color:#74def1;
 	overflow: hidden;
 	transition: 0.1s height 0.3s;
 	border-radius: 0 0 5px 5px;
 	text-align:center;
 	z-index:11;
 	}
+#menuderoul a .bandeaubas:hover{
+	border-top:1px solid #e1e1e1;
+	border-bottom:1px solid #e1e1e1;
+	
+}
 
 #boutonmenuachov:hover{
-	color:#95DCDC;
+	color:#74def1;
 	background:white;
 }
 
@@ -106,9 +111,9 @@ a{
 	left:2%;
 }
 .Boutonmenu:hover #menuderoul{
-	color:#95DCDC;
+	color:#74def1;
 	background:white;
-	height: 150px;
+	height:150px;
 }
 .Bouton{	
 	font-size:1em;
@@ -145,7 +150,7 @@ a{
 	font-size:1em;
 	float:left;
 	position:relative;
-	background-color:#9FE774;
+	background-color:#80ff80;
 	box-shadow: rgba(0,0,0,0.2) 2px 2px;
 	width:40%;
 	height:50px;
@@ -241,7 +246,7 @@ a{
 	float:left;
 	font-size:1em;
 	position:relative;
-	background-color:#9FE774;
+	background-color:#80ff80;
 	color:white;
 	box-shadow: rgba(0,0,0,0.2) 1px 2px;
 	width: 40%;

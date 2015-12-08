@@ -30,23 +30,26 @@
 					<a href="Events.php?Event_id=1"><div class="Boutonmenu" id="boutonmenuachov">
 						<a href="#" style="color:inherit"><p>Evénements</p></a>
 						<div id="menuderoul" >
-							<a href="#" style="color:inherit"><div class="bandeauhaut" style="height:75%">
-								<p style="display:inline-block; float:left; position: relative;left:5%"></p>
+							<a href="#" style="color:inherit"><div class="bandeaubas" style="height:33%">
+								<p style="display:inline-block; float:left; position:absolute;left:5%">Evénements créés</p>
 							</div></a>
-							<a href="#" style="color:inherit"><div class="bandeaubas" style="height:25%;">
-								<p></p>
+							<a href="#" style="color:inherit"><div class="bandeaubas" style="height:33%;">
+								<p style="display:inline-block; float:left; position:absolute;left:5%">Vos Evénements</p>
+							</div></a>
+							<a href="#" style="color:inherit;"><div class="bandeaubas" style="height:33%;">
+								<p style="display:inline-block; float:left; position:absolute;left:5%">Evénements intéressants</p>
 							</div></a>
 						</div>	
 					</div></a>
 					<div class="Boutonmenu" id="boutonmenuachov">
 						<a href="#" style="color:inherit"><p>Mon Compte</p></a>
 						<div id="menuderoul" >
-							<div class="bandeauhaut" style="height:75%">
+							<div class="bandeaubas" style="height:65%">
 								<img src="<?php echo $photo_u ?>" class="profpic"/>
-								<p style="display:inline-block; float:left; position:relative;left:5%; vertical-align:middle"><?php echo "$prenom_u $nom_u"?></p>
+								<p style="display:inline-block; float:left; position:relative;left:5%;"><?php echo "$prenom_u $nom_u"?></p>
 							</div>
-							<a href="deconnexion.php" style="color:inherit"><div class="bandeaubas" style="height:25%;">
-								<p>Se déconnecter</p>
+							<a href="deconnexion.php" style="color:inherit"><div class="bandeaubas" style="height:35%;">
+								<p  style="position:relative; display:inline-block; text-align:center">Se déconnecter</p>
 							</div></a>
 						</div>						
 					</div>
