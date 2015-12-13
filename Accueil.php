@@ -47,9 +47,18 @@ $Accueil=TRUE;
 			</div>
 	    </div>
 		<div id="bandeau3">
-			<div class="blocsresume"><?php ?></div>
-			<div class="blocsresume"></div>
-			<div class="blocsresume"></div>
+			<div class="blocsresume">
+				<p style="font-size:0.7em; color:grey;">Messages</p>
+				<?php ?>
+			</div>
+			<div class="blocsresume" >
+				<p style="font-size:0.7em; color:grey">Evénements créés</p>
+			
+			</div>
+			<div class="blocsresume">
+				<p style="font-size:0.7em; color:grey">Vos événements</p>
+			
+			</div>
 		</div>
 	    <?php include("Footer.php"); ?>
 	    

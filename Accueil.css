@@ -71,10 +71,11 @@
 
 #bandeau1 form{
 	position:relative;
-	display:inline-block;
-	width:100%;
+	display:block;
+	width:90%;
 	height:75%;
-	float:left;
+	margin-left:auto;
+	margin-right:auto;
 }
 #b1bas{
 	position:relative;
@@ -87,9 +88,8 @@
 	float:left;
 	display:inline-block;
 	height:50px;
-	width:50%;
+	width:60%;
 	margin:0;
-	margin-left:2%;
 	font-size:1em;
 	top: 50%;
 	transform:translate(0,-50%);
