@@ -61,12 +61,11 @@ function carrousselprofiles(){
 	$i=0;
 	$result=mysqli_query($connect_e,"select id_utilisateur from participation where Event_id=".$Event_id);
 	if ($result->num_rows>0 ){
-		while (($data = mysqli_fetch_assoc($result))&& $i!=6)
+		while (($data = mysqli_fetch_assoc($result))&& $i!=6){
 		$id_particip=$data['id_utilisateur'];
 		$util=mysqli_fetch_assoc(mysqli_query($connect_e,"SELECT * from utilisateur where id_utilisateur=$id_particip"));
-	{
 		?>			
-			<a href='#'><img src='<?php echo $util['photo_u']?>' class='profpic' style='height:3vw;width:3vw;'/></a>
+			<a href='#'><img src='<?php echo $util['photo_u']?>' class='profpic' style='height:3vw;width:3vw; margin-top:5px'/></a>
 		<?php
 		$i ++;
 	}
