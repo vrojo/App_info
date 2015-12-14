@@ -1,0 +1,19 @@
+#table_de_topic{
+    width:100%;
+    border: 2px solid black;
+}
+
+.colonne_dernier_message{
+    width:45%;
+    border: 2px solid black;
+}
+
+.colonne_messages{
+    width:5%;
+    border: 2px solid black;
+}
+
+.colonne_topics{
+    width:45%;
+    border: 2px solid black;
+}
