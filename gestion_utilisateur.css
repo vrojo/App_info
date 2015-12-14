@@ -7,7 +7,7 @@
     width:100%;
 }
 
-.titre_gestion_categ{
+.titre_gestion_utilisateur{
     color:white;
     font-size: 20px;
     text-align:center;
@@ -33,9 +33,9 @@
     margin-left:37.5%;
 }
 
-#bloc_gestion_categ{
+#bloc_gestion_utilisateur{
     display: inline-block;
-    width: 49.5%;
+    width: 30%;
     text-align: left;
     position:relative;
 }
@@ -48,15 +48,7 @@
 }
 
 .bouton_suppression_categ{
-    font-size:1em;
-    position:relative;
-    background-color:red;
-    box-shadow: 1px 2px 5px #bfbfbf, 0px -2px 5px #bfbfbf;
-    font-weight:bold;
-    color:white;
-    border:none;
-    border-radius:5px;
-    margin-left:35%;  
+    color: red;  
 }
 
 .nomcateg{
@@ -75,7 +67,7 @@
     margin-bottom:5%;
 }
 
-.nom_de_categ {
+.mail_de_utilisateur {
     margin:0;
     border:1px solid #95DCDC;
 }

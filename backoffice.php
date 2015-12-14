@@ -1,6 +1,3 @@
-
-
-
 <!DOCTYPE html>
 <html>
     <head>
@@ -15,7 +12,7 @@
         <?php include("Header.php"); ?>
         <?php require("model.php"); ?> 
         <div class="formulaire_back_office">
-            <form action="backoffice.php" method="post">
+            <form action="gestion_utilisateur.php" method="post">
                 <div class="back">
                     <div id="titre_back"><p>Gestion des utilisateurs/des administrateurs :</p></div>
                         <input type="submit" name="modification_utilisateur" value="Modification d'un utilisateur/d'un administrateur" id="bouton_back">            

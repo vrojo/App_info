@@ -26,12 +26,18 @@
                         <br/>
                         <br/>
                     <div id="liste_categ"> 
-                        <select name="categories"  multiple>
-                            <?php $result = affichage_categ_recherche_avancee();
-                      
-                                 while($categorie = mysqli_fetch_assoc($result)) {
-                                        echo'<option value=/"'.$categorie['id'].'/">'.$categorie['nomCat'].'</option>';                               
                         
+                            <?php $result = affichage_categ_recherche_avancee();
+                                 $compteur = 0;
+                                 while($categorie = mysqli_fetch_assoc($result)) {
+                                     if($compteur != 4){
+                                        echo'<input type="checkbox" value='.$categorie['id_categ'].'>'.$categorie['nomCat'].'&nbsp; &nbsp; &nbsp;';                               
+                                        $compteur = $compteur +1;
+                                 }
+                                     else{
+                                         echo'<br> <br>';
+                                         $compteur = 0;
+                                        }
                                  }
                                     ?>
                             <?php mysqli_free_result($result); ?>
@@ -41,7 +47,10 @@
                         <br/>
                         <br/>
                     <span id="police_lieu"> Lieu de l'événement :</span>
-                    <div id="input_lieu"><input type="text" name="lieuevenement" placeholder="ex : Bordeaux"></div>
+                    <div id="input_lieu">
+                        Ville : <input type="text" name="ville_evenement" placeholder="ex : Bordeaux"> <br/><br/>
+                        Département : <input type="text" name="departement_evenement" placeholder="ex : 92">
+                    </div>
                         <br/>
                         <br/>
                     <span id="police_date">Date de l'événement : <br/><br/></span>
