@@ -65,14 +65,34 @@ function modification_categorie(){
 
 
 
-?>
 
 
-<?php function affichage_utilisateurs(){
+
+function affichage_utilisateurs(){
     global $connect;
     $result = mysqli_query($connect, "select mail from utilisateur order by mail") or die("MsQL Erreur : ".mysqli_errno($connect));
     return $result;
 }
 
 
-        
+function affichage_topics(){
+    global $connect;
+    $result = mysqli_query($connect, "select * from sujet") or die("MsQL Erreur : ".mysqli_errno($connect));
+                $compteur = 1;
+                
+                
+                if($compteur==1){
+                    while($topic = mysqli_fetch_assoc($result)) {
+                        echo '<tr>';
+                        echo '<td class="colonne_topics">'.$topic['sujet'].'</td>';
+                        echo '<td class="colonne_messages">'.$nb_messages.'</td>';
+                        echo '<td class="colonne_dernier_message">'.$date_dernier_message.'</td>';
+                        echo '</tr>';
+                        }
+                    echo'</div>';
+                    
+                    
+                   
+                    $compteur = 0;
+                }        
+}        
