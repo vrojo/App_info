@@ -1,0 +1,67 @@
+body{
+	width:100%;
+	margin:1;
+
+
+	
+}
+
+#ensemble{
+		display: inline-block;
+		padding-left: 20px;
+		padding-top: 40px;
+		
+	width:100%;
+	
+	height: 100%;
+	
+	left : 1%;
+	border: 1px solid black;
+	background-color: #00FFFF;
+	text-align : left;
+}
+
+.infomembre{
+	display: inline-block;
+	position: relative;
+	
+	
+	width:80%;
+	
+	height: 100%;
+	
+
+}
+.test{
+	display: inline-block;
+	position: relative;
+	
+}
+
+.fonctionnalites a{
+	text-decoration: none;
+	border : 1px solid black;
+	background-color: lime;
+
+}
+
+.fonctionnalites{
+	position:absolute;
+	text-align: right;
+	margin-right: 7%;
+	display: inline-block;
+	float:right;
+	margin-top: 7%;
+
+}
+
+.photo{
+	display: inline-block;
+	position: relative;
+	float: left;
+}
+
+.texte{
+	display: inline-block;
+	position: relative;
+}
