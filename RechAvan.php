@@ -31,7 +31,7 @@
                                  $compteur = 0;
                                  while($categorie = mysqli_fetch_assoc($result)) {
                                      if($compteur != 4){
-                                        echo'<input type="checkbox" value='.$categorie['id_categ'].'>'.$categorie['nomCat'].'&nbsp; &nbsp; &nbsp;';                               
+                                        echo'<div class="checkrecherche"><input type="checkbox" value='.$categorie['id_categ'].'>'.$categorie['nomCat'].'</div>&nbsp; &nbsp; &nbsp;';                               
                                         $compteur = $compteur +1;
                                  }
                                      else{
@@ -60,8 +60,11 @@
                         <br/>
                         <br/>
                     <input type="submit" name ="Rechercher" value ="Rechercher" id="input_recherche">
-                    <br>
-                    <br>
+                        <br/>
+                        <br/>
+                        <br/>
+                        <br/>
+                
         </form>
                  
           <?php include('footer.php'); ?>

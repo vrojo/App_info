@@ -12,6 +12,7 @@ couleur vert: 80ff80*/
 
 #formulaire_recherche{
     background-color: #74def1;
+    margin-bottom: 50px;
 }
 
 
@@ -75,7 +76,7 @@ couleur vert: 80ff80*/
 #input_lieu{
     position:relative;
     left:40%;
-    
+    color:white;    
 }
 
 #input_date{
@@ -118,3 +119,7 @@ couleur vert: 80ff80*/
 }
 
 
+.checkrecherche{
+    color:white;
+    display: inline-block;
+}
