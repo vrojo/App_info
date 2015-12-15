@@ -1,10 +1,12 @@
 #titre_connexion{
     color:white;
+    position:relative;
     font-size: 28px;
-    background-color: #74def1;
+    background-color: #95DCDC;
+    text-align: center;
 }
 #formulaire_retour_accueil{
-    background-color: #74def1;
+    background-color: #95DCDC;
     text-align: center;
     float:left;
     clear:both;
@@ -14,7 +16,7 @@
 #input_retour_accueil{
     font-size:1em;
     position:relative;
-    background-color:#80ff80;
+    background-color:#9FE774;
     box-shadow: 1px 2px 5px #bfbfbf, 0px -2px 5px #bfbfbf;
     width:200px;
     height:30px;
