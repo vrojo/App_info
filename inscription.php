@@ -53,7 +53,7 @@ require 'fonctions_inscription.php';
                 <tr>
             
                 <td height=25 align="center"><label for="login"><strong>Adresse e-mail :</strong></label></td>
-                <td align="left"><?php echo'<input type="email" name="mail" id="mail" placeholder="...................@.............."  value='.$_POST['adrinscri'].'>'; ?></td>
+                <td align="left"><?php echo'<input type="email" name="mail" id="mail" placeholder="...................@.............."  value='.$_POST['mail'].'>'; ?></td>
             
                 </tr>
                 <td></td>

@@ -24,11 +24,11 @@
 	$h=32;
 		}
 		if (verifco($mdp,$id_utilisateur)==TRUE){
-			$hbandeaupres=900;
+			$hbandeaupres=700;
 			
 		}
 		else {
-			$hbandeaupres=650;
+			$hbandeaupres=600;
 	 
 		}		
 		?>
@@ -83,13 +83,11 @@
 					<div class="bandeaubas" style="height:50%;">
 						<div class="bleft" >
 							<h2> Informations </h2>
-							<p><?php echo $event['description_e']?></p></p>
+							<p style="font-weight:normal; font-size:0.7em"><?php echo $event['description_e']?></p>
 						</div>
-						<div class="bright">
-							<p>Chiffres clés</p>
+						<div class="bright" style="font-weight:normal; font-size:0.7em;">
 							<p>Date de l'événement: <?php echo $event['date_e']?></p>
 							<p>Nombre de participants maximum: <?php echo $event['nb_max_participant']?></p>
-							
 						</div>
 					</div>
 				</div>
@@ -110,7 +108,7 @@
 							</div>
 							<div class="bandeaubas" style="height:75%;">
 								<div class="carroussel">
-									<?php carroussel(7);?>
+									<?php carrousselprofiles();?>
 								</div>
 							</div>
 						</div>

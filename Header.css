@@ -109,6 +109,7 @@ a{
 	display:inline-block;
 	margin:0;
 	left:2%;
+	margin-right:5px;
 }
 .Boutonmenu:hover .menuderoul{
 	color:#74def1;

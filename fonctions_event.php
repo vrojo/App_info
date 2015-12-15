@@ -1,6 +1,7 @@
 <?php
 
 $connect_e = mysqli_connect("localhost", "root", "", "bddsimplevent");
+mysqli_set_charset($connect_e,"utf8");
 
 if (!$connect_e) {
     printf("Echec de la connexion : %s\n", mysqli_connect_error());
@@ -15,17 +16,7 @@ else{
 	ob_start(); 
 	?>
 	
-<!DOCTYPE html>
-<html>
-	<head>
-		<meta charset="utf-8" />
-		<title>Evénements</title>	
-	</head>
-	<body>
-	<?php include ("Header.php") ?>
-		<div style="width:100%;margin:0;text-align:center;display:inline-block;float:left;clear:both;"><h2>Cette page n'existe pas, vous allez être redirigé vers la page d'accueil</h2></div>
-	</body>
-</html>
+<div style="width:100%;margin:0;text-align:center;display:inline-block;float:left;clear:both;"><h2>Cette page n'existe pas, vous allez être redirigé vers la page d'accueil</h2></div>
 
 	<?php
 	header("Refresh: 3, url=Accueil.php");
@@ -63,17 +54,27 @@ $prix =$event['prix'];
 $privacy=$event['privacy'];
 $Id_crea=$event['id_utilisateur'];
 
-function carroussel($Id_particip){
+
+function carrousselprofiles(){
+	global $connect_e;
+	global $Event_id;
 	$i=0;
-	while ($i!=6)
-	{
-		echo("<a href='#'><div class='Eventcarr' style='background-image:url(http://media.melty.fr/article-1896793-so/media.jpg);'></div></a>");
+	$result=mysqli_query($connect_e,"select id_utilisateur from participation where Event_id=".$Event_id);
+	if ($result->num_rows>0 ){
+		while (($data = mysqli_fetch_assoc($result))&& $i!=6){
+		$id_particip=$data['id_utilisateur'];
+		$util=mysqli_fetch_assoc(mysqli_query($connect_e,"SELECT * from utilisateur where id_utilisateur=$id_particip"));
+		?>			
+			<a href='#'><img src='<?php echo $util['photo_u']?>' class='profpic' style='height:3vw;width:3vw; margin-top:5px'/></a>
+		<?php
 		$i ++;
-	}	
+	}
+	}
 }
 
 function coms ($Event_id){
 	global $connect_e;
+	global $id_utilisateur;
 	$result=mysqli_query($connect_e,"SELECT * from commente where Event_id=$Event_id");
 	
 while ($data = mysqli_fetch_assoc($result)) {
@@ -100,6 +101,9 @@ while ($data = mysqli_fetch_assoc($result)) {
 				<p style="position:absolute;margin: 0; text-align:left; top:50%; transform:translate(0,-50%)"><?php echo $data['texte_co']; ?> </p>
 			</div>
 			<div class="bright" style="width:20%; height:100%">
+				<?php if ($id_commentateur==$id_utilisateur){?>
+					<a href="suprcom.php?i_com=<?php echo $data['id_commentaire']?>"><img src="https://www.dropbox.com/s/ug1ko8f86ijv7t4/delete-462216_1280.png?raw=1" style="position:absolute;display:inline-block;height:30px;top:50%;transform:translate(0,-50%)"/></a>
+				<?php }?>
 			</div>
 		</div> 
 	<?php
