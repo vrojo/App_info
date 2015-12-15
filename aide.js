@@ -9,5 +9,11 @@ function ouvrirfermer(id) {
         document.getElementById(id).style.visibility="hidden";
 		document.getElementById(id).style.display="none";
     }
-    return true;
+}
+
+function ouverture() {
+	ouvrirfermer('reponse1');
+	ouvrirfermer('reponse2');
+	ouvrirfermer('reponse3');
+	ouvrirfermer('reponse4');
 }
