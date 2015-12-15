@@ -1,5 +1,5 @@
 .gestion_categ{
-    background-color: #95DCDC;
+    background-color: #74DEF1;
 
     float:left;
     clear:both;
@@ -16,7 +16,7 @@
 #bouton_back{
     font-size:1em;
     position:relative;
-    background-color:#9FE774;
+    background-color:#80FF80;
     box-shadow: 1px 2px 5px #bfbfbf, 0px -2px 5px #bfbfbf;
     width:200px;
     height:30px;
@@ -77,7 +77,7 @@
 
 .nom_de_categ {
     margin:0;
-    border:1px solid #95DCDC;
+    border:1px solid #74DEF1;
 }
 
 .zone_modification_categ{

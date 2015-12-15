@@ -13,7 +13,7 @@
 #bouton_connexion{
     font-size:1em;
     position:relative;
-    background-color:#9FE774;
+    background-color:#80FF80;
     box-shadow: 1px 2px 5px #bfbfbf, 0px -2px 5px #bfbfbf;
     width:120px;
     height:30px;
@@ -31,7 +31,7 @@
 }
 
 .Inscription{
-    background-color: #95DCDC;
+    background-color: #74DEF1;
     text-align: center;
     height:100%;
 	width:49.5%;
@@ -39,7 +39,7 @@
 }
 
 .Connexion{
-    background-color: #95DCDC;
+    background-color: #74DEF1;
     text-align: center;
     height:100%;
 	width:49.5%;
@@ -49,5 +49,5 @@
 .regroupement_connexion_inscription{
     width:100%;
 	position:relative;
-	background-color:#95DCDC;
+	background-color:#74DEF1;
 }
