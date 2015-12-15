@@ -74,6 +74,7 @@ function carrousselprofiles(){
 
 function coms ($Event_id){
 	global $connect_e;
+	global $id_utilisateur;
 	$result=mysqli_query($connect_e,"SELECT * from commente where Event_id=$Event_id");
 	
 while ($data = mysqli_fetch_assoc($result)) {
@@ -100,6 +101,9 @@ while ($data = mysqli_fetch_assoc($result)) {
 				<p style="position:absolute;margin: 0; text-align:left; top:50%; transform:translate(0,-50%)"><?php echo $data['texte_co']; ?> </p>
 			</div>
 			<div class="bright" style="width:20%; height:100%">
+				<?php if ($id_commentateur==$id_utilisateur){?>
+					<a href="suprcom.php?i_com=<?php echo $data['id_commentaire']?>"><img src="https://www.dropbox.com/s/ug1ko8f86ijv7t4/delete-462216_1280.png?raw=1" style="position:absolute;display:inline-block;height:30px;top:50%;transform:translate(0,-50%)"/></a>
+				<?php }?>
 			</div>
 		</div> 
 	<?php
