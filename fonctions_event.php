@@ -16,7 +16,9 @@ else{
 	ob_start(); 
 	?>
 	
-<div style="width:100%;margin:0;text-align:center;display:inline-block;float:left;clear:both;"><h2>Cette page n'existe pas, vous allez être redirigé vers la page d'accueil</h2></div>
+<div style="width:100%;margin:0;text-align:center;display:inline-block;float:left;clear:both;">
+	<h2>Cette page n'existe pas, vous allez être redirigé vers la page d'accueil</h2>
+</div>
 
 	<?php
 	header("Refresh: 3, url=Accueil.php");
