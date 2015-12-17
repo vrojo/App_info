@@ -26,6 +26,7 @@
     border-radius:5px;
 }
 
+
 #bouton_connexion:hover{
 	cursor:pointer;
 }
@@ -50,4 +51,11 @@
     width:100%;
 	position:relative;
 	background-color:#74DEF1;
+}
+
+#erreur_mail{
+    color:red;
+}
+#erreur_confirmation_mdp{
+    color:red;
 }
