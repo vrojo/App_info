@@ -16,7 +16,7 @@
         <div class="regroupement_connexion_inscription">
         <div class="Connexion">
             <span id="titre_inscritpion">Inscription :</span>
-            <form action="inscription.php" method="post">
+            <form action="message_d_inscription.php" method="post">
                 <input type="mail" name="mail" placeholder="Adresse mail"> 
                 <br>
                 <input type="password" name="mdpconnexion" placeholder="Mot de passe">

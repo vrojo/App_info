@@ -96,3 +96,23 @@ function affichage_topics(){
                     $compteur = 0;
                 }        
 }        
+
+function inscrtionpreleminaire($mail, $mdp, $confinsc){
+    global $connect;
+    mysqli_query($connect, "insert into utilisateur (mail, mot_de_passe, confirmation_inscription) values ('$mail', '$mdp', '$confinsc')") or die("MySQL Erreur : " . mysqli_error($connect));
+}
+
+
+
+function verif_confirmation($mail){
+    global $connect;
+    $result = mysqli_query($connect, "select confirmation_inscription from utilisateur where mail='$mail'") or die("MySQL Erreur : " . mysqli_error($connect));
+    $tableauResult = mysqli_fetch_assoc($result);
+    
+    if ($tableauResult['confirmation_inscription'] == 0){
+        return true;
+    }
+    else{
+        return false;
+    }
+}

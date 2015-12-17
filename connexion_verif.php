@@ -24,6 +24,15 @@
                 <?php
                        
     }
+    elseif (verif_confirmation($_POST['adrconnexion'])== True) {
+                    ?>
+				  
+					<div id="titre_connexion">Erreur de connexion</br> Vous devez confirmer votre inscrition à partir du lien que vous avez reçu sur votre mail d'inscription.</br> </br></div>
+					<meta http-equiv="refresh"  content="2; URL = connexion.php"/>
+					
+                <?php
+        
+    }
     else
     {
         
