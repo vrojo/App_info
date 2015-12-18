@@ -5,6 +5,7 @@ function affiche(champ, type_erreur, message_erreur, erreur)
       champ.style.color = "red";
       document.getElementById("bouton_connexion").style.visibility="hidden";
       document.getElementById(type_erreur).innerHTML = message_erreur;
+      document.getElementById(type_erreur).style.color = "red";
     }
    else{
       champ.style.backgroundColor = "";

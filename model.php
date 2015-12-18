@@ -1,4 +1,5 @@
 <?php
+require 'PHPMailerAutoload.php';
 
 $connect = mysqli_connect("localhost", "root", "", "bddsimplevent");
 mysqli_set_charset($connect,"utf8");
@@ -97,7 +98,7 @@ function affichage_topics(){
                 }        
 }        
 
-function inscrtionpreleminaire($mail, $mdp, $confinsc){
+function inscriptionpreleminaire($mail, $mdp, $confinsc){
     global $connect;
     mysqli_query($connect, "insert into utilisateur (mail, mot_de_passe, confirmation_inscription) values ('$mail', '$mdp', '$confinsc')") or die("MySQL Erreur : " . mysqli_error($connect));
 }
@@ -115,4 +116,35 @@ function verif_confirmation($mail){
     else{
         return false;
     }
+}
+
+
+function envoimail_confirmation($maildestinataire){
+    $mail = new PHPMailer;
+ 
+    $mail->isSMTP();                                      // Set mailer to use SMTP
+    $mail->Host = 'smtp.gmail.com';                       // Specify main and backup server
+    $mail->SMTPAuth = true;                               // Enable SMTP authentication
+    $mail->Username = 'sitesimplevent@gmail.com';                   // SMTP username
+    $mail->Password = 'LeSiteSimpleventVousAccueille';               // SMTP password
+    $mail->SMTPSecure = 'tls';                            // Enable encryption, 'ssl' also accepted
+    $mail->Port = 587;                                    //Set the SMTP port number - 587 for authenticated TLS
+    $mail->setFrom('sitesimplevent@gmail.com', 'Simplevent');     //Set who the message is to be sent from  //Set an alternative reply-to address
+    $mail->addAddress($maildestinataire);  // Add a recipient
+    $mail->WordWrap = 50;                                 // Set word wrap to 50 characters
+    $mail->isHTML(true);                                  // Set email format to HTML
+    
+    $mail->Subject = 'Votre inscription sur Simplevent';
+    $mail->Body    = 'Veuillez cliquer sur ce lien pour confirmer votre inscription sur Simplevent.';
+    $mail->AltBody = 'Veuillez cliquer sur ce lien pour confirmer votre inscription sur Simplevent.';
+
+    if(!$mail->send()) {
+        echo 'Message could not be sent.';
+        echo 'Mailer Error: ' . $mail->ErrorInfo;
+        exit;
+    }
+ 
+        echo 'Message has been sent';
+            
+                  
 }

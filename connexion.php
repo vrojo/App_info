@@ -21,7 +21,7 @@
             <form action="message_d_inscription.php" method="post">
                 <input type="mail" name="mail" placeholder="Adresse mail" id="mail_inscription" onblur="verifMail(this)"> <span id="erreur_mail"></span>
                 <br>
-                <input type="password" name="mdpconnexion" placeholder="Mot de passe" id="mdpconnexion_inscription" onblur="verifMdp(this)">
+                <input type="password" name="mdpconnexion" placeholder="Mot de passe" id="mdpconnexion_inscription">
                 <br>
                 <input type="password" name="mdpconnexion_verif" placeholder="Confirmation mot de passe" id="mdpconnexion_verif_inscription" onblur="verifMdp(this)"> <span id="erreur_confirmation_mdp"></span>
                 <br>
