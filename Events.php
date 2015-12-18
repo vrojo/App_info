@@ -5,37 +5,21 @@
 	<head>
 		<meta charset="utf-8" />
 		<link type="text/css" rel="stylesheet" href="Events.css"/>
+		<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBTJ7EKiUmBXBsHrnojWCg36xdAKObOLqM"></script>
+		<script type="text/javascript" src="Eventmap.js"></script>
+		
 		<title>Evénements</title>	
 	</head>
-	<body>
+	<body onload="Eventmap()">
 		<?php
 		include("Header.php");
 		require'fonctions_event.php';
-		$Nb_comment=125*mysqli_query($connect_e,"select * from commente where Event_id='$Event_id' and texte_co IS NOT NULL")->num_rows;
-
-		$h=0;
-		if ($privacy == 1 && $Id_crea==$id_utilisateur){
-			$h=20;
-		} 
-		elseif ($privacy == 0 && $Id_crea==$id_utilisateur OR $privacy == 1 && $Id_crea!=$id_utilisateur){
-			$h=25;
-		}
-		else{
-	$h=32;
-		}
-		if (verifco($mdp,$id_utilisateur)==TRUE){
-			$hbandeaupres=700;
-			
-		}
-		else {
-			$hbandeaupres=600;
-	 
-		}		
+				
 		?>
-		<div id="bandeaupresevent" style="height:<?php echo $hbandeaupres ?>px">
-			<div class="bleft">
+		<div id="bandeaupresevent" style="height:<?php echo $hbandeaupres ?>px" >
+			<div class="bleft" >
 				<div class="bandeauhaut"><div class="Eventpic" style="background-image:url(http://www.rockenseine.com/wp-content/uploads/2015/09/VP2_7163RES-1024x683.jpg)"></div></div>
-				<div class="bandeaubas"><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d42028.32016165403!2d2.169811143748841!3d48.82444950573356!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e66dfad5c08e2b%3A0x36729832bbaf3b12!2sFestival+Rock+en+Seine!5e0!3m2!1sfr!2sfr!4v1446213297181" frameborder="0"  allowfullscreen id="map"></iframe></div>
+				<div class="bandeaubas" ><div id="map" style="width:95%;height:95%;left:50%;top:50%;transform:translate(-50%,-50%);"></div></div>
 			</div>
 			<div class="bright">
 				<div class="bandeauhaut" style="height:10%;"><p style="font-size:1.4em; transform:translateY(-50%)"><?php echo $nom_e ?></p></div>
@@ -156,5 +140,4 @@
 		
 		<?php include("Footer.php");?>
 	</body>
-
 </html>

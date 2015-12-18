@@ -3,9 +3,6 @@
 $connect_e = mysqli_connect("localhost", "root", "", "bddsimplevent");/*
 mysqli_set_charset($connect_e,"utf8");*/
 ?>
-    <script async defer
-      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBTJ7EKiUmBXBsHrnojWCg36xdAKObOLqM&callback=initMap">
-    </script>
 	
 <?php
 if (!$connect_e) {
@@ -117,5 +114,24 @@ while ($data = mysqli_fetch_assoc($result)) {
 }
 	 
 } 
+$Nb_comment=125*mysqli_query($connect_e,"select * from commente where Event_id='$Event_id' and texte_co IS NOT NULL")->num_rows;
 
+		$h=0;
+		if ($privacy == 1 && $Id_crea==$id_utilisateur){
+			$h=20;
+		} 
+		elseif ($privacy == 0 && $Id_crea==$id_utilisateur OR $privacy == 1 && $Id_crea!=$id_utilisateur){
+			$h=25;
+		}
+		else{
+	$h=32;
+		}
+		if (verifco($mdp,$id_utilisateur)==TRUE){
+			$hbandeaupres=700;
+			
+		}
+		else {
+			$hbandeaupres=600;
+	 
+		}
 ?>

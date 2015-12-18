@@ -77,20 +77,8 @@
 .bleft .bandeaubas{
 	height:40%;
 }
-#map{
-	position:relative;
-	display:block;
-	top:50%;
-	left:50%;
-	transform: translate(-50%,-50%);
-	width:95%;
-	height:95%;
-	/*max-width:500px;*/
-	border:0;	
-}
-
 .Eventpic{	
-	position:relative;
+	position:absolute;
 	display:block;
 	width:95%;
 	height:95%;
@@ -251,8 +239,7 @@
     transform: translate(0,-50%);
 	text-align:center;
 	border:none;
-	border-top-right-radius:5px;
-	border-bottom-right-radius:5px;
+	border-radius:5px;
 }
 #Boutoncom:hover{
 	background-color:#e1e1e1;
