@@ -1,8 +1,13 @@
 <?php
 
-$connect_e = mysqli_connect("localhost", "root", "", "bddsimplevent");
-mysqli_set_charset($connect_e,"utf8");
-
+$connect_e = mysqli_connect("localhost", "root", "", "bddsimplevent");/*
+mysqli_set_charset($connect_e,"utf8");*/
+?>
+    <script async defer
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBTJ7EKiUmBXBsHrnojWCg36xdAKObOLqM&callback=initMap">
+    </script>
+	
+<?php
 if (!$connect_e) {
     printf("Echec de la connexion : %s\n", mysqli_connect_error());
     exit();
@@ -104,7 +109,7 @@ while ($data = mysqli_fetch_assoc($result)) {
 			</div>
 			<div class="bright" style="width:20%; height:100%">
 				<?php if ($id_commentateur==$id_utilisateur){?>
-					<a href="suprcom.php?i_com=<?php echo $data['id_commentaire']?>"><img src="https://www.dropbox.com/s/ug1ko8f86ijv7t4/delete-462216_1280.png?raw=1" style="position:absolute;display:inline-block;height:30px;top:50%;transform:translate(0,-50%)"/></a>
+					<a href="suprcom.php?i_com=<?php echo $data['id_commentaire']?>"><img src="https://www.dropbox.com/s/ug1ko8f86ijv7t4/delete-462216_1280.png?raw=1" style="position:absolute;display:inline-block;height:30px;top:50%;transform:translate(0,-50%)" title="Supprimer ce commentaire"/></a>
 				<?php }?>
 			</div>
 		</div> 

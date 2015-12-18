@@ -26,7 +26,7 @@ require 'fonctions_inscription.php';
             
             
                 
-            <td><em><h1>Inscription : </h1><br>*Veillez à bien remplir votre formulaire car il vous permettra utiliser de manière optimale Simpl'event</em><br>&nbsp;
+            <td><em><h1>Inscription : </h1><br>*Veillez à bien remplir votre formulaire car il vous permettra utiliser de manière optimale Simplevent</em><br>&nbsp;
                 <table  >
                 
                 <tr>

@@ -108,11 +108,12 @@
 }
 .rating {
    direction: rtl;
+   text-align:center;
 }
 .rating a {
-   color: #aaa;
+   color: #e1e1e1;
    text-decoration: none;
-   font-size: 1.2em;
+   font-size: 1.5em;
    transition: color .4s;
 }
 .rating a:hover,

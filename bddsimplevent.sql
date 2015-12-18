@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  127.0.0.1
--- Généré le :  Mar 15 Décembre 2015 à 09:08
+-- Généré le :  Ven 18 Décembre 2015 à 14:44
 -- Version du serveur :  5.6.17
 -- Version de PHP :  5.5.12
 
@@ -69,20 +69,24 @@ INSERT INTO `categorie` (`id_categ`, `nomCat`) VALUES
 
 CREATE TABLE IF NOT EXISTS `commente` (
   `date_co` datetime NOT NULL,
-  `texte_co` text NOT NULL,
+  `texte_co` text CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
   `id_commentaire` int(11) NOT NULL AUTO_INCREMENT,
   `Event_id` int(11) NOT NULL,
   `id_utilisateur` int(11) NOT NULL,
   PRIMARY KEY (`id_commentaire`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=9 ;
 
 --
 -- Contenu de la table `commente`
 --
 
 INSERT INTO `commente` (`date_co`, `texte_co`, `id_commentaire`, `Event_id`, `id_utilisateur`) VALUES
-('0000-00-00 00:00:00', 'heello', 1, 1, 7),
-('0000-00-00 00:00:00', 'La musique Ã©tait top ! Je like !', 2, 1, 1);
+('2015-12-17 10:49:45', 'D2Ã©', 3, 1, 7),
+('2015-12-17 10:50:41', 'Ã©', 4, 1, 7),
+('2015-12-17 10:52:54', 'Ã©', 5, 1, 7),
+('2015-12-17 10:55:00', 'pouÃ©t', 6, 1, 7),
+('2015-12-17 10:57:40', 'mais ou est Rojo ? ééé', 7, 1, 1),
+('2015-12-17 11:02:32', 'Ã©', 8, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -92,7 +96,7 @@ INSERT INTO `commente` (`date_co`, `texte_co`, `id_commentaire`, `Event_id`, `id
 
 CREATE TABLE IF NOT EXISTS `event` (
   `Event_id` int(11) NOT NULL AUTO_INCREMENT,
-  `description_e` text NOT NULL,
+  `description_e` text CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
   `Nom_e` varchar(45) NOT NULL,
   `date_e` date NOT NULL,
   `prix` float DEFAULT NULL,
@@ -104,7 +108,14 @@ CREATE TABLE IF NOT EXISTS `event` (
   `id_adresse` int(11) NOT NULL,
   PRIMARY KEY (`Event_id`),
   KEY `id_utilisateur_idx` (`id_utilisateur`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+
+--
+-- Contenu de la table `event`
+--
+
+INSERT INTO `event` (`Event_id`, `description_e`, `Nom_e`, `date_e`, `prix`, `privacy`, `id_utilisateur`, `heuredebut`, `heurefin`, `nb_max_participant`, `id_adresse`) VALUES
+(1, 'C''est bieng je suis un Event kool é', 'Rock en Seine', '2015-12-09', 12, 0, 7, '00:00:00', NULL, 2000, 1);
 
 -- --------------------------------------------------------
 
@@ -268,15 +279,17 @@ CREATE TABLE IF NOT EXISTS `utilisateur` (
   `sexe` int(2) DEFAULT NULL,
   `admin` tinyint(1) DEFAULT NULL,
   `id_adresse` int(11) NOT NULL,
+  `confirmation_inscription` int(2) NOT NULL,
   PRIMARY KEY (`id_utilisateur`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=8 ;
 
 --
 -- Contenu de la table `utilisateur`
 --
 
-INSERT INTO `utilisateur` (`id_utilisateur`, `nom_u`, `prenom_u`, `date_de_naissance`, `description`, `photo_u`, `mail`, `telephone`, `mot_de_passe`, `sexe`, `admin`, `id_adresse`) VALUES
-(1, 'Latour', 'Antoine', '1996-01-19', 'élève ISEP', NULL, 'antoine.latour@free.fr', 642969558, 'testdeco', 1, 1, 0);
+INSERT INTO `utilisateur` (`id_utilisateur`, `nom_u`, `prenom_u`, `date_de_naissance`, `description`, `photo_u`, `mail`, `telephone`, `mot_de_passe`, `sexe`, `admin`, `id_adresse`, `confirmation_inscription`) VALUES
+(1, 'Latour', 'Antoine', '1996-01-19', 'élève ISEP', 'https://www.dropbox.com/s/5mhh3bfjrqv49y0/12063310_1037537786277911_8204774670410633359_n.jpg?raw=1', 'antoine.latour@free.fr', 642969558, 'testdeco', 1, 1, 0, 1),
+(7, 'Batier', 'Olivier', '1995-07-31', 'WOLOLO', 'https://scontent-cdg2-1.xx.fbcdn.net/hphotos-frc3/v/t1.0-9/933950_496057963811856_554254439_n.jpg?oh=ccfeffaa9edbdc12d85d73df9755fe0e&oe=57204D3A', 'olivierbatier@gmail.com', 12345678, 'douze', 1, 1, 7, 1);
 
 --
 -- Contraintes pour les tables exportées
