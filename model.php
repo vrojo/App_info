@@ -134,17 +134,43 @@ function envoimail_confirmation($maildestinataire){
     $mail->WordWrap = 50;                                 // Set word wrap to 50 characters
     $mail->isHTML(true);                                  // Set email format to HTML
     
+    $lien = lien_inscription($maildestinataire);
+    
     $mail->Subject = 'Votre inscription sur Simplevent';
-    $mail->Body    = 'Veuillez cliquer sur ce lien pour confirmer votre inscription sur Simplevent.';
-    $mail->AltBody = 'Veuillez cliquer sur ce lien pour confirmer votre inscription sur Simplevent.';
+    $mail->Body    = 'Veuillez vous rendre sur ce lien :'.$lien.'  pour confirmer votre inscription sur Simplevent.';
+    $mail->AltBody = 'Veuillez vous rendre sur ce lien :'.$lien.' pour confirmer votre inscription sur Simplevent.';
 
     if(!$mail->send()) {
-        echo 'Message could not be sent.';
-        echo 'Mailer Error: ' . $mail->ErrorInfo;
-        exit;
+        return 0;
     }
- 
-        echo 'Message has been sent';
-            
-                  
+    else{
+        return 1;
+    }
+}
+
+
+function lien_inscription($mail){
+    global $connect;
+    $result = mysqli_query($connect, "select id_utilisateur from utilisateur where mail='$mail'") or die("MySQL Erreur : " . mysqli_error($connect));
+    $tableauResult = mysqli_fetch_assoc($result);
+    $id = $tableauResult['id_utilisateur'];
+    $message = "http://localhost/confirmation_inscription.php?id=$id";
+    return $message;
+}
+
+function confirmation_insccription(){
+    if(isset($_GET['id']) && $_GET['id'] != 0){
+        global $connect;
+        $id = $_GET['id'];
+        $conf = 1;
+        $result = mysqli_query($connect, "select confirmation_inscription from utilisateur where id='$id'") or die("MySQL Erreur : " . mysqli_error($connect));
+        $tableauResult = mysqli_fetch_assoc($result);
+        if($tableauResult != null){
+            mysqli_query($connect, "update utilisateur set confirmation_inscription='$conf' where id_utilisateur = '$id'") or die("MySQL Erreur : " . mysqli_error($connect));
+            echo'<meta http-equiv="refresh"  content="2; URL = confirmation_inscription.php"/>';
+        }   
+        else{
+            echo'<meta http-equiv="refresh"  content="2; URL = Simplevent.php"/>';        
+        }
+    }
 }
