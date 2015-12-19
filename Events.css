@@ -94,6 +94,10 @@
 
 	
 }
+#map{
+	box-shadow: rgba(0,0,0,0.2) 2px 2px;
+	
+}
 .rating {
    direction: rtl;
    text-align:center;
@@ -239,7 +243,7 @@
     transform: translate(0,-50%);
 	text-align:center;
 	border:none;
-	border-radius:5px;
+	borderradius:5px;
 }
 #Boutoncom:hover{
 	background-color:#e1e1e1;

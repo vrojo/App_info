@@ -14,7 +14,7 @@
 		<?php
 		include("Header.php");
 		require'fonctions_event.php';
-				
+		
 		?>
 		<div id="bandeaupresevent" style="height:<?php echo $hbandeaupres ?>px" >
 			<div class="bleft" >
@@ -63,7 +63,7 @@
 								<p style="height:<?php echo $h?>%; display:inline-block; position: relative;margin:0;"> cet événement est privé</p>
 							<?php }
 							?><?php if (verifco($mdp,$id_utilisateur)==TRUE){?>
-							<a href="#"><div class="Bouton2" style="height:<?php echo $h ?>%"><p>S'inscrire à l'événement</p></div></a>
+							<a href="#"><div class="Bouton2" onclick=(inscriptionevent(<?php echo $Event_id ?>)) style="height:<?php echo $h ?>%"><p><?php des_inscrire() ?></p></div></a>
 							<a href="#"><div class="Bouton2" style="height:<?php echo $h ?>%"><p>Acheter un Billet</p></div></a><?php }?>
 							<a href="#"><div class="Bouton2" style="height:<?php echo $h ?>%"><p>Site internet de l'événement</p></div></a>
 							<?php if ($Id_crea==$id_utilisateur) {

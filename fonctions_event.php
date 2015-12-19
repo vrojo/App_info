@@ -58,6 +58,18 @@ $prix =$event['prix'];
 $privacy=$event['privacy'];
 $Id_crea=$event['id_utilisateur'];
 
+$particip=mysqli_query($connect_e,"select * from participation WHERE (Event_id=$Event_id AND id_utilisateur=$id_utilisateur)")->num_rows;
+
+function des_inscrire(){
+	global $particip;
+	if($particip!=0){
+		echo"Se désinscrire de l'événement";
+	}
+	else{
+		echo"S'inscrire à l'événement";
+	}
+	
+}
 
 function carrousselprofiles(){
 	global $connect_e;

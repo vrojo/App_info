@@ -41,3 +41,11 @@ map = new google.maps.Map(document.getElementById("map"), mapOptions);
 	}
 	});
 }
+
+function inscriptionevent(Event_id){
+        var scriptElement = document.createElement('script');
+            scriptElement.src = 'particip.php?Event_id='+Event_id;
+		document.body.appendChild(scriptElement);
+		alert('Vous êtes bien inscrit à cet événement'+Event_id);
+    
+}
