@@ -46,6 +46,26 @@ function inscriptionevent(Event_id){
         var scriptElement = document.createElement('script');
             scriptElement.src = 'particip.php?Event_id='+Event_id;
 		document.body.appendChild(scriptElement);
-		alert('Vous êtes bien inscrit à cet événement'+Event_id);
+		alert('Vous êtes bien inscrit à cet événement');
     
+}
+function noter(note,Event_id){
+		var scriptElement = document.createElement('script');
+            scriptElement.src = 'note.php?Event_id='+Event_id+'&note='+note;
+		document.body.appendChild(scriptElement);
+		
+}
+function notation(Event_id){
+		var scriptElement = document.createElement('script');
+		scriptElement.src = 'notation.php?Event_id='+Event_id;
+		document.body.appendChild(scriptElement);
+	var x='<?php echo $listenote ?>';
+	for(var i= 0; i < x.length; i++)
+{
+	var elmt = document.getElementById(x[i]);
+	alert(x);
+	elmt.style.color = "orange";
+}	
+	
+	
 }

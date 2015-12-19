@@ -107,6 +107,7 @@
    text-decoration: none;
    font-size: 1.5em;
    transition: color .4s;
+   
 }
 .rating a:hover,
 .rating a:focus,

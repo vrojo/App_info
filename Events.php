@@ -10,13 +10,13 @@
 		
 		<title>Evénements</title>	
 	</head>
-	<body onload="Eventmap()">
+	<body onload="Eventmap()" >
 		<?php
 		include("Header.php");
 		require'fonctions_event.php';
 		
 		?>
-		<div id="bandeaupresevent" style="height:<?php echo $hbandeaupres ?>px" >
+		<div id="bandeaupresevent" style="height:<?php echo $hbandeaupres ?>px"  >
 			<div class="bleft" >
 				<div class="bandeauhaut"><div class="Eventpic" style="background-image:url(http://www.rockenseine.com/wp-content/uploads/2015/09/VP2_7163RES-1024x683.jpg)"></div></div>
 				<div class="bandeaubas" ><div id="map" style="width:95%;height:95%;left:50%;top:50%;transform:translate(-50%,-50%);"></div></div>
@@ -46,11 +46,11 @@
 								</div>
 								<div class="bandeaumilieu" style="height:33%; text-align:left;">
 									<div class="rating">
-										<a href="#5" title="Donner 5 étoiles">★</a>
-										<a href="#4" title="Donner 4 étoiles">★</a>
-										<a href="#3" title="Donner 3 étoiles">★</a>
-										<a href="#2" title="Donner 2 étoiles">★</a>
-										<a href="#1" title="Donner 1 étoile">★</a>
+										<a id="star5" title="Donner 5 étoiles" onclick="noter(5,<?php echo $Event_id ?>)">★</a>
+										<a id="star4" title="Donner 4 étoiles" onclick="noter(4,<?php echo $Event_id ?>)">★</a>
+										<a id="star3" title="Donner 3 étoiles" onclick="noter(3,<?php echo $Event_id ?>)">★</a>
+										<a id="star2" title="Donner 2 étoiles" onclick="noter(2,<?php echo $Event_id ?>)">★</a>
+										<a id="star1" title="Donner 1 étoile" onclick="noter(1,<?php echo $Event_id ?>)">★</a>
 									</div>
 								</div>
 								<div class="bandeaubas" style="height:33%; text-align:left">
@@ -140,4 +140,5 @@
 		
 		<?php include("Footer.php");?>
 	</body>
+	<script> notation(<?php echo $Event_id ?>) </script>
 </html>
