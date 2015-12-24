@@ -45,15 +45,15 @@ function blocresum($type,$id){
 	}
 	elseif($type=='eventcree'){
 		$result=mysqli_query($connect_e,"SELECT * from event where id_utilisateur=$id_utilisateur");
-		while ($data = mysqli_fetch_assoc($result)) {
+		while ($data = mysqli_fetch_assoc($result)) {?>
 		
-	
+<?php	
 }
 	}
 	elseif($type=='eventparticip'){
 		$result=mysqli_query($connect_e,"SELECT * from participation where id_utilisateur=$id_utilisateur");
 		$result=mysqli_fetch_assoc($result);
-		$result=$result['Event_id']
+		$result=$result['Event_id'];
 		$result=mysqli_query($connect_e,"SELECT * from event where Event_id=$result");
 	}
 }
