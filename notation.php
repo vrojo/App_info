@@ -10,6 +10,7 @@ session_start();
     exit();
 	}
 	$Event_id=$_GET['Event_id'];
+	function notationphp('Event_id'){
 	if (isset ($id_utilisateur ) && mysqli_query($connect_e,"select Note from participation WHERE (Event_id=$Event_id AND id_utilisateur=$id_utilisateur)")->num_rows>0){
 		$note=mysqli_fetch_assoc(mysqli_query($connect_e,"Select Note from participation Where Event_id=$Event_id AND id_utilisateur=$id_utilisateur"));
 	}
@@ -33,5 +34,5 @@ session_start();
 		$listenote= array('star1');		
 	}
 
-	
+	}
 ?>

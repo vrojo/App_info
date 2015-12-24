@@ -10,13 +10,13 @@
 		
 		<title>Evénements</title>	
 	</head>
-	<body onload="Eventmap()" >
+	<body >
 		<?php
 		include("Header.php");
 		require'fonctions_event.php';
 		
 		?>
-		<div id="bandeaupresevent" style="height:<?php echo $hbandeaupres ?>px"  >
+		<div id="bandeaupresevent" style="height:<?php echo $hbandeaupres ?>px">
 			<div class="bleft" >
 				<div class="bandeauhaut"><div class="Eventpic" style="background-image:url(http://www.rockenseine.com/wp-content/uploads/2015/09/VP2_7163RES-1024x683.jpg)"></div></div>
 				<div class="bandeaubas" ><div id="map" style="width:95%;height:95%;left:50%;top:50%;transform:translate(-50%,-50%);"></div></div>
@@ -24,7 +24,7 @@
 			<div class="bright">
 				<div class="bandeauhaut" style="height:10%;"><p style="font-size:1.4em; transform:translateY(-50%)"><?php echo $nom_e ?></p></div>
 				<div class="bandeaumilieu" style="height:70%">
-					<div class="bandeauhaut" style="height:30%">
+					<div class="bandeauhaut" style="height:40%">
 						<div class="bleft" style="width:50%;">
 							<div class="bleft" style="width:10%">
 								<a href="#"><img src="https://www.dropbox.com/s/jmzi3lowgiry5wf/Bonhommevert.png?raw=1" style="width:100%"/></a>
@@ -54,13 +54,13 @@
 									</div>
 								</div>
 								<div class="bandeaubas" style="height:33%; text-align:left">
-									<p style="margin-left:20px"> Il reste 12 places</p>
+									<p style="font-weight:normal;font-size:0.7em">Date de l'événement: <?php echo $event['date_e']?></p>
 								</div>
 							</div>
 						</div>
-						<div class="bright" style="width:50%;">
+						<div class="bright" style="width:50%">
 							<?php if ($privacy == 1){ ?>
-								<p style="height:<?php echo $h?>%; display:inline-block; position: relative;margin:0;"> cet événement est privé</p>
+								<p style="height:<?php echo $h?>%; display:inline-block; position:relative; margin:0;font-weight:normal;font-size:1.25vw;"> cet événement est privé</p>
 							<?php }
 							?><?php if (verifco($mdp,$id_utilisateur)==TRUE){?>
 							<a href="#"><div class="Bouton2" onclick=(inscriptionevent(<?php echo $Event_id ?>)) style="height:<?php echo $h ?>%"><p><?php des_inscrire() ?></p></div></a>
@@ -70,15 +70,15 @@
 							?><a href="#"><div class="Bouton2" style="height:<?php echo $h ?>%"><p>Modifier l'événement</p></div></a><?php }?>
 						</div>
 					</div>
-					<div class="bandeaubas" style="height:50%;">
-						<div class="bleft" >
+					<div class="bandeaubas" style="height:60%;">
+						<!--<div class="bleft" >-->
 							<h2> Informations </h2>
 							<p style="font-weight:normal; font-size:0.7em"><?php echo $event['description_e']?></p>
-						</div>
+						<!--</div>
 						<div class="bright" style="font-weight:normal; font-size:0.7em;">
 							<p>Date de l'événement: <?php echo $event['date_e']?></p>
 							<p>Nombre de participants maximum: <?php echo $event['nb_max_participant']?></p>
-						</div>
+						</div>-->
 					</div>
 				</div>
 				<?php if (verifco($mdp,$id_utilisateur)==TRUE){?>
@@ -111,12 +111,14 @@
 			</div>
 		</div>
 		<div id="bandeau1">
-			<div class="bleft" >
-				<h4>Sponsorisé par</h4>
-				<img src="https://upload.wikimedia.org/wikipedia/fr/4/47/Isep-Logo.png" style="width:100%;max-height:90%;"/>
-				
+			<div class="bandeauhaut"  style="height:50px;color:grey">
+				<div class="bleft">Sponsorisé par</div>
+				<div class="bright">
+					<img src="https://upload.wikimedia.org/wikipedia/fr/4/47/Isep-Logo.png" style="float:left;display:inline-block;max-height:90%;"/>
+				</div>
 			</div>
-			<div class="bright">
+			<div class="bandeaubas">
+				
 			</div>
 		</div>
 		<?php if (verifco($mdp,$id_utilisateur)==TRUE){?>
@@ -137,8 +139,10 @@
 		</div> <?php } ?>
 		<div id="bandeau3"> 
 		</div>
-		
 		<?php include("Footer.php");?>
 	</body>
-	<script> notation(<?php echo $Event_id ?>) </script>
+	<script>
+	notation(<?php echo $Event_id?>,<?php echo(notationphp($Event_id))?>);
+	profpic();
+	</script>
 </html>

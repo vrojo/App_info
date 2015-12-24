@@ -38,7 +38,7 @@ require'fonctions_simplevent.php'; ?>
 					<a href="#" style="color:inherit"><div class="bandeaubas" style="height:33%;">
 						<p style="display:inline-block; float:left; position:absolute;left:5%">Vos Evénements</p>
 					</div></a>
-					<a href="#" style="color:inherit;"><div class="bandeaubas" style="height:33%;">
+					<a href="#" style="color:inherit;"><div class="bandeaubas" style="height:33%">
 						<p style="display:inline-block; float:left; position:absolute;left:5%">Evénements intéressants</p>
 					</div></a>
 				</div>	
@@ -47,8 +47,12 @@ require'fonctions_simplevent.php'; ?>
 				<a href="#" style="color:inherit"><p>Mon Compte</p></a>
 				<div class="menuderoul" >
 					<div class="bandeaubas" style="height:65%">
-						<img src="<?php echo $photo_u ;?>" class="profpic" />
-						<p style="display:inline-block; float:left; position:relative;left:5%;"><?php echo "$prenom_u $nom_u"?></p>
+						<div class="bleft" style="width:40%">
+							<img src="<?php echo $photo_u ;?>" class="profpic" />
+						</div>
+						<div class="bright" style="width:60%">
+							<p style="display:inline-block; float:left; position:relative;left:5%;color:#74def1;"><?php echo "$prenom_u $nom_u"?></p>
+						</div>
 					</div>
 					<a href="deconnexion.php" style="color:inherit"><div class="bandeaubas" style="height:35%;">
 						<p  style="position:relative; display:inline-block; text-align:center">Se déconnecter</p>
@@ -64,7 +68,7 @@ require'fonctions_simplevent.php'; ?>
 				</div></a>
 				<a href="inscription.php"><div class="Boutonmenu"><p>Créer un compte</p> 
 				</div></a>
-				<a href="inscription.php"><div class="Boutonmenu"><p>Se connecter </p> 
+				<a href="connexion.php"><div class="Boutonmenu"><p>Se connecter </p> 
 				</div></a>
 		</div>
 	<?php } ?>

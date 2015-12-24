@@ -36,7 +36,7 @@
 
 #footer {
 	width: 100%;
-	height: 350px;
+	height: 250px;
 	position : relative;
 	background-color: #80ff80;
 	float:left;
@@ -44,18 +44,18 @@
 }
 
 #img_fb {
-	height : 5em;
-	right : 5em;
+	height : 2em;
+	right : 2em;
 }
 
 #img_twitter {
-	height : 5em;
-	width : 5em;
+	height : 2em;
+	width : 2em;
 }
 
 #img_mail {
-	height : 5em;
-	width : 5em;
+	height : 2em;
+	width : 2em;
 }
 
 #facebook a {

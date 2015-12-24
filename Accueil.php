@@ -48,15 +48,28 @@ $Accueil=TRUE;
 	    </div>
 		<div id="bandeau3">
 			<div class="blocsresume">
-				<p style="font-size:0.7em; color:grey;">Messages</p>
-				<?php ?>
+				<div class="bandeauhaut"style="height:10%">
+					<p style="font-size:0.7em; color:grey;">Messages</p>
+				</div>
+				<div class="bandeaubas" style="height:90%">
+					<?php blocresum('message',$id_utilisateur)?>
+				</div>
 			</div>
 			<div class="blocsresume" >
-				<p style="font-size:0.7em; color:grey">Evénements créés</p>
-			
+				<div class="bandeauhaut"style="height:10%">
+					<p style="font-size:0.7em; color:grey;">Evénements créés</p>
+				</div>
+				<div class="bandeaubas" style="height:90%">
+					<?php blocresum('eventcree',$id_utilisateur)?>
+				</div>
 			</div>
 			<div class="blocsresume">
-				<p style="font-size:0.7em; color:grey">Vos événements</p>
+				<div class="bandeauhaut"style="height:10%">
+					<p style="font-size:0.7em; color:grey;">Vos événements</p>
+				</div>
+				<div class="bandeaubas" style="height:90%">
+					<?php blocresum('eventparticipe',$id_utilisateur)?>
+				</div>
 			
 			</div>
 		</div>

@@ -51,6 +51,26 @@ a{
 	margin:0;
 	
 }
+.bleft{
+	display:inline-block;
+	height:100%;
+	width:40%;
+	margin:0;
+	position:relative;
+	float:left;
+	
+	
+}
+.bright{
+	display:inline-block;
+	height:100%;
+	width:60%;
+	margin:0;
+	position:relative;
+	float:right;
+	color:white;
+	
+}
 #menu{
 	width:100%;
 	height:100%;
@@ -82,6 +102,8 @@ a{
 
 .menuderoul{
 	position:absolute;
+	font-weight:normal;
+	font-size:1em;
 	margin:0;
 	height:0px;
 	width:100%;
@@ -98,7 +120,21 @@ a{
 	border-bottom:1px solid #e1e1e1;
 	
 }
+.menuderoul a .bandeaubas{
+	border-top:1px solid White;
+	border-bottom:1px solid White;
+	
+}
+.menuderoul a .bandeaubas p{
+	display:inline-block;
+	position:absolute;
+	margin:0;
+	padding:0;
+	top:50%;
+	transform:translate(0,-50%);
+	font-size:1.5vw;
 
+}
 .profpic{
 	overflow:hidden;
     border-radius:50px;
@@ -112,6 +148,7 @@ a{
 	margin:0;
 	left:2%;
 	margin-right:5px;
+	background:blue;
 }
 .Boutonmenu:hover .menuderoul{
 	color:#74def1;

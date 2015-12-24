@@ -13,10 +13,10 @@ session_start();
 	$Event_id=$_GET['Event_id'];
 	$particip=mysqli_query($connect_e,"select * from participation WHERE (Event_id=$Event_id AND id_utilisateur=$id_utilisateur)")->num_rows;
 	if ($particip == 1){
-		mysqli_query($connect_e,"UPDATE participation SET Event_id=$Event_id, id_utilisateur=$id_utilisateur, Note=$note");
+		mysqli_query($connect_e,"UPDATE participation SET Note=$note WHERE (Event_id=$Event_id AND id_utilisateur=$id_utilisateur)");
 	}
 	else{
-		echo '<script type="text/javascript"> alert("erreur")</script>';
+		mysqli_query($connect_e,"INSERT INTO participation (Event_id, id_utilisateur, Note)values('$Event_id','$id_utilisateur', '$note')");
 	}
 
 	

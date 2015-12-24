@@ -13,11 +13,16 @@
 	<body>
 	    <div id="header">
 	        <div class="bandeauhaut">
-				<div id="headergauche"> 
-					<a href="#"><img src="https://www.dropbox.com/s/1yxbj2y807fn5eq/Logo4.png?raw=1" class="imagebandeau"/></a>
+				<div class="headergauche"> 
+					<div class="bandeauhaut" >
+						<a href="#"><img src="https://www.dropbox.com/s/1yxbj2y807fn5eq/Logo4.png?raw=1" class="imagebandeau"/></a>
+					</div>
+					<div class="bandeaubas">
+						<p style="font-size:1.5em;color:White;margin-left:2%">SimplEvent c'est le meilleur outil pour trouver des événements près de chez-vous</p>
+					</div>
 				</div>
-				<div id="headerdroit">
-                                    <a href="connexion.php"><div class="Bouton"><p>Se connecter</p></div></a>
+				<div class="headerdroit">
+                    <a href="connexion.php"><div class="Bouton"><p>Se connecter</p></div></a>
 				</div>
 			</div>
 			<div class="bandeaubas">
@@ -28,8 +33,8 @@
 					</form>
 				</div>
 				<div class="bandeaubas">		
-                                    <div class="bandeauhaut"><a href="connexion.php"><div class="Bouton"><p>Créer un événement</p></div></a></div>
-					<div class="bandeaubas"><a href="#bandeau1"><img src="https://www.dropbox.com/s/g65ek8637g0km8o/mince-fleche-vers-le-bas_318-11165.png?raw=1"id="flèchebas"/></a></div>
+                    <div class="bandeauhaut"><a href="connexion.php"><div class="Bouton"><p>Créer un événement</p></div></a></div>
+					<div class="bandeaubas"><a href="#bandeau1"><img src="https://www.dropbox.com/s/g65ek8637g0km8o/mince-fleche-vers-le-bas_318-11165.png?raw=1"id="flèchebas" title ='Venez voir en Bas !'/></a></div>
 				</div>
 			</div>
 			

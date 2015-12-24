@@ -29,6 +29,37 @@ function verifco($mdp,$id_utilisateur){
 	}
 	
 }
+function verifadmin ($id_utilisateur){
+	global $connect_e;
+	$admin=mysqli_fetch_assoc(mysqli_query($connect_e,"SELECT * from utilisateur where id_utilisateur=$id_utilisateur"));
+	if ($admin['admin']==1){
+		return 1;		
+	}
+	else{
+		return 0;
+	}
+}
+function blocresum($type,$id){
+	global $connect_e;
+	if($type=='message'){
+	}
+	elseif($type=='eventcree'){
+		$result=mysqli_query($connect_e,"SELECT * from event where id_utilisateur=$id_utilisateur");
+		while ($data = mysqli_fetch_assoc($result)) {
+		
+	
+}
+	}
+	elseif($type=='eventparticip'){
+		$result=mysqli_query($connect_e,"SELECT * from participation where id_utilisateur=$id_utilisateur");
+		$result=mysqli_fetch_assoc($result);
+		$result=$result['Event_id']
+		$result=mysqli_query($connect_e,"SELECT * from event where Event_id=$result");
+	}
+}
+
+
+
 if (verifco($mdp,$id_utilisateur)==TRUE){
 	global $connect_e;
 	$result=mysqli_query($connect_e, "SELECT * from utilisateur where id_utilisateur=$id_utilisateur");

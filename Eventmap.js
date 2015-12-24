@@ -1,6 +1,7 @@
 var geocoder;
 var map;
 
+
 function Eventmap()
 {
 geocoder = new google.maps.Geocoder();
@@ -46,26 +47,30 @@ function inscriptionevent(Event_id){
         var scriptElement = document.createElement('script');
             scriptElement.src = 'particip.php?Event_id='+Event_id;
 		document.body.appendChild(scriptElement);
-		alert('Vous êtes bien inscrit à cet événement');
+		location.reload();
     
 }
 function noter(note,Event_id){
 		var scriptElement = document.createElement('script');
             scriptElement.src = 'note.php?Event_id='+Event_id+'&note='+note;
 		document.body.appendChild(scriptElement);
-		
+		location.reload();
 }
-function notation(Event_id){
-		var scriptElement = document.createElement('script');
-		scriptElement.src = 'notation.php?Event_id='+Event_id;
-		document.body.appendChild(scriptElement);
-	var x='<?php echo $listenote ?>';
-	for(var i= 0; i < x.length; i++)
+function notation(Event_id,listenote){
+	for(var i= 0; i < listenote.length; i++)
 {
-	var elmt = document.getElementById(x[i]);
-	alert(x);
+	var elmt = document.getElementById(listenote[i]);
 	elmt.style.color = "orange";
+	
 }	
 	
 	
+}
+function profpic(){
+	var elmts = document.getElementsByClassName('profpic');
+	for(var i=0; i<elmts.length;i++){	
+	elmts[i].style.width=elmts[i].offsetHeight+"px";
+	elmts[i].style.background="pink";
+
+	}
 }

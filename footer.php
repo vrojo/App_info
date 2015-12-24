@@ -1,8 +1,8 @@
-		<link type="text/css" rel="stylesheet" href="Footer.css"/>
+ 		<link type="text/css" rel="stylesheet" href="Footer.css"/>
 		<div id="footer">
 			<div id="utilisation">
 				<h4 class="titre_footer">Utilisation de SimplEvent :</h4>
-				<a href="aide.html">Aide</br></a>
+				<a href="aide.php">Aide</br></a>
 				<a href="#">Comment cela fonctionne</br></a>
 				<a href="#">Tarifs</br></a>
 				<a href="#">Application mobile</br></a>
@@ -14,7 +14,7 @@
 				<p></p>
 			</div>
 			<?php 
-                        if(isset($_SESSION['admin_utilisateur'])&&$_SESSION['admin_utilisateur'] ==1){
+                        if(isset($_SESSION['admin_utilisateur'])&& $_SESSION['admin_utilisateur'] ==1){
                         echo'<div id="administrateur"> <h4 class="titre_footer">Administrateur :</h4> <a href="backoffice.php">Accéder au panneau de configuration</br></a>				<p></p>			</div>';
                         }
                         ?>
