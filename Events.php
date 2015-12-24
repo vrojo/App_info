@@ -10,7 +10,7 @@
 		
 		<title>Evénements</title>	
 	</head>
-	<body >
+	<body onload="Eventmap(['18 avenue pierre grenier viroflay','30 avenue pierre grenier viroflay','15 avenue pierre grenier viroflay'],'Viroflay')">
 		<?php
 		include("Header.php");
 		require'fonctions_event.php';
