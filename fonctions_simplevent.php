@@ -41,20 +41,51 @@ function verifadmin ($id_utilisateur){
 }
 function blocresum($type,$id){
 	global $connect_e;
+	global $id_utilisateur;
 	if($type=='message'){
 	}
 	elseif($type=='eventcree'){
 		$result=mysqli_query($connect_e,"SELECT * from event where id_utilisateur=$id_utilisateur");
 		while ($data = mysqli_fetch_assoc($result)) {?>
+		<a href="Events.php?Event_id=<?php echo $data['Event_id']?>"><div class="petitblocresum">
+			<div class="bleft">
+				<div class="bandeauhaut" style="height:25%;">
+					<p style="font-size:0.4em;text-align:center;margin:0"><?php echo $data['Nom_e']?></p>
+				</div>
+				<div class="bandeaubas" style="height:75%">
+				</div>
+			</div>
+			<div class="bright">
+				<p style="font-size:0.4em"><?php echo $data['description_e']?></p>
+			</div>
+			
+		</div></a>
 		
 <?php	
 }
 	}
-	elseif($type=='eventparticip'){
+	elseif($type=='eventparticipe'){
 		$result=mysqli_query($connect_e,"SELECT * from participation where id_utilisateur=$id_utilisateur");
 		$result=mysqli_fetch_assoc($result);
 		$result=$result['Event_id'];
 		$result=mysqli_query($connect_e,"SELECT * from event where Event_id=$result");
+		while ($data = mysqli_fetch_assoc($result)) {?>
+		<a href="Events.php?Event_id=<?php echo $data['Event_id']?>"><div class="petitblocresum">
+			<div class="bleft">
+				<div class="bandeauhaut" style="height:25%;">
+					<p style="font-size:0.4em;text-align:center;margin:0"><?php echo $data['Nom_e']?></p>
+				</div>
+				<div class="bandeaubas" style="height:75%">
+				</div>
+			</div>
+			<div class="bright">
+				<p style="font-size:0.4em"><?php echo $data['description_e']?></p>
+			</div>
+			
+		</div></a>
+		
+<?php	
+}
 	}
 }
 
