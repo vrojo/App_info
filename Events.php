@@ -27,13 +27,13 @@
 					<div class="bandeauhaut" style="height:40%">
 						<div class="bleft" style="width:50%;">
 							<div class="bleft" style="width:10%">
-								<a href="#"><img src="https://www.dropbox.com/s/jmzi3lowgiry5wf/Bonhommevert.png?raw=1" style="width:100%"/></a>
-								<a href="#"><img src="https://www.dropbox.com/s/33ldf4ajvhvh3hz/EIpgSD2K.png?raw=1" style="width:100%"/></a>
-								<a href="#"><img src="https://www.dropbox.com/s/vpzc9y04zixn2lg/fb_icon_325x325.png?raw=1"style="width:100%"/></a>
-								<a href="#"><img src="https://www.dropbox.com/s/0h0kmbxsicya03r/ajouter-un-nouveau-bouton-plus_318-9157.png?raw=1" style="width:100%"/></a>
+								<a href="#"><img src="https://www.dropbox.com/s/jmzi3lowgiry5wf/Bonhommevert.png?raw=1" style="width:100%; max-height:25%"/></a>
+								<a href="#"><img src="https://www.dropbox.com/s/33ldf4ajvhvh3hz/EIpgSD2K.png?raw=1" style="width:100%; max-height:25%"/></a>
+								<a href="#"><img src="https://www.dropbox.com/s/vpzc9y04zixn2lg/fb_icon_325x325.png?raw=1"style="width:100%; max-height:25%""/></a>
+								<a href="#"><img src="https://www.dropbox.com/s/0h0kmbxsicya03r/ajouter-un-nouveau-bouton-plus_318-9157.png?raw=1" style="width:100%; max-height:25%"/></a>
 							</div>
 							<div class="bright" style="width:90%">
-								<div class="bandeauhaut" style="height:33%; text-align:left;">
+								<div class="bandeauhaut" style="height:33%;">
 									<?php if ($prix==0)
 										{
 											echo "<p> Gratuit </p>";
@@ -53,7 +53,7 @@
 										<a id="star1" title="Donner 1 étoile" onclick="noter(1,<?php echo $Event_id ?>)">★</a>
 									</div>
 								</div>
-								<div class="bandeaubas" style="height:33%; text-align:left">
+								<div class="bandeaubas" style="height:33%;">
 									<p style="font-weight:normal;font-size:0.7em">Date de l'événement: <?php echo $event['date_e']?></p>
 								</div>
 							</div>
@@ -70,7 +70,7 @@
 							?><a href="#"><div class="Bouton2" style="height:<?php echo $h ?>%"><p>Modifier l'événement</p></div></a><?php }?>
 						</div>
 					</div>
-					<div class="bandeaubas" style="height:60%;">
+					<div class="bandeaubas" style="height:60%; text-align: left; padding:5px 0 0 0">
 						<!--<div class="bleft" >-->
 							<h2> Informations </h2>
 							<p style="font-weight:normal; font-size:0.7em"><?php echo $event['description_e']?></p>
@@ -87,7 +87,8 @@
 						<div class="bandeauhaut" style="height:25%">
 							Catégorie d'événement:
 						</div>
-						<div class="bandeaubas" style="height:75%">
+						<div class="bandeaubas" style="height:75%; font-weight:normal;">
+							<?php categories($Event_id)?>, 
 						</div>
 					</div>
 					
@@ -103,7 +104,7 @@
 							</div>
 						</div>
 						<div class="bright" style="width:25%; height:100%; font-size:0.5em;">
-							<a href="#"><p>Signaler cet événement</p></a>
+							<img src="https://www.dropbox.com/s/43g64iiwsnat9pw/Point-d-exclamation.png?raw=1" class="report" title="Signaler cet événement"/>
 						</div>
 					</div>
 					<?php }?>

@@ -13,11 +13,6 @@ var mapOptions =
 	}
 
 map = new google.maps.Map(document.getElementById("map"), mapOptions);
-
-
-  /*google.maps.event.addDomListener(map, 'click', function() {
-    window.alert('Map was clicked!');
-  });*/
   
   	geocoder.geocode( { 'address': lieu}, function(results, status) 
 	{

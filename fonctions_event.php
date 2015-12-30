@@ -88,7 +88,16 @@ function carrousselprofiles(){
 	}
 	}
 }
-
+function categories ($Event_id){
+	global $connect_e;
+	$result=mysqli_query($connect_e,"SELECT * from typeevent where Event_id=$Event_id");
+	while ($data = mysqli_fetch_assoc($result)) {
+		$categ=mysqli_query($connect_e,"SELECT * from categorie where id_categ=".$data['id_categ']);
+		$categ=mysqli_fetch_assoc($categ);
+		echo $categ['nomCat'];
+		
+	}
+}
 function coms ($Event_id){
 	global $connect_e;
 	global $id_utilisateur;
@@ -104,14 +113,14 @@ while ($data = mysqli_fetch_assoc($result)) {
 					<img src="<?php echo $util['photo_u']?>" class="profpic" style="float:right; height:90px; width:90px; margin:0; margin-right:20px"/>	
 				</div>
 				<div class="bright" style="width:50%; height:100%">
-					<div class="bandeauhaut" style="height:20%; padding-top:10%;">
+					<div class="bandeauhaut" style="height:20%;margin-top:10%">
 						<p style="top:50%; transform:translate(0,-50%)"><?php echo $util["prenom_u"].' '.$util["nom_u"] ?></p>
 					</div>
-					<div class="bandeaumilieu" style="height:40%; ">
+					<div class="bandeaumilieu" style="height:20%;">
 						<p style="font-size:0.6em; text-align:left;"><?php echo $data['date_co']; ?> </p>
 					</div>
-					<div class="bandeaubas" style="height:30%">
-						<a href="#"><p style="font-size:0.6em; text-align:left;">Signaler ce commentaire</p></a>
+					<div class="bandeaubas" style="height:40%;">
+						<img src="https://www.dropbox.com/s/43g64iiwsnat9pw/Point-d-exclamation.png?raw=1" class="report" title="Signaler ce commentaire"/>
 					</div>
 				</div>
 			</div>
@@ -122,7 +131,7 @@ while ($data = mysqli_fetch_assoc($result)) {
 				<?php 
 				if ($id_commentateur==$id_utilisateur or verifadmin($id_utilisateur)==1 or $id_utilisateur==$Id_crea){?>
 	
-					<a href="suprcom.php?i_com=<?php echo $data['id_commentaire']?>"><img src="https://www.dropbox.com/s/ug1ko8f86ijv7t4/delete-462216_1280.png?raw=1" style="position:absolute;display:inline-block;height:30px;top:50%;transform:translate(0,-50%)" title="Supprimer ce commentaire"/></a>
+					<a href="suprcom.php?i_com=<?php echo $data['id_commentaire']?>"><img src="https://www.dropbox.com/s/ug1ko8f86ijv7t4/delete-462216_1280.png?raw=1" class="report" title="Supprimer ce commentaire"/></a>
 				<?php }?>
 			</div>
 		</div> 

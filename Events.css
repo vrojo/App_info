@@ -268,6 +268,21 @@
 	z-index:5;
 	border-bottom:1px solid white;
 }
+.report{
+	position:absolute;
+	display:block; 
+	height:50%;
+	max-height:50px;	
+	top:50%;
+	transform:translate(0,-50%);
+	transition: padding .4s;
+	
+}
+
+.report:hover{
+	padding-bottom:5%;
+	cursor:pointer;
+}
 #bandeau3{
 	position:relative;
 	margin:0;
