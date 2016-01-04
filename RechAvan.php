@@ -16,10 +16,10 @@
         
             <div id='titre_recherche'>Recherche d'événement :</br> </br> </div>
 
-             <div id='formulaire_recherche'><form method="POST" action="Recherche">
+             <div id='formulaire_recherche'><form method="POST" action="Evenements2.php">
                     <span id="police_motscles">Mots clés:&nbsp; &nbsp; &nbsp;</span>
                 
-                    <div id="input_motscles"> <input type="text" name="mots clés" placeholder="ex : Représentation "> </div>
+                    <div id="input_motscles"> <input type="text" name="mot_clef" placeholder="ex : Représentation "> </div>
                         <br/>
                         <br/>
                     <span id="police_categ">Catégorie d'événements :</span>
@@ -55,7 +55,7 @@
                         <br/>
                     <span id="police_date">Date de l'événement : <br/><br/></span>
               
-                    <div id="input_date" > Entre le : <input type="date" id="date_recherche" placeholder="jour / mois / année"/> et le : <input type="date"  id="date_recherche" placeholder="jour / mois / année"/></div>
+                    <div id="input_date" > Entre le : <input type="date" id="date_recherche" name="date_debut" placeholder="jour / mois / année"/> et le : <input type="date"  id="date_recherche" name="date_fin" placeholder="jour / mois / année"/></div>
                         <br/>
                         <br/>
                         <br/>
