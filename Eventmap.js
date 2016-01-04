@@ -24,9 +24,10 @@ map = new google.maps.Map(document.getElementById("map"), mapOptions);
 					var marker = new google.maps.Marker({
 						map: map,
 						position: results2[0].geometry.location,
-						title: 'Hello World!',
 						animation: google.maps.Animation.DROP,
+						
 					});
+				map.setCenter(results2[0].geometry.location);
 				google.maps.event.addListener(marker,'click',function() {
 			map.setZoom(15);
 			map.setCenter(marker.getPosition());

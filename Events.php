@@ -10,7 +10,7 @@
 		
 		<title>Evénements</title>	
 	</head>
-	<body onload="Eventmap(['18 avenue pierre grenier viroflay','30 avenue pierre grenier viroflay','15 avenue pierre grenier viroflay'],'Viroflay')">
+	<body onload="Eventmap(['PLce de la Bastile'],'Paris');">
 		<?php
 		include("Header.php");
 		require'fonctions_event.php';
@@ -19,7 +19,7 @@
 		<div id="bandeaupresevent" style="height:<?php echo $hbandeaupres ?>px">
 			<div class="bleft" >
 				<div class="bandeauhaut"><div class="Eventpic" style="background-image:url(http://www.rockenseine.com/wp-content/uploads/2015/09/VP2_7163RES-1024x683.jpg)"></div></div>
-				<div class="bandeaubas" ><div id="map" style="width:95%;height:95%;left:50%;top:50%;transform:translate(-50%,-50%);"></div></div>
+				<div class="bandeaubas" ><div id="map" style="transform: translate(-50%,-50%);"></div></div>
 			</div>
 			<div class="bright">
 				<div class="bandeauhaut" style="height:10%;"><p style="font-size:1.4em; transform:translateY(-50%)"><?php echo $nom_e ?></p></div>
@@ -145,5 +145,6 @@
 	<script>
 	notation(<?php echo $Event_id?>,<?php echo(notationphp($Event_id))?>);
 	profpic();
+	
 	</script>
 </html>

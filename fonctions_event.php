@@ -81,7 +81,7 @@ function carrousselprofiles(){
 		$id_particip=$data['id_utilisateur'];
 		$util=mysqli_fetch_assoc(mysqli_query($connect_e,"SELECT * from utilisateur where id_utilisateur=$id_particip"));
 		?>			
-			<a href='#'><img src='<?php echo $util['photo_u']?>' class='profpic' style='height:75%; width:10%;margin-top:5px'/></a>
+			<a href="user.php?i=<?php echo $util['id_utilisateur']?>"><img src='<?php echo $util['photo_u']?>' class='profpic' style='height:75%; width:10%;margin-top:5px'/></a>
 			
 		<?php
 		$i ++;
@@ -110,7 +110,7 @@ while ($data = mysqli_fetch_assoc($result)) {
 	?> <div class="bandeaucom">
 			<div class="bleft" style="width:30%;height:100%">
 				<div class="bleft" style="width:50%;height:100%">
-					<img src="<?php echo $util['photo_u']?>" class="profpic" style="float:right; height:90px; width:90px; margin:0; margin-right:20px"/>	
+					<a href="user.php?i=<?php echo $util['id_utilisateur']?>"><img src="<?php echo $util['photo_u']?>" class="profpic" style="float:right; height:90px; width:90px; margin:0; margin-right:20px"/></a>
 				</div>
 				<div class="bright" style="width:50%; height:100%">
 					<div class="bandeauhaut" style="height:20%;margin-top:10%">
@@ -131,7 +131,7 @@ while ($data = mysqli_fetch_assoc($result)) {
 				<?php 
 				if ($id_commentateur==$id_utilisateur or verifadmin($id_utilisateur)==1 or $id_utilisateur==$Id_crea){?>
 	
-					<a href="suprcom.php?i_com=<?php echo $data['id_commentaire']?>"><img src="https://www.dropbox.com/s/ug1ko8f86ijv7t4/delete-462216_1280.png?raw=1" class="report" title="Supprimer ce commentaire"/></a>
+					<a href="suprcom.php?i_com=<?php echo $data['id_commentaire']?>"><img src="https://www.dropbox.com/s/ug1ko8f86ijv7t4/delete-462216_1280.png?raw=1" class="report" title="Supprimer ce commentaire" style="max-height:25px"/></a>
 				<?php }?>
 			</div>
 		</div> 
