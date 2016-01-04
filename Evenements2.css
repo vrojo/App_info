@@ -1,0 +1,101 @@
+#contenant_resultat {
+	width:100%;
+	background-color:#9fe774;
+	margin:0;
+}
+
+#indicateur_recherche p {
+	background-color:#9fe774;
+	text-align:center;
+}
+
+.ligne {
+	text-align:center;
+}
+
+#indicateur_recherche {
+	background-color:#9fe774;
+	margin:0;
+	border:1px solid #9fe774;
+}
+
+#formulaire_page_resultat {
+	background-color:#9fe774;
+	text-align:center;
+}
+
+.evenement {
+	display:inline-block;
+	width:32%;
+	cursor:pointer;
+}
+
+.nom_evenement {
+	text-align:center;
+}
+
+.vignette {
+	width:100%;
+	height:100px;
+}
+
+.photo_information {
+	width:30%;
+	height:100%;
+	display:inline-block;
+	background-color:#62cbcb;
+}
+
+.photo_information img {
+	width:90%;
+	height:90%;
+	margin:5%;
+}
+
+.information {
+	width:100%;
+	height:200px;
+	position:relative;
+	display:inline-block;
+	background-color:#62cbcb;
+}
+
+.informations {
+	width:70%;
+	height:100%;
+	position:absolute;
+	display:inline-block;
+	background-color:#62cbcb;
+}
+
+.titre_information {
+	margin:1%;
+	color:white;
+}
+
+.texte_information {
+	margin:1%;
+	color:white;
+}
+
+.texte_information p {
+	word-wrap:break-word;
+}
+
+.Bouton_information {
+	position:absolute;
+	font-size:1.2em;
+	text-align:center;
+	border-radius:5px;
+	margin-left:70%;
+}
+
+.Bouton_information:hover {
+	opacity:0.5;
+	background:white;
+	color:black;
+}
+
+.Bouton_information p {
+	color:black;
+}
