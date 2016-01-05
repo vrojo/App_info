@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -16,12 +19,53 @@
 		<?php
 		include("Header.php");
 		$compteur=0;
-		
-		$tout_evenement=mysqli_query($connect, 'select * from multimedia natural join event natural join adresse where Nom_e like "%'.$_POST['mot_clef'].'%" or description_e like "%'.$_POST['mot_clef'].'%" and ville like "'.$_POST['ville_evenement'].'" and codepostal like "'.$_POST['departement_evenement'].'%" and date_e between "'.$_POST['date_debut'].'" and "'.$_POST['date_fin'].'"');
-		?>
-		
+		if (isset($_GET['t']) && $_GET['t']=='MesEvents'){
+			$tout_evenement=mysqli_query($connect, 
+			"select * from event 
+			natural join multimedia 
+			natural join adresse 
+			natural join participation 
+			where id_utilisateur=$id_utilisateur
+			GROUP BY event.Event_id");
+		$cacher=1;
+		}
+		elseif(isset($_GET['t']) && $_GET['t']=='Eventscrees'){
+			$tout_evenement=mysqli_query($connect, 
+			"SELECT * from event 
+			inner join multimedia on event.Event_id = multimedia.Event_id
+			inner join adresse on event.id_adresse=adresse.id_adresse
+			WHERE id_utilisateur=$id_utilisateur
+			GROUP BY event.Event_id");
+		$cacher=1;
+		}
+		elseif(!isset($_POST['ville_evenement']) or !isset($_POST['departement_evenement']) or !isset($_POST['date_debut']) or !isset($_POST['date_fin'])){
+				$_POST['ville_evenement']=$_POST['mot_clef'];
+				$_POST['departement_evenement']=$_POST['mot_clef'];
+				$_POST['date_debut']=$_POST['mot_clef'];
+				$_POST['date_fin']=$_POST['mot_clef'];
+				$tout_evenement=mysqli_query($connect, 
+					"select * from event 
+					natural join multimedia 
+					natural join adresse 
+					where Nom_e like '%".$_POST['mot_clef']."%' 
+					or description_e like '%".$_POST['mot_clef']."%' 
+					or ville like '".$_POST['mot_clef']."' 
+					or codepostal like '".$_POST['mot_clef']."%'");
+
+			$cacher=0;
+			}
+		else{
+			$tout_evenement=mysqli_query($connect, 
+		'select * from event 
+		natural join multimedia 
+		natural join adresse 
+		where Nom_e like "%'.$_POST['mot_clef'].'%" 
+		or description_e like "%'.$_POST['mot_clef'].'%" and ville like "'.$_POST['ville_evenement'].'" and codepostal like "'.$_POST['departement_evenement'].'%" and date_e between "'.$_POST['date_debut'].'" and "'.$_POST['date_fin'].'"');
+		$cacher=0;
+		}
+	if($cacher==0){?>
 		<div id="formulaire_page_resultat">
-			<form method="post" action="http://localhost/simplevent/Evenements2.php">
+			<form method="post" action="Evenements2.php">
 				<label for="mot_clef">Mot clef : </label>
 				<input type="text" name="mot_clef" id="mot_clef" autofocus placeholder="exemple : Festival"/>
 				<input type="hidden" name="ville_evenement" value="%" />
@@ -31,7 +75,7 @@
 				<input type="submit" value="Go !" />
 			</form>
 			<br>
-			<form method="post" action="http://localhost/simplevent/Evenements2.php">
+			<form method="post" action="Evenements2.php">
 				<input type="hidden" name="mot_clef" value="" />
 				<input type="hidden" name="ville_evenement" value="%" />
 				<input type="hidden" name="departement_evenement" value="%" />
@@ -41,9 +85,11 @@
 			</form>
 		</div>
 		<div id="indicateur_recherche">
+
 		<p>Résultat de recherche pour le mot clef : <?php echo($_POST['mot_clef']) ?></p>
-		</div>
 		
+			</div>
+		<?php }?>
 		<div id="contenant_resultat">
 			<div class="ligne">
 				<?php

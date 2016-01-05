@@ -215,5 +215,6 @@
 	display: inline-block;
 	max-height:95%;
 	max-width:95%;
+	border-radius:5px;
 	
 }
