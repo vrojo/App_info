@@ -101,6 +101,10 @@ function affichage_topics(){
 function inscriptionpreleminaire($mail, $mdp, $confinsc){
     global $connect;
     mysqli_query($connect, "insert into utilisateur (mail, mot_de_passe, confirmation_inscription) values ('$mail', '$mdp', '$confinsc')") or die("MySQL Erreur : " . mysqli_error($connect));
+    $result = mysqli_query($connect, "select id_utilisateur from utilisateur where mail='$mail'") or die("MySQL Erreur : " . mysqli_error($connect));
+    $tableauResult = mysqli_fetch_assoc($result);
+    $id = $tableauResult['id_utilisateur'];
+    mysqli_query($connect, "insert into confirmation_inscription (id_utilisateur) values ('$id')") or die("MySQL Erreur : " . mysqli_error($connect));
 }
 
 
@@ -154,11 +158,14 @@ function lien_inscription($mail){
     $result = mysqli_query($connect, "select id_utilisateur from utilisateur where mail='$mail'") or die("MySQL Erreur : " . mysqli_error($connect));
     $tableauResult = mysqli_fetch_assoc($result);
     $id = $tableauResult['id_utilisateur'];
-    $message = "http://localhost/Versionsitefinale/confirmation_inscription.php?id=$id";
+    $result2 = mysqli_query($connect, "select id_conf from confirmation_inscription where id_utilisateur=$id") or die("MySQL Erreur : " . mysqli_error($connect));
+    $tableauResult2 = mysqli_fetch_assoc($result2);
+    $idconf = $tableauResult2['id_conf'];
+    $message = "http://localhost/Versionsitefinale/confirmation_inscription.php?id=$id&idconf=$idconf";
     return $message;
 }
 
-function confirmation_insccription(){
+function confirmation_inscription(){
     if(isset($_GET['id']) && $_GET['id'] != 0){
         global $connect;
         $id = $_GET['id'];
@@ -167,10 +174,34 @@ function confirmation_insccription(){
         $tableauResult = mysqli_fetch_assoc($result);
         if($tableauResult != null){
             mysqli_query($connect, "update utilisateur set confirmation_inscription=$conf where id_utilisateur = $id") or die("MySQL Erreur : " . mysqli_error($connect));
-            echo'<meta http-equiv="refresh"  content="2; URL = confirmation_inscription.php"/>';
+            return false;
         }   
         else{
-            echo'<meta http-equiv="refresh"  content="2; URL = Simplevent.php"/>';        
+            return true;        
         }
+    }
+}
+
+function verif_id($id, $idconf){
+    global $connect;
+    $result = mysqli_query($connect, "select * from confirmation_inscription where id_utilisateur=$id and id_conf=$idconf") or die("MySQL Erreur : " . mysqli_error($connect));
+    $tableauResult = mysqli_fetch_assoc($result);
+    if($tableauResult == null){
+        return false;
+    }
+    else{
+        return true;
+    }
+}
+
+function verfifMailEx($mail){
+    global $connect;
+    $result = mysqli_query($connect, "select id_utilisateur from utilisateur where mail='$mail'") or die("MySQL Erreur : " . mysqli_error($connect));
+    $tableauResult = mysqli_fetch_assoc($result);
+    if($tableauResult == null){
+        return true;
+    }
+    else{
+        return false;
     }
 }

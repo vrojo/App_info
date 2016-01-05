@@ -27,7 +27,7 @@
                 <br>
                 <br>
                 <br>
-                <input type="submit" value="S'inscrire" name="sinscrire" id="bouton_connexion">
+                <input type="submit" value="S'inscrire" name="sinscrire" id="bouton_connexion" >
             </form>
         </div>
        
@@ -36,7 +36,7 @@
         <div class="Connexion">
             <span id="titre_connexion">Connexion :</span>
             <form action="connexion_verif.php" method="post">
-                <input type="mail" name="adrconnexion" placeholder="Adresse mail">
+                <input type="mail" name="adrconnexion" placeholder="Adresse mail" id="mail_connexion" onblur="verifMailConnexion(this)"> <span id="erreur_mail_connexion"></span>
                 <br>
                 <input type="password" name="mdpconnexion" placeholder="Mot de passe">
                 <br>
