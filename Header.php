@@ -44,11 +44,11 @@ require'fonctions_simplevent.php'; ?>
 				</div>	
 			</div>
 			<div class="Boutonmenu" >
-				<a href="#" style="color:inherit"><p>Mon Compte</p></a>
+				<a href="user.php?i=<?php echo $id_utilisateur?>" style="color:inherit"><p>Mon Compte</p></a>
 				<div class="menuderoul" >
 					<div class="bandeaubas" style="height:65%">
 						<div class="bleft" style="width:40%">
-							<img src="<?php echo $photo_u ;?>" class="profpic" />
+							<a href="user.php?i=<?php echo $id_utilisateur?>"><img src="<?php echo $photo_u ;?>" class="profpic" /></a>
 						</div>
 						<div class="bright" style="width:60%">
 							<p style="display:inline-block; float:left; position:relative;left:5%;color:#74def1;"><?php echo "$prenom_u $nom_u"?></p>

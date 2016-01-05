@@ -54,7 +54,13 @@
 									</div>
 								</div>
 								<div class="bandeaubas" style="height:33%;">
-									<p style="font-weight:normal;font-size:0.7em">Date de l'événement: <?php echo $event['date_e']?></p>
+									<?php if ($event['date_e']!=$event['date_f'] && !empty($event['date_e']) && !empty($event['date_f'])){?>
+										<p style="font-weight:normal;font-size:0.7em">Date de début: <?php echo $event['date_e']?></p>
+										<p style="font-weight:normal;font-size:0.7em">Date de fin: <?php echo $event['date_f']?></p>
+									<?php }
+										else{?>
+									<p style="font-weight:normal;font-size:0.7em">Date de l'événement: <?php echo $event['date_e']?> </p>
+									<?php } ?>
 								</div>
 							</div>
 						</div>
@@ -71,14 +77,17 @@
 						</div>
 					</div>
 					<div class="bandeaubas" style="height:60%; text-align: left; padding:5px 0 0 0">
-						<!--<div class="bleft" >-->
+						<div class="bleft" style="width:65%">
 							<h2> Informations </h2>
 							<p style="font-weight:normal; font-size:0.7em"><?php echo $event['description_e']?></p>
-						<!--</div>
-						<div class="bright" style="font-weight:normal; font-size:0.7em;">
-							<p>Date de l'événement: <?php echo $event['date_e']?></p>
-							<p>Nombre de participants maximum: <?php echo $event['nb_max_participant']?></p>
-						</div>-->
+						</div>
+						<div class="bright" style="font-weight:normal; font-size:0.7em;width:35%">
+							<?php
+							if(!empty($event['heuredebut'])){echo "<p>Heure de début:".$event['heuredebut']."</p>";}
+							if(!empty($event['heurefin'])){echo "<p>Heure de fin: ".$event['heurefin']."</p>";}
+							if(!empty($event['nb_max_participant'])){echo "<p>Nombre de participants maximum: ".$event['nb_max_participant']."</p>";}
+							?>
+						</div>
 					</div>
 				</div>
 				<?php if (verifco($mdp,$id_utilisateur)==TRUE){?>
