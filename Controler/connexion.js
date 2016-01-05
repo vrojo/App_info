@@ -21,7 +21,7 @@ function verifMail(mail)
    if(!regex.test(mail.value))
    {
       erreur = "erreur_mail";
-      message ="<br>Veuillez entrer une adresse mail valide pour continuer l'inscription."
+      message ="<br>Veuillez entrer une adresse mail valide pour continuer l'inscription.";
       affiche(mail, erreur, message, true);
       return false;
    }
@@ -32,8 +32,28 @@ function verifMail(mail)
       affiche(mail, erreur, message, false);
       return true;
    }
+
 }
 
+function verifMailConnexion(mailCo)
+{
+   var regex = /^[a-zA-Z0-9._-]+@[a-z0-9._-]{2,}\.[a-z]{2,4}$/;
+   if(!regex.test(mailCo.value))
+   {
+      erreur = "erreur_mail_connexion";
+      message ="<br>Veuillez entrer une adresse mail valide pour continuer l'inscription.";
+      affiche(mailCo, erreur, message, true);
+      return false;
+   }
+   else
+   {
+      message =""
+      erreur = "erreur_mail_connexion";
+      affiche(mailCo, erreur, message, false);
+      return true;
+   }
+
+}
 function verifMdp(mdpverif){
     mdp = document.getElementById("mdpconnexion_inscription").value;
     cmdp = document.getElementById("mdpconnexion_verif_inscription").value;
