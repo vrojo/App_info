@@ -1,0 +1,131 @@
+#titre_modif_princ{
+    color:white;
+    background-color: #74def1;
+    font-size: 28px;
+    text-align: center;
+    margin-left: 25%;
+}
+
+#titre_modif_sec{
+    color:white;
+    background-color: #74def1;
+    font-size: 16px;
+    text-align: center;
+    margin-left: 25%;
+}
+
+.input_modifprof{
+    color:white;
+    background-color: #74def1;
+    display: column;
+    width: 55%;
+   
+}
+
+
+.adresse{
+    display: column;
+    margin-left: 10%;
+    color:white;
+}
+
+#formulaire_modif{
+    background-color: #74def1;
+    display:inline-block;
+    width: 100%
+}
+
+#nom{
+    width: 100px;
+}
+
+#prenom{
+    width: 100px;
+}
+
+#numero_adresse{
+    width: 60px;
+}
+
+#rue_adresse{
+    
+}
+
+#ville_adresse{
+    
+}
+
+#codepostal_adresse{
+    width: 30px;
+}
+
+#pays_adresse{
+    width: 100px;
+}
+
+#mail{
+    width: 200px;
+}
+
+#telephone{
+    width:100px;
+}
+
+#mdp{
+    
+}
+
+#date{
+    
+}
+
+#description{
+    width : 450px;
+    height: 50px;
+}
+
+#ajouterphoto{
+    width:300px;
+}
+
+#bouton_modif{
+    	font-size:1em;
+	float:left;
+	position:relative;
+	background-color:#80ff80;
+	box-shadow: 1px 2px 5px #bfbfbf, 0px -2px 5px #bfbfbf;
+	width: 100%;
+	height:50px;
+	display:inline-block;
+	font-weight:bold;
+	top: 50%;
+        transform: translate(0,-50%);
+	text-align:center;
+	border:none;
+	border-top-right-radius:5px;
+	border-bottom-right-radius:5px;
+        color:white;
+}
+
+#bloc_modif1{
+    float:left;
+    margin-left: 2%;
+    width: 32%;
+}
+
+#bloc_modif2{
+    float:left;
+    width: 32%;   
+}
+
+#bloc_modif3{
+    float:right;
+    width: 32%;
+    margin-right: 10px;
+}
+
+.checkrecherche{
+    color:white;
+    display: inline-block;
+    width: 150px;
+}
