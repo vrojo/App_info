@@ -45,14 +45,14 @@ map = new google.maps.Map(document.getElementById("map"), mapOptions);
 
 function inscriptionevent(Event_id){
         var scriptElement = document.createElement('script');
-            scriptElement.src = 'particip.php?Event_id='+Event_id;
+            scriptElement.src = '../Modele/particip.php?Event_id='+Event_id;
 		document.body.appendChild(scriptElement);
 		location.reload();
     
 }
 function noter(note,Event_id){
 		var scriptElement = document.createElement('script');
-            scriptElement.src = 'note.php?Event_id='+Event_id+'&note='+note;
+            scriptElement.src = '../Modele/note.php?Event_id='+Event_id+'&note='+note;
 		document.body.appendChild(scriptElement);
 		location.reload();
 }
@@ -66,6 +66,13 @@ function notation(Event_id,listenote){
 	
 	
 }
+function supprcom(i_com){
+		var scriptElement = document.createElement('script');
+            scriptElement.src = '../Modele/suprcom.php?i_com='+i_com;
+		document.body.appendChild(scriptElement);
+		location.reload();
+}
+
 function profpic(){
 	var elmts = document.getElementsByClassName('profpic');
 	for(var i=0; i<elmts.length;i++){	

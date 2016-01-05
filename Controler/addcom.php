@@ -9,6 +9,6 @@ $com = htmlspecialchars (addslashes($_POST['Commentaire']));
 if (!empty($com)){
 mysqli_query($connect_e,"INSERT INTO commente (texte_co,id_utilisateur,Event_id,date_co) values ('$com','$id_utilisateur','$Event_id',NOW())") ;
 }
-header("Refresh:0 ,url=Events.php?Event_id=$Event_id");
+header("Refresh:0 ,url=../Vue/Events.php?Event_id=$Event_id");
 
 ?>

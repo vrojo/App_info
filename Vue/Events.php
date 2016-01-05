@@ -6,7 +6,7 @@
 		<meta charset="utf-8" />
 		<link type="text/css" rel="stylesheet" href="Events.css"/>
 		<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBTJ7EKiUmBXBsHrnojWCg36xdAKObOLqM"></script>
-		<script type="text/javascript" src="Eventmap.js"></script>
+		<script type="text/javascript" src="../Modele/Eventmap.js"></script>
 		
 		<title>Evénements</title>	
 	</head>
@@ -141,7 +141,7 @@
 		</div>
 		<?php if (verifco($mdp,$id_utilisateur)==TRUE){?>
 		<div id="bandeau2_2" >
-			<form method="post" style="height:100%" action="addcom.php">
+			<form method="post" style="height:100%" action="../Controler/addcom.php">
 				<textarea name="Commentaire" placeholder="Entrez votre commentaire" id="Zonecom"></textarea>
 				<input type="hidden" name="Event_id" value= <?php echo $Event_id ?> />
 				<input type="submit" name="envoyer" value="Envoyer" id="Boutoncom"/>

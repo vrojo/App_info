@@ -27,7 +27,7 @@ $Accueil=TRUE;
 		?>
 	    <div id="bandeau1">
 			<div class="bandeauhaut">
-				<form method="post" action="Evenements2.php">
+				<form method="post" action="../Vue/Evenements2.php">
 					<input type="search" name="mot_clef" id="recherche" placeholder="Ex:Tommorrow Land, Rock, Football..."> 
 					<input type="submit" class="boutonrecherche" value="Recherche d'événements">
 					
