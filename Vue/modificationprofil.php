@@ -2,6 +2,7 @@
 session_start();
 
 require 'model.php';
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -17,7 +18,7 @@ require 'model.php';
     <body>
         <?php include ("Header.php"); ?>
         
-        <form id="formulaire_modif" action="modification_verif.php" method="post" onsubmit="return verifCompletModif(this)">
+        <form id="formulaire_modif" action="modificationprofilcontroleur.php" method="post" onsubmit="return verifCompletModif(this)">
             <br>
             <br>
             <span id="titre_modif_princ">Modifiez votre profil et rejoignez le mouvement !!</span><br>
@@ -111,12 +112,21 @@ require 'model.php';
                     </div>
                 </div>
                 <br>
+                <div class="input_modifprof">
+                    <strong>Choix du sexe :</strong>
+                    <br>
+                    <select name="choixsexe">
+                        <option value="homme">Homme</option>
+                        <option value="femme">Femme</option>
+                    </select>
+                </div>
+                <br>
                 <br>
                 <br>
                 <br>
                 <br>
                 <div class="input_modifprof">
-                    <input id="bouton_modif" type="submit" name="register" value="Enregistrer"/>
+                    <input id="bouton_modif" type="submit" name="enregistrer" value="Enregistrer"/>
                 </div>
                 <br>
                 <br>
@@ -128,22 +138,7 @@ require 'model.php';
                     <strong>Centres d'intérêt :</strong>
                     <div class="input_input_modif">
                         <div id="liste_categ"> 
-
-                                <?php $result = affichage_categ_recherche_avancee();
-                                     $compteur = 0;
-                                     while($categorie = mysqli_fetch_assoc($result)) {
-                                         if($compteur != 4){
-                                            echo'<div class="checkrecherche"><input type="checkbox" value='.$categorie['id_categ'].'>'.$categorie['nomCat'].'</div>&nbsp; &nbsp; &nbsp;';                               
-                                            $compteur = $compteur +1;
-                                     }
-                                         else{
-                                             echo'<br> <br>';
-                                             $compteur = 0;
-                                            }
-                                     }
-                                        ?>
-                                <?php mysqli_free_result($result); ?>
-
+                            <?php affichage_centre_interet() ?>
                         </div>
                     </div>
                 </div>

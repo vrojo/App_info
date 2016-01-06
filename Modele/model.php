@@ -205,3 +205,32 @@ function verfifMailEx($mail){
         return false;
     }
 }
+
+function affichage_centre_interet(){
+    $result = affichage_categ_recherche_avancee();
+    $compteur = 0;
+    while($categorie = mysqli_fetch_assoc($result)) {
+        if($compteur != 4){
+            echo'<div class="checkrecherche"><input type="checkbox" name = '.$categorie['nomCat'].' value='.$categorie['id_categ'].'>'.$categorie['nomCat'].'</div>&nbsp; &nbsp; &nbsp;';                               
+            $compteur = $compteur +1;
+        }
+        else{
+            echo'<br> <br>';
+            $compteur = 0;
+        }
+    }
+}
+
+function enregistrement_final($id, $nom, $prenom, $mail, $mdp, $numrue, $rue, $ville, $codepostal, $pays, $tel, $datenaissance, $description, $photo, $sexe){
+    global $connect;
+    mysqli_query($connect, "insert into adresse (numerorue, rue, ville, codepostal, pays) values ('$numrue','$rue','$ville','$codepostal','$pays')") or die("MySQL Erreur : " . mysqli_error($connect));  
+    $idadresse = mysqli_query($connect, "select id_adresse from adresse where numerorue='$numrue' and rue ='$rue' and ville='$ville' and codepostal='$codepostal' and pays='$pays'") or die("MySQL Erreur : " . mysqli_error($connect));
+    $tableauidadresse = mysqli_fetch_assoc($idadresse);
+    $idad = $tableauidadresse['id_adresse'];
+    mysqli_query($connect, "update utilisateur set nom_u = '$nom', prenom_u = '$prenom', date_de_naissance = '$datenaissance', description = '$description', photo_u = '$photo', mail = '$mail', telephone = '$tel', mot_de_passe = '$mdp', sexe = '$sexe', id_adresse = '$idad'  where id_utilisateur = '$id'") or die("MySQL Erreur : " . mysqli_errno($connect));
+}
+
+function enregistrement_centreinterets($idutilisateur, $idcateg){
+    global $connect;
+    mysqli_query($connect, "insert into preference (id_utilisateeur, id_categ) values ('$idutilisateur', '$idcateg')" or die("MySQL Erreur : " . mysqli_error($connect)));
+}

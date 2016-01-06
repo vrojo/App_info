@@ -233,23 +233,7 @@ function verifDescr(descr){
     }
 }
 
-function verifUrlphoto(url){
-    var regex = /^[a-zA-Z0-9\.-_\#\\\:]{,256}$/;
-    if(!regex.test(url.value))
-    {
-        erreur = "erreur_urlphoto";
-        message ="<br>Veuillez entrer un url valide.";
-        affiche(url, erreur, message, true);
-        return false;
-    }
-    else
-    {
-        message ="";
-        erreur = "erreur_urlphoto";
-        affiche(url, erreur, message, false);
-        return true;
-    }
-}
+
 
 function verifCompletModif(form){
     nom = document.getElementById("nom");
@@ -300,9 +284,6 @@ function verifCompletModif(form){
         return false;
     }
     if(description.style.color === "red"){
-        return false;
-    }
-    if(url.style.color === "red"){
         return false;
     }
     
