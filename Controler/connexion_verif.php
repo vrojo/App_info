@@ -45,7 +45,7 @@
 				$_SESSION['admin_utilisateur'] = $verif['admin'];
 				?>
 								<div id="titre_connexion">Connexion établie</br> Vous allez être redirigé sur la page d'accueil.</br> </br></div>
-								<meta http-equiv="refresh"  content="2; URL = accueil.php"/>
+								<meta http-equiv="refresh"  content="2; URL = ../Vue/accueil.php"/>
 				<?php
 		
 		}
@@ -53,7 +53,7 @@
 		{
 				?>
 					<div id="titre_connexion">Erreur de connexion</br> Vous allez être redirigé sur la page de connexion.</br> </br></div>
-					<meta http-equiv="refresh"  content="3; URL = connexion.php"/>
+					<meta http-equiv="refresh"  content="3; URL = ../Vue/connexion.php"/>
 
 				<?php
 		}

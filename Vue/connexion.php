@@ -36,7 +36,7 @@
         
         <div class="Connexion">
             <span id="titre_connexion">Connexion :</span>
-            <form action="connexion_verif.php" method="post" onsubmit="verifComplet()">
+            <form action="../Controler/connexion_verif.php" method="post" onsubmit="verifComplet()">
                 <input type="mail" name="adrconnexion" placeholder="Adresse mail" id="mail_connexion" onblur="verifMailConnexion(this)"> <span id="erreur_mail_connexion"></span>
                 <br>
                 <input type="password" name="mdpconnexion" placeholder="Mot de passe" oninput="verifMdpC(this)"><span id="erreur_mdpc"></span>

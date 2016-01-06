@@ -57,7 +57,7 @@ $description = $event['description_e'];
 $prix =$event['prix'];
 $privacy=$event['privacy'];
 $Id_crea=$event['id_utilisateur'];
-
+$Url_img_event=mysqli_fetch_assoc(mysqli_query($connect_e,"SELECT * from multimedia WHERE Event_id=$Event_id AND principale=1"));
 $particip=mysqli_query($connect_e,"select * from participation WHERE (Event_id=$Event_id AND id_utilisateur=$id_utilisateur)")->num_rows;
 
 function des_inscrire(){
