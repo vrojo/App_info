@@ -17,7 +17,7 @@ require 'model.php';
     <body>
         <?php include ("Header.php"); ?>
         
-        <form id="formulaire_modif" action="modification_verif.php" method="post">
+        <form id="formulaire_modif" action="modification_verif.php" method="post" onsubmit="return verifCompletModif(this)">
             <br>
             <br>
             <span id="titre_modif_princ">Modifiez votre profil et rejoignez le mouvement !!</span><br>
