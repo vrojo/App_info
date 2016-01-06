@@ -252,5 +252,61 @@ function verifUrlphoto(url){
 }
 
 function verifCompletModif(form){
+    nom = document.getElementById("nom");
+    prenom = document.getElementById("prenom");
+    mail = document.getElementById("mail");
+    mdp = document.getElementById("mdpmodif");
+    mdpc = document.getElementById("mdpconfmodif");
+    numrue = document.getElementById("numero_adresse");
+    rue = document.getElementById("rue_adresse");
+    ville = document.getElementById("ville_adresse");
+    codepostal = document.getElementById("codepostal_adresse");
+    pays = document.getElementById("pays_adresse");
+    telephone = document.getElementById("telephone");
+    description = document.getElementById("description");
+    url = document.getElementById("ajouterphoto");
     
+    if(nom.style.color === "red"){
+        return false;
+    }
+    if(prenom.style.color === "red"){
+        return false;
+    }
+    if(mail.style.color === "red"){
+        return false;
+    }
+    if(mdp.style.color === "red"){
+        return false;
+    }
+    if(mdpc.style.color === "red"){
+        return false;
+    }
+    if(numrue.style.color === "red"){
+        return false;
+    }
+    if(rue.style.color === "red"){
+        return false;
+    }
+    if(ville.style.color === "red"){
+        return false;
+    }
+    if(codepostal.style.color === "red"){
+        return false;
+    }
+    if(pays.style.color === "red"){
+        return false;
+    }
+    if(telephone.style.color === "red"){
+        return false;
+    }
+    if(description.style.color === "red"){
+        return false;
+    }
+    if(url.style.color === "red"){
+        return false;
+    }
+    
+    else{
+        return true;
+    }
 }
