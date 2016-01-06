@@ -1,16 +1,15 @@
 function affiche(champ, type_erreur, message_erreur, erreur)
 {
-   if(erreur){
+    compteur = 0;
+    if(erreur){
       champ.style.backgroundColor = "#fba";
       champ.style.color = "red";
-      document.getElementById("bouton_modif").style.visibility="hidden";
       document.getElementById(type_erreur).innerHTML = message_erreur;
       document.getElementById(type_erreur).style.color = "red";
     }
    else{
       champ.style.backgroundColor = "";
       champ.style.color = "";
-      document.getElementById("bouton_modif").style.visibility="visible";
       document.getElementById(type_erreur).innerHTML = message_erreur;
     }
 }
@@ -95,7 +94,7 @@ function verifMdp(mdp){
     if(!regex.test(mdp.value))
     {
         erreur = "erreur_mdp";
-        message ="<br>Veuillez entrer un mot de passe valide (Plus de 2 caractères et comprenants seulement des chiffres et des lettres.";
+        message ="<br>Veuillez entrer un mot de passe valide (Plus de 2 caractères et comprenant seulement des chiffres et des lettres).";
         affiche(mdp, erreur, message, true);
         return false;
     }
@@ -217,7 +216,7 @@ function verifTelephone(tel){
 }
 
 function verifDescr(descr){
-    var regex = /^[a-zA-Z0-9\s\'\.]+$/;
+    var regex = /^[a-zA-Z0-9\s\'\.\,]+$/;
     if(!regex.test(descr.value))
     {
         erreur = "erreur_description";
@@ -234,3 +233,24 @@ function verifDescr(descr){
     }
 }
 
+function verifUrlphoto(url){
+    var regex = /^[a-zA-Z0-9\.-_\#\\\:]{,256}$/;
+    if(!regex.test(url.value))
+    {
+        erreur = "erreur_urlphoto";
+        message ="<br>Veuillez entrer un url valide.";
+        affiche(url, erreur, message, true);
+        return false;
+    }
+    else
+    {
+        message ="";
+        erreur = "erreur_urlphoto";
+        affiche(url, erreur, message, false);
+        return true;
+    }
+}
+
+function verifCompletModif(form){
+    
+}
