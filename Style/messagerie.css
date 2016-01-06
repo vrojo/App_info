@@ -1,0 +1,187 @@
+.choix {
+	display:inline-block;
+}
+
+#choix_messages {
+	text-align:center;
+	background-color:#74DEF1;
+}
+
+#bloc_reponse {
+	text-align:center;
+	background-color:#80ff80;
+	width:50%;
+	border-radius:10px;
+	margin:5px;
+	margin-left:auto;
+	margin-right:auto;
+	border:2px solid black;
+	
+	position:fixed;
+	top:32%;
+	left:50%;
+	margin-left: -25%;
+}
+
+#bloc_reponse p {
+	color:white;
+}
+
+.message_envoye {
+	text-align:center;
+	background-color:#74DEF1;
+}
+
+.message_envoye p {
+	color:white;
+	font-size:1.5em;
+}
+
+.image_expediteur {
+	height:100%;
+	width:25%;
+	text-align:center;
+	display:inline-block;
+	margin-top:10px;
+}
+
+.image_expediteur img {
+	width:100%;
+	max-width:200px;
+	height:auto;
+	border-radius:100%;
+}
+
+.message {
+	display:inline-block;
+	width:80%;
+	height:auto;
+	margin:5px;
+	background-color:#80ff80;
+	border-radius:5px;
+}
+
+.nom_contact {
+	color:white;
+}
+
+#contenant_messages_recus {
+	text-align:center;
+	background-color:#74DEF1;
+}
+
+.contenu_message {
+	height:auto;
+	width:70%;
+	display:inline-block;
+	text-align:left;
+	vertical-align:top;
+	margin-top:10px;
+}
+
+.form_boutons {
+	display:inline-block;
+}
+
+.boutons_messages {
+	text-align:right;
+	vertical-align:bottom;
+	margin:10px;
+}
+
+.titre_message {
+	margin-left:10px;
+	color:white;
+}
+
+.texte_message {
+	margin-left:20px;
+	color:white;
+}
+
+.texte_message p {
+	word-wrap:break-word;
+}
+
+#texte {
+	width:95%;
+	min-height:200px;
+	resize:none;
+}
+
+.bouton_envoyer {
+	font-size:1em;
+	background-color:#74DEF1;
+	box-shadow: rgba(0,0,0,0.2) 2px 2px;
+	height:30px;
+	margin:0;
+	display:inline-block;
+	font-weight:bold;
+	color:white;
+	text-align:center;
+	border-radius:5px;
+	border:1px solid grey;
+}
+
+.bouton_envoyer:hover {
+	background-color:#68c7d8;
+	cursor:pointer;
+}
+
+.style_bouton_suppression {
+	font-size:1em;
+	background-color:red;
+	box-shadow: rgba(0,0,0,0.2) 2px 2px;
+	border-radius:5px;
+	height:30px;
+	margin:0;
+	display:inline-block;
+	font-weight:bold;
+	color:white;
+	text-align:center;
+	border-radius:5px;
+	border:1px solid grey;
+}
+
+.style_bouton_suppression:hover {
+	cursor:pointer;
+	background-color:#e50000;
+}
+
+.Bouton_choix{
+	font-size:1em;
+	float:left;
+	position:relative;
+	background-color:#80ff80;
+	box-shadow: rgba(0,0,0,0.2) 2px 2px;
+	width:100%;
+	height:50px;
+	margin:0;
+	display:inline-block;
+	font-weight:bold;
+	color:white;
+	text-align:center;
+	border-radius:5px;
+	border:1px solid grey;
+}
+
+.Bouton_choix:hover{
+	background-color:#87e052;
+	cursor:pointer;
+}
+
+#ecriture_message {
+	text-align:center;
+	background-color:#80ff80;
+	width:50%;
+	border-radius:10px;
+	margin:5px;
+	margin-left:auto;
+	margin-right:auto;
+}
+
+#contenant_envoyer_message {
+	border:1px solid #74DEF1;
+	display:block;
+	background-color:#74DEF1;
+}
