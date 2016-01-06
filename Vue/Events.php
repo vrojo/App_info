@@ -18,7 +18,7 @@
 		?>
 		<div id="bandeaupresevent" style="height:<?php echo $hbandeaupres ?>px">
 			<div class="bleft" >
-				<div class="bandeauhaut"><div class="Eventpic" style="background-image:url(http://www.rockenseine.com/wp-content/uploads/2015/09/VP2_7163RES-1024x683.jpg)"></div></div>
+				<div class="bandeauhaut"><div class="Eventpic" style="background-image:url(<?php echo $Url_img_event['urlimg_event'] ?>)"></div></div>
 				<div class="bandeaubas" ><div id="map" style="transform: translate(-50%,-50%);"></div></div>
 			</div>
 			<div class="bright">

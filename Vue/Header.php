@@ -55,7 +55,7 @@ require'fonctions_simplevent.php'; ?>
 							<p style="display:inline-block; float:left; position:relative;left:5%;color:#74def1;"><?php echo "$prenom_u $nom_u"?></p>
 						</div>
 					</div>
-					<a href="deconnexion.php" style="color:inherit"><div class="bandeaubas" style="height:35%;">
+					<a href="../Modele/deconnexion.php" style="color:inherit"><div class="bandeaubas" style="height:35%;">
 						<p  style="position:relative; display:inline-block; text-align:center">Se déconnecter</p>
 					</div></a>
 				</div>						

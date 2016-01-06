@@ -57,7 +57,7 @@ $description = $event['description_e'];
 $prix =$event['prix'];
 $privacy=$event['privacy'];
 $Id_crea=$event['id_utilisateur'];
-
+$Url_img_event=mysqli_fetch_assoc(mysqli_query($connect_e,"SELECT * from multimedia WHERE Event_id=$Event_id AND principale=1"));
 $particip=mysqli_query($connect_e,"select * from participation WHERE (Event_id=$Event_id AND id_utilisateur=$id_utilisateur)")->num_rows;
 
 function des_inscrire(){
@@ -124,8 +124,8 @@ while ($data = mysqli_fetch_assoc($result)) {
 					</div>
 				</div>
 			</div>
-			<div class="bleft" style="width:50%; height:100%">
-				<p style="position:absolute;margin: 0; text-align:left; top:50%; transform:translate(0,-50%)"><?php echo $data['texte_co']; ?> </p>
+			<div class="bleft" style="width:50%; height:100%; word-wrap: break-word">
+				<p style="position:absolute;margin: 0; text-align:left; top:50%; transform:translate(0,-50%);overflow-wrap: break-word"><?php echo $data['texte_co']; ?> </p>
 			</div>
 			<div class="bright" style="width:20%; height:100%">
 				<?php 
