@@ -56,7 +56,7 @@ else{
 </html>
 
 	<?php
-	header("Refresh: 3, url=Accueil.php");
+	header("Refresh: 3, url=../Vue/Accueil.php");
 	ob_flush();
 	exit();
 	

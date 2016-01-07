@@ -46,7 +46,7 @@ function recup_com(){
 				<?php 
 				if (verifadmin($id_utilisateur)==1 or $id_utilisateur==$Id_crea){?>
 	
-					<a href="suprcom.php?i_com=<?php echo $data["id_commentaire"]?>"><img src="https://www.dropbox.com/s/ug1ko8f86ijv7t4/delete-462216_1280.png?raw=1" class="report" title="Supprimer ce commentaire" style="max-height:25px"/></a>
+					<a href=" ../modele/suprcom.php?i_com=<?php echo $data["id_commentaire"]?>"><img src="https://www.dropbox.com/s/ug1ko8f86ijv7t4/delete-462216_1280.png?raw=1" class="report" title="Supprimer ce commentaire" style="max-height:25px"/></a>
 				<?php }?>
 			</div>
 		</div> 

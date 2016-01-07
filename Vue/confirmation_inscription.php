@@ -23,7 +23,7 @@
                             Il semblerait que vous ne soyez pas enregistré dans notre base de données.
                             Veuillez réessayer plus tard.
                         </div>
-                        <meta http-equiv="Refresh" content="1; url=Simplevent.php">
+                        <meta http-equiv="Refresh" content="1; url=../Vue/Simplevent.php">
 
                         <?php
                     }
@@ -34,7 +34,7 @@
                             Vous allez être redirigé vers la page d'accueil du site afin de vous y connecter.
                             Vous pourrez modifier vos informations de profil afin de profiter d'une meilleure expérience sur Simplevent !
                         </div>
-                        <meta http-equiv="Refresh" content="2; url=Simplevent.php">
+                        <meta http-equiv="Refresh" content="2; url=../vue/Simplevent.php">
                         <?php
                     }
                 }
@@ -43,7 +43,7 @@
                     <div class='message_erreur'>
                         Merci de ne pas tenter d'acceder à des pages qui ne vous sont pas destinées.
                     </div>
-                    <meta http-equiv="Refresh" content="2; url=Simplevent.php">    
+                    <meta http-equiv="Refresh" content="2; url=../Vue/Simplevent.php">    
                     <?php
                     
                 }

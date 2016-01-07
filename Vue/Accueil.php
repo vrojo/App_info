@@ -20,7 +20,7 @@ $Accueil=TRUE;
 			exit();
 			}
 		if(verifco($_SESSION['mot_de_passe'],$_SESSION['id_utilisateur'])==FALSE){
-			header("Refresh:0 ,url=Simplevent.php");
+			header("Refresh:0 ,url=../Vue/Simplevent.php");
 			session_destroy();
 			exit();
 			}
@@ -32,10 +32,10 @@ $Accueil=TRUE;
 					<input type="submit" class="boutonrecherche" value="Recherche d'événements">
 					
 				</form>
-                    <div id="b1bas"><a href="RechAvan.php"><div class="Bouton" ><p>Recherche avancée</p></div></a></div>
+                    <div id="b1bas"><a href="../Vue/RechAvan.php"><div class="Bouton" ><p>Recherche avancée</p></div></a></div>
 			</div>
 			<div class="bandeaubas">
-                            <a href="creationevent.php"><div class="Bouton"><p>Créer un événement</p></div></a>
+                            <a href="../Vue/creationevent.php"><div class="Bouton"><p>Créer un événement</p></div></a>
 			</div>
 	    </div>
 	    <div id="bandeau2">
