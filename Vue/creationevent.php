@@ -18,7 +18,7 @@ and open the template in the editor.
     
         <body>
             <?php include ("Header.php"); ?>
-            <form action="eventcree.php" method="POST">
+            <form action="../Modele/eventcree.php" method="POST">
 
             <table align="center" id="table1">
             

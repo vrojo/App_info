@@ -28,7 +28,7 @@
                     ?>
 				  
 					<div id="titre_connexion">Erreur de connexion</br> Vous devez confirmer votre inscrition à partir du lien que vous avez reçu sur votre mail d'inscription.</br> </br></div>
-					<meta http-equiv="refresh"  content="2; URL = connexion.php"/>
+					<meta http-equiv="refresh"  content="2; URL = ../Vue/connexion.php"/>
 					
                 <?php
         

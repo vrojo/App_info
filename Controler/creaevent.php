@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-$connect = mysqli_connect("localhost", "root", "", "bddsimplevent");
+$connect = mysqli_connect("localhost", "root", "root", "bddsimplevent");
 if (!$connect) {
     printf("Ã‰chec de la connexion : %s\n", mysqli_connect_error());
     exit();
@@ -83,14 +83,14 @@ function select_one_event($Event_id) {
                             <?php echo $event['description']; ?>
                 </td>
                 <td>
-                            <?php echo '<a href="creaevent.php?action=modifier&Event_id='.$event['Event_id'].'">modifier</a>'; ?>
+                            <?php echo '<a href=" ../controler/creaevent.php?action=modifier&Event_id='.$event['Event_id'].'">modifier</a>'; ?>
                 </td>
             </tr>
                     <?php }
                 mysqli_free_result($result); ?>
 
         </table>
-        <a href="creaevent.php?action=ajouter">ajouter</a>
+        <a href=" ../controler/creaevent.php?action=ajouter">ajouter</a>
             <?php } ?>
     </body>
 </html>

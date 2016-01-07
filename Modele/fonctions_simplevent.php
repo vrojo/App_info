@@ -82,7 +82,7 @@ function blocresum($type,$id){
 			$image_event=mysqli_fetch_assoc($image_event);
 			
 			?>
-		<a href="Events.php?Event_id=<?php echo $data['Event_id']?>"><div class="petitblocresum">
+		<a href="../Vue/Events.php?Event_id=<?php echo $data['Event_id']?>"><div class="petitblocresum">
 			<div class="bleft">
 				<div class="bandeauhaut" style="height:25%;">
 					<p style="font-size:0.4em;text-align:center;margin:0"><?php echo $data['Nom_e']?></p>

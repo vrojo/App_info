@@ -8,7 +8,7 @@
         <title></title>
     </head>
     <body>
-        <link type="text/css" rel="stylesheet" href="Header.css"/>
+        <link type="text/css" rel="stylesheet" href="../style/Header.css"/>
        <?php include ("Header.php"); ?>
         <?php
 require 'fonctions_crea_event.php';
