@@ -1,0 +1,108 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 19 nov. 2015, 09:05:36
+    Author     : Vincent
+*/
+
+div{
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+#table1{
+    position:absolute;
+    height:500px;
+    width:100%;
+    text-align:center;
+}
+
+#photoprofil{
+    border-radius:100px;
+}
+
+#msg{
+    font-size:1em;
+    position:relative;
+    background-color:#80FF80;
+    box-shadow: 1px 2px 5px #bfbfbf, 0px -2px 5px #bfbfbf;
+    width:180px;
+    height:20px;
+    display:inline-block;
+    font-weight:bold;
+    transform: translate(0,-50%);
+    color:white;
+    text-align:center;
+    border:none;
+    border-radius:5px;
+    margin-top: 5px;
+}
+
+#msg:hover{
+	cursor:pointer;
+        background-color:#00ce00 ;
+         box-shadow: 1px 2px 5px black, 0px -2px 5px black;
+         font-weight:normal;
+}
+
+#msg2{
+    font-size:1em;
+    position:relative;
+    background-color:#80FF80;
+    box-shadow: 1px 2px 5px #bfbfbf, 0px -2px 5px #bfbfbf;
+    width:380px;
+    height:20px;
+    display:inline-block;
+    font-weight:bold;
+    transform: translate(0,-50%);
+    color:white;
+    text-align:center;
+    border:none;
+    border-radius:5px;
+    margin-top: 15px;
+}
+#msg2:hover{
+	cursor:pointer;
+        background-color:#00ce00 ;
+         box-shadow: 1px 2px 5px black, 0px -2px 5px black;
+         font-weight:normal;
+}
+
+#add{
+    height:50px;
+    width:50px;
+}
+#addqq{
+    padding-top:0px;
+    padding-left:20px;
+    padding-right:20px;
+}
+#addqq2{
+    padding-top:0px;
+    padding-bottom: 200px;
+}
+#aparticipe{
+    padding-left: 20%;
+}
+
+#img{
+    width:200px;
+}
+
+#pageuser{
+    width:100%;
+    clear:both;
+    float:left;
+    height:1000px;
+    background-color:#74def1;
+    padding-top:20px;
+    margin:0;
+    background:0.75;
+    box-shadow: rgba(0,0,0,0.2) 2px 2px ;
+    text-align:center;
+    position:relative;
+    z-index:5;
+}
