@@ -18,33 +18,36 @@
 		?>
 		
 		<div id="choix_messages">
-			<form method="get" action="http://localhost/simplevent/messagerie.php" class="choix">
+			<form method="get" action="http://localhost/Versionsitefinale/messagerie.php" class="choix">
 				</br>
 				<input type="hidden" name="but" value="ecrire_un_message" />
 				<input type="submit" value="Ecrire un message" class="Bouton_choix"/>
 				</br>
+                                </br>
 			</form>
-			<form method="get" action="http://localhost/simplevent/messagerie.php" class="choix">
+			<form method="get" action="http://localhost/Versionsitefinale/messagerie.php" class="choix">
 				</br>
 				<input type="hidden" name="but" value="messages_recus" />
 				<input type="submit" value="Messages reçus" class="Bouton_choix"/>
 				</br>
+                                </br>
 			</form>
-			<form method="get" action="http://localhost/simplevent/messagerie.php" class="choix">
+			<form method="get" action="http://localhost/Versionsitefinale/messagerie.php" class="choix">
 				</br>
 				<input type="hidden" name="but" value="messages_envoyes" />
 				<input type="submit" value="Messages envoyés" class="Bouton_choix"/>
 				</br>
+                                </br>
 			</form>
 		</div>
 		
 		<?php
 		if (isset($_POST['id_suppr'])) {
 			if ($_POST['type']=="recus") {
-				mysqli_query($connect, "update messagerie set id_destinataire=0 where id_destinataire=".$_SESSION['id_utilisateur']."");
+				mysqli_query($connect, "update messagerie set id_destinataire=0 where id_message=".$_POST['id_suppr']."");
 			}
 			else {
-				mysqli_query($connect, "update messagerie set id_expediteur=0 where id_expediteur=".$_SESSION['id_utilisateur']."");
+				mysqli_query($connect, "update messagerie set id_expediteur=0 where id_message=".$_SESSION['id_suppr']."");
 			}
 		}
 		
@@ -159,7 +162,7 @@
 					</br>
 					<p>Réponse à <?php echo($_POST['nom_reponse']) ?></p>
 					<p>Sujet : Re : <?php echo($_POST['sujet_reponse'])?></p>
-					<form method="POST" action="http://localhost/simplevent/messagerie.php?but=ecrire_un_message">
+					<form method="POST" action="http://localhost/Versionsitefinale/messagerie.php?but=ecrire_un_message">
 						<input type="hidden" name="destinataire" value=<?php echo($_POST['id_reponse']) ?> />
 						<input type="hidden" name="sujet" value="RE :<?php echo($_POST['sujet_reponse'])?>" />
 						<label for="texte">Texte : </label>

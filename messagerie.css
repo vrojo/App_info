@@ -68,6 +68,8 @@
 #contenant_messages_recus {
 	text-align:center;
 	background-color:#74DEF1;
+        min-height:300px;
+        width:100%;
 }
 
 .contenu_message {
