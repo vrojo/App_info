@@ -96,9 +96,9 @@ function affichage_topics(){
                 }        
 }        
 
-function inscriptionpreleminaire($mail, $mdp, $confinsc){
+function inscriptionpreleminaire($mail, $mdp, $confinsc, $confmod){
     global $connect;
-    mysqli_query($connect, "insert into utilisateur (mail, mot_de_passe, confirmation_inscription) values ('$mail', '$mdp', '$confinsc')") or die("MySQL Erreur : " . mysqli_error($connect));
+    mysqli_query($connect, "insert into utilisateur (mail, mot_de_passe, confirmation_inscription, conf_mod_prof) values ('$mail', '$mdp', '$confinsc', '$confmod')") or die("MySQL Erreur : " . mysqli_error($connect));
     $result = mysqli_query($connect, "select id_utilisateur from utilisateur where mail='$mail'") or die("MySQL Erreur : " . mysqli_error($connect));
     $tableauResult = mysqli_fetch_assoc($result);
     $id = $tableauResult['id_utilisateur'];
@@ -225,7 +225,8 @@ function enregistrement_final($id, $nom, $prenom, $mail, $mdp, $numrue, $rue, $v
     $idadresse = mysqli_query($connect, "select id_adresse from adresse where numerorue='$numrue' and rue ='$rue' and ville='$ville' and codepostal='$codepostal' and pays='$pays'") or die("MySQL Erreur : " . mysqli_error($connect));
     $tableauidadresse = mysqli_fetch_assoc($idadresse);
     $idad = $tableauidadresse['id_adresse'];
-    mysqli_query($connect, "update utilisateur set nom_u = '$nom', prenom_u = '$prenom', date_de_naissance = '$datenaissance', description = '$description', photo_u = '$photo', mail = '$mail', telephone = '$tel', mot_de_passe = '$mdp', sexe = '$sexe', id_adresse = '$idad'  where id_utilisateur = '$id'") or die("MySQL Erreur : " . mysqli_errno($connect));
+    $confmod = 1;
+    mysqli_query($connect, "update utilisateur set nom_u = '$nom', prenom_u = '$prenom', date_de_naissance = '$datenaissance', description = '$description', photo_u = '$photo', mail = '$mail', telephone = '$tel', mot_de_passe = '$mdp', sexe = '$sexe', id_adresse = '$idad', conf_mod_prof = '$confmod'  where id_utilisateur = '$id'") or die("MySQL Erreur : " . mysqli_errno($connect));
 }
 
 function enregistrement_centreinterets($idutilisateur, $idcateg){

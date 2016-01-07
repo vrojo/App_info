@@ -13,7 +13,7 @@
             include("Header.php");
             
             if(verfifMailEx($_POST['mail'])){
-                inscriptionpreleminaire($_POST['mail'], $_POST['mdpconnexion'], 0);
+                inscriptionpreleminaire($_POST['mail'], $_POST['mdpconnexion'], 0, 0);
                 $verifenvoi = envoimail_confirmation($_POST['mail']);          
                 if($verifenvoi == 0){
                     ?>

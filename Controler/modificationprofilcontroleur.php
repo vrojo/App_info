@@ -18,7 +18,7 @@ if(isset($_POST['enregistrer']) and isset($_POST['nom_u']) and isset($_POST['pre
     else{
         $sexe = 0;
     }
-    $url = "";
+    $url = "test";
     enregistrement_final($_SESSION['id_utilisateur'], $_POST['nom_u'], $_POST['prenom_u'], $_POST['mail'], $_POST['mot_de_passe'], $_POST['numero_adresse'], $_POST['rue_adresse'], $_POST['ville_adresse'], $_POST['codepostal_adresse'], $_POST['pays_adresse'], $_POST['telephone'], $_POST['date_de_naissance'], $_POST['description'], $url, $sexe);
     
     
