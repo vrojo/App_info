@@ -8,7 +8,7 @@ $Accueil=TRUE;
 <html>
 	<head>
 		<meta charset="utf-8" />
-		<link type="text/css" rel="stylesheet" href="Accueil.css"/>
+		<link type="text/css" rel="stylesheet" href="../Style/Accueil.css"/>
 		<title>Accueil</title>
 	</head>
 	<body>

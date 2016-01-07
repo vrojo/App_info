@@ -5,7 +5,7 @@ session_start();
 <html>
 	<head>
 		<meta charset="utf-8" />
-		<link type="text/css" rel="stylesheet" href="Evenements2.css"/>
+		<link type="text/css" rel="stylesheet" href="../Style/Evenements2.css"/>
 		<script type="text/javascript" src="../Controler/Evenements2.js"></script>
 		<title>Evénements</title>
 	</head>

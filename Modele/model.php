@@ -4,8 +4,6 @@ require 'PHPMailerAutoload.php';
 $connect = mysqli_connect("localhost", "root", "", "bddsimplevent");
 mysqli_set_charset($connect,"utf8");
 
-
-
 function affichage_categ_recherche_avancee(){
     global $connect;
     $result = mysqli_query($connect, "select * from categorie order by nomCat") or die("MsQL Erreur : ".mysqli_errno($connect));

@@ -1,5 +1,5 @@
 
-<link type="text/css" rel="stylesheet" href="Header.css"/>
+<link type="text/css" rel="stylesheet" href="../Style/Header.css"/>
 
 <?php 
 
@@ -27,7 +27,7 @@ require'fonctions_simplevent.php'; ?>
 			
 	</div>
 	<div class="bandeaubas">
-	<?php if (verifco($mdp,$id_utilisateur)==TRUE){?> 
+	<?php if (verifco($mdp,$id_utilisateur)=='CONNECTE' OR verifco($mdp,$id_utilisateur)=='MODIF'){?> 
 		<div id="menu">
 			<a href="Accueil.php"><div class="Boutonmenu"><p>Accueil</p> </div></a>
 			<div class="Boutonmenu">
@@ -72,6 +72,10 @@ require'fonctions_simplevent.php'; ?>
 				<a href="connexion.php"><div class="Boutonmenu"><p>Se connecter </p> 
 				</div></a>
 		</div>
-	<?php } ?>
+	<?php } 
+if (verifco($mdp,$id_utilisateur)=='MODIF'){
+	?>	<meta http-equiv="refresh"  content="0.5; URL = ../Vue/modificationprofil.php?modif=1"/> <?php
+}
+	?>
 	</div>
 </div>

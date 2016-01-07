@@ -15,17 +15,21 @@ else{
 }
 function verifco($mdp,$id_utilisateur){
 	global $connect_e;
-	$result=mysqli_query($connect_e, "SELECT mot_de_passe from utilisateur where id_utilisateur=$id_utilisateur");
+	$result=mysqli_query($connect_e, "SELECT * from utilisateur where id_utilisateur=$id_utilisateur");
 	$result=mysqli_fetch_assoc($result);
 	$motpasse=$result['mot_de_passe'];
+	$conf_mod_prof=$result['conf_mod_prof'];
 	if ($id_utilisateur==0){
 		return FALSE;
 	}
-	elseif($mdp==$motpasse){
-		return TRUE;
+	elseif($mdp==$motpasse && $conf_mod_prof==0 && !isset($_GET['modif'])){
+		return 'MODIF';
+	}
+	elseif($mdp==$motpasse && $conf_mod_prof==1 OR $mdp==$motpasse && $conf_mod_prof==0 && isset($_GET['modif'])){
+		return 'CONNECTE';
 	}
 	else{
-		return FALSE;
+		return 'PASCONNECTE';
 	}
 	
 }

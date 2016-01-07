@@ -1,4 +1,4 @@
- 		<link type="text/css" rel="stylesheet" href="Footer.css"/>
+ 		<link type="text/css" rel="stylesheet" href="../Style/Footer.css"/>
 		<div id="footer">
 			<div id="utilisation">
 				<h4 class="titre_footer">Utilisation de SimplEvent :</h4>

@@ -4,7 +4,7 @@
 <html>
 	<head>
 		<meta charset="utf-8" />
-		<link type="text/css" rel="stylesheet" href="Events.css"/>
+		<link type="text/css" rel="stylesheet" href="../Style/Events.css"/>
 		<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBTJ7EKiUmBXBsHrnojWCg36xdAKObOLqM"></script>
 		<script type="text/javascript" src="../Modele/Eventmap.js"></script>
 		

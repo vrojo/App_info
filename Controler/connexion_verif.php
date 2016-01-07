@@ -19,7 +19,7 @@
 	            ?>
 				  
 					<div id="titre_connexion">Erreur de connexion</br> Vous allez être redirigé sur la page de connexion.</br> </br></div>
-					<meta http-equiv="refresh"  content="2; URL = connexion.php"/>
+					<meta http-equiv="refresh"  content="2; URL = ../Vue/connexion.php"/>
 					
                 <?php
                        
