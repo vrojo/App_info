@@ -6,7 +6,7 @@
         <meta charset="utf-8"/>
     </head>
     
-    <link type="text/css" rel="stylesheet" href="gestion_utilisateur.css"/>
+    <link type="text/css" rel="stylesheet" href="../Style/gestion_utilisateur.css"/>
 
     <body>
         

@@ -6,7 +6,7 @@
         <meta charset="utf-8"/>
     </head>
     
-    <link type="text/css" rel="stylesheet" href="forum.css"/>
+    <link type="text/css" rel="stylesheet" href="../Style/forum.css"/>
 
     <body>
         

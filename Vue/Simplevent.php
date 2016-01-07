@@ -7,7 +7,7 @@
 <html>
 	<head>
 		<meta charset="utf-8" />
-		<link type="text/css" rel="stylesheet" href="Simplevent.css"/>
+		<link type="text/css" rel="stylesheet" href="../Style/Simplevent.css"/>
 		<title>Simplevent</title>
 	</head>
 	<body>

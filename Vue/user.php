@@ -11,7 +11,7 @@ and open the template in the editor.
     <head>
         <title>profiluser</title>
         <meta charset="UTF-8">
-        <link type="text/css" rel="stylesheet" href="profiluser.css"/>
+        <link type="text/css" rel="stylesheet" href="../Style/profiluser.css"/>
     </head>
     
     <body>

@@ -3,7 +3,7 @@
     <head>
 	<title>Inscription</title>
 	<meta charset="utf-8"/>
-        <link type="text/css" rel="stylesheet" href="message_d_inscription.css"/>
+        <link type="text/css" rel="stylesheet" href="../Style/message_d_inscription.css"/>
         <script type="text/javascript" src="message_d_inscription.js"></script>    
     </head>       
     

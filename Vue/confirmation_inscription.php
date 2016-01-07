@@ -4,7 +4,7 @@
         
         <title>Confirmation d'inscription</title>
         <meta charset="utf-8"/>
-        <link type="text/css" rel="stylesheet" href="confirmation_inscription.css"/>
+        <link type="text/css" rel="stylesheet" href="../Style/confirmation_inscription.css"/>
         <script type="text/javascript" src="confirmation_inscription.js"></script>
     </head>
            

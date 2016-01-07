@@ -8,7 +8,7 @@ session_start();
         <title>Recherche d'événement :</title>
         <meta charset="utf-8"/>
     </head>
-           <link type="text/css" rel="stylesheet" href="RechercheAvanceeFinale.css"/>
+           <link type="text/css" rel="stylesheet" href="../Style/RechercheAvanceeFinale.css"/>
 
     <body>
         <?php include ("Header.php"); ?>

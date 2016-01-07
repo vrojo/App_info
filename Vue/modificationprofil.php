@@ -13,7 +13,7 @@ require 'model.php';
         <meta charset="utf8"
     
     </head>
-    <link type="text/css" rel="stylesheet" href="modificationprofil.css"/>
+    <link type="text/css" rel="stylesheet" href="../Style/modificationprofil.css"/>
     <script type="text/javascript" src="modificationprofil.js"></script>
     <body>
         <?php include ("Header.php"); ?>

@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<meta charset="utf-8" />
-		<link type="text/css" rel="stylesheet" href="messagerie.css"/>
+		<link type="text/css" rel="stylesheet" href="../Style/messagerie.css"/>
 		<title>Messagerie</title>
 	</head>
 	

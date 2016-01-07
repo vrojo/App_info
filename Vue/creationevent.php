@@ -12,7 +12,7 @@ and open the template in the editor.
  
     <head>
         <meta charset="UTF-8">
-           <link type="text/css" rel="stylesheet" href="creationevent.css"/>
+           <link type="text/css" rel="stylesheet" href="../Style/creationevent.css"/>
         <title>Création d'événement</title>
     </head>
     

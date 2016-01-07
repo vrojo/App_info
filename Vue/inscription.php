@@ -12,7 +12,7 @@ require 'fonctions_inscription.php';
         <meta charset="utf8"
     
     </head>
-    <link type="text/css" rel="stylesheet" href="Inscription.css"/>
+    <link type="text/css" rel="stylesheet" href="../Style/Inscription.css"/>
     <body background="http://images.forwallpaper.com/files/thumbs/preview/72/727174__background-graphics-wallpaper-screensaver-blue-pictures_p.jpg">
         <?php include ("Header.php"); ?>
         <form action="inscriptionfaite.php" method="POST">

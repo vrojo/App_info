@@ -3,7 +3,7 @@
  
 	<head>
 		<title>Slider</title>
-		<link type="text/css" rel="stylesheet" href="carrousel2.css"/>
+		<link type="text/css" rel="stylesheet" href="../Style/carrousel2.css"/>
 		<script type="text/javascript" src="carrousel2.js"></script>
 	</head>
  

@@ -7,7 +7,7 @@
         <meta charset="utf-8"/>
        
     </head>
-            <link type="text/css" rel="stylesheet" href="BackOffice.css"/>
+            <link type="text/css" rel="stylesheet" href="../Style/BackOffice.css"/>
 
     <body>
         <?php include("Header.php"); ?>

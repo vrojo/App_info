@@ -7,7 +7,7 @@
         <meta charset="utf-8"/>
     </head>
     
-    <link type="text/css" rel="stylesheet" href="gestion_categorie.css"/>
+    <link type="text/css" rel="stylesheet" href="../Style/gestion_categorie.css"/>
 
     <body>
         

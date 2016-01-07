@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<meta charset="utf-8" />
-		<link type="text/css" rel="stylesheet" href="aide.css"/>
+		<link type="text/css" rel="stylesheet" href="../Style/aide.css"/>
 		<script type="text/javascript" src="aide.js"></script>
 		<title>Aide</title>
 	</head>
