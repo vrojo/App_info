@@ -41,11 +41,7 @@ function modification_categorie(){
                 
                 
                 if($compteur==1){
-                    echo'<div class="nomcateg">';
-                    while($categorie = mysqli_fetch_assoc($result)) {
-                        echo '<div class="nom_de_categ">'.$categorie['nomCat'].'</div>';
-                        }
-                    echo'</div>';
+                    
                     
                     
                     $result = affichage_categ_recherche_avancee();
@@ -54,9 +50,11 @@ function modification_categorie(){
                     while($categorie = mysqli_fetch_assoc($result)) {                
                         
                         echo'<form action="gestion_categorie.php" method="post">';
+                        echo '<div class="nom_de_categ">'.$categorie['nomCat'].'</div>';
                         echo'<input type="text" class="zone_modification_categ" placeholder="modification" name='.$categorie['nomCat'].'> ';
                         echo'<input type="submit" value="supprimer/modifier" class="bouton_suppression_categ" name='.$categorie['id_categ'].'>';
                         echo'</form>';
+                       
                     }
                     $compteur = 0;
                 }
@@ -231,5 +229,5 @@ function enregistrement_final($id, $nom, $prenom, $mail, $mdp, $numrue, $rue, $v
 
 function enregistrement_centreinterets($idutilisateur, $idcateg){
     global $connect;
-    mysqli_query($connect, "insert into preference (id_utilisateeur, id_categ) values ('$idutilisateur', '$idcateg')" or die("MySQL Erreur : " . mysqli_error($connect)));
+    mysqli_query($connect, "insert into preference (id_utilisateur, id_categ) values ('$idutilisateur','$idcateg')") or die("MySQL Erreur : " . mysqli_error($connect));      
 }

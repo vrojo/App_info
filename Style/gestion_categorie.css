@@ -22,7 +22,6 @@
     height:30px;
     display:inline-block;
     font-weight:bold;
-    transform: translate(0,-50%);
     color:white;
     border:none;
     border-radius:5px;
@@ -56,23 +55,25 @@
     color:white;
     border:none;
     border-radius:5px;
-    margin-left:35%;  
+    margin-left:35%;
 }
 
 .nomcateg{
     text-align: left;
     margin-left:20%;
     margin-right:1%;
-    display:inline-block;
+    display:column;
     margin-bottom:5%;
     padding-top:1px
 }
 
 .zone_input_categ {
     margin:0;
-    display:inline-block;
+    display:column;
     padding-bottom:0;
     margin-bottom:5%;
+    margin-left: 15%;
+    width:55%;
 }
 
 .nom_de_categ {
