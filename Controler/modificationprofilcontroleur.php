@@ -1,6 +1,6 @@
 <?php
 session_start();
-require 'model.php';
+require '../Modele/model.php';
 
 $result = affichage_categ_recherche_avancee();
     

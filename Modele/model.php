@@ -1,8 +1,10 @@
 <?php
-require 'PHPMailerAutoload.php';
+require '../reste/PHPMailerAutoload.php';
 
 $connect = mysqli_connect("localhost", "root", "", "bddsimplevent");
 mysqli_set_charset($connect,"utf8");
+
+
 
 function affichage_categ_recherche_avancee(){
     global $connect;

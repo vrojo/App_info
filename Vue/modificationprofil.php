@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-require 'model.php';
+require '../Modele/model.php';
 
 ?>
 <!DOCTYPE html>
@@ -14,11 +14,11 @@ require 'model.php';
     
     </head>
     <link type="text/css" rel="stylesheet" href="../Style/modificationprofil.css"/>
-    <script type="text/javascript" src="modificationprofil.js"></script>
+    <script type="text/javascript" src="../Modele/modificationprofil.js"></script>
     <body>
-        <?php include ("Header.php"); ?>
+        <?php include ("../Vue/Header.php"); ?>
         
-        <form id="formulaire_modif" action="modificationprofilcontroleur.php" method="post" onsubmit="return verifCompletModif(this)">
+        <form id="formulaire_modif" action="../Controler/modificationprofilcontroleur.php" method="post" onsubmit="return verifCompletModif(this)">
             <br>
             <br>
             <span id="titre_modif_princ">Modifiez votre profil et rejoignez le mouvement !!</span><br>
@@ -159,7 +159,7 @@ require 'model.php';
             </div>
         </form>
     </body>
-    <?php include("footer.php")?>
+    <?php include("../Vue/footer.php")?>
 </html>
 
 
