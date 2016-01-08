@@ -1,0 +1,3 @@
+include_path=".;C:\wamp\www\App_info\reste\PHPMailer-master;C:\wamp\www\App_info\Modele;C:\wamp\www\App_info\Controler;C:\wamp\www\App_info\Vue"
+
+
