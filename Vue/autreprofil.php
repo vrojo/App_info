@@ -9,7 +9,7 @@
 <html>
 	<head>
 		<meta charset="utf-8" />
-		<link type="text/css" rel="stylesheet" href="autreprofil.css"/>
+		<link type="text/css" rel="stylesheet" href="../Style/autreprofil.css"/>
 		<script type="text/javascript" src="monprofil.js"></script>
 		<title><?php echo($profil['prenom_u'])?> <?php echo($profil['nom_u'])?></title>
 	</head>

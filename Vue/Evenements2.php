@@ -6,7 +6,7 @@ session_start();
 	<head>
 		<meta charset="utf-8" />
 		<link type="text/css" rel="stylesheet" href="../Style/Evenements2.css"/>
-		<script type="text/javascript" src="../Controler/Evenements2.js"></script>
+		<script type="text/javascript" src="Evenements2.js"></script>
 		<title>Evénements</title>
 	</head>
 	
@@ -23,30 +23,43 @@ session_start();
 		
 	if($cacher==0){?>
 		<div id="formulaire_page_resultat">
-			<form method="post" action="Evenements2.php">
-				<label for="mot_clef">Mot clef : </label>
+			<form method="post" action="Evenements2.php" id="formulaire_resultat">
+				<label for="mot_clef" style="color:white ; font-size:1.5em;">Mot clef : </label>
 				<input type="text" name="mot_clef" id="mot_clef" autofocus placeholder="exemple : Festival"/>
 				<input type="hidden" name="ville_evenement" value="%" />
 				<input type="hidden" name="departement_evenement" value="%" />
 				<input type="hidden" name="date_debut" value="<?php echo(date("Y-m-d")) ?>">
 				<input type="hidden" name="date_fin" value="8000-12-31">
-				<input type="submit" value="Go !" />
+				<input type="submit" value="Go !" class="Bouton_evenements"/>
+				</br>
+				</br>
 			</form>
-			<br>
-			<form method="post" action="Evenements2.php">
-				<input type="hidden" name="mot_clef" value="" />
-				<input type="hidden" name="ville_evenement" value="%" />
-				<input type="hidden" name="departement_evenement" value="%" />
-				<input type="hidden" name="date_debut" value="<?php echo(date("Y-m-d")) ?>">
-				<input type="hidden" name="date_fin" value="8000-12-31">
-				<input type="submit" value="Afficher tous les événements" />
-			</form>
+				<form method="post" action="Recherche_avancee.php">
+					<input type="submit" value="Revenir à la recherche avancée" class="Bouton_evenements"/>
+					</br>
+					</br>
+				</form>
+				<form method="post" action="Evenements2.php">
+					<input type="hidden" name="mot_clef" value="" />
+					<input type="hidden" name="ville_evenement" value="%" />
+					<input type="hidden" name="departement_evenement" value="%" />
+					<input type="hidden" name="date_debut" value="<?php echo(date("Y-m-d")) ?>">
+					<input type="hidden" name="date_fin" value="8000-12-31">
+					<input type="submit" value="Afficher tous les événements" class="Bouton_evenements"/>
+				</form>
 		</div>
 		<div id="indicateur_recherche">
-
-		<p>Résultat de recherche pour le mot clef : <?php echo($_POST['mot_clef']) ?></p>
+			<p> 
+			<?php
+			if ($_POST['mot_clef']=="") {
+				echo("Evénements : ");
+			}
+			else {
+				echo("Résultat de recherche pour le mot clef :".$_POST['mot_clef']."");
+			} 
+			?></p>
+		</div>
 		
-			</div>
 		<?php }?>
 		<div id="contenant_resultat">
 			<div class="ligne">
@@ -65,7 +78,9 @@ session_start();
 				?>
 				<span onclick="ouvrirfermer(<?php echo("$id_evenement") ?>)">
 				<div class='evenement'>
-					<img src="<?php echo($vignette_evenement) ?>" class='vignette'/>
+					<div class='vignette'>
+						<img src="<?php echo($vignette_evenement) ?>"/>
+					</div>
 					<h3 class='nom_evenement'><?php echo($nom_evenement) ?></h3>
 				</div>
 				</span>
@@ -74,43 +89,45 @@ session_start();
 						$evenement3=mysqli_fetch_assoc(mysqli_query($connect, "select * from multimedia natural join event where Event_id=$id_evenement"));
 						?>
 						</div>
-						<div class="information" id="<?php echo($evenement1["Event_id"]) ?>">
-							<div class="photo_information">
-								<img src="<?php echo($evenement1["urlimg_event"])?>"/>
-							</div>
-							<div class="informations">
-								<h3 class="titre_information"><?php echo($evenement1["Nom_e"])?></h3>
-								<div class="texte_information">
-									<p><?php echo($evenement1["description_e"]) ?></p>
+						<div class="contenant_informations">
+							<div class="information" id="<?php echo($evenement1["Event_id"]) ?>">
+								<div class="photo_information">
+									<img src="<?php echo($evenement1["urlimg_event"])?>"/>
 								</div>
-									<a href="Events.php?Event_id=<?php echo($evenement1["Event_id"]) ?>"><div class="Bouton_information"><p>En savoir plus</p>
-								</div></a>
-							</div>
-						</div>
-						<div class="information" id="<?php echo($evenement2["Event_id"]) ?>">
-							<div class="photo_information">
-								<img src="<?php echo($evenement2["urlimg_event"])?>"/>
-							</div>
-							<div class="informations">
-								<h3 class="titre_information"><?php echo($evenement2["Nom_e"])?></h3>
-								<div class="texte_information">
-									<p><?php echo($evenement2["description_e"]) ?></p>
+								<div class="informations">
+									<h3 class="titre_information"><?php echo($evenement1["Nom_e"])?></h3>
+									<div class="texte_information">
+										<p><?php echo($evenement1["description_e"]) ?></p>
+									</div>
+										<a href="Events.php?Event_id=<?php echo($evenement1["Event_id"]) ?>"><div class="Bouton_information"><p>En savoir plus</p>
+									</div></a>
 								</div>
-									<a href="Events.php?Event_id=<?php echo($evenement2["Event_id"]) ?>"><div class="Bouton_information"><p>En savoir plus</p>
-								</div></a>
 							</div>
-						</div>
-						<div class="information" id="<?php echo($evenement3["Event_id"]) ?>">
-							<div class="photo_information">
-								<img src="<?php echo($evenement3["urlimg_event"])?>"/>
-							</div>
-							<div class="informations">
-								<h3 class="titre_information"><?php echo($evenement3["Nom_e"])?></h3>
-								<div class="texte_information">
-									<p><?php echo($evenement3["description_e"]) ?></p>
+							<div class="information" id="<?php echo($evenement2["Event_id"]) ?>">
+								<div class="photo_information">
+									<img src="<?php echo($evenement2["urlimg_event"])?>"/>
 								</div>
-									<a href="Events.php?Event_id=<?php echo($evenement3["Event_id"]) ?>"><div class="Bouton_information"><p>En savoir plus</p>
-								</div></a>
+								<div class="informations">
+									<h3 class="titre_information"><?php echo($evenement2["Nom_e"])?></h3>
+									<div class="texte_information">
+										<p><?php echo($evenement2["description_e"]) ?></p>
+									</div>
+										<a href="Events.php?Event_id=<?php echo($evenement2["Event_id"]) ?>"><div class="Bouton_information"><p>En savoir plus</p>
+									</div></a>
+								</div>
+							</div>
+							<div class="information" id="<?php echo($evenement3["Event_id"]) ?>">
+								<div class="photo_information">
+									<img src="<?php echo($evenement3["urlimg_event"])?>"/>
+								</div>
+								<div class="informations">
+									<h3 class="titre_information"><?php echo($evenement3["Nom_e"])?></h3>
+									<div class="texte_information">
+										<p><?php echo($evenement3["description_e"]) ?></p>
+									</div>
+										<a href="Events.php?Event_id=<?php echo($evenement3["Event_id"]) ?>"><div class="Bouton_information"><p>En savoir plus</p>
+									</div></a>
+								</div>
 							</div>
 						</div>
 						<div class="ligne">
@@ -124,17 +141,19 @@ session_start();
 					if ($compteur==1) {
 						?>
 						</div>
-						<div class="information" id="<?php echo($evenement1["Event_id"]) ?>">
-							<div class="photo_information">
-								<img src="<?php echo($evenement1["urlimg_event"])?>"/>
-							</div>
-							<div class="informations">
-								<h3 class="titre_information"><?php echo($evenement1["Nom_e"])?></h3>
-								<div class="texte_information">
-									<p><?php echo($evenement1["description_e"]) ?></p>
+						<div class="contenant_informations">
+							<div class="information" id="<?php echo($evenement1["Event_id"]) ?>">
+								<div class="photo_information">
+									<img src="<?php echo($evenement1["urlimg_event"])?>"/>
 								</div>
-									<a href="Events.php?Event_id=<?php echo($evenement1["Event_id"]) ?>"><div class="Bouton_information"><p>En savoir plus</p>
-								</div></a>
+								<div class="informations">
+									<h3 class="titre_information"><?php echo($evenement1["Nom_e"])?></h3>
+									<div class="texte_information">
+										<p><?php echo($evenement1["description_e"]) ?></p>
+									</div>
+										<a href="Events.php?Event_id=<?php echo($evenement1["Event_id"]) ?>"><div class="Bouton_information"><p>En savoir plus</p>
+									</div></a>
+								</div>
 							</div>
 						</div>
 						<?php
@@ -142,30 +161,32 @@ session_start();
 					if ($compteur==2) {
 						?>
 						</div>
-						<div class="information" id="<?php echo($evenement1["Event_id"]) ?>">
-							<div class="photo_information">
-								<img src="<?php echo($evenement1["urlimg_event"])?>"/>
-							</div>
-							<div class="informations">
-								<h3 class="titre_information"><?php echo($evenement1["Nom_e"])?></h3>
-								<div class="texte_information">
-									<p><?php echo($evenement1["description_e"]) ?></p>
+						<div class="contenant_informations">
+							<div class="information" id="<?php echo($evenement1["Event_id"]) ?>">
+								<div class="photo_information">
+									<img src="<?php echo($evenement1["urlimg_event"])?>"/>
 								</div>
-									<a href="Events.php?Event_id=<?php echo($evenement1["Event_id"]) ?>"><div class="Bouton_information"><p>En savoir plus</p>
-								</div></a>
-							</div>
-						</div>
-						<div class="information" id="<?php echo($evenement2["Event_id"]) ?>">
-							<div class="photo_information">
-								<img src="<?php echo($evenement2["urlimg_event"])?>"/>
-							</div>
-							<div class="informations">
-								<h3 class="titre_information"><?php echo($evenement2["Nom_e"])?></h3>
-								<div class="texte_information">
-									<p><?php echo($evenement2["description_e"]) ?></p>
+								<div class="informations">
+									<h3 class="titre_information"><?php echo($evenement1["Nom_e"])?></h3>
+									<div class="texte_information">
+										<p><?php echo($evenement1["description_e"]) ?></p>
+									</div>
+										<a href="Events.php?Event_id=<?php echo($evenement1["Event_id"]) ?>"><div class="Bouton_information"><p>En savoir plus</p>
+									</div></a>
 								</div>
-									<a href="Events.php?Event_id=<?php echo($evenement2["Event_id"]) ?>"><div class="Bouton_information"><p>En savoir plus</p>
-								</div></a>
+							</div>
+							<div class="information" id="<?php echo($evenement2["Event_id"]) ?>">
+								<div class="photo_information">
+									<img src="<?php echo($evenement2["urlimg_event"])?>"/>
+								</div>
+								<div class="informations">
+									<h3 class="titre_information"><?php echo($evenement2["Nom_e"])?></h3>
+									<div class="texte_information">
+										<p><?php echo($evenement2["description_e"]) ?></p>
+									</div>
+										<a href="Events.php?Event_id=<?php echo($evenement2["Event_id"]) ?>"><div class="Bouton_information"><p>En savoir plus</p>
+									</div></a>
+								</div>
 							</div>
 						</div>
 						<?php

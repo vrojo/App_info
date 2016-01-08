@@ -77,7 +77,6 @@ function profpic(){
 	var elmts = document.getElementsByClassName('profpic');
 	for(var i=0; i<elmts.length;i++){	
 	elmts[i].style.width=elmts[i].offsetHeight+"px";
-	elmts[i].style.background="pink";
 
 	}
 }

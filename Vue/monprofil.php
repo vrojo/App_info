@@ -6,7 +6,7 @@ session_start();
 <html>
 	<head>
 		<meta charset="utf-8" />
-		<link type="text/css" rel="stylesheet" href="monprofil.css"/>
+		<link type="text/css" rel="stylesheet" href="../Style/monprofil.css"/>
 		<script type="text/javascript" src="monprofil.js"></script>
 		<title>Mon profil</title>
 	</head>

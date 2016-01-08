@@ -17,7 +17,7 @@
 			GROUP BY event.Event_id");
 		$cacher=1;
 		}
-		elseif(!isset($_POST['ville_evenement']) or !isset($_POST['departement_evenement']) or !isset($_POST['date_debut']) or !isset($_POST['date_fin'])){
+		elseif(isset($_GET['t']) && $_GET['t']=="Search"){
 				$_POST['ville_evenement']=$_POST['mot_clef'];
 				$_POST['departement_evenement']=$_POST['mot_clef'];
 				$_POST['date_debut']=$_POST['mot_clef'];

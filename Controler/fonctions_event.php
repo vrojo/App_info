@@ -82,7 +82,7 @@ function carrousselprofiles(){
 		$id_particip=$data['id_participant'];
 		$util=mysqli_fetch_assoc(mysqli_query($connect_e,"SELECT * from utilisateur where id_utilisateur=$id_particip"));
 		?>			
-			<a href="user.php?i=<?php echo $util['id_utilisateur']?>"><img src='<?php echo $util['photo_u']?>' class='profpic' style='height:75%; width:10%;margin-top:5px'/></a>
+			<a href="autreprofil.php?id_utilisateur=<?php echo $util['id_utilisateur']?>"><img src='<?php echo $util['photo_u']?>' class='profpic' style='height:75%; width:10%;margin-top:5px'/></a>
 			
 		<?php
 		$i ++;
@@ -111,7 +111,7 @@ while ($data = mysqli_fetch_assoc($result)) {
 	?> <div class="bandeaucom">
 			<div class="bleft" style="display:block;width:30%;height:125px; ">
 				<div class="bleft" style="width:50%;height:100%;">
-					<a href="user.php?i=<?php echo $util['id_utilisateur']?>"><img src="<?php echo $util['photo_u']?>" class="profpic" style="float:right; height:90px; margin:0; margin-right:20px;"/></a>
+					<a href="autreprofil.php?id_utilisateur=<?php echo $util['id_utilisateur']?>"><img src="<?php echo $util['photo_u']?>" class="profpic" style="float:right; height:90px; margin:0; margin-right:20px;"/></a>
 				</div>
 				<div class="bright" style="width:50%; height:100%; min-height:125px">
 					<div class="bandeauhaut" style="height:20%;margin-top:10%">

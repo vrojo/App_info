@@ -13,7 +13,7 @@ require'fonctions_simplevent.php'; ?>
 		<div id="headerdroit">
 			<?php if(isset($Accueil)==FALSE) { ?>				
 			<div class="bandeauhaut">
-				<form method="post" action="../Vue/Evenements2.php">
+				<form method="post" action="../Vue/Evenements2.php?t=Search">
 					<input type="search" name="mot_clef" name="ville_evenement" id="recherche" placeholder="Ex:Tommorrow Land, Rock, Football..."/> 
 					<input type="submit" class="boutonrecherche" value="Recherche d'événements"/>
 				</form>
