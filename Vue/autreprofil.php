@@ -157,7 +157,7 @@
 			?>
 			<span onclick="ouvrirfermer('#cache1', 'afficher_plus1')">
 			<div class="afficher_plus" id="afficher_plus1">
-				<div class="bouton_mon_profil"><p>Afficher plus</p></div>
+				<div class="bouton_autre_profil"><p>Afficher plus</p></div>
 			</div>
 			</span>
 			<?php
@@ -187,7 +187,7 @@
 				else {
 				?>
 				<a href="Events.php?Event_id=<?php echo($data["Event_id"]) ?>">
-				<div class='evenement' id="cache1">
+				<div class='evenement' id="cache2">
 					<div class='vignette'>
 						<img src="<?php echo($data['urlimg_event']) ?>"/>
 					</div>
@@ -204,9 +204,9 @@
 			
 			if ($compteur2>3) {
 			?>
-			<span onclick="ouvrirfermer('#cache1', 'afficher_plus2')">
+			<span onclick="ouvrirfermer('#cache2', 'afficher_plus2')">
 			<div class="afficher_plus" id="afficher_plus2">
-				<div class="bouton_mon_profil"><p>Afficher plus</p></div>
+				<div class="bouton_autre_profil"><p>Afficher plus</p></div>
 			</div>
 			</span>
 			<?php
@@ -243,11 +243,19 @@
 				}
 			}
 			
-			if ($compteur4==2) {
+			if ($compteur4==3) {
 				echo("<p>Aucun commentaire récent à afficher</p>");
 			}
 			?>
 		</div>
 		
 		<?php include('footer.php') ?>
+		
+			<script type="text/javascript">
+		//<!--
+		fermeture_init("#cache1");
+		fermeture_init("#cache2");
+		//-->
+	</script>
 	</body>
+</html>
