@@ -1,0 +1,207 @@
+#presentation_autre_profil {
+	display:inline-block;
+	text-align:center;
+	background-color:#74DEF1;
+	width:100%;
+}
+
+#bloc_envoi_message {
+	text-align:center;
+	background-color:#80ff80;
+	width:50%;
+	border-radius:10px;
+	margin:5px;
+	margin-left:auto;
+	margin-right:auto;
+	border:2px solid black;
+	z-index:40;
+	
+	position:fixed;
+	top:32%;
+	left:50%;
+	margin-left: -25%;
+}
+
+#photo_autre_profil {
+	display:inline-block;
+	width:30%;
+	vertical-align:top;
+}
+
+#photo_autre_profil img {
+	max-height:100%;
+	max-width:100%;
+	border-radius:100%;
+}
+
+#description_autre_profil {
+	display:inline-block;
+	width:30%;
+	vertical-align:top;
+	margin:0px 10px 0px 10px;
+}
+
+#boutons_autre_profil {
+	display:inline-block;
+	width:30%;
+	vertical-align:top;
+}
+
+.bouton_autre_profil {
+	font-size:1em;
+	float:left;
+	position:relative;
+	background-color:#80ff80;
+	box-shadow: rgba(0,0,0,0.2) 2px 2px;
+	width:100%;
+	height:50px;
+	margin:0;
+	display:inline-block;
+	font-weight:bold;
+	color:white;
+	text-align:center;
+	border-radius:5px;
+	border:1px solid grey;
+}
+
+.bouton_autre_profil:hover {
+	background-color:#87e052;
+	cursor:pointer;
+}
+
+.bouton_autre_profil_signal {
+	font-size:1em;
+	float:left;
+	position:relative;
+	background-color:red;
+	box-shadow: rgba(0,0,0,0.2) 2px 2px;
+	width:100%;
+	height:50px;
+	margin:0;
+	display:inline-block;
+	font-weight:bold;
+	color:white;
+	text-align:center;
+	border-radius:5px;
+	border:1px solid grey;
+}
+
+.bouton_autre_profil_signal:hover {
+	background-color:#e50000;
+	cursor:pointer;
+}
+
+#participation_evenements {
+	display:inline-block;
+	text-align:center;
+	background-color:#74DEF1;
+	width:100%;
+	padding-top:20px;
+}
+
+#evenements_crees {
+	display:inline-block;
+	text-align:center;
+	background-color:#74DEF1;
+	width:100%;
+	padding-top:20px;
+}
+
+#commentaires {
+	display:inline-block;
+	text-align:center;
+	background-color:#74DEF1;
+	width:100%;
+	padding-top:20px;
+	padding-bottom:20px;
+}
+
+.commentaire {
+	display:inline-block;
+	text-align:center;
+	width:60%;
+	padding:5px;
+	background-color :#80ff80;
+	border-radius:5px;
+}
+
+.vignette_commentaire {
+	border:1px solid #80ff80;
+	display:inline-block;
+	background-color:black;
+	width:30%;
+	height:30vh;
+	border-radius:5px;
+	line-height:30vh;
+}
+
+.vignette_commentaire img {
+	max-width:95%;
+	max-height:95%;
+	vertical-align:middle;
+	border-radius:5px;
+}
+
+.texte_commentaire {
+	display:inline-block;
+	width:60%;
+	text-align:left;
+}
+
+.texte_commentaire p {
+	margin-left:20px;
+}
+
+.texte_commentaire h4 {
+	margin-left:10px;
+}
+
+.evenement {
+	display:inline-block;
+	width:25%;
+	cursor:pointer;
+	margin-left:2%;
+	margin-right:2%;
+	text-align:center;
+	vertical-align:top;
+}
+
+.nom_evenement {
+	text-align:center;
+	color:white;
+}
+
+.vignette {
+	border:1px solid #80ff80;
+	background-color:black;
+	height:30vh;
+	border-radius:5px;
+	line-height:30vh;
+}
+
+.vignette img {
+	max-width:95%;
+	max-height:95%;
+	vertical-align:middle;
+	border-radius:5px;
+}
+
+p {
+	color:white;
+}
+
+h3 {
+	color:white;
+}
+
+h4 {
+	color:white;
+}
+
+h2 {
+	color:white;
+}
+
+h1 {
+	color:white;
+}
