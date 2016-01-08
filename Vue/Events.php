@@ -11,17 +11,18 @@
 		
 		<title>Evénements</title>	
 	</head>
-	<body onload="Eventmap(['PLce de la Bastile'],'Paris');">
+	
+	<body>
 		<?php
 		include("Header.php");
 		require'fonctions_event.php';
-		require 'model.php';
 		
 		?>
+		
 		<div id="bandeaupresevent" style="height:<?php echo $hbandeaupres ?>px">
 			<div class="bleft" >
 				<div class="bandeauhaut"><div class="Eventpic" style="background-image:url(<?php echo $Url_img_event['urlimg_event'] ?>)"></div></div>
-				<div class="bandeaubas" ><div id="map" style="transform: translate(-50%,-50%);"></div></div>
+				<div class="bandeaubas" ><div id="map" style="transform: translate(-50%,-50%);" ></div></div>
 			</div>
 			<div class="bright">
 				<div class="bandeauhaut" style="height:10%;"><p style="font-size:1.4em; transform:translateY(-50%)"><?php echo $nom_e ?></p></div>
@@ -115,6 +116,7 @@
 							</div>
 						</div>
 						<div class="bright" style="width:25%; height:100%; font-size:0.5em;">
+							<p style="Font-size:1em">Signaler ce <br> commentaire:</p>
 							<img src="https://www.dropbox.com/s/43g64iiwsnat9pw/Point-d-exclamation.png?raw=1" class="report" title="Signaler cet événement"/>
 						</div>
 					</div>
@@ -153,8 +155,10 @@
 		<?php include("Footer.php");?>
 	</body>
 	<script>
+	Eventmap([<?php echo $adresse ?>],'Paris');
 	notation(<?php echo $Event_id?>,<?php echo(notationphp($Event_id))?>);
 	profpic();
+	
 	
 	</script>
 </html>

@@ -46,12 +46,13 @@ return $existe;
 
 function select_event($Event_id) {
     global $connect_e;
-     $result=mysqli_query($connect_e,"select * from event where Event_id=".$Event_id) or die("MySQL Erreur : " . mysqli_error());
+     $result=mysqli_query($connect_e,"select * from event natural join adresse where Event_id=".$Event_id) or die("MySQL Erreur : " . mysqli_error());
      return $result;
 }
 
 $result = select_event($_GET['Event_id']);
 $event = mysqli_fetch_assoc($result);
+$adresse="'".$event['numerorue'].' '.$event['rue'].' '.$event['ville']."'";
 $nom_e = $event['Nom_e'];
 $description = $event['description_e'];
 $prix =$event['prix'];
@@ -108,26 +109,27 @@ while ($data = mysqli_fetch_assoc($result)) {
 	$id_commentateur=$data['id_utilisateur'];
 	$util=mysqli_fetch_assoc(mysqli_query($connect_e,"SELECT * from utilisateur where id_utilisateur=$id_commentateur"));
 	?> <div class="bandeaucom">
-			<div class="bleft" style="width:30%;height:100%">
-				<div class="bleft" style="width:50%;height:100%">
-					<a href="user.php?i=<?php echo $util['id_utilisateur']?>"><img src="<?php echo $util['photo_u']?>" class="profpic" style="float:right; height:90px; margin:0; margin-right:20px; margin-top:0%"/></a>
+			<div class="bleft" style="display:block;width:30%;height:125px; ">
+				<div class="bleft" style="width:50%;height:100%;">
+					<a href="user.php?i=<?php echo $util['id_utilisateur']?>"><img src="<?php echo $util['photo_u']?>" class="profpic" style="float:right; height:90px; margin:0; margin-right:20px;"/></a>
 				</div>
-				<div class="bright" style="width:50%; height:100%">
+				<div class="bright" style="width:50%; height:100%; min-height:125px">
 					<div class="bandeauhaut" style="height:20%;margin-top:10%">
-						<p style="top:50%; transform:translate(0,-50%)"><?php echo $util["prenom_u"].' '.$util["nom_u"] ?></p>
+						<p style="margin:0;top:50%; transform:translate(0,-50%)"><?php echo $util["prenom_u"].' '.$util["nom_u"] ?></p>
 					</div>
 					<div class="bandeaumilieu" style="height:20%;">
-						<p style="font-size:0.6em; text-align:left;"><?php echo $data['date_co']; ?> </p>
+						<p style="margin:0;font-size:0.6em; text-align:left;"><?php echo $data['date_co']; ?> </p>
 					</div>
-					<div class="bandeaubas" style="height:60%;">
+					<div class="bandeaubas" style="height:30%;">
+						<p style="Font-size:0.6em">Signaler ce <br>commentaire:</p> 
 						<img src="https://www.dropbox.com/s/43g64iiwsnat9pw/Point-d-exclamation.png?raw=1" class="report" title="Signaler ce commentaire"/>
 					</div>
 				</div>
 			</div>
-			<div class="bleft" style="width:50%; height:auto; word-wrap: break-word">
-				<p style="position:relative;display:inline-block;height:auto;width:100%;margin: 0; text-align:left;word-wrap: break-word;"><?php echo $data['texte_co']; ?> </p>
+			<div class="bleft" style="width:50%; height:auto; word-wrap: break-word; min-height:125px">
+				<p style="position:relative;display:inline-block;height:auto;width:100%;margin: 0;margin-top:10px; text-align:left;word-wrap: break-word;"><?php echo $data['texte_co']; ?> </p>
 			</div>
-			<div class="bright" style="width:20%; height:100%">
+			<div class="bright" style="width:20%; height:125px;">
 				<?php 
 				if ($id_commentateur==$id_utilisateur or verifadmin($id_utilisateur)==1 or $id_utilisateur==$Id_crea){?>
 	

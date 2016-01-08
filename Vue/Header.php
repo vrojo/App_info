@@ -47,15 +47,18 @@ require'fonctions_simplevent.php'; ?>
 			<div class="Boutonmenu" >
 				<a href="user.php?i=<?php echo $id_utilisateur?>" style="color:inherit"><p>Mon Compte</p></a>
 				<div class="menuderoul" >
-					<div class="bandeaubas" style="height:65%">
+					<div class="bandeaubas" style="height:45%">
 						<div class="bleft" style="width:40%">
-							<a href="user.php?i=<?php echo $id_utilisateur?>"><img src="<?php echo $photo_u ;?>" class="profpic" /></a>
+							<a href="user.php?i=<?php echo $id_utilisateur?>"><img src="<?php echo $photo_u ;?>" class="profpic"/></a>
 						</div>
 						<div class="bright" style="width:60%">
 							<p style="display:inline-block; float:left; position:relative;left:5%;color:#74def1;"><?php echo "$prenom_u $nom_u"?></p>
 						</div>
 					</div>
-					<a href="../Controler/deconnexion.php" style="color:inherit"><div class="bandeaubas" style="height:35%;">
+					<a href="../Vue/messagerie.php?but=messages_recus" style="color:inherit"><div class="bandeaubas" style="height:27.5%;">
+						<p  style="position:relative; display:inline-block; text-align:center">Mes messages</p>
+					</div></a>
+					<a href="../Controler/deconnexion.php" style="color:inherit"><div class="bandeaubas" style="height:27.5%;">
 						<p  style="position:relative; display:inline-block; text-align:center">Se déconnecter</p>
 					</div></a>
 				</div>						

@@ -140,22 +140,21 @@ a{
 .profpic{
 	overflow:hidden;
     border-radius:50px;
-    width:75px;
     height:75px;
+	width:75px;
 	position:relative;
 	float:left;
+	left:2%;
 	top:50%;
 	transform:translate(0, -50%);
 	display:inline-block;
 	margin:0;
-	left:2%;
 	margin-right:5px;
-	background:blue;
 }
 .Boutonmenu:hover .menuderoul{
 	color:#74def1;
 	background:white;
-	height:150px;
+	height:200px;
 }
 .Bouton{	
 	font-size:1em;

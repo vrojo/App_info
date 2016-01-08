@@ -41,10 +41,10 @@
 		<?php
 		if (isset($_POST['id_suppr'])) {
 			if ($_POST['type']=="recus") {
-				mysqli_query($connect, "update messagerie set id_destinataire=0 where id_destinataire=".$_SESSION['id_utilisateur']."");
+				mysqli_query($connect, "update messagerie set id_destinataire=0 where id_message=".$_POST['id_suppr']."");
 			}
 			else {
-				mysqli_query($connect, "update messagerie set id_expediteur=0 where id_expediteur=".$_SESSION['id_utilisateur']."");
+				mysqli_query($connect, "update messagerie set id_expediteur=0 where id_message=".$_POST['id_suppr']."");
 			}
 		}
 		

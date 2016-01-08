@@ -16,7 +16,7 @@
 	margin-left:auto;
 	margin-right:auto;
 	border:2px solid black;
-	
+	z-index:12;
 	position:fixed;
 	top:32%;
 	left:50%;

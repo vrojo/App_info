@@ -47,6 +47,30 @@ function blocresum($type,$id){
 	global $connect_e;
 	global $id_utilisateur;
 	if($type=='message'){
+		$result=mysqli_query($connect_e,"SELECT * from messagerie where id_destinataire=$id_utilisateur");
+		while ($data = mysqli_fetch_assoc($result)) {
+			$image_util=mysqli_query($connect_e,"SELECT * from utilisateur where id_utilisateur=".$data['id_expediteur']);
+			$image_util=mysqli_fetch_assoc($image_util);
+			?>
+		<a href="messagerie.php?but=messages_recus"><div class="petitblocresum">
+			<div class="bleft">
+				<div class="bandeauhaut" style="height:75%;">
+					<img src="<?php echo $image_util['photo_u'] ?>" class="imgblocresum"/>
+				</div>
+				<div class="bandeaubas" style="height:25%">
+					<p style="font-size:0.4em;text-align:center;margin:0"><?php echo $data['nom_expediteur']?></p>
+				</div>
+			</div>
+			<div class="bright">
+				<p style="font-size:0.4em"><?php echo $data['sujet']?></p>
+				<p style="font-size:0.4em"><?php echo $data['texte']?></p>
+			</div>
+			
+		</div></a>
+		
+<?php	
+}
+		
 	}
 	elseif($type=='eventcree'){
 		$result=mysqli_query($connect_e,"SELECT * from event where id_utilisateur=$id_utilisateur");
@@ -73,7 +97,7 @@ function blocresum($type,$id){
 }
 	}
 	elseif($type=='eventparticipe'){
-		$result=mysqli_query($connect_e,"SELECT * from participation where id_utilisateur=$id_utilisateur");
+		$result=mysqli_query($connect_e,"SELECT * from participation where id_participant=$id_utilisateur");
 		$result=mysqli_fetch_assoc($result);
 		$result=$result['Event_id'];
 		$result=mysqli_query($connect_e,"SELECT * from event where Event_id=$result");
