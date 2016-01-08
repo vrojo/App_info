@@ -1,0 +1,151 @@
+#presentation_mon_profil {
+	display:inline-block;
+	text-align:center;
+	background-color:#74DEF1;
+	width:100%;
+}
+
+.evenement {
+	display:inline-block;
+	width:25%;
+	cursor:pointer;
+	margin-left:2%;
+	margin-right:2%;
+	text-align:center;
+	vertical-align:top;
+}
+
+
+.evenement_cache_1 {
+	display:inline-block;
+	width:25%;
+	cursor:pointer;
+	margin-left:2%;
+	margin-right:2%;
+	text-align:center;
+	vertical-align:top;
+}
+
+.evenement_cache_2 {
+	display:inline-block;
+	width:25%;
+	cursor:pointer;
+	margin-left:2%;
+	margin-right:2%;
+	text-align:center;
+	vertical-align:top;
+}
+
+.nom_evenement {
+	text-align:center;
+	color:white;
+}
+
+.vignette {
+	border:1px solid #80ff80;
+	background-color:black;
+	height:30vh;
+	border-radius:5px;
+	line-height:30vh;
+}
+
+.vignette img {
+	max-width:95%;
+	max-height:95%;
+	vertical-align:middle;
+	border-radius:5px;
+}
+
+#evenements_crees {
+	display:inline-block;
+	text-align:center;
+	background-color:#74DEF1;
+	width:100%;
+	padding-top:20px;
+}
+
+#evenements_a_venir {
+	display:inline-block;
+	text-align:center;
+	background-color:#74DEF1;
+	width:100%;
+	padding-top:20px;
+}
+
+#evenements_passes {
+	display:inline-block;
+	text-align:center;
+	background-color:#74DEF1;
+	width:100%;
+	padding-top:20px;
+}
+
+h3 {
+	color:white;
+}
+
+h2 {
+	color:white;
+}
+
+h1 {
+	color:white;
+}
+
+#photo_mon_profil {
+	display:inline-block;
+	width:30%;
+	vertical-align:top;
+}
+
+#photo_mon_profil img {
+	max-height:100%;
+	max-width:100%;
+	border-radius:100%;
+}
+
+p {
+	color:white;
+}
+
+#description_mon_profil {
+	display:inline-block;
+	width:30%;
+	vertical-align:top;
+	margin:0px 10px 0px 10px;
+}
+
+#boutons_mon_profil {
+	display:inline-block;
+	width:30%;
+	vertical-align:top;
+}
+
+.bouton_mon_profil {
+	font-size:1em;
+	float:left;
+	position:relative;
+	background-color:#80ff80;
+	box-shadow: rgba(0,0,0,0.2) 2px 2px;
+	width:100%;
+	height:50px;
+	margin:0;
+	display:inline-block;
+	font-weight:bold;
+	color:white;
+	text-align:center;
+	border-radius:5px;
+	border:1px solid grey;
+}
+
+.bouton_mon_profil:hover {
+	background-color:#87e052;
+	cursor:pointer;
+}
+
+.afficher_plus {
+	width:25%;
+	left:50%;
+	transform:translate(-50%, 0);
+	position:relative;
+}
