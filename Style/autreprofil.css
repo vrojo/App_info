@@ -1,8 +1,14 @@
+body{
+	width:100%;
+	margin:0;
+	
+}
 #presentation_autre_profil {
 	display:inline-block;
 	text-align:center;
 	background-color:#74DEF1;
 	width:100%;
+	color:white
 }
 
 #bloc_envoi_message {
@@ -104,6 +110,7 @@
 	background-color:#74DEF1;
 	width:100%;
 	padding-top:20px;
+	color:White
 }
 
 #evenements_crees {
@@ -112,6 +119,7 @@
 	background-color:#74DEF1;
 	width:100%;
 	padding-top:20px;
+	color:White
 }
 
 #commentaires {
@@ -121,6 +129,7 @@
 	width:100%;
 	padding-top:20px;
 	padding-bottom:20px;
+	color:White
 }
 
 .commentaire {
@@ -193,9 +202,7 @@
 	border-radius:5px;
 }
 
-p {
-	color:white;
-}
+
 
 h3 {
 	color:white;

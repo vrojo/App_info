@@ -34,7 +34,7 @@ session_start();
 				</br>
 				</br>
 			</form>
-				<form method="post" action="Recherche_avancee.php">
+				<form method="post" action="RechAvan.php">
 					<input type="submit" value="Revenir à la recherche avancée" class="Bouton_evenements"/>
 					</br>
 					</br>

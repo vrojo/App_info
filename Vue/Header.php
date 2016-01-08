@@ -49,7 +49,7 @@ require'fonctions_simplevent.php'; ?>
 				<div class="menuderoul" >
 					<div class="bandeaubas" style="height:45%">
 						<div class="bleft" style="width:40%">
-							<a href="user.php?i=<?php echo $id_utilisateur?>"><img src="<?php echo $photo_u ;?>" class="profpic"/></a>
+							<a href="monprofil.php"><img src="<?php echo $photo_u ;?>" class="profpic"/></a>
 						</div>
 						<div class="bright" style="width:60%">
 							<p style="display:inline-block; float:left; position:relative;left:5%;color:#74def1;"><?php echo "$prenom_u $nom_u"?></p>

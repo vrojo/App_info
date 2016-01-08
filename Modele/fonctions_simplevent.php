@@ -54,11 +54,12 @@ function blocresum($type,$id){
 			?>
 		<a href="messagerie.php?but=messages_recus"><div class="petitblocresum">
 			<div class="bleft">
-				<div class="bandeauhaut" style="height:75%;">
-					<img src="<?php echo $image_util['photo_u'] ?>" class="imgblocresum"/>
-				</div>
-				<div class="bandeaubas" style="height:25%">
+				<div class="bandeauhaut" style="height:25%;">
 					<p style="font-size:0.4em;text-align:center;margin:0"><?php echo $data['nom_expediteur']?></p>
+					
+				</div>
+				<div class="bandeaubas" style="height:75%">
+					<img src="<?php echo $image_util['photo_u'] ?>" class="imgblocresum"/>
 				</div>
 			</div>
 			<div class="bright">
