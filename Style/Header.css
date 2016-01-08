@@ -193,7 +193,7 @@ a{
 	background-color:#80ff80;
 	box-shadow: rgba(0,0,0,0.2) 2px 2px;
 	width:40%;
-	height:50px;
+	height:40px;
 	margin:0;
 	display:inline-block;
 	font-weight:bold;
@@ -268,7 +268,7 @@ a{
 	float:left;
 	position:relative;
 	display:inline-block;
-	height:50px;
+	height:40px;
 	width:50%;
 	margin:0;
 	margin-left:2%;
@@ -290,7 +290,7 @@ a{
 	color:white;
 	box-shadow: rgba(0,0,0,0.2) 1px 2px;
 	width: 40%;
-	height:50px;
+	height:40px;
 	margin:0;
 	display:inline-block;
 	font-weight:bold;

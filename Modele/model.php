@@ -1,5 +1,5 @@
 <?php
-require '../reste/PHPMailerAutoload.php';
+require 'PHPMailerAutoload.php';
 
 $connect = mysqli_connect("localhost", "root", "", "bddsimplevent");
 mysqli_set_charset($connect,"utf8");
