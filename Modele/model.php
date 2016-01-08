@@ -268,14 +268,10 @@ function carrousel_page($event1,$event2,$event3,$event4,$event5,$event6,$event7,
             $urlimg9 = $tableauResult9['urlimg_event'];
             
             
-    echo '  <head>
-		<title>Slider</title>
-		<link type="text/css" rel="stylesheet" href="../Style/carrousel2.css"/>
-		<script type="text/javascript" src="carrousel2.js"></script>
-            </head>
+    echo '  
+            
 
-            <body>
-                    <div id="contenant_slider">
+                        <div id="contenant_slider">
                             <div id="limitation">
                                     <div class="contenu">
                                             <a href="Events?id=<?php echo'. $event1.'?><div id="evenement1" class="evenement" style="Background-image:URL=<?php echo '.$urlimg1.' ?>"></div>
@@ -306,7 +302,7 @@ function carrousel_page($event1,$event2,$event3,$event4,$event5,$event6,$event7,
                     </script>';
 }
 
-function carrousel_page($event1){
+function carrousel_event($event1){
     global $connect;
     $result = mysqli_query($connect, "SELECT DISTINCT urlimg_event from multimedia where Event_id = '$event1'");       
     $urlimg =[];
@@ -317,13 +313,7 @@ function carrousel_page($event1){
     
             
             
-    echo '  <head>
-		<title>Slider</title>
-		<link type="text/css" rel="stylesheet" href="../Style/carrousel2.css"/>
-		<script type="text/javascript" src="carrousel2.js"></script>
-            </head>
-
-            <body>
+    echo ' 
                     <div id="contenant_slider">
                             <div id="limitation">
                                     <div class="contenu">

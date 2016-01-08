@@ -7,6 +7,7 @@
 		<link type="text/css" rel="stylesheet" href="../Style/Events.css"/>
 		<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBTJ7EKiUmBXBsHrnojWCg36xdAKObOLqM"></script>
 		<script type="text/javascript" src="../Modele/Eventmap.js"></script>
+
 		
 		<title>Evénements</title>	
 	</head>
@@ -14,6 +15,7 @@
 		<?php
 		include("Header.php");
 		require'fonctions_event.php';
+		require 'model.php';
 		
 		?>
 		<div id="bandeaupresevent" style="height:<?php echo $hbandeaupres ?>px">
@@ -128,7 +130,6 @@
 				</div>
 			</div>
 			<div class="bandeaubas">
-				
 			</div>
 		</div>
 		<?php if (verifco($mdp,$id_utilisateur)==TRUE){?>
@@ -136,7 +137,7 @@
 			<a href=#bandeau2_2><div class="Bouton2" style="width:50%;height:50px"><p>Ajouter un commentaire</p></div></a>
 		</div>
 		<?php } ?>
-		<div id="bandeau2" style="height:<?php echo $Nb_comment ?>px">
+		<div id="bandeau2" style="height:auto">
 			<?php coms($Event_id) ?>
 		</div>
 		<?php if (verifco($mdp,$id_utilisateur)==TRUE){?>

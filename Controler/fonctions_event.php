@@ -58,7 +58,7 @@ $prix =$event['prix'];
 $privacy=$event['privacy'];
 $Id_crea=$event['id_utilisateur'];
 $Url_img_event=mysqli_fetch_assoc(mysqli_query($connect_e,"SELECT * from multimedia WHERE Event_id=$Event_id AND principale=1"));
-$particip=mysqli_query($connect_e,"select * from participation WHERE (Event_id=$Event_id AND id_utilisateur=$id_utilisateur)")->num_rows;
+$particip=mysqli_query($connect_e,"select * from participation WHERE (Event_id=$Event_id AND id_participant=$id_utilisateur)")->num_rows;
 
 function des_inscrire(){
 	global $particip;
@@ -75,10 +75,10 @@ function carrousselprofiles(){
 	global $connect_e;
 	global $Event_id;
 	$i=0;
-	$result=mysqli_query($connect_e,"select id_utilisateur from participation where Event_id=".$Event_id);
+	$result=mysqli_query($connect_e,"select id_participant from participation where Event_id=".$Event_id);
 	if ($result->num_rows>0 ){
 		while (($data = mysqli_fetch_assoc($result))&& $i!=6){
-		$id_particip=$data['id_utilisateur'];
+		$id_particip=$data['id_participant'];
 		$util=mysqli_fetch_assoc(mysqli_query($connect_e,"SELECT * from utilisateur where id_utilisateur=$id_particip"));
 		?>			
 			<a href="user.php?i=<?php echo $util['id_utilisateur']?>"><img src='<?php echo $util['photo_u']?>' class='profpic' style='height:75%; width:10%;margin-top:5px'/></a>
@@ -110,7 +110,7 @@ while ($data = mysqli_fetch_assoc($result)) {
 	?> <div class="bandeaucom">
 			<div class="bleft" style="width:30%;height:100%">
 				<div class="bleft" style="width:50%;height:100%">
-					<a href="user.php?i=<?php echo $util['id_utilisateur']?>"><img src="<?php echo $util['photo_u']?>" class="profpic" style="float:right; height:90px; width:90px; margin:0; margin-right:20px"/></a>
+					<a href="user.php?i=<?php echo $util['id_utilisateur']?>"><img src="<?php echo $util['photo_u']?>" class="profpic" style="float:right; height:90px; margin:0; margin-right:20px; margin-top:0%"/></a>
 				</div>
 				<div class="bright" style="width:50%; height:100%">
 					<div class="bandeauhaut" style="height:20%;margin-top:10%">
@@ -119,13 +119,13 @@ while ($data = mysqli_fetch_assoc($result)) {
 					<div class="bandeaumilieu" style="height:20%;">
 						<p style="font-size:0.6em; text-align:left;"><?php echo $data['date_co']; ?> </p>
 					</div>
-					<div class="bandeaubas" style="height:40%;">
+					<div class="bandeaubas" style="height:60%;">
 						<img src="https://www.dropbox.com/s/43g64iiwsnat9pw/Point-d-exclamation.png?raw=1" class="report" title="Signaler ce commentaire"/>
 					</div>
 				</div>
 			</div>
-			<div class="bleft" style="width:50%; height:100%; word-wrap: break-word">
-				<p style="position:absolute;height:100%;width:100%;margin: 0; text-align:left; top:50%; transform:translate(0,-50%);word-wrap: break-word;"><?php echo $data['texte_co']; ?> </p>
+			<div class="bleft" style="width:50%; height:auto; word-wrap: break-word">
+				<p style="position:relative;display:inline-block;height:auto;width:100%;margin: 0; text-align:left;word-wrap: break-word;"><?php echo $data['texte_co']; ?> </p>
 			</div>
 			<div class="bright" style="width:20%; height:100%">
 				<?php 
@@ -162,8 +162,8 @@ $Nb_comment=125*mysqli_query($connect_e,"select * from commente where Event_id='
 function notationphp($Event_id){
 	global $connect_e;
 	global $id_utilisateur;
-	if (isset ($id_utilisateur ) && mysqli_query($connect_e,"select Note from participation WHERE (Event_id=$Event_id AND id_utilisateur=$id_utilisateur)")->num_rows>0){
-		$note=mysqli_fetch_assoc(mysqli_query($connect_e,"Select Note from participation Where Event_id=$Event_id AND id_utilisateur=$id_utilisateur"));
+	if (isset ($id_utilisateur ) && mysqli_query($connect_e,"select Note from participation WHERE (Event_id=$Event_id AND id_participant=$id_utilisateur)")->num_rows>0){
+		$note=mysqli_fetch_assoc(mysqli_query($connect_e,"Select Note from participation Where Event_id=$Event_id AND id_participant=$id_utilisateur"));
 		$note=$note['Note'];
 		if ($note==NULL){
 			$note=mysqli_fetch_assoc(mysqli_query($connect_e,"Select AVG(Note) from participation Where Event_id=$Event_id "));
