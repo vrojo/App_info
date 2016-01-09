@@ -21,7 +21,7 @@ if(isset($_POST['enregistrer']) and isset($_POST['nom_u']) and isset($_POST['pre
         }
         
     }
-    header("Refresh:0 ,url=../Vue/monprofil.php");
+
     }
 
 else if (isset($_POST['enregistrer']) and isset($_POST['nom_u']) and isset($_POST['prenom_u']) and isset($_POST['mail']) and isset($_POST['mot_de_passe']) and isset($_POST['confirmation_mdp']) and ($_POST['mot_de_passe']==$_POST['confirmation_mdp']) and isset($_POST['numero_adresse']) and isset($_POST['rue_adresse']) and isset($_POST['ville_adresse']) and isset($_POST['codepostal_adresse']) and isset($_POST['pays_adresse']) and isset($_POST['telephone']) and isset($_POST['date_de_naissance']) and isset($_POST['choixsexe']) and isset($_POST['description']) and isset($_POST['photo_u']) and !empty($_POST['nom_u']) and !empty($_POST['prenom_u']) and !empty($_POST['mail']) and !empty($_POST['mot_de_passe']) and !empty($_POST['confirmation_mdp']) and !empty($_POST['numero_adresse']) and !empty($_POST['rue_adresse']) and !empty($_POST['ville_adresse']) and !empty($_POST['codepostal_adresse']) and !empty($_POST['pays_adresse']) and !empty($_POST['telephone']) and !empty($_POST['date_de_naissance']) and !empty($_POST['description']) and !empty($_POST['photo_u'])){
@@ -39,5 +39,6 @@ else if (isset($_POST['enregistrer']) and isset($_POST['nom_u']) and isset($_POS
         }
         
     }
-	header("Refresh:0 ,url=../Vue/monprofil.php");
+
 }
+header("Refresh:0 ,url=../Vue/monprofil.php");
