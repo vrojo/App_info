@@ -149,6 +149,7 @@ body{
 	height:30vh;
 	border-radius:5px;
 	line-height:30vh;
+	vertical-align:top;
 }
 
 .vignette_commentaire img {

@@ -221,12 +221,12 @@
 		<div id="commentaires">
 			<h2>Derniers commentaires : </h2>
 			<?php
-			$commentaires=mysqli_query($connect, "select Commentaire, Nom_e, Event_id, urlimg_event from participation natural join multimedia natural join event where id_participant =".$_GET['id_utilisateur']." order by id_participation desc");
+			$commentaires=mysqli_query($connect, "select texte_co, date_co, Nom_e, Event_id, urlimg_event from commente natural join multimedia natural join event where commente.id_utilisateur =".$_GET['id_utilisateur']." order by date_co desc");
 			$compteur3=0;
 			$compteur4=0;
 			while ($data=mysqli_fetch_assoc($commentaires) and $compteur3<3) {
 				$compteur3 ++;
-				if ($data['Commentaire']!=NULL) {
+				if ($data['texte_co']!=NULL) {
 					?>
 					<div class="commentaire">
 					<a href="Events.php?Event_id=<?php echo($data["Event_id"]) ?>">
@@ -236,7 +236,7 @@
 					</a>
 						<div class="texte_commentaire">
 							<h4><?php echo($data['Nom_e']) ?></h4>
-							<p><?php echo($data['Commentaire']) ?></p>
+							<p style="word-wrap:break-word"><?php echo($data['texte_co']) ?></p>
 						</div>
 					</div>
 					<?php
@@ -260,6 +260,7 @@
 		fermeture_init("#cache1");
 		fermeture_init("#cache2");
 		//-->
+		profpic();
 	</script>
 	</body>
 </html>

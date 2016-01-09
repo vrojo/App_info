@@ -3,6 +3,7 @@
 	text-align:center;
 	background-color:#74DEF1;
 	width:100%;
+	color:white
 }
 
 .evenement {
@@ -62,6 +63,7 @@
 	background-color:#74DEF1;
 	width:100%;
 	padding-top:20px;
+	color:White;
 }
 
 #evenements_a_venir {
@@ -70,6 +72,7 @@
 	background-color:#74DEF1;
 	width:100%;
 	padding-top:20px;
+	color:White;
 }
 
 #evenements_passes {
@@ -78,6 +81,7 @@
 	background-color:#74DEF1;
 	width:100%;
 	padding-top:20px;
+	color:White
 }
 
 h3 {

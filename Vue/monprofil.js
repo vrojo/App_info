@@ -32,3 +32,10 @@ function fermeture_init(objet) {
 	}
 }
 
+function profpic(){
+	var elmts = document.getElementsByClassName('profpic');
+	for(var i=0; i<elmts.length;i++){	
+	elmts[i].style.width=elmts[i].offsetHeight+"px";
+
+	}
+}

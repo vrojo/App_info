@@ -21,7 +21,7 @@
 		
 		<div id="bandeaupresevent" style="height:<?php echo $hbandeaupres ?>px">
 			<div class="bleft" >
-				<div class="bandeauhaut"><div class="Eventpic" style="background-image:url(<?php echo $Url_img_event['urlimg_event'] ?>)"></div></div>
+				<div class="bandeauhaut"><div class="Eventpic" style="background-image:url(<?php echo $event['urlimg_event'] ?>)"></div></div>
 				<div class="bandeaubas" ><div id="map" style="transform: translate(-50%,-50%);" ></div></div>
 			</div>
 			<div class="bright">
@@ -32,7 +32,7 @@
 							<div class="bleft" style="width:10%">
 								<a href="#"><img src="https://www.dropbox.com/s/jmzi3lowgiry5wf/Bonhommevert.png?raw=1" style="width:100%; max-height:25%"/></a>
 								<a href="#"><img src="https://www.dropbox.com/s/33ldf4ajvhvh3hz/EIpgSD2K.png?raw=1" style="width:100%; max-height:25%"/></a>
-								<a href="#"><img src="https://www.dropbox.com/s/vpzc9y04zixn2lg/fb_icon_325x325.png?raw=1"style="width:100%; max-height:25%""/></a>
+								<a href="#"><img src="https://www.dropbox.com/s/vpzc9y04zixn2lg/fb_icon_325x325.png?raw=1"style="width:100%; max-height:25%"/></a>
 								<a href="#"><img src="https://www.dropbox.com/s/0h0kmbxsicya03r/ajouter-un-nouveau-bouton-plus_318-9157.png?raw=1" style="width:100%; max-height:25%"/></a>
 							</div>
 							<div class="bright" style="width:90%">
@@ -74,8 +74,9 @@
 							?><?php if (verifco($mdp,$id_utilisateur)==TRUE){?>
 							<a href="#"><div class="Bouton2" onclick=(inscriptionevent(<?php echo $Event_id ?>)) style="height:<?php echo $h ?>%"><p><?php des_inscrire() ?></p></div></a>
 							<a href="#"><div class="Bouton2" style="height:<?php echo $h ?>%"><p>Acheter un Billet</p></div></a><?php }?>
-							<a href="#"><div class="Bouton2" style="height:<?php echo $h ?>%"><p>Site internet de l'événement</p></div></a>
-							<?php if ($Id_crea==$id_utilisateur) {
+							<?php if (!empty($event['urlsite_event'])){?><a href="<?php echo $event['urlsite_event'] ?>"><div class="Bouton2" style="height:<?php echo $h ?>%"><p>Site internet de l'événement</p></div></a>
+							<?php }
+							if ($Id_crea==$id_utilisateur) {
 							?><a href="#"><div class="Bouton2" style="height:<?php echo $h ?>%"><p>Modifier l'événement</p></div></a><?php }?>
 						</div>
 					</div>
@@ -116,7 +117,7 @@
 							</div>
 						</div>
 						<div class="bright" style="width:25%; height:100%; font-size:0.5em;">
-							<p style="Font-size:1em">Signaler ce <br> commentaire:</p>
+							<p style="Font-size:1em">Signaler cet <br> événement:</p>
 							<img src="https://www.dropbox.com/s/43g64iiwsnat9pw/Point-d-exclamation.png?raw=1" class="report" title="Signaler cet événement"/>
 						</div>
 					</div>
