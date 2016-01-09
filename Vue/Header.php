@@ -29,9 +29,16 @@ require'fonctions_simplevent.php'; ?>
 	<div class="bandeaubas">
 	<?php if (verifco($mdp,$id_utilisateur)=='CONNECTE' OR verifco($mdp,$id_utilisateur)=='MODIF'){?> 
 		<div id="menu">
-			<a href="Accueil.php"><div class="Boutonmenu"><p>Accueil</p> </div></a>
+			<a href="Accueil.php"><div class="Boutonmenu">
+			<div class="bandeauhaut"style="height:100%; color:inherit">
+							<p>Accueil</p>
+					</div></div></a>
 			<div class="Boutonmenu">
-				<a href="Events.php?Event_id=1" style="color:inherit"><p>Evénements</p></a>
+				<a href="Events.php?Event_id=1" style="color:inherit">
+					<div class="bandeauhaut"style="height:100%; color:inherit">
+							<p>Evénements</p>
+					</div>
+				</a>
 				<div class="menuderoul" >
 					<a href="Evenements2.php?t=Eventscrees" style="color:inherit"><div class="bandeaubas" style="height:33%">
 						<p style="display:inline-block; float:left; position:absolute;left:5%">Evénements créés</p>
@@ -44,21 +51,25 @@ require'fonctions_simplevent.php'; ?>
 					</div></a>
 				</div>	
 			</div>
-			<div class="Boutonmenu" >
-				<a href="user.php?i=<?php echo $id_utilisateur?>" style="color:inherit"><p>Mon Compte</p></a>
-				<div class="menuderoul" >
-					<div class="bandeaubas" style="height:45%">
-						<div class="bleft" style="width:40%">
-							<a href="monprofil.php"><img src="<?php echo $photo_u ;?>" class="profpic"/></a>
-						</div>
-						<div class="bright" style="width:60%">
-							<p style="display:inline-block; float:left; position:relative;left:5%;color:#74def1;"><?php echo "$prenom_u $nom_u"?></p>
-						</div>
+			<div class="Boutonmenu">
+				<a href="user.php?i=<?php echo $id_utilisateur?>" style="color:inherit">
+					<div class="bandeauhaut"style="height:100%; color:inherit">
+							<div class="bleft" style="width:40%">
+								<a href="monprofil.php"><img src="<?php echo $photo_u ;?>" class="profpic"/></a>
+							</div>
+							<div class="bright" style="width:60%; color:inherit">
+								<p style="display:inline-block; float:left; position:relative;left:5%;"><?php echo "$prenom_u $nom_u"?></p>
+							</div>
 					</div>
-					<a href="../Vue/messagerie.php?but=messages_recus" style="color:inherit"><div class="bandeaubas" style="height:27.5%;">
+				</a>
+				<div class="menuderoul" >
+					<a href="../Vue/messagerie.php?but=messages_recus" style="color:inherit"><div class="bandeaubas" style="height:33%;">
+						<p  style="position:relative; display:inline-block; text-align:center">Contacts</p>
+					</div></a>
+					<a href="../Vue/messagerie.php?but=messages_recus" style="color:inherit"><div class="bandeaubas" style="height:33%;">
 						<p  style="position:relative; display:inline-block; text-align:center">Mes messages</p>
 					</div></a>
-					<a href="../Controler/deconnexion.php" style="color:inherit"><div class="bandeaubas" style="height:27.5%;">
+					<a href="../Controler/deconnexion.php" style="color:inherit"><div class="bandeaubas" style="height:33%;">
 						<p  style="position:relative; display:inline-block; text-align:center">Se déconnecter</p>
 					</div></a>
 				</div>						

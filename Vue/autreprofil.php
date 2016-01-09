@@ -1,5 +1,8 @@
 	<?php
 	session_start();
+	if($_SESSION['id_utilisateur']==$_GET['id_utilisateur']){
+		header("Refresh:0 ,url=../Vue/monprofil.php");
+	}
 	$connect = mysqli_connect("localhost", "root", "", "bddsimplevent");
 	mysqli_set_charset($connect,"utf8");
 	

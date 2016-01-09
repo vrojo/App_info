@@ -11,12 +11,12 @@ session_start();
 	}
 	$note=$_GET['note'];
 	$Event_id=$_GET['Event_id'];
-	$particip=mysqli_query($connect_e,"select * from participation WHERE (Event_id=$Event_id AND id_utilisateur=$id_utilisateur)")->num_rows;
+	$particip=mysqli_query($connect_e,"select * from participation WHERE (Event_id=$Event_id AND id_participant=$id_utilisateur)")->num_rows;
 	if ($particip == 1){
-		mysqli_query($connect_e,"UPDATE participation SET Note=$note WHERE (Event_id=$Event_id AND id_utilisateur=$id_utilisateur)");
+		mysqli_query($connect_e,"UPDATE participation SET Note=$note WHERE (Event_id=$Event_id AND id_participant=$id_utilisateur)");
 	}
 	else{
-		mysqli_query($connect_e,"INSERT INTO participation (Event_id, id_utilisateur, Note)values('$Event_id','$id_utilisateur', '$note')");
+		mysqli_query($connect_e,"INSERT INTO participation (Event_id, id_participant, Note)values('$Event_id','$id_utilisateur', '$note')");
 	}
 
 	

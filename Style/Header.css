@@ -103,9 +103,11 @@ a{
 }
 
 .menuderoul{
-	position:absolute;
+	position:relative;
 	font-weight:normal;
 	font-size:1em;
+	float:left;
+	clear:left;
 	margin:0;
 	height:0px;
 	width:100%;
@@ -140,8 +142,8 @@ a{
 .profpic{
 	overflow:hidden;
     border-radius:50px;
-    height:75px;
-	width:75px;
+    height:50px;
+	width:50px;
 	position:relative;
 	float:left;
 	left:2%;
