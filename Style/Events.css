@@ -4,7 +4,7 @@
 	clear:both;
 	float:left;
     height:300px;
-    background-color:#74def1;
+    background-color:#6db4ff;
     padding:0;
 	margin:0;
 	background:0.75;
@@ -24,7 +24,7 @@
 	margin:0;
 	margin-bottom:2px;
 	right:2%;
-	Font-size:1.25vw;
+	Font-size:1vw;
 	position:relative;
 	background-color:white;
 	box-shadow: rgba(0,0,0,0.2) 2px 2px;
@@ -106,26 +106,27 @@
 }
 
 #Contacts{
-	width:100%; 
+	width:100%;
 	max-height:25%;
-
 	display:inline-block;
 	float:left;
 	position:relative;
 	transition:0.2s background 0.1s;
 	margin:0;
+	border-radius:5px;
 }
 #imgcontact{
 	cursor:pointer;
-	width:100%;
+	max-width:100%;
 	max-height:100%;
 	position:relative;
 	margin:0;
 	float:left;
 	display:inline-block
 }
+
 .menucontacts{
-	position:relative;
+	position:absolute;
 	display:inline-block;
 	font-weight:normal;
 	font-size:1em;
@@ -133,7 +134,7 @@
 	height:0px;
 	width:0px;
 	background-color: white;
-	color:#74def1;
+	color:#6db4ff;
 	overflow-y: scroll;
 	transition: 0.1s height 0.3s;
 	transition: 0.1s width 0.3s;
@@ -141,19 +142,22 @@
 	text-align:center;
 	z-index:11;
 	}
-
-.menucontacts a .bandeaubas:hover{
-	border-top:1px solid #e1e1e1;
-	border-bottom:1px solid #e1e1e1;
-	background:Blue;
-	
-}
-.menucontacts a .bandeaubas{
+.menucontacts .bandeaubas{
 	border-top:1px solid White;
 	border-bottom:1px solid White;
 	
 }
-.menucontacts a .bandeaubas p{
+.menucontacts .bandeaubas:hover{
+	border-top:1px solid #e1e1e1;
+	border-bottom:1px solid #e1e1e1;
+	
+}
+.menucontacts a .bright{
+	border-top:1px solid White;
+	border-bottom:1px solid White;
+	
+}
+.menucontacts a .bright p{
 	display:inline-block;
 	position:absolute;
 	margin:0;
@@ -164,15 +168,15 @@
 
 }
 #Contacts:hover .menucontacts{
-	color:#74def1;
+	color:#6db4ff;
 	background:white;
 	height:200px;
 	width:150px;
 }
 #Contacts:hover{
-	color:#74def1;
+	color:#6db4ff;
 	background:white;
-	border-radius:5px 5px 0 0;
+	border-radius:5px 0 0 5px;
 	
 }
 .bandeaumilieu{

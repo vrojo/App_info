@@ -47,8 +47,9 @@ function blocresum($type,$id){
 	global $connect_e;
 	global $id_utilisateur;
 	if($type=='message'){
+		$i=0;
 		$result=mysqli_query($connect_e,"SELECT * from messagerie where id_destinataire=$id_utilisateur");
-		while ($data = mysqli_fetch_assoc($result)) {
+		while (($data = mysqli_fetch_assoc($result)) && $i!=4) {
 			$image_util=mysqli_query($connect_e,"SELECT * from utilisateur where id_utilisateur=".$data['id_expediteur']);
 			$image_util=mysqli_fetch_assoc($image_util);
 			?>
@@ -69,13 +70,14 @@ function blocresum($type,$id){
 			
 		</div></a>
 		
-<?php	
+<?php $i++;	
 }
 		
 	}
 	elseif($type=='eventcree'){
 		$result=mysqli_query($connect_e,"SELECT * from event where id_utilisateur=$id_utilisateur");
-		while ($data = mysqli_fetch_assoc($result)) {
+		$i=0;
+		while (($data = mysqli_fetch_assoc($result)) && $i!=4) {
 			$image_event=mysqli_query($connect_e,"SELECT * from multimedia where Event_id=".$data['Event_id']);
 			$image_event=mysqli_fetch_assoc($image_event);
 			?>
@@ -94,7 +96,7 @@ function blocresum($type,$id){
 			
 		</div></a>
 		
-<?php	
+<?php	$i++;
 }
 	}
 	elseif($type=='eventparticipe'){
@@ -102,7 +104,8 @@ function blocresum($type,$id){
 		$result=mysqli_fetch_assoc($result);
 		$result=$result['Event_id'];
 		$result=mysqli_query($connect_e,"SELECT * from event where Event_id=$result");
-		while ($data = mysqli_fetch_assoc($result)) {
+		$i=0;
+		while (($data = mysqli_fetch_assoc($result)) && $i!=4) {
 			$image_event=mysqli_query($connect_e,"SELECT * from multimedia where Event_id=".$data['Event_id']);
 			$image_event=mysqli_fetch_assoc($image_event);
 			
@@ -122,7 +125,7 @@ function blocresum($type,$id){
 			
 		</div></a>
 		
-<?php	
+<?php	$i++;
 }
 	}
 }
