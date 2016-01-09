@@ -30,10 +30,15 @@
 					<div class="bandeauhaut" style="height:40%">
 						<div class="bleft" style="width:50%;">
 							<div class="bleft" style="width:10%">
-								<a href="#"><img src="https://www.dropbox.com/s/jmzi3lowgiry5wf/Bonhommevert.png?raw=1" style="width:100%; max-height:25%"/></a>
-								<a href="#"><img src="https://www.dropbox.com/s/33ldf4ajvhvh3hz/EIpgSD2K.png?raw=1" style="width:100%; max-height:25%"/></a>
-								<a href="#"><img src="https://www.dropbox.com/s/vpzc9y04zixn2lg/fb_icon_325x325.png?raw=1"style="width:100%; max-height:25%"/></a>
-								<a href="#"><img src="https://www.dropbox.com/s/0h0kmbxsicya03r/ajouter-un-nouveau-bouton-plus_318-9157.png?raw=1" style="width:100%; max-height:25%"/></a>
+								<div id="Contacts">
+									<img src="https://www.dropbox.com/s/jmzi3lowgiry5wf/Bonhommevert.png?raw=1" id="imgcontact" title="Inviter un ami" />
+									<div class="menucontacts">
+										<?php fonctioncontact($id_utilisateur)?>
+									</div>
+								</div>
+								<a href="https://twitter.com/intent/tweet/?url=<?php  echo $URLevent;?>&text=Je suis intéressé par cet événement &via=SimplEvent"><img src="https://www.dropbox.com/s/33ldf4ajvhvh3hz/EIpgSD2K.png?raw=1" title="Partager sur twitter" style="width:100%; max-height:25%"/></a>
+								<a href="https://www.facebook.com/sharer/sharer.php?u=<?php echo $URLevent?>"><img src="https://www.dropbox.com/s/vpzc9y04zixn2lg/fb_icon_325x325.png?raw=1"title="Partager sur facebook" style="width:100%; max-height:25%"/></a>
+								<a href="mailto:?subject=HelloWorld&body=<?php echo $URLevent; ?>"><img src="https://www.dropbox.com/s/0h0kmbxsicya03r/ajouter-un-nouveau-bouton-plus_318-9157.png?raw=1" style="width:100%; max-height:25%"/></a>
 							</div>
 							<div class="bright" style="width:90%">
 								<div class="bandeauhaut" style="height:33%;">

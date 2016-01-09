@@ -52,6 +52,7 @@ function select_event($Event_id) {
 
 $result = select_event($_GET['Event_id']);
 $event = mysqli_fetch_assoc($result);
+$URLevent=("http://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']);
 $adresse="'".$event['numerorue'].' '.$event['rue'].' '.$event['ville']."'";
 $nom_e = $event['Nom_e'];
 $description = $event['description_e'];
@@ -97,6 +98,29 @@ function categories ($Event_id){
 		echo $categ['nomCat'];
 		
 	}
+}
+
+function fonctioncontact($id_utilisateur){
+	global $connect_e;
+	$result=mysqli_query($connect_e,"SELECT * from relation_amicale where id_utilisateur=$id_utilisateur");
+	while ($data = mysqli_fetch_assoc($result)) {
+		$ami=mysqli_query($connect_e,"SELECT * from utilisateur where id_utilisateur=".$data['id_ami']);
+		$ami=mysqli_fetch_assoc($ami);
+		?>
+		<a href="user.php?i=<?php echo $ami['id_utilisateur'];?>" style="color:inherit">
+				<div class="bandeaubas"style="height:20px; color:inherit">
+					<div class="bleft" style="width:40%">
+						<a href="user.php?i=<?php echo $ami['id_utilisateur'];?>"><img src="<?php echo $ami['photo_u']; ;?>" class="profpic" style="height:100%"/></a>
+					</div>
+					<div class="bright" style="width:60%; color:inherit">
+						<p style="display:inline-block; float:left; position:relative;left:5%; font-size:0.4em"><?php echo $ami['prenom_u'].' '.$ami['nom_u'];?></p>
+					</div>
+				</div>
+		</a>
+		
+		<?php
+	
+}
 }
 function coms ($Event_id){
 	global $connect_e;

@@ -105,7 +105,76 @@
    cursor: pointer;
 }
 
+#Contacts{
+	width:100%; 
+	max-height:25%;
 
+	display:inline-block;
+	float:left;
+	position:relative;
+	transition:0.2s background 0.1s;
+	margin:0;
+}
+#imgcontact{
+	cursor:pointer;
+	width:100%;
+	max-height:100%;
+	position:relative;
+	margin:0;
+	float:left;
+	display:inline-block
+}
+.menucontacts{
+	position:relative;
+	display:inline-block;
+	font-weight:normal;
+	font-size:1em;
+	margin:0;
+	height:0px;
+	width:0px;
+	background-color: white;
+	color:#74def1;
+	overflow-y: scroll;
+	transition: 0.1s height 0.3s;
+	transition: 0.1s width 0.3s;
+	border-radius: 0 5px 5px 5px;
+	text-align:center;
+	z-index:11;
+	}
+
+.menucontacts a .bandeaubas:hover{
+	border-top:1px solid #e1e1e1;
+	border-bottom:1px solid #e1e1e1;
+	background:Blue;
+	
+}
+.menucontacts a .bandeaubas{
+	border-top:1px solid White;
+	border-bottom:1px solid White;
+	
+}
+.menucontacts a .bandeaubas p{
+	display:inline-block;
+	position:absolute;
+	margin:0;
+	padding:0;
+	top:50%;
+	transform:translate(0,-50%);
+	font-size:0.4em
+
+}
+#Contacts:hover .menucontacts{
+	color:#74def1;
+	background:white;
+	height:200px;
+	width:150px;
+}
+#Contacts:hover{
+	color:#74def1;
+	background:white;
+	border-radius:5px 5px 0 0;
+	
+}
 .bandeaumilieu{
 	position:relative;
 	display:inline-block;
