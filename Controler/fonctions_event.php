@@ -106,8 +106,7 @@ function fonctioncontact($id_utilisateur){
 		while ($data = mysqli_fetch_assoc($result)) {
 			$ami=mysqli_query($connect_e,"SELECT * from utilisateur where id_utilisateur=".$data['id_ami']);
 			$ami=mysqli_fetch_assoc($ami);
-				?>
-											
+				?>					
 					<div class="bandeaubas" style="height:20px; color:inherit">
 						<div class="bleft" style="width:40%">
 							<a href="autreprofil.php?id_utilisateur=<?php echo $ami['id_utilisateur'];?>"><img src="<?php echo $ami['photo_u'];?>" class="profpic" style="height:100%"/></a>

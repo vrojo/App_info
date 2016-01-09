@@ -4,7 +4,7 @@
 	clear:both;
 	float:left;
     height:300px;
-    background-color:#6db4ff;
+    background-color:#59b7ff;
     padding:0;
 	margin:0;
 	background:0.75;
@@ -134,7 +134,7 @@
 	height:0px;
 	width:0px;
 	background-color: white;
-	color:#6db4ff;
+	color:#59b7ff;
 	overflow-y: scroll;
 	transition: 0.1s height 0.3s;
 	transition: 0.1s width 0.3s;
@@ -168,13 +168,13 @@
 
 }
 #Contacts:hover .menucontacts{
-	color:#6db4ff;
+	color#59b7ff;
 	background:white;
 	height:200px;
 	width:150px;
 }
 #Contacts:hover{
-	color:#6db4ff;
+	color#59b7ff;
 	background:white;
 	border-radius:5px 0 0 5px;
 	
@@ -239,7 +239,7 @@
 	margin:0;
 	width:100%;
     height:500px;
-    background-color:#80ff80;
+    background-color:#6cdf6c;
     /*opacity:0.75;*/
     box-shadow: rgba(0,0,0,0.2) 1px 2px;
 	float:left;
@@ -256,7 +256,7 @@
 	padding:0;
 	width:100%;
     height:500px;
-    background-color:#80ff80;
+    background-color:#6cdf6c;
     /*opacity:0.75;*/
     box-shadow: rgba(0,0,0,0.2) 1px 2px;
 	float:left;
@@ -279,7 +279,7 @@
 	padding:0;
 	width:100%;
     height:100px;
-    background-color:#80ff80;
+    background-color:#6cdf6c;
     /*opacity:0.75;*/
     box-shadow: rgba(0,0,0,0.2) 1px 2px;
 	float:left;
@@ -339,7 +339,7 @@
 	padding:0;
 	width:100%;
     height:auto;
-    background-color:#80ff80;
+    background-color:#6cdf6c;
     /*opacity:0.75;*/
     box-shadow: rgba(0,0,0,0.2) 1px 2px;
 	float:left;

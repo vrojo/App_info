@@ -52,16 +52,18 @@ require'fonctions_simplevent.php'; ?>
 				</div>	
 			</div>
 			<div class="Boutonmenu">
-				<a href="user.php?i=<?php echo $id_utilisateur?>" style="color:inherit">
+				
 					<div class="bandeauhaut"style="height:100%; color:inherit">
 							<div class="bleft" style="width:40%">
 								<a href="monprofil.php"><img src="<?php echo $photo_u ;?>" class="profpic"/></a>
 							</div>
-							<div class="bright" style="width:60%; color:inherit">
+						<a href="monprofil.php" style="color:inherit">
+								<div class="bright" style="width:60%; color:inherit">
 								<p style="display:inline-block; float:left; position:relative;left:5%;"><?php echo "$prenom_u $nom_u"?></p>
 							</div>
+						</a>
 					</div>
-				</a>
+				
 				<div class="menuderoul" >
 					<a href="../Vue/messagerie.php?but=messages_recus" style="color:inherit"><div class="bandeaubas" style="height:33%;">
 						<p  style="position:relative; display:inline-block; text-align:center">Contacts</p>

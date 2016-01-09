@@ -14,7 +14,7 @@ require '../Modele/model.php';
     
     </head>
     <link type="text/css" rel="stylesheet" href="../Style/modificationprofil.css"/>
-    <script type="text/javascript" src="../Modele/modificationprofil.js"></script>
+    <script type="text/javascript" src="../Controler/modificationprofil.js"></script>
     <body>
         <?php include ("../Vue/Header.php"); ?>
         
