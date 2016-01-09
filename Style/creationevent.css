@@ -13,18 +13,27 @@ p{
     border-radius:20%;  
 }
 
+#creer{
+    padding-top:50px;
+}
+
 #go{
-    border:3px solid black;
-    background-color:green;
-    height:70px;
-    width:190px;
-    font-size: 40px;
-    font-style:italic;
-    position:relative;
-    right:0%;
-    bottom:10%;
-    border-radius:30%;
-    font-weight:bold;
+    	font-size:2em;
+	float:left;
+	position:relative;
+	background-color:#80ff80;
+	box-shadow: 1px 2px 5px #bfbfbf, 0px -2px 5px #bfbfbf;
+	width: 90%;
+	height:50px;
+	display:inline-block;
+	font-weight:bold;
+	top: 50%;
+        transform: translate(0,-50%);
+	text-align:center;
+	border:none;
+	border-top-right-radius:5px;
+	border-bottom-right-radius:5px;
+        color:white;
 }
 
 #go2{
@@ -58,6 +67,18 @@ p{
     width:300px;
 }
 
+#adresseevent3{
+    width:300px;
+}
+
+#adresseevent1{
+    width:50px;
+}
+
+#adresseevent2{
+    width:80px;
+}
+
 #adresseevent{
     width:300px;
 }
@@ -87,7 +108,8 @@ p{
 #description{
     width:500px;
     height:100px;
-    border: 3px black solid;
+    border: 2px grey solid;
+    border-radius:5px;
 }
 
 #detail{
@@ -121,8 +143,8 @@ table tr #td1{
     background-color:#B0B0B0;
 }
 #go:hover{
-    background-color:#00CC33;
     cursor:pointer;
+    background-color:#87e052;
 }
 
 #plus{
