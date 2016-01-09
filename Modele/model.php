@@ -13,21 +13,26 @@ function affichage_categ_recherche_avancee(){
 }
 
 function insert_categ($nomCat) {
+    $nomCat = htmlspecialchars (addslashes($nomCat));
     global $connect;
     mysqli_query($connect, "insert into categorie (nomCat) values ('$nomCat')") or die("MySQL Erreur : " . mysqli_error($connect));
 }
 
 function delete_categ($id_categ) {
+    $id_categ = htmlspecialchars (addslashes($id_categ));
     global $connect;
     mysqli_query($connect, "delete from categorie where id_categ ='$id_categ'") or die("MySQL Erreur : " . mysqli_error($connect));
 }
 
 function update_categ($nouveauNom, $idcateg){
+    $nouveauNom = htmlspecialchars (addslashes($nouveauNom));
+    $idcateg = htmlspecialchars (addslashes($idcateg)); 
     global $connect;
     mysqli_query($connect, "update categorie set nomCat='$nouveauNom' where id_categ=".$idcateg) or die("MySQL Erreur : " . mysqli_error($connect));
 }
 
 function verification_mdp($adrentre){
+    $adrentre = htmlspecialchars (addslashes($adrentre));
     global $connect;
     $result = mysqli_query($connect, "select mot_de_passe,id_utilisateur,admin from utilisateur where mail='$adrentre'") or die("MsQL Erreur : ".mysqli_errno($connect));
     $resultat = mysqli_fetch_assoc($result);
@@ -97,6 +102,8 @@ function affichage_topics(){
 }        
 
 function inscriptionpreleminaire($mail, $mdp, $confinsc, $confmod){
+    $mail = htmlspecialchars (addslashes($mail));
+    $mdp = htmlspecialchars (addslashes($mdp));
     global $connect;
     mysqli_query($connect, "insert into utilisateur (mail, mot_de_passe, confirmation_inscription, conf_mod_prof) values ('$mail', '$mdp', '$confinsc', '$confmod')") or die("MySQL Erreur : " . mysqli_error($connect));
     $result = mysqli_query($connect, "select id_utilisateur from utilisateur where mail='$mail'") or die("MySQL Erreur : " . mysqli_error($connect));
@@ -108,6 +115,7 @@ function inscriptionpreleminaire($mail, $mdp, $confinsc, $confmod){
 
 
 function verif_confirmation($mail){
+    $mail = htmlspecialchars (addslashes($mail));
     global $connect;
     $result = mysqli_query($connect, "select confirmation_inscription from utilisateur where mail='$mail'") or die("MySQL Erreur : " . mysqli_error($connect));
     $tableauResult = mysqli_fetch_assoc($result);
@@ -122,6 +130,7 @@ function verif_confirmation($mail){
 
 
 function envoimail_confirmation($maildestinataire){
+    $maildestinataire = htmlspecialchars (addslashes($maildestinataire));
     $mail = new PHPMailer;
  
     $mail->isSMTP();                                      // Set mailer to use SMTP
@@ -152,6 +161,7 @@ function envoimail_confirmation($maildestinataire){
 
 
 function lien_inscription($mail){
+    $mail = htmlspecialchars (addslashes($mail));
     global $connect;
     $result = mysqli_query($connect, "select id_utilisateur from utilisateur where mail='$mail'") or die("MySQL Erreur : " . mysqli_error($connect));
     $tableauResult = mysqli_fetch_assoc($result);
@@ -181,6 +191,8 @@ function confirmation_inscription(){
 }
 
 function verif_id($id, $idconf){
+    $id = htmlspecialchars (addslashes($id));
+    $idconf = htmlspecialchars (addslashes($idconf));
     global $connect;
     $result = mysqli_query($connect, "select * from confirmation_inscription where id_utilisateur=$id and id_conf=$idconf") or die("MySQL Erreur : " . mysqli_error($connect));
     $tableauResult = mysqli_fetch_assoc($result);
@@ -193,6 +205,7 @@ function verif_id($id, $idconf){
 }
 
 function verfifMailEx($mail){
+    $mail =  htmlspecialchars (addslashes($mail));
     global $connect;
     $result = mysqli_query($connect, "select id_utilisateur from utilisateur where mail='$mail'") or die("MySQL Erreur : " . mysqli_error($connect));
     $tableauResult = mysqli_fetch_assoc($result);
@@ -220,6 +233,19 @@ function affichage_centre_interet(){
 }
 
 function enregistrement_final($id, $nom, $prenom, $mail, $mdp, $numrue, $rue, $ville, $codepostal, $pays, $tel, $datenaissance, $description, $photo, $sexe){
+    $id = htmlspecialchars (addslashes($id));
+    $nom = htmlspecialchars (addslashes($nom));
+    $prenom = htmlspecialchars (addslashes($prenom));
+    $mail = htmlspecialchars (addslashes($mail));
+    $mdp = htmlspecialchars (addslashes($mdp));
+    $numrue = htmlspecialchars (addslashes($numrue));
+    $rue = htmlspecialchars (addslashes($rue));
+    $ville = htmlspecialchars (addslashes($ville));
+    $codepostal = htmlspecialchars (addslashes($codepostal));
+    $pays = htmlspecialchars (addslashes($pays));
+    $tel = htmlspecialchars (addslashes($tel));
+    $description = htmlspecialchars (addslashes($description));
+    $photo = htmlspecialchars (addslashes($photo));
     global $connect;
     mysqli_query($connect, "insert into adresse (numerorue, rue, ville, codepostal, pays) values ('$numrue','$rue','$ville','$codepostal','$pays')") or die("MySQL Erreur : " . mysqli_error($connect));  
     $idadresse = mysqli_query($connect, "select id_adresse from adresse where numerorue='$numrue' and rue ='$rue' and ville='$ville' and codepostal='$codepostal' and pays='$pays'") or die("MySQL Erreur : " . mysqli_error($connect));
