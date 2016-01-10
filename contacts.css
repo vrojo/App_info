@@ -1,0 +1,71 @@
+#contenant_contacts {
+	display:inline-block;
+	text-align:center;
+	background-color:#74DEF1;
+	width:100%;
+}
+label {
+	color:white;
+	font-size:1.5em;
+}
+
+.contact {
+	display:inline-block;
+	width:23%;
+	cursor:pointer;
+	margin-left:2%;
+	margin-right:2%;
+	text-align:center;
+	vertical-align:top;
+}
+
+.nom_contact {
+	text-align:center;
+	color:white;
+}
+
+.vignette_contact {
+	border:1px solid #80ff80;
+	background-color:black;
+	height:30vh;
+	border-radius:5px;
+	line-height:30vh;
+}
+
+.vignette_contact img {
+	max-width:95%;
+	max-height:95%;
+	vertical-align:middle;
+	border-radius:5px;
+	background-color:white;
+}
+
+#nom {
+	height: 50px;
+	font-size:1em;
+	border-radius : 5px;
+}
+
+.bouton_recherche_contact {
+	font-size:1em;
+	position:relative;
+	background-color:#80ff80;
+	box-shadow: rgba(0,0,0,0.2) 2px 2px;
+	height:50px;
+	margin:0;
+	display:inline-block;
+	font-weight:bold;
+	color:white;
+	text-align:center;
+	border-radius:5px;
+	border:1px solid grey;
+}
+
+.bouton_recherche_contact:hover {
+	background-color:#87e052;
+	cursor:pointer;
+}
+
+h4 {
+	color:white;
+}
