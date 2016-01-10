@@ -44,7 +44,7 @@ session_start();
 					else {
 						echo("<h4>Utilisateurs :</h4>");
 					}
-					$utilisateurs=mysqli_query($connect, "select * from utilisateur where (prenom_u like '%".$_POST['nom']."%' or nom_u like '%".$_POST['nom']."%') and id_utilisateur!=2");
+					$utilisateurs=mysqli_query($connect, "select * from utilisateur where (prenom_u like '%".$_POST['nom']."%' or nom_u like '%".$_POST['nom']."%') and id_utilisateur!=".$_SESSION['id_utilisateur']."");
 					while ($data=mysqli_fetch_assoc($utilisateurs)) {
 						?>
 						<a href="autreprofil.php?id_utilisateur=<?php echo ($data['id_utilisateur'])?>">
@@ -66,8 +66,7 @@ session_start();
 					else {
 						echo("<h4>Vos amis :</h4>");
 					}
-					$contacts=mysqli_fetch_assoc(mysqli_query($connect, "select id_ami from utilisateur natural join relation_amicale where id_utilisateur=2"));
-					$amis=mysqli_query($connect, "select * from utilisateur where (prenom_u like '%".$_POST['nom']."%' or nom_u like '%".$_POST['nom']."%') and id_utilisateur in (select id_ami from utilisateur natural join relation_amicale where id_utilisateur=2)");
+					$amis=mysqli_query($connect, "select * from utilisateur where (prenom_u like '%".$_POST['nom']."%' or nom_u like '%".$_POST['nom']."%') and id_utilisateur in (select id_ami from utilisateur natural join relation_amicale where id_utilisateur=".$_SESSION['id_utilisateur'].")");
 					while ($data=mysqli_fetch_assoc($amis)) {
 						?>
 						<a href="autreprofil.php?id_utilisateur=<?php echo ($data['id_utilisateur'])?>">
@@ -86,8 +85,7 @@ session_start();
 			
 			elseif (!isset($_POST['parmi']) and isset($_POST['nom']) and $_POST['nom']!="") {
 				echo("<h4>Recherche de ".$_POST['nom']." parmi vos amis :</h4>");
-				$contacts=mysqli_fetch_assoc(mysqli_query($connect, "select id_ami from utilisateur natural join relation_amicale where id_utilisateur=2"));
-				$amis=mysqli_query($connect, "select * from utilisateur where (prenom_u like '%".$_POST['nom']."%' or nom_u like '%".$_POST['nom']."%') and id_utilisateur in (select id_ami from utilisateur natural join relation_amicale where id_utilisateur=2)");
+				$amis=mysqli_query($connect, "select * from utilisateur where (prenom_u like '%".$_POST['nom']."%' or nom_u like '%".$_POST['nom']."%') and id_utilisateur in (select id_ami from utilisateur natural join relation_amicale where id_utilisateur=".$_SESSION['id_utilisateur'].")");
 				while ($data=mysqli_fetch_assoc($amis)) {
 					?>
 					<a href="autreprofil.php?id_utilisateur=<?php echo ($data['id_utilisateur'])?>">
@@ -104,8 +102,7 @@ session_start();
 			
 			else {
 				echo("<h4>Vos amis :</h4>");
-				$contacts=mysqli_fetch_assoc(mysqli_query($connect, "select id_ami from utilisateur natural join relation_amicale where id_utilisateur=2"));
-				$amis=mysqli_query($connect, "select * from utilisateur where id_utilisateur in (select id_ami from utilisateur natural join relation_amicale where id_utilisateur=2)");
+				$amis=mysqli_query($connect, "select * from utilisateur where id_utilisateur in (select id_ami from utilisateur natural join relation_amicale where id_utilisateur=".$_SESSION['id_utilisateur'].")");
 				while ($data=mysqli_fetch_assoc($amis)) {
 					?>
 					<a href="autreprofil.php?id_utilisateur=<?php echo ($data['id_utilisateur'])?>">
