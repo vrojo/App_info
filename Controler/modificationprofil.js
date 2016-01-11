@@ -247,9 +247,7 @@ function verifCompletModif(form){
     codepostal = document.getElementById("codepostal_adresse");
     pays = document.getElementById("pays_adresse");
     telephone = document.getElementById("telephone");
-    description = document.getElementById("description");
-    url = document.getElementById("ajouterphoto");
-    
+     
     if(nom.style.color === "red"){
         return false;
     }
@@ -282,11 +280,7 @@ function verifCompletModif(form){
     }
     if(telephone.style.color === "red"){
         return false;
-    }
-    if(description.style.color === "red"){
-        return false;
-    }
-    
+    }    
     else{
         return true;
     }
