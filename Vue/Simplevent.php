@@ -18,7 +18,7 @@
 						<a href="#"><img src="https://www.dropbox.com/s/1yxbj2y807fn5eq/Logo4.png?raw=1" class="imagebandeau"/></a>
 					</div>
 					<div class="bandeaubas">
-						<p style="font-size:1.5em;color:White;margin-left:2%">SimplEvent c'est le meilleur outil pour trouver des événements près de chez-vous</p>
+						<p style="font-size:1.5em;color:White;margin-left:2%">SimplEvent est le site qui vous permettra de créer, partager et de participer à des événements le plus simplement possible</p>
 					</div>
 				</div>
 				<div class="headerdroit">
@@ -27,8 +27,8 @@
 			</div>
 			<div class="bandeaubas">
 				<div class="bandeauhaut">
-					<form method="post" action="">
-						<input type="text" name="recherche" id="recherche" placeholder="Ex:Tommorrow Land, Rock, Football..."/> 
+					<form method="post" action="../Vue/Evenements2.php?t=Search">
+						<input type="text" name="mot_clef" id="recherche" placeholder="Ex:Paris, Rock, Football..."/> 
 						<input type="Submit" value="Recherche d'événement" class="boutonrecherche"/>
 					</form>
 				</div>

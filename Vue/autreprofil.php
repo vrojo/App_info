@@ -115,7 +115,7 @@
 					<input type="hidden" name="requete" value="oui">
 					<input type="hidden" name="signalement" value="oui">
 					<input type="hidden" name="destinataire" value="1">
-					<input type="submit" value="Signaler l'utilisateur" class="bouton_autre_profil_signal">
+					<input type="submit" value="Signaler l'utilisateur" class="bouton_autre_profil_signal" onclick="report('util',<?php echo $_GET['id_utilisateur']?>)">
 				</form>
 			</div>
 		</div>

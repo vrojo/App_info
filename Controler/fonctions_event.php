@@ -143,7 +143,7 @@ while ($data = mysqli_fetch_assoc($result)) {
 					</div>
 					<div class="bandeaubas" style="height:30%;">
 						<p style="Font-size:0.6em">Signaler ce <br>commentaire:</p> 
-						<img src="https://www.dropbox.com/s/43g64iiwsnat9pw/Point-d-exclamation.png?raw=1" class="report" title="Signaler ce commentaire"/>
+						<img src="https://www.dropbox.com/s/43g64iiwsnat9pw/Point-d-exclamation.png?raw=1" class="report" title="Signaler ce commentaire" onclick="report('com',<?php echo $data['id_commentaire']?>)"/>
 					</div>
 				</div>
 			</div>
