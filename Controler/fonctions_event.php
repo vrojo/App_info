@@ -102,6 +102,7 @@ function categories ($Event_id){
 
 function fonctioncontact($id_utilisateur){
 	global $connect_e;
+	global $Event_id;
 	$result=mysqli_query($connect_e,"SELECT * from relation_amicale where id_utilisateur=$id_utilisateur");
 		while ($data = mysqli_fetch_assoc($result)) {
 			$ami=mysqli_query($connect_e,"SELECT * from utilisateur where id_utilisateur=".$data['id_ami']);
@@ -111,12 +112,10 @@ function fonctioncontact($id_utilisateur){
 						<div class="bleft" style="width:40%">
 							<a href="autreprofil.php?id_utilisateur=<?php echo $ami['id_utilisateur'];?>"><img src="<?php echo $ami['photo_u'];?>" class="profpic" style="height:100%"/></a>
 						</div>
-						<a href="autreprofil.php?id_utilisateur=<?php echo $ami['id_utilisateur'];?>" style="color:inherit">
-							<div class="bright" style="width:60%; color:inherit">
+							<div class="bright" style="width:60%; color:inherit; cursor:pointer;" onclick="partage(<?php echo $Event_id ?>,<?php echo $ami['id_utilisateur']?>)">
 								<p style="left:5%; font-size:0.4em"><?php echo $ami['prenom_u'].' '.$ami['nom_u'];?></p>
 							</div>	
-						</a>
-					</div>
+						</div>
 
 					<?php }
 }

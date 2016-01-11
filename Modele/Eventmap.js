@@ -88,3 +88,10 @@ function report (type,id){
 		location.reload();
 		alert("Votre signalement à bien été pris en compte. Nous vous remercions de contribuer au bon fonctionnement du site")
 }
+function partage(event_id,ami){
+		var scriptElement = document.createElement('script');
+            scriptElement.src = '../Modele/partage.php?event='+event_id+'&id='+ami;
+		document.body.appendChild(scriptElement);
+		location.reload();
+		alert("Votre signalement à bien été pris en compte. Nous vous remercions de contribuer au bon fonctionnement du site")
+}

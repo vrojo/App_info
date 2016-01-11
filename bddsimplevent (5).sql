@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  127.0.0.1
--- Généré le :  Sam 09 Janvier 2016 à 02:31
+-- Généré le :  Lun 11 Janvier 2016 à 15:55
 -- Version du serveur :  5.6.17
 -- Version de PHP :  5.5.12
 
@@ -219,7 +219,7 @@ CREATE TABLE IF NOT EXISTS `participation` (
 
 INSERT INTO `participation` (`id_participant`, `Event_id`, `Note`) VALUES
 (1, 1, 4),
-(7, 1, 3),
+(7, 1, NULL),
 (8, 1, 3);
 
 -- --------------------------------------------------------
@@ -285,6 +285,30 @@ CREATE TABLE IF NOT EXISTS `reponse` (
   KEY `id_utilisateur_idx` (`id_utilisateur`),
   KEY `sujet_idx` (`sujet`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `signaler`
+--
+
+CREATE TABLE IF NOT EXISTS `signaler` (
+  `id_report` int(11) NOT NULL AUTO_INCREMENT,
+  `id_utilisateur` int(11) DEFAULT NULL,
+  `Event_id` int(11) DEFAULT NULL,
+  `id_commentaire` int(11) DEFAULT NULL,
+  `sujet` varchar(45) DEFAULT NULL,
+  `commentaire_r` varchar(767) DEFAULT NULL,
+  `id_balance` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id_report`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=8 ;
+
+--
+-- Contenu de la table `signaler`
+--
+
+INSERT INTO `signaler` (`id_report`, `id_utilisateur`, `Event_id`, `id_commentaire`, `sujet`, `commentaire_r`, `id_balance`) VALUES
+(7, NULL, 1, NULL, NULL, NULL, 7);
 
 -- --------------------------------------------------------
 

@@ -7,7 +7,7 @@
 			<head>
 				<title>Connexion</title>
 				<meta charset="utf-8"/>
-				<link type="text/css" rel="stylesheet" href="connexion_verif.css"/>
+				<link type="text/css" rel="stylesheet" href="../Style/connexion_verif.css"/>
 			</head>        
 			<body>
 	<?php
@@ -19,7 +19,7 @@
 	            ?>
 				  
 					<div id="titre_connexion">Erreur de connexion</br> Vous allez être redirigé sur la page de connexion.</br> </br></div>
-					<meta http-equiv="refresh"  content="2; URL = ../Vue/connexion.php"/>
+					<meta http-equiv="refresh"  content="0.5; URL = ../Vue/connexion.php"/>
 					
                 <?php
                        
@@ -28,7 +28,7 @@
                     ?>
 				  
 					<div id="titre_connexion">Erreur de connexion</br> Vous devez confirmer votre inscrition à partir du lien que vous avez reçu sur votre mail d'inscription.</br> </br></div>
-					<meta http-equiv="refresh"  content="2; URL = ../Vue/connexion.php"/>
+					<meta http-equiv="refresh"  content="0.5; URL = ../Vue/connexion.php"/>
 					
                 <?php
         

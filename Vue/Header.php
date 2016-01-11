@@ -34,7 +34,7 @@ require'fonctions_simplevent.php'; ?>
 							<p>Accueil</p>
 					</div></div></a>
 			<div class="Boutonmenu">
-				<a href="Events.php?Event_id=1" style="color:inherit">
+				<a href="Evenements2.php?t=TousEvent" style="color:inherit">
 					<div class="bandeauhaut"style="height:100%; color:inherit">
 							<p>Evénements</p>
 					</div>
@@ -46,7 +46,7 @@ require'fonctions_simplevent.php'; ?>
 					<a href="Evenements2.php?t=MesEvents" style="color:inherit"><div class="bandeaubas" style="height:33%;">
 						<p style="display:inline-block; float:left; position:absolute;left:5%">Vos Evénements</p>
 					</div></a>
-					<a href="Evenements2.php" style="color:inherit;"><div class="bandeaubas" style="height:33%">
+					<a href="Evenements2.php?t=TousEvent" style="color:inherit;"><div class="bandeaubas" style="height:33%">
 						<p style="display:inline-block; float:left; position:absolute;left:5%">Evénements intéressants</p>
 					</div></a>
 				</div>	

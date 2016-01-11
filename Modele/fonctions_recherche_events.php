@@ -33,8 +33,22 @@
 
 			$cacher=0;
 			}
-		else{
+		elseif (isset($_GET['t']) && $_GET['t']=="TousEvent"){
+			$_POST['mot_clef']="";
+			$_POST['ville_evenement']="%";
+			$_POST['departement_evenement']="%";
+			$_POST['date_debut']=date("Y-m-d");
+			$_POST['date_fin']="8000-12-31";
 			$tout_evenement=mysqli_query($connect, 
+		'select * from event 
+		natural join multimedia 
+		natural join adresse 
+		where Nom_e like "%'.$_POST['mot_clef'].'%" 
+		or description_e like "%'.$_POST['mot_clef'].'%" and ville like "'.$_POST['ville_evenement'].'" and codepostal like "'.$_POST['departement_evenement'].'%" and date_e between "'.$_POST['date_debut'].'" and "'.$_POST['date_fin'].'"');
+		$cacher=0;
+		}
+		else{			
+		$tout_evenement=mysqli_query($connect, 
 		'select * from event 
 		natural join multimedia 
 		natural join adresse 
