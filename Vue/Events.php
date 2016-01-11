@@ -123,7 +123,7 @@
 						</div>
 						<div class="bright" style="width:25%; height:100%; font-size:0.5em;">
 							<p style="Font-size:1em">Signaler cet <br> événement:</p>
-							<img src="https://www.dropbox.com/s/43g64iiwsnat9pw/Point-d-exclamation.png?raw=1" class="report" title="Signaler cet événement"/>
+							<img src="https://www.dropbox.com/s/43g64iiwsnat9pw/Point-d-exclamation.png?raw=1" class="report" title="Signaler cet événement" onclick="report('event',<?php echo $Event_id?>)"/>
 						</div>
 					</div>
 					<?php }?>

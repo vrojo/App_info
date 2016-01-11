@@ -1,7 +1,7 @@
 <?php
 
-$connect_e = mysqli_connect("localhost", "root", "", "bddsimplevent");/*
-mysqli_set_charset($connect_e,"utf8");*/
+$connect_e = mysqli_connect("localhost", "root", "", "bddsimplevent");
+mysqli_set_charset($connect_e,"utf8");
 ?>
 	
 <?php

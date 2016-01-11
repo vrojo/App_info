@@ -81,3 +81,10 @@ function profpic(){
 	}
 }
 
+function report (type,id){
+		var scriptElement = document.createElement('script');
+            scriptElement.src = '../Modele/report.php?type='+type+'&id='+id;
+		document.body.appendChild(scriptElement);
+		location.reload();
+		alert("Votre signalement à bien été pris en compte. Nous vous remercions de contribuer au bon fonctionnement du site")
+}
