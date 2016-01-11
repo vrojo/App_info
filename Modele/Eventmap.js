@@ -90,8 +90,8 @@ function report (type,id){
 }
 function partage(event_id,ami){
 		var scriptElement = document.createElement('script');
-            scriptElement.src = '../Modele/partage.php?event='+event_id+'&id='+ami;
+            scriptElement.src = '../Modele/partage.php?event='+event_id+'&ami='+ami;
 		document.body.appendChild(scriptElement);
 		location.reload();
-		alert("Votre signalement à bien été pris en compte. Nous vous remercions de contribuer au bon fonctionnement du site")
+		alert("Vous avez partagé cet événement avec votre ami")
 }

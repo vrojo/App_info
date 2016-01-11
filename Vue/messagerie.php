@@ -8,8 +8,8 @@
 	
 	<?php
 	session_start();
-	$connect = mysqli_connect("localhost", "root", "", "bddsimplevent");
-	mysqli_set_charset($connect,"utf8");
+	$connect = mysqli_connect("localhost", "root", "", "bddsimplevent");/*
+	mysqli_set_charset($connect,"utf8");*/
 	?>
 	
 	<body>
