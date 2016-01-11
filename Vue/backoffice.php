@@ -21,7 +21,15 @@
             <br>
             </form>
             
-            <form action="backoffice.php" method="post">
+            <form action="gestion_commentaires.php" method="post">
+                <div class="back">
+                    <div id="titre_back"><p>Gestion des commentaires :</p></div>
+                        <input type="submit" name="modification_commentaire" value="Suppression d'un commentaire" id="bouton_back">            
+                </div>
+            <br>
+            </form>
+            
+            <form action="gestion_event.php" method="post">
                 <div class="back">
                     <div id="titre_back"><p>Gestion des événements :</p></div>
                     <input type="submit" name="modification_event" value="Modification d'un événement" id="bouton_back">
@@ -37,10 +45,10 @@
             </form>
             <br>
         
-            <form action="backoffice.php" method="post">     
+            <form action="gestion_forum.php" method="post">     
                 <div class="back">
                     <div id="titre_back"><p>Gestion du forum du site :</p></div>
-                    <input type="submit" name="modification_message" value="Modification d'un message/d'un topic" id="bouton_back">
+                    <input type="submit" name="modification_message" value="Suppression d'un message/d'un topic" id="bouton_back">
                 </div>
             <br>
             </form>

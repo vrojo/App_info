@@ -133,17 +133,17 @@ function envoimail_confirmation($maildestinataire){
     $maildestinataire = htmlspecialchars (addslashes($maildestinataire));
     $mail = new PHPMailer;
  
-    $mail->isSMTP();                                      // Set mailer to use SMTP
-    $mail->Host = 'smtp.gmail.com';                       // Specify main and backup server
-    $mail->SMTPAuth = true;                               // Enable SMTP authentication
-    $mail->Username = 'sitesimplevent@gmail.com';                   // SMTP username
-    $mail->Password = 'LeSiteSimpleventVousAccueille';               // SMTP password
-    $mail->SMTPSecure = 'tls';                            // Enable encryption, 'ssl' also accepted
-    $mail->Port = 587;                                    //Set the SMTP port number - 587 for authenticated TLS
-    $mail->setFrom('sitesimplevent@gmail.com', 'Simplevent');     //Set who the message is to be sent from  //Set an alternative reply-to address
-    $mail->addAddress($maildestinataire);  // Add a recipient
-    $mail->WordWrap = 50;                                 // Set word wrap to 50 characters
-    $mail->isHTML(true);                                  // Set email format to HTML
+    $mail->isSMTP();                                      
+    $mail->Host = 'smtp.gmail.com';                       
+    $mail->SMTPAuth = true;                               
+    $mail->Username = 'sitesimplevent@gmail.com';         
+    $mail->Password = 'LeSiteSimpleventVousAccueille';    
+    $mail->SMTPSecure = 'tls';                            
+    $mail->Port = 587;                                    
+    $mail->setFrom('sitesimplevent@gmail.com', 'Simplevent');
+    $mail->addAddress($maildestinataire);  
+    $mail->WordWrap = 50;                                 
+    $mail->isHTML(true);                                  
     
     $lien = lien_inscription($maildestinataire);
     
@@ -370,3 +370,45 @@ function carrousel_event($event1){
                             Slider();
                     </script>';
 }
+
+
+function affichage_utilisateur(){
+    global $connect;
+    $result = mysqli_query($connect, "SELECT utilisateur.id_utilisateur, nom_u, prenom_u, mail, id_balance FROM utilisateur INNER JOIN signaler ON utilisateur.id_utilisateur = signaler.id_utilisateur") or die("MsQL Erreur : ".mysqli_errno($connect));
+    
+    echo "<div class='tableau'";
+        echo "<table><tr><td>Nom </td><td>Prenom </td><td>Mail </td></tr>";
+        while($infos = mysqli_fetch_assoc($result)) {
+        
+        echo "<tr>";
+        echo '<td><a href="autreprofil.php?id_utilisateur='.$infos['id_utilisateur'].'">'.$infos['nom_u'].'</a></td>';
+        echo '<td><a href="autreprofil.php?id_utilisateur='.$infos['id_utilisateur'].'">'.$infos['prenom_u'].'</a></td>';
+        echo '<td><a href="autreprofil.php?id_utilisateur='.$infos['id_utilisateur'].'">'.$infos['mail'].'</a></td>';
+        echo '<td><a href="autreprofil.php?id_utilisateur='.$infos['id_balance'].'">'.$infos['id_balance'].'</a></td>';
+        echo '<td><form method="POST" action="gestion_utilisateur.php">
+                <input type="text" name="id" style="display:none" value='.$infos['id_utilisateur'].'></input>
+                <select name="action">'
+                    . '<option value="supprimer">Supprimer</option>'
+                    . '<option value="upgrade">Upgrade</option>'
+              . '</select>'
+              . '<input type="submit" name="Valider"/></form></td></tr>';
+       
+
+        }
+    echo "</table>";
+    echo "</div>";
+
+} 
+
+function suppression_utilisateur($idutilisateur){
+    global $connect;
+    $id = htmlspecialchars (addslashes($idutilisateur));
+    mysqli_query($connect, "delete from utilisateur where id_utilisateur=".$id) or die("MsQL Erreur : ".mysqli_errno($connect));
+}
+
+function update_utilisateu($idutilisateur){
+    global $connect;
+    $id = htmlspecialchars (addslashes($idutilisateur));
+    mysqli_query($connect, "update utilisateur set admin  = '1' where id_utilisateur=".$id) or die("MsQL Erreur : ".mysqli_errno($connect));
+}
+?>  
