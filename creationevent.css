@@ -1,0 +1,163 @@
+p{
+    text-align:center;
+}
+
+#ajouterphoto{
+    border:2px dashed black;
+    background-color:grey;
+    height:20px;
+    width:140px;
+    right:28px;
+    top:340px;
+    position:absolute;
+    border-radius:20%;  
+}
+
+#creer{
+    padding-top:50px;
+}
+
+#go{
+    	font-size:2em;
+	float:left;
+	position:relative;
+	background-color:#80ff80;
+	box-shadow: 1px 2px 5px #bfbfbf, 0px -2px 5px #bfbfbf;
+	width: 90%;
+	height:50px;
+	display:inline-block;
+	font-weight:bold;
+	top: 50%;
+        transform: translate(0,-50%);
+	text-align:center;
+	border:none;
+	border-top-right-radius:5px;
+	border-bottom-right-radius:5px;
+        color:white;
+}
+
+#go2{
+    border:3px solid black;
+    background-color:purple;
+    height:30px;
+    width:150px;
+    position:relative;
+}
+
+#go3{
+    border:3px solid black;
+    background-color:purple;
+    height:40px;
+    width:200px;
+    position:relative;
+}
+
+#table1{
+    position:absolute;
+    top:200px;
+    height:500px;
+    width:100%;
+    background-color:#74def1;
+    text-align:center;
+    color:white;
+}
+
+
+#nameevent{
+    width:300px;
+}
+
+#adresseevent3{
+    width:200px;
+}
+
+#adresseevent1{
+    width:50px;
+}
+
+#adresseevent2{
+    width:90px;
+}
+
+#adresseevent{
+    width:300px;
+}
+
+#prix{
+    height:20px;
+    width:40px;
+}
+
+#dateevent{
+    width:30px;
+}
+
+#heureevent{
+    width:70px;
+    height:20px;
+}
+
+#nombre{
+    width:30px;
+    height:15px;
+}
+
+#dateevent2{
+    width:40px;
+}
+
+#description{
+    width:500px;
+    height:100px;
+    border: 2px grey solid;
+    border-radius:5px;
+}
+
+#detail{
+    height:40px;
+    width:100px;
+}
+
+#photo{
+    height:150px;
+    width:100px;
+    border: 2px solid black;
+}
+table tr #td1{
+    background-color:white;
+    height:100px;
+    width:100px;
+}
+#picnic{
+    height:225px;
+    width:300px;
+}
+
+#profil{
+    height:180px;
+    width:150px;
+    margin-top: 70px;
+    margin-right: 15px;
+}
+
+#ajouterphoto:hover{
+    background-color:#B0B0B0;
+}
+#go:hover{
+    cursor:pointer;
+    background-color:#87e052;
+}
+
+#plus{
+    height:20px;
+    width:20px;
+}
+
+bouton{
+    bottom:5%;
+}
+
+.checkrecherche{
+    color:white;
+    display: inline-block;
+}
