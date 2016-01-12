@@ -101,7 +101,7 @@ require '../Modele/model.php';
                 <div class="input_modifprof">
                     <strong>Téléphone :</strong>
                     <div class="input_input_modif">
-                        <input type="tel" name="telephone" id="telephone" placeholder="06 12 34 56 78" oninput="verifTelephone(this)"/><span id="erreur_telephone"></span>
+                        <input type="tel" name="telephone" id="telephone" placeholder="0612345678" oninput="verifTelephone(this)"/><span id="erreur_telephone"></span>
                     </div>
                 </div>
                 <br>
@@ -146,7 +146,7 @@ require '../Modele/model.php';
                 <div class="input_modifprof">
                     <strong>Description :</strong><br><em>**Ecrivez une petite description qui vous défini et pourra être vue parles autres utilisateurs sur votre profil.</em><br>
                     <div class="input_input_modif">
-                        <textarea name="description" id="description" placeholder="entrez une petite description de vous..." onblur="verifDescr(this)"></textarea><span id="erreur_description"></span>
+                        <textarea name="description" id="description" placeholder="entrez une petite description de vous..."></textarea><span id="erreur_description"></span>
                     </div>
                 </div>
                 <br>

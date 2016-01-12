@@ -52,7 +52,7 @@ session_start();
 		<div id="evenements_crees">
 			<h2>Evénements créés : </h2>
 			<?php
-			$evenements_crees=mysqli_query($connect, "select * from event natural join multimedia where id_utilisateur=".$_SESSION['id_utilisateur']."");
+			$evenements_crees=mysqli_query($connect, "select * from event natural join multimedia where id_utilisateur=".$_SESSION['id_utilisateur']." and principale = 1 ");
 			$compteur1=0;
 			while ($data=mysqli_fetch_assoc($evenements_crees)) {
 				$compteur1 ++;
@@ -101,7 +101,7 @@ session_start();
 			<h2>Evénements à venir : </h2>
 			<?php
 			$date=date("Y-m-d");
-			$evenements_crees=mysqli_query($connect, "select * from event natural join multimedia natural join participation where id_participant=".$_SESSION['id_utilisateur']." and date_e>'".$date."'");
+			$evenements_crees=mysqli_query($connect, "select * from event natural join multimedia natural join participation where id_participant=".$_SESSION['id_utilisateur']."  and principale = 1 and date_e>'".$date."'");
 			$compteur2=0;
 			while ($data=mysqli_fetch_assoc($evenements_crees)) {
 				$compteur2 ++;
@@ -149,7 +149,7 @@ session_start();
 		<div id="evenements_passes">
 			<h2>Evénements passés : </h2>
 			<?php
-			$evenements_passes=mysqli_query($connect, "select * from event natural join multimedia natural join participation where id_participant=".$_SESSION['id_utilisateur']." and date_e<'".$date."'");
+			$evenements_passes=mysqli_query($connect, "select * from event natural join multimedia natural join participation where id_participant=".$_SESSION['id_utilisateur']." and principale = 1 and date_e<'".$date."'");
 			$compteur3=0;
 			while ($data=mysqli_fetch_assoc($evenements_passes)) {
 				$compteur3 ++;

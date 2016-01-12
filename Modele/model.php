@@ -87,6 +87,12 @@ function affichage_topics(){
                 
                 if($compteur==1){
                     while($topic = mysqli_fetch_assoc($result)) {
+                        
+                        // ici inclure requete recup reponse par rapport au sujet
+                        //recup nombre message
+                        //recup derniere 
+                        
+                        
                         echo '<tr>';
                         echo '<td class="colonne_topics">'.$topic['sujet'].'</td>';
                         echo '<td class="colonne_messages">'.$nb_messages.'</td>';

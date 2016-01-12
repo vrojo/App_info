@@ -198,11 +198,11 @@ function verifPays(pays){
 }
 
 function verifTelephone(tel){
-    var regex = /^[0-9\s]{14}/;
+    var regex = /^[0-9]{10,14}/;
     if(!regex.test(tel.value))
     {
         erreur = "erreur_telephone";
-        message ="<br>Veuillez entrer un numéro de téléphone valide (avec espaces)pour continuer l'enregistrement.";
+        message ="<br>Veuillez entrer un numéro de téléphone valide (sans espaces)pour continuer l'enregistrement.";
         affiche(tel, erreur, message, true);
         return false;
     }
@@ -215,23 +215,6 @@ function verifTelephone(tel){
     }
 }
 
-function verifDescr(descr){
-    var regex = /^[a-zA-Z0-9\s\'\.\,]+$/;
-    if(!regex.test(descr.value))
-    {
-        erreur = "erreur_description";
-        message ="<br>Veuillez entrer une description valide (caractère authorisés : espace, point, et apostrophe)continuer l'enregistrement.";
-        affiche(descr, erreur, message, true);
-        return false;
-    }
-    else
-    {
-        message ="";
-        erreur = "erreur_description";
-        affiche(descr, erreur, message, false);
-        return true;
-    }
-}
 
 
 
