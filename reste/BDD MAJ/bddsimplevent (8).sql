@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  127.0.0.1
--- Généré le :  Mar 12 Janvier 2016 à 11:09
+-- Généré le :  Mar 12 Janvier 2016 à 11:48
 -- Version du serveur :  5.6.17
 -- Version de PHP :  5.5.12
 
@@ -103,6 +103,27 @@ INSERT INTO `commente` (`date_co`, `texte_co`, `id_commentaire`, `Event_id`, `id
 -- --------------------------------------------------------
 
 --
+-- Structure de la table `confirmation_inscription`
+--
+
+CREATE TABLE IF NOT EXISTS `confirmation_inscription` (
+  `id_conf` int(11) NOT NULL AUTO_INCREMENT,
+  `id_utilisateur` int(11) NOT NULL,
+  PRIMARY KEY (`id_conf`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
+
+--
+-- Contenu de la table `confirmation_inscription`
+--
+
+INSERT INTO `confirmation_inscription` (`id_conf`, `id_utilisateur`) VALUES
+(1, 1),
+(2, 14),
+(3, 15);
+
+-- --------------------------------------------------------
+
+--
 -- Structure de la table `event`
 --
 
@@ -129,21 +150,6 @@ CREATE TABLE IF NOT EXISTS `event` (
 
 INSERT INTO `event` (`Event_id`, `description_e`, `Nom_e`, `date_e`, `prix`, `privacy`, `id_utilisateur`, `heuredebut`, `heurefin`, `nb_max_participant`, `id_adresse`, `date_f`) VALUES
 (1, 'Rock en Seine est un événement de Rock qui se produit tous les ans dans le parc de saint Cloud près de Paris. De nombreux artistes reconnus viennent y jouer mais d''autres moins populaires sont aussi présents.', 'Rock en Seine', '2015-12-09', 12, 1, 7, '00:00:00', '00:00:00', 2000, 1, '2016-01-08');
-
--- --------------------------------------------------------
-
---
--- Structure de la table `expedie`
---
-
-CREATE TABLE IF NOT EXISTS `expedie` (
-  `idmessage` int(11) NOT NULL AUTO_INCREMENT,
-  `titre` varchar(30) NOT NULL,
-  `text` text NOT NULL,
-  `destinataire` int(10) unsigned NOT NULL,
-  PRIMARY KEY (`idmessage`),
-  KEY `id_utilisateur_idx` (`destinataire`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -255,21 +261,6 @@ CREATE TABLE IF NOT EXISTS `preference` (
 -- --------------------------------------------------------
 
 --
--- Structure de la table `recoit`
---
-
-CREATE TABLE IF NOT EXISTS `recoit` (
-  `idmessage` int(11) NOT NULL AUTO_INCREMENT,
-  `titre` varchar(30) NOT NULL,
-  `text` text NOT NULL,
-  `expediteur` int(10) unsigned NOT NULL,
-  PRIMARY KEY (`idmessage`),
-  KEY `id_utilisateur_idx` (`expediteur`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
-
--- --------------------------------------------------------
-
---
 -- Structure de la table `relation_amicale`
 --
 
@@ -336,7 +327,7 @@ INSERT INTO `signaler` (`id_report`, `id_utilisateur`, `Event_id`, `id_commentai
 
 CREATE TABLE IF NOT EXISTS `sponsor` (
   `idSponsor` int(11) NOT NULL AUTO_INCREMENT,
-  `NomSponsor` varchar(45) NOT NULL,
+  `img_sponsor` varchar(255) NOT NULL,
   PRIMARY KEY (`idSponsor`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
@@ -436,12 +427,6 @@ ALTER TABLE `event`
   ADD CONSTRAINT `createur` FOREIGN KEY (`id_utilisateur`) REFERENCES `utilisateur` (`id_utilisateur`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
--- Contraintes pour la table `expedie`
---
-ALTER TABLE `expedie`
-  ADD CONSTRAINT `expediteur0` FOREIGN KEY (`destinataire`) REFERENCES `utilisateur` (`id_utilisateur`) ON DELETE NO ACTION ON UPDATE NO ACTION;
-
---
 -- Contraintes pour la table `multimedia`
 --
 ALTER TABLE `multimedia`
@@ -460,12 +445,6 @@ ALTER TABLE `participation`
 ALTER TABLE `preference`
   ADD CONSTRAINT `choix_pref` FOREIGN KEY (`id_categ`) REFERENCES `categorie` (`id_categ`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   ADD CONSTRAINT `choix_utilisateur` FOREIGN KEY (`id_utilisateur`) REFERENCES `utilisateur` (`id_utilisateur`) ON DELETE NO ACTION ON UPDATE NO ACTION;
-
---
--- Contraintes pour la table `recoit`
---
-ALTER TABLE `recoit`
-  ADD CONSTRAINT `expediteur` FOREIGN KEY (`expediteur`) REFERENCES `utilisateur` (`id_utilisateur`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Contraintes pour la table `reponse`
