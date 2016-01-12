@@ -376,7 +376,8 @@ function affichage_utilisateur(){
     global $connect;
     $result = mysqli_query($connect, "SELECT utilisateur.id_utilisateur, nom_u, prenom_u, mail, id_balance FROM utilisateur INNER JOIN signaler ON utilisateur.id_utilisateur = signaler.id_utilisateur") or die("MsQL Erreur : ".mysqli_errno($connect));
     
-    echo "<div class='tableau'";
+    echo "<div class='tableau'>";
+        echo'Utilisateurs signalés par la communauté :';
         echo "<table><tr><td>Nom </td><td>Prenom </td><td>Mail </td></tr>";
         while($infos = mysqli_fetch_assoc($result)) {
         
