@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  127.0.0.1
--- Généré le :  Lun 11 Janvier 2016 à 15:55
+-- Généré le :  Mar 12 Janvier 2016 à 11:09
 -- Version du serveur :  5.6.17
 -- Version de PHP :  5.5.12
 
@@ -160,7 +160,7 @@ CREATE TABLE IF NOT EXISTS `messagerie` (
   `nom_destinataire` varchar(61) NOT NULL,
   `nom_expediteur` varchar(61) NOT NULL,
   PRIMARY KEY (`id_message`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=7 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=13 ;
 
 --
 -- Contenu de la table `messagerie`
@@ -172,7 +172,13 @@ INSERT INTO `messagerie` (`id_message`, `sujet`, `texte`, `id_destinataire`, `id
 (3, 'RE :WOLOLO', 'Nice', 1, 0, 'Antoine', 'Olivier'),
 (4, 'RE :WOLOLO', 'Wolololo', 1, 0, 'Antoine', 'Olivier'),
 (5, 'RE :RE :WOLOLO', 'PD', 7, 1, 'Olivier', 'Antoine'),
-(6, 'RE :RE :RE :WOLOLO', 'PD', 1, 7, 'Antoine', 'Olivier');
+(6, 'RE :RE :RE :WOLOLO', 'PD', 1, 0, 'Antoine', 'Olivier'),
+(7, 'Pouet', 'JEBHJBE', 1, 0, 'Antoine', 'Olivier'),
+(8, 'Pouet', 'JEBHJBE', 1, 0, 'Antoine', 'Olivier'),
+(9, 'Pouet', 'JEBHJBE', 1, 0, 'Antoine', 'Olivier'),
+(10, 'Pouet', 'JEBHJBE', 1, 0, 'Antoine', 'Olivier'),
+(11, 'Invitation Ã  l''Ã©vÃ©nement:Rock en Seine', 'Cet Ã©vÃ©nement pouurait vous intÃ©resser:<a href=../Vue/Event.php?Event_id=1>Rock en Seine</a>', 1, 0, 'Antoine', 'Olivier'),
+(12, 'Invitation Ã  l''Ã©vÃ©nement:Rock en Seine', 'Cet Ã©vÃ©nement pourrait vous intÃ©resser:<a href=../Vue/Event.php?Event_id=1>Rock en Seine</a>', 1, 0, 'Antoine', 'Olivier');
 
 -- --------------------------------------------------------
 
@@ -182,21 +188,32 @@ INSERT INTO `messagerie` (`id_message`, `sujet`, `texte`, `id_destinataire`, `id
 
 CREATE TABLE IF NOT EXISTS `multimedia` (
   `id_multimediaevent` int(11) NOT NULL AUTO_INCREMENT,
-  `principale` tinyint(1) NOT NULL,
+  `principale` tinyint(1) NOT NULL DEFAULT '0',
   `Event_id` int(11) NOT NULL,
   `urlvid_event` text,
   `urlsite_event` text,
   `urlimg_event` text,
   PRIMARY KEY (`id_multimediaevent`),
   KEY `Event_id_idx` (`Event_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=13 ;
 
 --
 -- Contenu de la table `multimedia`
 --
 
 INSERT INTO `multimedia` (`id_multimediaevent`, `principale`, `Event_id`, `urlvid_event`, `urlsite_event`, `urlimg_event`) VALUES
-(1, 1, 1, NULL, NULL, 'http://www.rockenseine.com/wp-content/uploads/2015/09/VP2_7163RES-1024x683.jpg');
+(1, 1, 1, NULL, NULL, 'http://www.rockenseine.com/wp-content/uploads/2015/09/VP2_7163RES-1024x683.jpg'),
+(2, 0, 1, NULL, NULL, 'http://www.planwallpaper.com/static/images/Winter-Tiger-Wild-Cat-Images.jpg'),
+(3, 0, 1, NULL, NULL, 'http://www.gettyimages.ca/gi-resources/images/Homepage/Hero/UK/CMS_Creative_164657191_Kingfisher.jpg'),
+(4, 0, 1, NULL, NULL, 'http://www.gettyimages.ca/gi-resources/images/Homepage/Hero/UK/CMS_Creative_164657191_Kingfisher.jpg'),
+(5, 0, 1, NULL, NULL, 'http://www.gettyimages.ca/gi-resources/images/Homepage/Hero/UK/CMS_Creative_164657191_Kingfisher.jpg'),
+(6, 0, 1, NULL, NULL, 'http://www.gettyimages.ca/gi-resources/images/Homepage/Hero/UK/CMS_Creative_164657191_Kingfisher.jpg'),
+(7, 0, 1, NULL, NULL, 'http://www.rockenseine.com/wp-content/uploads/2015/09/VP2_7163RES-1024x683.jpg'),
+(8, 0, 1, NULL, NULL, 'http://www.rockenseine.com/wp-content/uploads/2015/09/VP2_7163RES-1024x683.jpg'),
+(9, 0, 1, NULL, NULL, 'http://www.rockenseine.com/wp-content/uploads/2015/09/VP2_7163RES-1024x683.jpg'),
+(10, 0, 1, NULL, NULL, 'http://img0.mxstatic.com/wallpapers/32b71a73dc16a097de73c1dee4f3e9fc_large.jpeg'),
+(11, 0, 1, NULL, NULL, 'http://img0.mxstatic.com/wallpapers/32b71a73dc16a097de73c1dee4f3e9fc_large.jpeg'),
+(12, 0, 1, NULL, NULL, 'http://www.rockenseine.com/wp-content/uploads/2015/09/VP2_7163RES-1024x683.jpg');
 
 -- --------------------------------------------------------
 
@@ -301,14 +318,15 @@ CREATE TABLE IF NOT EXISTS `signaler` (
   `commentaire_r` varchar(767) DEFAULT NULL,
   `id_balance` int(11) DEFAULT NULL,
   PRIMARY KEY (`id_report`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=8 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=9 ;
 
 --
 -- Contenu de la table `signaler`
 --
 
 INSERT INTO `signaler` (`id_report`, `id_utilisateur`, `Event_id`, `id_commentaire`, `sujet`, `commentaire_r`, `id_balance`) VALUES
-(7, NULL, 1, NULL, NULL, NULL, 7);
+(7, NULL, 1, NULL, NULL, NULL, 7),
+(8, NULL, 1, NULL, NULL, NULL, 7);
 
 -- --------------------------------------------------------
 
@@ -381,7 +399,7 @@ CREATE TABLE IF NOT EXISTS `utilisateur` (
   `prenom_u` varchar(30) NOT NULL,
   `date_de_naissance` date NOT NULL,
   `description` text NOT NULL,
-  `photo_u` varchar(255) DEFAULT '../reste/bvert.png',
+  `photo_u` varchar(255) DEFAULT '../reste/photo_profil/bvert.png',
   `mail` varchar(255) NOT NULL,
   `telephone` int(15) NOT NULL,
   `mot_de_passe` varchar(255) NOT NULL,
@@ -398,14 +416,14 @@ CREATE TABLE IF NOT EXISTS `utilisateur` (
 --
 
 INSERT INTO `utilisateur` (`id_utilisateur`, `nom_u`, `prenom_u`, `date_de_naissance`, `description`, `photo_u`, `mail`, `telephone`, `mot_de_passe`, `sexe`, `admin`, `id_adresse`, `confirmation_inscription`, `conf_mod_prof`) VALUES
-(1, 'Latour', 'Antoine', '1222-12-12', 'Je suis antoine latour', '../reste/bvert.png', 'antoine.latour@free.fr', 1, 'testdeco', 1, 0, 2, 1, 1),
+(1, 'Latour', 'Antoine', '1222-12-12', 'Je suis antoine latour', '../reste/photo_profil/bvert.png', 'antoine.latour@free.fr', 1, 'testdeco', 1, 0, 2, 1, 1),
 (2, 'Client', 'Compte', '2015-12-25', 'Wallah mon frère je suis un compte client', NULL, 'compte.client@Simplevent.fr', 0, 'compteclient', NULL, 0, 0, 1, 0),
 (7, 'Batier', 'Olivier', '1995-07-31', 'WOLOLO', 'https://scontent-cdg2-1.xx.fbcdn.net/hphotos-frc3/v/t1.0-9/933950_496057963811856_554254439_n.jpg?oh=ccfeffaa9edbdc12d85d73df9755fe0e&oe=57204D3A', 'olivierbatier@gmail.com', 12345678, 'douze', 1, 1, 7, 1, 1),
 (8, '', '', '0000-00-00', '', NULL, 'ntnlatour@gmail.com', 0, 'mdp', NULL, 0, 0, 1, 0),
 (11, '', '', '0000-00-00', '', NULL, 'wololo@wololo.com', 0, 'wololo', NULL, NULL, 0, 0, 0),
 (12, '', '', '0000-00-00', '', NULL, 'wololo@wololo.com', 0, 'wololo', NULL, NULL, 0, 0, 0),
 (13, '', '', '0000-00-00', '', NULL, 'Allah@gmail.com', 0, 'Jesus', NULL, NULL, 0, 0, 0),
-(14, '', '', '0000-00-00', '', '../reste/bvert.png', 'vin.rojo@gmail.com', 0, 'rojo', NULL, NULL, 0, 0, 0);
+(14, '', '', '0000-00-00', '', '../reste/photo_profil/bvert.png', 'vin.rojo@gmail.com', 0, 'rojo', NULL, NULL, 0, 0, 0);
 
 --
 -- Contraintes pour les tables exportées
