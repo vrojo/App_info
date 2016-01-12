@@ -403,16 +403,7 @@ function affichage_utilisateur(){
 function suppression_utilisateur($idutilisateur){
     global $connect;
     $id = htmlspecialchars (addslashes($idutilisateur));
-    mysqli_query($connect, 'delete from commente where id_utilisateur='.$id) or die("MsQL Erreur : ".mysqli_errno($connect));
-    mysqli_query($connect, 'delete from confirmation_inscription where id_utilisateur='.$id) or die("MsQL Erreur : ".mysqli_errno($connect));
-    mysqli_query($connect, 'delete from messagerie where id_expediteur='.$id.' or id_destinataire='.$id) or die("MsQL Erreur : ".mysqli_errno($connect));
-    mysqli_query($connect, 'delete from participation where id_utilisateur='.$id) or die("MsQL Erreur : ".mysqli_errno($connect));
-    mysqli_query($connect, 'delete from preference where id_utilisateur='.$id) or die("MsQL Erreur : ".mysqli_errno($connect));
-    mysqli_query($connect, 'delete from relation_amicale where id_utilisateur='.$id) or die("MsQL Erreur : ".mysqli_errno($connect));
-    mysqli_query($connect, 'delete from reponse where id_utilisateur='.$id) or die("MsQL Erreur : ".mysqli_errno($connect));
-    mysqli_query($connect, 'delete from sujet where id_utilisateur='.$id) or die("MsQL Erreur : ".mysqli_errno($connect));
     mysqli_query($connect, 'delete from utilisateur where id_utilisateur='.$id) or die("MsQL Erreur : ".mysqli_errno($connect));
-    
 }
 
 function update_utilisateur($idutilisateur){
