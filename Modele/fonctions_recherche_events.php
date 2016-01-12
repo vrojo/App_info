@@ -26,10 +26,11 @@
 					"select * from event 
 					natural join multimedia 
 					natural join adresse 
-					where Nom_e like '%".$_POST['mot_clef']."%' 
+					where (Nom_e like '%".$_POST['mot_clef']."%' 
 					or description_e like '%".$_POST['mot_clef']."%' 
 					or ville like '".$_POST['mot_clef']."' 
-					or codepostal like '".$_POST['mot_clef']."%'");
+					or codepostal like '".$_POST['mot_clef']."%')
+					and principale=1");
 
 			$cacher=0;
 			}
@@ -43,8 +44,8 @@
 		'select * from event 
 		natural join multimedia 
 		natural join adresse 
-		where Nom_e like "%'.$_POST['mot_clef'].'%" 
-		or description_e like "%'.$_POST['mot_clef'].'%" and ville like "'.$_POST['ville_evenement'].'" and codepostal like "'.$_POST['departement_evenement'].'%" and date_e between "'.$_POST['date_debut'].'" and "'.$_POST['date_fin'].'"');
+		where (Nom_e like "%'.$_POST['mot_clef'].'%" 
+		or description_e like "%'.$_POST['mot_clef'].'%" and ville like "'.$_POST['ville_evenement'].'" and codepostal like "'.$_POST['departement_evenement'].'%" and date_e between "'.$_POST['date_debut'].'" and "'.$_POST['date_fin'].'") and principale=1');
 		$cacher=0;
 		}
 		else{			

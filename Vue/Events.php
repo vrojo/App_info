@@ -137,7 +137,8 @@
 					<img src="https://upload.wikimedia.org/wikipedia/fr/4/47/Isep-Logo.png" style="float:left;display:inline-block;max-height:90%;"/>
 				</div>
 			</div>
-			<div class="bandeaubas">
+			<div class="bandeaubas" style="height:350px">
+				<?php carroussel_event($Event_id);?>
 			</div>
 		</div>
 		<?php if (verifco($mdp,$id_utilisateur)==TRUE){?>

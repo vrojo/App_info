@@ -214,4 +214,14 @@ function notationphp($Event_id){
 	}
 
 	}
+function carroussel_event($Event_id){
+	global $connect_e;
+	$result=mysqli_query($connect_e,"SELECT * from multimedia where Event_id=$Event_id");
+	while($data=mysqli_fetch_assoc($result)){
+		?><div class="photo_car">
+			<img src="<?php echo $data['urlimg_event']?>" class="photo_car2"/>
+		</div>
+		<?php
+	}	
+}
 ?>
