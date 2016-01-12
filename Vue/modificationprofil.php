@@ -158,6 +158,11 @@ require '../Modele/model.php';
                 </div>
             </div>
         </form>
+        <form id="formulaire_modif2" action="../Vue/Suppression.php">
+            <input type="submit" name="desinscrire" value="Se désinscrire" id="bouton_desinscrire">
+            <br>
+            <br>
+        </form>
     </body>
     <?php include("../Vue/footer.php")?>
 </html>

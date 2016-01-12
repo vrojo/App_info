@@ -8,6 +8,7 @@
     </head>
     <link type="text/css" rel="stylesheet" href="../Style/gestion_utilisateur.css"/>
     <body>        
+        <?php session_strat(); ?>
         <?php include ("Header.php"); ?>
         <?php require("model.php") ?>
         <div class="gestion_utilisateur">
@@ -38,7 +39,7 @@
         }
         else
         {
-            update_utilisateu($_POST['id']);
+            update_utilisateur($_POST['id']);
         }
     }
     ?>
