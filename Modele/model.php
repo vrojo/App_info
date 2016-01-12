@@ -372,13 +372,13 @@ function carrousel_event($event1){
 }
 
 
-function affichage_utilisateur(){
+function affichage_utilisateur_signales(){
     global $connect;
     $result = mysqli_query($connect, "SELECT utilisateur.id_utilisateur, nom_u, prenom_u, mail, id_balance FROM utilisateur INNER JOIN signaler ON utilisateur.id_utilisateur = signaler.id_utilisateur") or die("MsQL Erreur : ".mysqli_errno($connect));
-    
-    echo "<div class='tableau'>";
-        echo'Utilisateurs signalés par la communauté :';
-        echo "<table><tr><td>Nom </td><td>Prenom </td><td>Mail </td></tr>";
+        echo'<div class="titre_gestion_utilisateur">Utilisateurs signalés par la communauté :</div>';
+        echo'<br>';
+        echo "<div id='tableau_utilisateur_signales'>";
+        echo "<table><thead><tr><th>Nom </th><th>Prenom </th><th>Mail </th></tr></thead>";
         while($infos = mysqli_fetch_assoc($result)) {
         
         echo "<tr>";
@@ -388,16 +388,14 @@ function affichage_utilisateur(){
         echo '<td><a href="autreprofil.php?id_utilisateur='.$infos['id_balance'].'">'.$infos['id_balance'].'</a></td>';
         echo '<td><form method="POST" action="gestion_utilisateur.php">
                 <input type="text" name="id" style="display:none" value='.$infos['id_utilisateur'].'></input>
-                <select name="action">'
-                    . '<option value="supprimer">Supprimer</option>'
-                    . '<option value="upgrade">Upgrade</option>'
-              . '</select>'
-              . '<input type="submit" name="Valider"/></form></td></tr>';
+                <input type="submit" name="action" value="supprimmer" id="bouton_suppression_utilisateur"/></form></td></tr>';
        
 
         }
     echo "</table>";
     echo "</div>";
+    echo'<br>';
+    echo'<br>';
 
 } 
 

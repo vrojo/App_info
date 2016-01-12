@@ -1,4 +1,4 @@
-.gestion_categ{
+.gestion_utilisateur{
     background-color: #74DEF1;
 
     float:left;
@@ -12,66 +12,33 @@
     font-size: 20px;
     text-align:center;
 }
-
-#bouton_back{
-    font-size:1em;
-    position:relative;
-    background-color:#80FF80;
-    box-shadow: 1px 2px 5px #bfbfbf, 0px -2px 5px #bfbfbf;
-    width:200px;
-    height:30px;
-    display:inline-block;
-    font-weight:bold;
-    transform: translate(0,-50%);
+.titre_gestion_utilisateur_princ{
     color:white;
-    border:none;
-    border-radius:5px;
-    margin-left:35%;
+    font-size: 28px;
+    text-align:center;
+}
+#mail_utilisateur{
+    position: relative;
+    left: 42%;
+    margin-bottom: 50px;
+    width: 200px;
 }
 
-#entrer_categ {
-    margin-left:37.5%;
+#tableau_utilisateur_signales{
+    position: relative;
+    left:30%;
+    color:white;
+    font-size: 20px;
+    text-align:center;
 }
 
-#bloc_gestion_utilisateur{
-    display: inline-block;
-    width: 30%;
-    text-align: left;
-    position:relative;
+#texte_mail{
+    color:white;
+    position: relative;
+    left:41%;
 }
 
-#bloc_ajout_categ{
-    position:relative;
-    width: 49.5%;
-    display:inline-block;
-    text-align: left;
-}
-
-.bouton_suppression_categ{
-    color: red;  
-}
-
-.nomcateg{
-    text-align: left;
-    margin-left:20%;
-    margin-right:1%;
-    display:inline-block;
-    margin-bottom:5%;
-    padding-top:1px
-}
-
-.zone_input_categ {
-    margin:0;
-    display:inline-block;
-    padding-bottom:0;
-    margin-bottom:5%;
-}
-
-.mail_de_utilisateur {
-    margin:0;
-    border:1px solid #74DEF1;
-}
-
-.zone_modification_categ{
-    width:85px;
+th{
+    border: 2px solid black;
+    width : 200px;
 }

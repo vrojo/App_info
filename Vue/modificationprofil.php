@@ -18,7 +18,7 @@ require '../Modele/model.php';
     <body>
         <?php include ("../Vue/Header.php"); ?>
         
-        <form id="formulaire_modif" action="../Controler/modificationprofilcontroleur.php" method="post" onsubmit="return verifCompletModif(this)">
+        <form enctype="multipart/form-data" id="formulaire_modif" action="../Controler/modificationprofilcontroleur.php" method="post" onsubmit="return verifCompletModif(this)">
             <br>
             <br>
             <span id="titre_modif_princ">Modifiez votre profil et rejoignez le mouvement !!</span><br>
@@ -151,9 +151,10 @@ require '../Modele/model.php';
                 </div>
                 <br>
                 <div class="input_modifprof">
-                    <strong>Lien vers une photo qui vous servira de photo de profil :</strong><br>
+                    <strong>Sélectionnez une photo qui vous servira de photo de profil :</strong><br>
                     <div class="input_input_modif">
-                        <input type="text" id="ajouterphoto" name="photo_u" onblur="verifUrlphoto(this)"/><span id="erreur_urlphoto"></span>
+                       <input name="photo_utilisateur" type="file" />
+                       <input type="hidden" name="taille_max" value="30000" />
                     </div>
                 </div>
             </div>
