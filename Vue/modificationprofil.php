@@ -17,7 +17,7 @@ require '../Modele/model.php';
     <script type="text/javascript" src="../Controler/modificationprofil.js"></script>
     <body>
         <?php include ("../Vue/Header.php"); ?>
-        
+        <?php $donnees = remplissage_modifprofil($_SESSION['id_utilisateur']); ?>
         <form enctype="multipart/form-data" id="formulaire_modif" action="../Controler/modificationprofilcontroleur.php" method="post" onsubmit="return verifCompletModif(this)">
             <br>
             <br>
@@ -29,35 +29,35 @@ require '../Modele/model.php';
                 <div class="input_modifprof">
                     <strong>Nom :</strong>
                     <div class="input_input_modif">
-                        <input type="text" name="nom_u" id="nom" placeholder="Dutronc" oninput="verifNom(this)"><span id="erreur_nom"></span>
+                        <input type="text" name="nom_u" id="nom" placeholder="Dutronc" value="<?php echo $donnees['nom_u'] ?>" oninput="verifNom(this)"><span id="erreur_nom"></span>
                     </div>
                 </div>
                 <br>
                 <div class="input_modifprof">
                     <strong>Prénom :</strong>
                     <div class="input_input_modif">
-                        <input type="text" name="prenom_u" id="prenom" placeholder="Jacques" oninput="verifPrenom(this)"><span id="erreur_prenom"></span>
+                        <input type="text" name="prenom_u" id="prenom" placeholder="Jacques" value = " <?php echo $donnees['prenom_u'] ?> "oninput="verifPrenom(this)"><span id="erreur_prenom"></span>
                     </div>
                 </div>
                 <br>
                 <div class="input_modifprof">
                     <strong>Adresse e-mail :</strong>
                     <div class="input_input_modif">
-                        <input type="email" name="mail" id="mail" placeholder="...........................................@.............." oninput='verifMail(this)'><span id="erreur_mail"></span>
+                        <input type="email" name="mail" id="mail" placeholder="...........................................@.............." value = "<?php echo $donnees['mail'] ?>" oninput='verifMail(this)'><span id="erreur_mail"></span>
                     </div>
                 </div>
                 <br>
                 <div class="input_modifprof">
                     <strong>Mot de passe :</strong>
                     <div class="input_input_modif">
-                        <input type="password" name="mot_de_passe" id="mdpmodif" placeholder="*******" oninput="verifMdp(this)"/><span id="erreur_mdp"></span>
+                        <input type="password" name="mot_de_passe" id="mdpmodif" placeholder="*******" value = "<?php echo $donnees['mot_de_passe'] ?> "oninput="verifMdp(this)"/><span id="erreur_mdp"></span>
                     </div>
                 </div>
                 <br>
                 <div class="input_modifprof">
                     <strong>Confirmation du mot de passe :</strong>
                     <div class="input_input_modif">
-                        <input type="password" name="confirmation_mdp" id="mdpconfmodif" placeholder="*******" oninput="verifMdpconf(this)"/><span id="erreur_confirmation_mdp"></span>
+                        <input type="password" name="confirmation_mdp" id="mdpconfmodif" placeholder="*******" value = " <?php echo $donnees['mot_de_passe'] ?> "oninput="verifMdpconf(this)"/><span id="erreur_confirmation_mdp"></span>
                     </div>
                 </div>
                 <br>
@@ -70,45 +70,45 @@ require '../Modele/model.php';
                 <div class="adresse">
                     Numéro de rue :
                     <div class="input_input_modif">
-                        <input type="text" name="numero_adresse" id="numero_adresse" placeholder="n° de rue" oninput="verifNumrue(this)"/><span id="erreur_numrue"></span>
+                        <input type="text" value = " <?php echo $donnees['numerorue'] ?>" name="numero_adresse" id="numero_adresse" placeholder="n° de rue" oninput="verifNumrue(this)"/><span id="erreur_numrue"></span>
                     </div>
                 </div>
                 <div class="adresse">
                     Rue :
                     <div class="input_input_modif">
-                        <input type="text" name="rue_adresse" id="rue_adresse" placeholder="rue du Puits" oninput="verifRue(this)"/><span id="erreur_rue"></span>
+                        <input type="text" name="rue_adresse" value = " <?php echo $donnees['rue'] ?> "id="rue_adresse" placeholder="rue du Puits" oninput="verifRue(this)"/><span id="erreur_rue"></span>
                     </div>
                 </div>
                 <div class="adresse">    
                     Ville :
                     <div class="input_input_modif">
-                        <input type="text" name="ville_adresse" id="ville_adresse" placeholder="Paris" oninput="verifVille(this)"/><span id="erreur_ville"></span>
+                        <input type="text" name="ville_adresse" value = " <?php echo $donnees['ville'] ?>" id="ville_adresse" placeholder="Paris" oninput="verifVille(this)"/><span id="erreur_ville"></span>
                     </div>
                 </div>
                 <div class="adresse">    
                     Code postal :
                     <div class="input_input_modif">
-                        <input type="text" name="codepostal_adresse" id="codepostal_adresse" placeholder="75" oninput="verifCodepostal(this)"/><span id="erreur_codepostal"></span>
+                        <input type="text" name="codepostal_adresse" value = " <?php echo $donnees['codepostal'] ?>" id="codepostal_adresse" placeholder="75" oninput="verifCodepostal(this)"/><span id="erreur_codepostal"></span>
                     </div>
                 </div>
                 <div class="adresse">    
                     Pays :
                     <div class="input_input_modif">
-                        <input type="text" name="pays_adresse" id="pays_adresse" placeholder="France" oninput="verifPays(this)"/><span id="erreur_pays"></span>
+                        <input type="text" name="pays_adresse" id="pays_adresse" value = " <?php echo $donnees['pays'] ?> "placeholder="France" oninput="verifPays(this)"/><span id="erreur_pays"></span>
                     </div>
                 </div>
                 <br>
                 <div class="input_modifprof">
                     <strong>Téléphone :</strong>
                     <div class="input_input_modif">
-                        <input type="tel" name="telephone" id="telephone" placeholder="0612345678" oninput="verifTelephone(this)"/><span id="erreur_telephone"></span>
+                        <input type="tel" name="telephone" id="telephone" placeholder="0612345678" value="0+<?php echo $donnees['telephone']?>" oninput="verifTelephone(this)"/><span id="erreur_telephone"></span>
                     </div>
                 </div>
                 <br>
                 <div class="input_modifprof">
                     <strong>Date de naissance :</strong>
                     <div class="input_input_modif">
-                        <input type="date" name="date_de_naissance" id="date"/>
+                        <input type="date" name="date_de_naissance" value="<?php echo $donnees['date_de_naissance'] ?>" id="date"/>
                     </div>
                 </div>
                 <br>
@@ -146,7 +146,7 @@ require '../Modele/model.php';
                 <div class="input_modifprof">
                     <strong>Description :</strong><br><em>**Ecrivez une petite description qui vous défini et pourra être vue parles autres utilisateurs sur votre profil.</em><br>
                     <div class="input_input_modif">
-                        <textarea name="description" id="description" placeholder="entrez une petite description de vous..."></textarea><span id="erreur_description"></span>
+                        <textarea value = " <?php echo $donnees['description'] ?>" name="description" id="description" placeholder="entrez une petite description de vous..."></textarea><span id="erreur_description"></span>
                     </div>
                 </div>
                 <br>
@@ -154,7 +154,6 @@ require '../Modele/model.php';
                     <strong>Sélectionnez une photo qui vous servira de photo de profil :</strong><br>
                     <div class="input_input_modif">
                        <input name="photo_utilisateur" type="file" />
-                       <input type="hidden" name="taille_max" value="30000" />
                     </div>
                 </div>
             </div>

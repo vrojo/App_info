@@ -417,4 +417,31 @@ function update_utilisateur($idutilisateur){
     $id = htmlspecialchars (addslashes($idutilisateur));
     mysqli_query($connect, 'update utilisateur set admin  = '.$admin.' where id_utilisateur='.$id) or die("MsQL Erreur : ".mysqli_errno($connect));
 }
+
+function select_categ($id, $categ){
+    global $connect;
+    $result = mysqli_query($connect, 'select * from preference where id_utilisateur = '.$id.' and id_categ='.$categ) or die("MsQL Erreur : ".mysqli_errno($connect));
+    $tableauresult = mysqli_fetch_assoc($result);
+    
+    if($tableauresult == null){
+        return true;
+    }
+    else{
+        return false;
+    }
+}
+
+function suppression_categ($id, $categ){
+    global $connect;
+    mysqli_query($connect, 'delete * from preference where id_utilisateur = '.$id.' and id_categ='.$categ) or die("MsQL Erreur : ".mysqli_errno($connect));
+}
+
+function remplissage_modifprofil($id){
+    global $connect;
+    $resultutilisateur = mysqli_query($connect, 'select * from utilisateur where id_utilisateur = '.$id) or die("MsQL Erreur : ".mysqli_errno($connect));
+    $tableauresultutilisateur = mysqli_fetch_assoc($resultutilisateur);
+    $resultadresse = mysqli_query($connect, 'select * from adresse where id_adresse = '.$tableauresultutilisateur['id_adresse']) or die("MsQL Erreur : ".mysqli_errno($connect));
+    $tableauresultadresse = mysqli_fetch_assoc($resultadresse);
+    return $tableauresultadresse + $tableauresultutilisateur;
+}
 ?>  
