@@ -1,19 +1,185 @@
+#body{
+    background-color:#74DEF1;
+    padding: 20% 10% 10% 10%;
+}
+
+#tdentete{
+    width:50%;
+    height:50px;
+}
 #table_de_topic{
     width:100%;
-    border: 2px solid black;
+}
+
+.top_colonne_dernier_message{
+    width:43%;
+}
+
+.top_colonne_messages{
+    width:9%;
+}
+
+.top_colonne_topics{
+    width:43%;
 }
 
 .colonne_dernier_message{
-    width:45%;
-    border: 2px solid black;
+    width:43%;
 }
 
 .colonne_messages{
-    width:5%;
-    border: 2px solid black;
+    width:9%;
 }
 
 .colonne_topics{
-    width:45%;
-    border: 2px solid black;
+    width:43%;
+}
+
+#entete{
+    font-size:1em;
+    position:relative;
+    background-color:#80ff80;
+    box-shadow: rgba(0,0,0,0.2) 2px 2px;
+    border:1px solid #32CD32;
+    width: 40%;
+    height:60%;
+    margin:0;
+    display:inline-block;
+    font-weight:bold;
+    font-family: "Comic Sans MS", cursive, sans-serif;
+    top: 50%;
+    transform: translateY(-50%);
+    color:Background;
+    text-align:center;
+    border-radius:5px;
+}
+
+#Bouton{	
+	font-size:1em;
+	position:relative;
+	background-color:#80ff80;
+	box-shadow: rgba(0,0,0,0.2) 2px 2px;
+        border:1px solid #32CD32;
+	width: 200px;
+	height:20px;
+	margin:0;
+	display:inline-block;
+	font-weight:bold;
+	top: 50%;
+    transform: translateY(-50%);
+	color:#708090;
+	text-align:center;
+	border-radius:5px;
+
+}
+#Bouton:hover{
+	background-color:#00C000;
+        color:white;
+        border:1px solid #008000;
+}
+
+#Boutontopic{
+	font-size:1em;
+	float:left;
+	position:relative;
+	background-color:#87e052;
+	box-shadow: rgba(0,0,0,0.2) 2px 2px;
+	width:100%;
+	height:30px;
+	margin:0;
+        padding-top:10px;
+	display:inline-block;
+	font-weight:bold;
+	color:white;
+	text-align:center;
+	border-top-right-radius:20px;
+	border-top-left-radius:20px;
+	border-bottom-left-radius:20px;
+	border-bottom-right-radius:20px;
+	border-top:1px solid #708090;
+}
+
+#Boutonmsg{
+	font-size:1em;
+	float:left;
+	position:relative;
+	background-color:#87e052;
+	box-shadow: rgba(0,0,0,0.2) 2px 2px;
+	width:100%;
+	height:30px;
+	margin:0;
+        padding-top:10px;
+	display:inline-block;
+	font-weight:bold;
+	color:white;
+	text-align:center;
+	border-top-right-radius:20px;
+	border-top-left-radius:20px;
+	border-bottom-left-radius:20px;
+	border-bottom-right-radius:20px;
+	border-top:1px solid #708090;
+}
+
+#Boutondernier{
+	font-size:1em;
+	float:left;
+	position:relative;
+	background-color:#87e052;
+	box-shadow: rgba(0,0,0,0.2) 2px 2px;
+	width:100%;
+	height:30px;
+	margin:0;
+        padding-top:10px;
+	display:inline-block;
+	font-weight:bold;
+	color:white;
+	text-align:center;
+	border-top-right-radius:20px;
+	border-top-left-radius:20px;
+	border-bottom-left-radius:20px;
+	border-bottom-right-radius:20px;
+	border-top:1px solid #708090;
+}
+
+#Boutonphp{
+	font-size:1em;
+	float:left;
+	position:relative;
+	background-color:#00F050;
+	box-shadow: rgba(0,0,0,0.2) 2px 2px;
+	width:100%;
+	height:30px;
+	margin-top:5px;
+        padding-top:8px;
+	display:inline-block;
+	font-family: "Comic Sans MS", cursive, sans-serif;
+	color:white;
+	text-align:center;
+	border-top:1px solid #708090;
+        border-left: 1px solid black;
+        border-right: 1px solid black;
+}
+
+#Boutonphp:hover{
+    background-color:#00C000;
+    color:white;
+    border:1px solid black;
+}
+
+#Boutonphp2{
+	font-size:1em;
+	float:left;
+	position:relative;
+	background-color:#00F050;
+	box-shadow: rgba(0,0,0,0.2) 2px 2px;
+	width:100%;
+	height:30px;
+        margin-top: 5px;
+	margin-left:5px;
+        padding-top:8px;
+	display:inline-block;
+	font-family: "Comic Sans MS", cursive, sans-serif;
+	color:white;
+	text-align:center;
+	border-top:1px solid #708090;
 }
