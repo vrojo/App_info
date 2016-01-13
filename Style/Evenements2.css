@@ -143,3 +143,12 @@
 .Bouton_information p {
 	color:black;
 }
+#map{
+	position:relative;
+	clear:left;
+	float:left;
+	display:inline-block;
+	box-shadow: rgba(0,0,0,0.2) 2px 2px;
+	width:100%;
+	height:250px;
+}

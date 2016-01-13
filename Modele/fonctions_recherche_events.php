@@ -4,7 +4,7 @@
 			natural join multimedia 
 			natural join adresse 
 			natural join participation 
-			where id_utilisateur=$id_utilisateur
+			where (id_utilisateur=$id_utilisateur and principale=1)
 			GROUP BY event.Event_id");
 		$cacher=1;
 		}
@@ -13,7 +13,7 @@
 			"SELECT * from event 
 			inner join multimedia on event.Event_id = multimedia.Event_id
 			inner join adresse on event.id_adresse=adresse.id_adresse
-			WHERE id_utilisateur=$id_utilisateur
+			WHERE (id_utilisateur=$id_utilisateur and principale=1)
 			GROUP BY event.Event_id");
 		$cacher=1;
 		}
@@ -44,8 +44,8 @@
 		'select * from event 
 		natural join multimedia 
 		natural join adresse 
-		where (Nom_e like "%'.$_POST['mot_clef'].'%" 
-		or description_e like "%'.$_POST['mot_clef'].'%" and ville like "'.$_POST['ville_evenement'].'" and codepostal like "'.$_POST['departement_evenement'].'%" and date_e between "'.$_POST['date_debut'].'" and "'.$_POST['date_fin'].'") and principale=1');
+		where (principale=1 and Nom_e like "%'.$_POST['mot_clef'].'%" 
+		or description_e like "%'.$_POST['mot_clef'].'%" and ville like "'.$_POST['ville_evenement'].'" and codepostal like "'.$_POST['departement_evenement'].'%" and date_e between "'.$_POST['date_debut'].'" and "'.$_POST['date_fin'].'")');
 		$cacher=0;
 		}
 		else{			
@@ -53,8 +53,16 @@
 		'select * from event 
 		natural join multimedia 
 		natural join adresse 
-		where Nom_e like "%'.$_POST['mot_clef'].'%" 
-		or description_e like "%'.$_POST['mot_clef'].'%" and ville like "'.$_POST['ville_evenement'].'" and codepostal like "'.$_POST['departement_evenement'].'%" and date_e between "'.$_POST['date_debut'].'" and "'.$_POST['date_fin'].'"');
+		where (principale=1 and Nom_e like "%'.$_POST['mot_clef'].'%" 
+		or description_e like "%'.$_POST['mot_clef'].'%" 
+		and ville like "'.$_POST['ville_evenement'].'" and codepostal like "'.$_POST['departement_evenement'].'%" and date_e between "'.$_POST['date_debut'].'" and "'.$_POST['date_fin'].'")');
 		$cacher=0;
 		}
-?>
+		 
+		$listeadresse=array("");
+		// while($resultatadr = mysqli_fetch_assoc($tout_evenement)){
+			 // $listeadresse[]=$resultatadr['numerorue']." ".$resultatadr['rue']." ".$resultatadr['ville']." ".$resultatadr['pays'];
+		 // }
+		// print_r($listeadresse);
+		// $jsadresses=json_encode($listeadresse);
+		?>

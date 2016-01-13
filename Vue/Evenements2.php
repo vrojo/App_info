@@ -7,6 +7,8 @@ session_start();
 		<meta charset="utf-8" />
 		<link type="text/css" rel="stylesheet" href="../Style/Evenements2.css"/>
 		<script type="text/javascript" src="Evenements2.js"></script>
+		<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBTJ7EKiUmBXBsHrnojWCg36xdAKObOLqM"></script>
+		<script type="text/javascript" src="../Modele/Eventmap.js"></script>
 		<title>Evénements</title>
 	</head>
 	
@@ -22,6 +24,7 @@ session_start();
 		$compteur=0;
 		
 	if($cacher==0){?>
+		
 		<div id="formulaire_page_resultat">
 			<form method="post" action="Evenements2.php" id="formulaire_resultat">
 				<label for="mot_clef" style="color:white ; font-size:1.5em;">Mot clef : </label>
@@ -65,6 +68,7 @@ session_start();
 			<div class="ligne">
 				<?php
 				while ($data=mysqli_fetch_assoc($tout_evenement)) {
+					$listeadresse[]=$data['numerorue']." ".$data['rue']." ".$data['ville']." ".$data['pays'];
 					$vignette_evenement=$data["urlimg_event"];
 					$nom_evenement=$data["Nom_e"];
 					$id_evenement=$data["Event_id"];
@@ -195,11 +199,18 @@ session_start();
 				?>
 			</div>
 		</div>
-		<?php include("footer.php")?>
+		<div id="map">
+		</div>
+		<?php include("footer.php");
+		$jsadresses=json_encode($listeadresse);
+		?>
 		<script type="text/javascript">
+			Eventmap(<?php echo $jsadresses ?>,"Paris");
+			
 			//<!--
 			fermeture_init();
 			//-->
 		</script>
+		
 	</body>
 </html>

@@ -4,6 +4,7 @@ var map;
 
 function Eventmap(listeadresse, lieu)
 {
+
 geocoder = new google.maps.Geocoder();
 var latlng = new google.maps.LatLng(0,0);
 var mapOptions = 
