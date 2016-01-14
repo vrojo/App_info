@@ -87,7 +87,7 @@
 				<h1><?php echo($profil['prenom_u'])?> <?php echo($profil['nom_u'])?></h1>
 			</div>
 			<div id="photo_autre_profil">
-				<img src="<?php echo($profil['photo_u'])?>">
+				<img src="<?php echo($profil['photo_u'])?>" id="photoprof">
 			</div>
 			<div id="description_autre_profil">
 				<h3>Sa description :</h3>
@@ -257,6 +257,7 @@
 		<?php include('footer.php') ?>
 		
 			<script type="text/javascript">
+			profpic();
 		//<!--
 		fermeture_init("#cache1");
 		fermeture_init("#cache2");

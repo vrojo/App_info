@@ -96,18 +96,20 @@ h1 {
 	color:white;
 }
 
-#photo_mon_profil {
+#photo_autre_profil {
+	margin:0;
 	display:inline-block;
-	width:30%;
+	width:20%;
 	vertical-align:top;
 }
 
-#photo_mon_profil img {
+#photo_autre_profil img {
+	margin:0;
 	max-height:100%;
 	max-width:100%;
 	border-radius:100%;
+	overflow:hidden;
 }
-
 
 #description_mon_profil {
 	display:inline-block;

@@ -4,7 +4,7 @@ mysqli_set_charset($connect,"utf8");
 function coms ($Topic_id){
 	global $connect;
 	global $id_utilisateur;
-	$result=mysqli_query($connect_e,"SELECT * from commente where Event_id=$Event_id");
+	$result=mysqli_query($connect_e,"SELECT * from commente where sujet=$Event_id");
 	
 while ($data = mysqli_fetch_assoc($result)) {
 	$id_commentateur=$data['id_utilisateur'];
