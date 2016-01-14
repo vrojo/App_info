@@ -1,6 +1,5 @@
 <?php
 session_start();
-require 'fonctions_crea_event.php';
 require 'model.php';
 ?>
 <!DOCTYPE html>
@@ -84,18 +83,19 @@ require 'model.php';
 					</br>
 					<label>Image du/des sponsor(s):</label>
 					<div style="display:inline-block; vertical-align:top;">
-						<input type="text" name="sponsor" class="input_form_crea_event" placeholder="url de l'image">
+						<input type="text" name="sponsor1" class="input_form_crea_event" placeholder="url de l'image">
 						</br>
 						<input type="text" name="sponsor2" class="input_form_crea_event" placeholder="url de l'image">
 						</br>
 						<input type="text" name="sponsor3" class="input_form_crea_event" placeholder="url de l'image">
 						</br>
-						<input type="text" name="sponsor" class="input_form_crea_event" placeholder="url de l'image">
+						<input type="text" name="sponsor4" class="input_form_crea_event" placeholder="url de l'image">
 						</br>
 					</div>
 					</br>
 					</br>
-					<input type="checkbox" name="privacy" value="10"><label>événement privé</label>
+					<input type="radio" name="privacy" value="1"><label>événement privé</label>
+					<input type="radio" name="privacy" value="0" checked><label>événement public</label>
 				</fieldset>
 				<fieldset>
 					<label for id="adresseevent">Si l'événement a son propre site Internet :</label>
