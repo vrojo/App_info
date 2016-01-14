@@ -1,0 +1,141 @@
+#Corps_forum{
+	float:left;
+	clear:both;
+	width:100%;
+	margin:0;
+}
+
+#bandeau2{
+	position:relative;
+	margin:0;
+	width:100%;
+    height:500px;
+    background-color:#6cdf6c;
+    /*opacity:0.75;*/
+    box-shadow: rgba(0,0,0,0.2) 1px 2px;
+	float:left;
+	clear: both;
+	text-align:center;
+	font-weight:bold;
+	font-size:1.5em;
+	z-index:5;
+
+    }
+#bandeau2_1{
+	position:relative;
+	margin:0;
+	padding:0;
+	width:100%;
+    height:500px;
+    background-color:#6cdf6c;
+    /*opacity:0.75;*/
+    box-shadow: rgba(0,0,0,0.2) 1px 2px;
+	float:left;
+	clear: both;
+	text-align:center;
+	font-weight:bold;
+	font-size:1.5em;
+	z-index:5;
+
+    }
+#bandeau2_1 .Bouton2{
+	position:absolute;
+	top:50%;
+	left:50%;
+	transform:translate(-50%, -50%);
+}
+#bandeau2_2{
+	position:relative;
+	margin:0;
+	padding:0;
+	width:100%;
+    height:100px;
+    background-color:#6cdf6c;
+    /*opacity:0.75;*/
+    box-shadow: rgba(0,0,0,0.2) 1px 2px;
+	float:left;
+	clear: both;
+	text-align:center;
+	font-weight:bold;
+	font-size:1.5em;
+	z-index:5;
+	
+}
+
+#Boutoncom{
+	color:grey;
+	font-size:0.7em;
+	float:left;
+	position:relative;
+	background-color:white;
+	box-shadow: 1px 2px 5px #bfbfbf, 0px -2px 5px #bfbfbf;
+	width: 15%;
+	height:50%;
+	margin:0;
+	margin-left:30px;
+	display:inline-block;
+	font-weight:bold;
+	top: 50%;
+    transform: translate(0,-50%);
+	text-align:center;
+	border:none;
+	border-radius:5px;
+}
+#Boutoncom:hover{
+	background-color:#e1e1e1;
+	cursor:pointer;
+}
+#Zonecom{
+	position:relative;
+	float:left;
+	display:inline-block;
+	height:90%;
+	width:70%;
+	margin:0;
+	margin-left:2%;
+	font-size:0.7em;
+	top: 50%;
+	transform:translate(0,-50%);
+	box-shadow: -1px 2px 5px #bfbfbf, 0px -2px 5px #bfbfbf;
+	border:none;
+	z-index:1;
+	resize:none;
+	border-radius:5px;
+}
+.bandeaucom{
+	position:relative;
+	display:inline-block;
+	color:white;
+	margin:0;
+	padding:0;
+	width:100%;
+    height:auto;
+    background-color:#6cdf6c;
+    /*opacity:0.75;*/
+    box-shadow: rgba(0,0,0,0.2) 1px 2px;
+	float:left;
+	clear: both;
+	text-align:left;
+	font-weight:bold;
+	font-size:0.7em;
+	z-index:5;
+	border-bottom:1px solid white;
+}
+
+.report{
+	position:absolute;
+	display:block; 
+	height:50%;
+	max-height:50px;
+	
+	top:50%;
+	left:50%;
+	transform:translate(-50%,-50%);
+	transition: padding .4s;
+	
+}
+
+.report:hover{
+	padding-bottom:5%;
+	cursor:pointer;
+}
