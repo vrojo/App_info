@@ -414,11 +414,11 @@ function suppression_utilisateur($idutilisateur){
     mysqli_query($connect, 'SET foreign_key_checks = 1;')or die("MsQL Erreur : ".mysqli_errno($connect));
 }
 
-function update_utilisateur($idutilisateur){
+function update_utilisateur($mail){
     global $connect;
-    $admin = 1;
-    $id = htmlspecialchars (addslashes($idutilisateur));
-    mysqli_query($connect, 'update utilisateur set admin  = '.$admin.' where id_utilisateur='.$id) or die("MsQL Erreur : ".mysqli_errno($connect));
+    $admin = 25;
+    $mail = htmlspecialchars (addslashes($mail));
+    mysqli_query($connect, "update utilisateur set admin = $admin where mail = $mail") or die("MsQL Erreur : ".mysqli_errno($connect));
 }
 
 function select_categ($id, $categ){
@@ -465,8 +465,8 @@ function modification_commentaires(){
     echo "<table><thead><tr><th>Détails du commentaire </th></thead>";
     while($tableau_commentaires_signales = mysqli_fetch_assoc($commentaires_signales)) {        
         echo "<tr>";
-        echo '<td>'.$tableau_commentaires_signales['text_co'].'</td>';
-        echo '<td><form method="POST" action="gestion_utilisateur.php">
+        echo '<td>'.$tableau_commentaires_signales['texte_co'].'</td>';
+        echo '<td><form method="POST" action="gestion_commentaires.php">
                 <input type="hidden" value="'.$tableau_commentaires_signales['id_commentaire'].'" name="idcom">
                 <input type="submit" name="action" value="supprimmer" id="bouton_suppression_commentaire"/></form></td></tr>';
        

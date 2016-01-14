@@ -100,8 +100,6 @@ couleur vert: 80ff80*/
         transform: translate(0,-50%);
 	text-align:center;
 	border:none;
-	border-top-right-radius:5px;
-	border-bottom-right-radius:5px;
         color:white;
 }
 #mots_date{

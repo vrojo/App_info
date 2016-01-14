@@ -30,6 +30,8 @@
                         <br>
                         <br>
                         <input type="text" name="mail" id="mail_utilisateur">
+                        <br>
+                        <input type="submit" name="promu" value="Promouvoir" id="bouton_promotion">
                     </form>
             </div>
         </div>
@@ -48,7 +50,7 @@
         }
         
     }
-    if (isset($_POST["mail"]))
+    if (isset($_POST["mail"]) && isset($_POST['promouvoir']))
         {
             update_utilisateur($_POST['mail']);
         }
