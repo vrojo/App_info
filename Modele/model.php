@@ -454,28 +454,34 @@ function remplissage_modifprofil_adresse($id){
     return $tableauresultadresse;
 }
 
-function modification_finale($id, $nom, $prenom, $mail, $mdp, $numrue, $rue, $ville, $codepostal, $pays, $tel, $datenaissance, $description, $photo, $sexe){
-    $id = htmlspecialchars (addslashes($id));
-    $nom = htmlspecialchars (addslashes($nom));
-    $prenom = htmlspecialchars (addslashes($prenom));
-    $mail = htmlspecialchars (addslashes($mail));
-    $mdp = htmlspecialchars (addslashes($mdp));
-    $numrue = htmlspecialchars (addslashes($numrue));
-    $rue = htmlspecialchars (addslashes($rue));
-    $ville = htmlspecialchars (addslashes($ville));
-    $codepostal = htmlspecialchars (addslashes($codepostal));
-    $pays = htmlspecialchars (addslashes($pays));
-    $tel = htmlspecialchars (addslashes($tel));
-    $description = htmlspecialchars (addslashes($description));
-    $photo = htmlspecialchars (addslashes($photo));
+
+function modification_commentaires(){
     global $connect;
-    $idadresse = mysqli_query($connect, "Select id_adresse from utilisateur where id_utilisateur =.$id");
-    mysqli_query($connect, "update adresse set numerorue = '$numrue', rue = '$rue', ville = '$ville', codepostal = '$codepostal', pays = '$pays' where id_adresse =".$idadresse) or die("MySQL Erreur : " . mysqli_error($connect));  
-    $confmod = 1;
-    mysqli_query($connect, "update utilisateur set nom_u = '$nom', prenom_u = '$prenom', date_de_naissance = '$datenaissance', description = '$description', photo_u = '$photo', mail = '$mail', telephone = '$tel', mot_de_passe = '$mdp', sexe = '$sexe', id_adresse = '$idad', conf_mod_prof = '$confmod'  where id_utilisateur = '$id'") or die("MySQL Erreur : " . mysqli_errno($connect));
+    $commentaires_signales = mysqli_query($connect, "SELECT commente.id_commentaire, texte_co FROM commente INNER JOIN signaler ON signaler.id_commentaire = commente.id_commentaire") or die("MsQL Erreur : ".mysqli_errno($connect));
     
+    echo'<div class="titre_gestion_commentaires">Commentaires signalés par la communauté :</div>';
+    echo'<br>';
+    echo "<div id='tableau_commentaires_signales'>";
+    echo "<table><thead><tr><th>Détails du commentaire </th></thead>";
+    while($tableau_commentaires_signales = mysqli_fetch_assoc($commentaires_signales)) {        
+        echo "<tr>";
+        echo '<td>'.$tableau_commentaires_signales['text_co'].'</td>';
+        echo '<td><form method="POST" action="gestion_utilisateur.php">
+                <input type="hidden" value="'.$tableau_commentaires_signales['id_commentaire'].'" name="idcom">
+                <input type="submit" name="action" value="supprimmer" id="bouton_suppression_commentaire"/></form></td></tr>';
+       
+
+        }
+    echo "</table>";
+    echo "</div>";
+    echo'<br>';
+    echo'<br>';
 }
 
+function suppresion_commentaire($id){
+    global $connect;
+    mysqli_query($connect, "delete from commente where id_commentaire = '$id'") or die("MsQL Erreur : ".mysqli_errno($connect));
+}
 
 ?>  
 

@@ -1,0 +1,34 @@
+.gestion_commentaires{
+    background-color: #74DEF1;
+    float:left;
+    clear:both;
+    position:relative;
+    width:100%;
+}
+
+
+.titre_gestion_commentaires{
+    color:white;
+    font-size: 20px;
+    text-align:center;
+}
+
+.titre_gestion_commentaires_princ{
+    color:white;
+    font-size: 28px;
+    text-align:center;
+}
+
+#tableau_commentaires_signales{
+    position: relative;
+    left:30%;
+    color:white;
+    font-size: 20px;
+    text-align:center;
+}
+
+
+th{
+    border: 2px solid black;
+    width : 500px;
+}
