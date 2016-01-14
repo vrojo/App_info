@@ -11,10 +11,11 @@ require '../Modele/model.php';
     
         <title>Modification du profil</title>
         <meta charset="utf8"
+        
     
     </head>
     <link type="text/css" rel="stylesheet" href="../Style/modificationprofil.css"/>
-    <script type="text/javascript" src="../Controler/modificationprofil.js"></script>
+        <script type="text/javascript" src="../Controler/modificationprofil.js"></script>
     <body>
         <?php include ("../Vue/Header.php"); ?>
         <?php $donnees_utilisateur = remplissage_modifprofil($_SESSION['id_utilisateur']);
