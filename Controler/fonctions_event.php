@@ -1,12 +1,12 @@
 <?php
 
-$connect_e = mysqli_connect("localhost", "root", "", "bddsimplevent");
-mysqli_set_charset($connect_e,"utf8");
+$connect = mysqli_connect("localhost", "root", "", "bddsimplevent");
+mysqli_set_charset($connect,"utf8");
 ?>
 	
 <?php
-if (!$connect_e) {
-    printf("Echec de la connexion : %s\n", mysqli_connect_error());
+if (!$connect) {
+    printf("Echec de la connexion : %s\n", mysqli_connectrror());
     exit();
 	}
 
@@ -29,8 +29,8 @@ else{
 	
 }
 function event_existe($Event_id){
-	global $connect_e;
-	$result=mysqli_query($connect_e,"select * from event where Event_id=".$Event_id);
+	global $connect;
+	$result=mysqli_query($connect,"select * from event where Event_id=".$Event_id);
 	if(($result->num_rows) > 0)
 {
  
@@ -45,8 +45,8 @@ return $existe;
 
 
 function select_event($Event_id) {
-    global $connect_e;
-     $result=mysqli_query($connect_e,"select * from event natural join adresse natural join multimedia where Event_id=".$Event_id) or die("MySQL Erreur : " . mysqli_error());
+    global $connect;
+     $result=mysqli_query($connect,"select * from event natural join adresse natural join multimedia where Event_id=".$Event_id) or die("MySQL Erreur : " . mysqli_error());
      return $result;
 }
 
@@ -59,7 +59,7 @@ $description = $event['description_e'];
 $prix =$event['prix'];
 $privacy=$event['privacy'];
 $Id_crea=$event['id_utilisateur'];
-$particip=mysqli_query($connect_e,"select * from participation WHERE (Event_id=$Event_id AND id_participant=$id_utilisateur)")->num_rows;
+$particip=mysqli_query($connect,"select * from participation WHERE (Event_id=$Event_id AND id_participant=$id_utilisateur)")->num_rows;
 
 function des_inscrire(){
 	global $particip;
@@ -73,14 +73,14 @@ function des_inscrire(){
 }
 
 function carrousselprofiles(){
-	global $connect_e;
+	global $connect;
 	global $Event_id;
 	$i=0;
-	$result=mysqli_query($connect_e,"select id_participant from participation where Event_id=".$Event_id);
+	$result=mysqli_query($connect,"select id_participant from participation where Event_id=".$Event_id);
 	if ($result->num_rows>0 ){
 		while (($data = mysqli_fetch_assoc($result))&& $i!=6){
 		$id_particip=$data['id_participant'];
-		$util=mysqli_fetch_assoc(mysqli_query($connect_e,"SELECT * from utilisateur where id_utilisateur=$id_particip"));
+		$util=mysqli_fetch_assoc(mysqli_query($connect,"SELECT * from utilisateur where id_utilisateur=$id_particip"));
 		?>			
 			<a href="autreprofil.php?id_utilisateur=<?php echo $util['id_utilisateur']?>"><img src='<?php echo $util['photo_u']?>' class='profpic' style='height:75%; width:10%;margin-top:5px'/></a>
 			
@@ -90,10 +90,10 @@ function carrousselprofiles(){
 	}
 }
 function categories ($Event_id){
-	global $connect_e;
-	$result=mysqli_query($connect_e,"SELECT * from typeevent where Event_id=$Event_id");
+	global $connect;
+	$result=mysqli_query($connect,"SELECT * from typeevent where Event_id=$Event_id");
 	while ($data = mysqli_fetch_assoc($result)) {
-		$categ=mysqli_query($connect_e,"SELECT * from categorie where id_categ=".$data['id_categ']);
+		$categ=mysqli_query($connect,"SELECT * from categorie where id_categ=".$data['id_categ']);
 		$categ=mysqli_fetch_assoc($categ);
 		echo $categ['nomCat'];
 		
@@ -101,11 +101,11 @@ function categories ($Event_id){
 }
 
 function fonctioncontact($id_utilisateur){
-	global $connect_e;
+	global $connect;
 	global $Event_id;
-	$result=mysqli_query($connect_e,"SELECT * from relation_amicale where id_utilisateur=$id_utilisateur");
+	$result=mysqli_query($connect,"SELECT * from relation_amicale where id_utilisateur=$id_utilisateur");
 		while ($data = mysqli_fetch_assoc($result)) {
-			$ami=mysqli_query($connect_e,"SELECT * from utilisateur where id_utilisateur=".$data['id_ami']);
+			$ami=mysqli_query($connect,"SELECT * from utilisateur where id_utilisateur=".$data['id_ami']);
 			$ami=mysqli_fetch_assoc($ami);
 				?>					
 					<div class="bandeaubas" style="height:20px; color:inherit">
@@ -120,14 +120,14 @@ function fonctioncontact($id_utilisateur){
 					<?php }
 }
 function coms ($Event_id){
-	global $connect_e;
+	global $connect;
 	global $id_utilisateur;
 	global $Id_crea;
-	$result=mysqli_query($connect_e,"SELECT * from commente where Event_id=$Event_id");
+	$result=mysqli_query($connect,"SELECT * from commente where Event_id=$Event_id");
 	
 while ($data = mysqli_fetch_assoc($result)) {
 	$id_commentateur=$data['id_utilisateur'];
-	$util=mysqli_fetch_assoc(mysqli_query($connect_e,"SELECT * from utilisateur where id_utilisateur=$id_commentateur"));
+	$util=mysqli_fetch_assoc(mysqli_query($connect,"SELECT * from utilisateur where id_utilisateur=$id_commentateur"));
 	?> <div class="bandeaucom">
 			<div class="bleft" style="display:block;width:30%;height:125px; ">
 				<div class="bleft" style="width:50%;height:100%;">
@@ -161,7 +161,7 @@ while ($data = mysqli_fetch_assoc($result)) {
 }
 	 
 } 
-$Nb_comment=125*mysqli_query($connect_e,"select * from commente where Event_id='$Event_id' and texte_co IS NOT NULL")->num_rows;
+$Nb_comment=125*mysqli_query($connect,"select * from commente where Event_id='$Event_id' and texte_co IS NOT NULL")->num_rows;
 
 		$h=0;
 		if ($privacy == 1 && $Id_crea==$id_utilisateur){
@@ -182,18 +182,18 @@ $Nb_comment=125*mysqli_query($connect_e,"select * from commente where Event_id='
 	 
 		}
 function notationphp($Event_id){
-	global $connect_e;
+	global $connect;
 	global $id_utilisateur;
-	if (isset ($id_utilisateur ) && mysqli_query($connect_e,"select Note from participation WHERE (Event_id=$Event_id AND id_participant=$id_utilisateur)")->num_rows>0){
-		$note=mysqli_fetch_assoc(mysqli_query($connect_e,"Select Note from participation Where Event_id=$Event_id AND id_participant=$id_utilisateur"));
+	if (isset ($id_utilisateur ) && mysqli_query($connect,"select Note from participation WHERE (Event_id=$Event_id AND id_participant=$id_utilisateur)")->num_rows>0){
+		$note=mysqli_fetch_assoc(mysqli_query($connect,"Select Note from participation Where Event_id=$Event_id AND id_participant=$id_utilisateur"));
 		$note=$note['Note'];
 		if ($note==NULL){
-			$note=mysqli_fetch_assoc(mysqli_query($connect_e,"Select AVG(Note) from participation Where Event_id=$Event_id "));
+			$note=mysqli_fetch_assoc(mysqli_query($connect,"Select AVG(Note) from participation Where Event_id=$Event_id "));
 			$note=$note['AVG(Note)'];
 		}
 	}
 	else{
-		$note=mysqli_fetch_assoc(mysqli_query($connect_e,"Select AVG(Note) from participation Where Event_id=$Event_id "));
+		$note=mysqli_fetch_assoc(mysqli_query($connect,"Select AVG(Note) from participation Where Event_id=$Event_id "));
 		$note=$note['AVG(Note)'];
 	}
 
@@ -215,8 +215,8 @@ function notationphp($Event_id){
 
 	}
 function carroussel_event($Event_id){
-	global $connect_e;
-	$result=mysqli_query($connect_e,"SELECT * from multimedia where Event_id=$Event_id");
+	global $connect;
+	$result=mysqli_query($connect,"SELECT * from multimedia where Event_id=$Event_id");
 	while($data=mysqli_fetch_assoc($result)){
 		?><div class="photo_car">
 			<img src="<?php echo $data['urlimg_event']?>" class="photo_car2"/>
@@ -225,8 +225,8 @@ function carroussel_event($Event_id){
 	}	
 }
 function carroussel_sponsors($Event_id){
-	global $connect_e;
-	$result=mysqli_query($connect_e,"SELECT * from sponsor natural join sponsorise where Event_id=$Event_id");
+	global $connect;
+	$result=mysqli_query($connect,"SELECT * from sponsor natural join sponsorise where Event_id=$Event_id");
 	while($data=mysqli_fetch_assoc($result)){
 		?><div style="height:100%">
 			<img src="<?php echo $data['img_sponsor']?>" class="photo_car2"/>

@@ -114,7 +114,13 @@
 		}
 		
 		if ($_GET["but"]=="messages_recus") {
-			$messages_recus=mysqli_query($connect, "select * from messagerie where id_destinataire=".$_SESSION['id_utilisateur']."");
+			$messages_recus=mysqli_query($connect, "select * from messagerie where id_destinataire=".$_SESSION['id_utilisateur']." order by id_message desc");
+			$vus= mysqli_query($connect, "select id_message from messagerie where id_destinataire=".$_SESSION['id_utilisateur']);
+			while ($data=mysqli_fetch_assoc($vus)) {
+				mysqli_query($connect, "update messagerie set vue=1 where id_message=".$data['id_message']);
+				}
+
+
 			?>
 			
 			<div id="contenant_messages_recus">
@@ -180,7 +186,7 @@
 		}
 		
 		if ($_GET["but"]=="messages_envoyes") {
-			$messages_recus=mysqli_query($connect, "select * from messagerie where id_expediteur=".$_SESSION['id_utilisateur']."");
+			$messages_recus=mysqli_query($connect, "select * from messagerie where id_expediteur=".$_SESSION['id_utilisateur']." order by id_message desc");
 			?>
 			<div id="contenant_messages_recus">
 				<?php

@@ -69,7 +69,9 @@ require'fonctions_simplevent.php'; ?>
 						<p  style="position:relative; display:inline-block; text-align:center">Contacts</p>
 					</div></a>
 					<a href="../Vue/messagerie.php?but=messages_recus" style="color:inherit"><div class="bandeaubas" style="height:33%;">
-						<p  style="position:relative; display:inline-block; text-align:center">Mes messages</p>
+						<p  style="position:relative; display:inline-block; text-align:center">Mes messages (<?php 
+						$nombre_messages = mysqli_query($connect, "select count(*) as count from messagerie where id_destinataire=".$_SESSION['id_utilisateur']." and vue=0");
+						echo (mysqli_fetch_assoc($nombre_messages)['count']) ?>)</p>
 					</div></a>
 					<a href="../Controler/deconnexion.php" style="color:inherit"><div class="bandeaubas" style="height:33%;">
 						<p  style="position:relative; display:inline-block; text-align:center">Se déconnecter</p>

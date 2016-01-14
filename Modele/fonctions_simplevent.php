@@ -1,8 +1,8 @@
 <?php
-$connect_e = mysqli_connect("localhost", "root", "", "bddsimplevent");
-mysqli_set_charset($connect_e,"utf8");
-if (!$connect_e) {
-    printf("Echec de la connexion : %s\n", mysqli_connect_error());
+$connect = mysqli_connect("localhost", "root", "", "bddsimplevent");
+mysqli_set_charset($connect,"utf8");
+if (!$connect) {
+    printf("Echec de la connexion : %s\n", mysqli_connectrror());
     exit();
 	}
 if (isset($_SESSION['id_utilisateur'])==TRUE && isset($_SESSION['mot_de_passe'])==TRUE){
@@ -14,8 +14,8 @@ else{
 	$mdp=0;
 }
 function verifco($mdp,$id_utilisateur){
-	global $connect_e;
-	$result=mysqli_query($connect_e, "SELECT * from utilisateur where id_utilisateur=$id_utilisateur");
+	global $connect;
+	$result=mysqli_query($connect, "SELECT * from utilisateur where id_utilisateur=$id_utilisateur");
 	$result=mysqli_fetch_assoc($result);
 	$motpasse=$result['mot_de_passe'];
 	$conf_mod_prof=$result['conf_mod_prof'];
@@ -34,8 +34,8 @@ function verifco($mdp,$id_utilisateur){
 	
 }
 function verifadmin ($id_utilisateur){
-	global $connect_e;
-	$admin=mysqli_fetch_assoc(mysqli_query($connect_e,"SELECT * from utilisateur where id_utilisateur=$id_utilisateur"));
+	global $connect;
+	$admin=mysqli_fetch_assoc(mysqli_query($connect,"SELECT * from utilisateur where id_utilisateur=$id_utilisateur"));
 	if ($admin['admin']==1){
 		return 1;		
 	}
@@ -44,13 +44,13 @@ function verifadmin ($id_utilisateur){
 	}
 }
 function blocresum($type,$id){
-	global $connect_e;
+	global $connect;
 	global $id_utilisateur;
 	if($type=='message'){
 		$i=0;
-		$result=mysqli_query($connect_e,"SELECT * from messagerie where id_destinataire=$id_utilisateur");
+		$result=mysqli_query($connect,"SELECT * from messagerie where id_destinataire=$id_utilisateur");
 		while (($data = mysqli_fetch_assoc($result)) && $i!=4) {
-			$image_util=mysqli_query($connect_e,"SELECT * from utilisateur where id_utilisateur=".$data['id_expediteur']);
+			$image_util=mysqli_query($connect,"SELECT * from utilisateur where id_utilisateur=".$data['id_expediteur']);
 			$image_util=mysqli_fetch_assoc($image_util);
 			?>
 		<a href="messagerie.php?but=messages_recus"><div class="petitblocresum">
@@ -75,10 +75,10 @@ function blocresum($type,$id){
 		
 	}
 	elseif($type=='eventcree'){
-		$result=mysqli_query($connect_e,"SELECT * from event where id_utilisateur=$id_utilisateur");
+		$result=mysqli_query($connect,"SELECT * from event where id_utilisateur=$id_utilisateur");
 		$i=0;
 		while (($data = mysqli_fetch_assoc($result)) && $i!=4) {
-			$image_event=mysqli_query($connect_e,"SELECT * from multimedia where Event_id=".$data['Event_id']);
+			$image_event=mysqli_query($connect,"SELECT * from multimedia where Event_id=".$data['Event_id']);
 			$image_event=mysqli_fetch_assoc($image_event);
 			?>
 		<a href="Events.php?Event_id=<?php echo $data['Event_id']?>"><div class="petitblocresum">
@@ -100,13 +100,13 @@ function blocresum($type,$id){
 }
 	}
 	elseif($type=='eventparticipe'){
-		$result=mysqli_query($connect_e,"SELECT * from participation where id_participant=$id_utilisateur");
+		$result=mysqli_query($connect,"SELECT * from participation where id_participant=$id_utilisateur");
 		$result=mysqli_fetch_assoc($result);
 		$result=$result['Event_id'];
-		$result=mysqli_query($connect_e,"SELECT * from event where Event_id=$result");
+		$result=mysqli_query($connect,"SELECT * from event where Event_id=$result");
 		$i=0;
 		while (($data = mysqli_fetch_assoc($result)) && $i!=4) {
-			$image_event=mysqli_query($connect_e,"SELECT * from multimedia where Event_id=".$data['Event_id']);
+			$image_event=mysqli_query($connect,"SELECT * from multimedia where Event_id=".$data['Event_id']);
 			$image_event=mysqli_fetch_assoc($image_event);
 			
 			?>
@@ -133,15 +133,15 @@ function blocresum($type,$id){
 
 
 if (verifco($mdp,$id_utilisateur)==TRUE){
-	global $connect_e;
-	$result=mysqli_query($connect_e, "SELECT * from utilisateur where id_utilisateur=$id_utilisateur");
+	global $connect;
+	$result=mysqli_query($connect, "SELECT * from utilisateur where id_utilisateur=$id_utilisateur");
 	$result=mysqli_fetch_assoc($result);
 	$nom_u=$result['nom_u'];
 	$prenom_u=$result['prenom_u'];
 	$photo_u=$result['photo_u'];
 }
-$Nb_event=mysqli_query($connect_e,"select * from event")->num_rows;
-$Nb_utilisateurs=mysqli_query($connect_e,"select * from utilisateur")->num_rows;
+$Nb_event=mysqli_query($connect,"select * from event")->num_rows;
+$Nb_utilisateurs=mysqli_query($connect,"select * from utilisateur")->num_rows;
 
 
 ?>
