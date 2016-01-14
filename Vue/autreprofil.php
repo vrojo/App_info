@@ -94,7 +94,7 @@
 				<p><?php echo($profil['description'])?></p>
 			</div>
 			<div id="boutons_autre_profil">
-				<form method="post" action="">
+				<form method="post" action=	"ajoutami.php?id_utilisateur='.$_SESSION['id_utilisateur'].'&id_ami='.$_POST['destinataire'].">
 					<input type="hidden" name="requete" value="oui">
 					<input type="hidden" name="ajout" value="oui">
 					<input type="hidden" name="destinataire" value="<?php echo($profil['id_utilisateur']) ?>">

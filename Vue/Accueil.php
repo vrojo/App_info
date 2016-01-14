@@ -15,7 +15,7 @@ $Accueil=TRUE;
 		<?php 
 		include("Header.php");
 		if (!isset($_SESSION['mot_de_passe']) OR !isset($_SESSION['id_utilisateur'])){
-			header("Refresh:0 ,url=Simplevent.php");
+			header("Refresh:0 ,url=../Vue/Simplevent.php");
 			session_destroy();
 			exit();
 			}

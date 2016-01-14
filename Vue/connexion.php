@@ -5,7 +5,7 @@
         <title>Connexion</title>
         <meta charset="utf-8"/>
         <link type="text/css" rel="stylesheet" href="../Style/connexion.css"/>
-        <script type="text/javascript" src="connexion.js"></script>
+        <script type="text/javascript" src="../Controler/connexion.js"></script>
 
     </head>
            

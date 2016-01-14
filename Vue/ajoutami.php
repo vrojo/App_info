@@ -1,8 +1,11 @@
+<?php 
+session_start();
+?>
 <!DOCTYPE html>
 <html>
 	<head>
 		<meta charset="utf-8" />
-		<link type="text/css" rel="stylesheet" href="ajoutami.css"/>
+		<link type="text/css" rel="stylesheet" href="../Style/ajoutami.css"/>
 		<title>Ajout d'ami</title>
 	</head>
 	
