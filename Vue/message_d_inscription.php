@@ -25,7 +25,7 @@
                 else{
                     ?>
                     <div class="titre_verification">Vous êtes inscrit ! </br> Vous allez recevoir un mail de confirmation, veuillez vous rendre sur le lien qu'il contiendra pour confirmer votre inscription.</br> </br></div>
-
+                    <meta http-equiv="refresh"  content="2; URL = Simplevent.php"/>
                 <?php
                 }
             }

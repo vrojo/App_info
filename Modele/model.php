@@ -1,5 +1,6 @@
 <?php
-require 'PHPMailerAutoload.php';
+
+require_once '../reste/PHPMailerAutoload.php';
 
 $connect = mysqli_connect("localhost", "root", "", "bddsimplevent");
 mysqli_set_charset($connect,"utf8");
@@ -175,7 +176,7 @@ function lien_inscription($mail){
     $result2 = mysqli_query($connect, "select id_conf from confirmation_inscription where id_utilisateur=$id") or die("MySQL Erreur : " . mysqli_error($connect));
     $tableauResult2 = mysqli_fetch_assoc($result2);
     $idconf = $tableauResult2['id_conf'];
-    $message = "http://localhost/Versionsitefinale/confirmation_inscription.php?id=$id&idconf=$idconf";
+    $message = "http://localhost/App_info/Vue/confirmation_inscription.php?id=$id&idconf=$idconf";
     return $message;
 }
 
@@ -408,7 +409,9 @@ function affichage_utilisateur_signales(){
 function suppression_utilisateur($idutilisateur){
     global $connect;
     $id = htmlspecialchars (addslashes($idutilisateur));
+    mysqli_query($connect, 'SET foreign_key_checks = 0;')or die("MsQL Erreur : ".mysqli_errno($connect));
     mysqli_query($connect, 'delete from utilisateur where id_utilisateur='.$id) or die("MsQL Erreur : ".mysqli_errno($connect));
+    mysqli_query($connect, 'SET foreign_key_checks = 1;')or die("MsQL Erreur : ".mysqli_errno($connect));
 }
 
 function update_utilisateur($idutilisateur){
@@ -433,15 +436,46 @@ function select_categ($id, $categ){
 
 function suppression_categ($id, $categ){
     global $connect;
-    mysqli_query($connect, 'delete * from preference where id_utilisateur = '.$id.' and id_categ='.$categ) or die("MsQL Erreur : ".mysqli_errno($connect));
+    mysqli_query($connect, "delete from preference where id_utilisateur = '$id' and id_categ='$categ'") or die("MsQL Erreur : ".mysqli_errno($connect));
 }
 
 function remplissage_modifprofil($id){
     global $connect;
     $resultutilisateur = mysqli_query($connect, 'select * from utilisateur where id_utilisateur = '.$id) or die("MsQL Erreur : ".mysqli_errno($connect));
     $tableauresultutilisateur = mysqli_fetch_assoc($resultutilisateur);
+    return $tableauresultutilisateur;
+}
+function remplissage_modifprofil_adresse($id){
+    global $connect;
+    $resultutilisateur = mysqli_query($connect, 'select * from utilisateur where id_utilisateur = '.$id) or die("MsQL Erreur : ".mysqli_errno($connect));
+    $tableauresultutilisateur = mysqli_fetch_assoc($resultutilisateur);
     $resultadresse = mysqli_query($connect, 'select * from adresse where id_adresse = '.$tableauresultutilisateur['id_adresse']) or die("MsQL Erreur : ".mysqli_errno($connect));
     $tableauresultadresse = mysqli_fetch_assoc($resultadresse);
-    return $tableauresultadresse + $tableauresultutilisateur;
+    return $tableauresultadresse;
 }
+
+function modification_finale($id, $nom, $prenom, $mail, $mdp, $numrue, $rue, $ville, $codepostal, $pays, $tel, $datenaissance, $description, $photo, $sexe){
+    $id = htmlspecialchars (addslashes($id));
+    $nom = htmlspecialchars (addslashes($nom));
+    $prenom = htmlspecialchars (addslashes($prenom));
+    $mail = htmlspecialchars (addslashes($mail));
+    $mdp = htmlspecialchars (addslashes($mdp));
+    $numrue = htmlspecialchars (addslashes($numrue));
+    $rue = htmlspecialchars (addslashes($rue));
+    $ville = htmlspecialchars (addslashes($ville));
+    $codepostal = htmlspecialchars (addslashes($codepostal));
+    $pays = htmlspecialchars (addslashes($pays));
+    $tel = htmlspecialchars (addslashes($tel));
+    $description = htmlspecialchars (addslashes($description));
+    $photo = htmlspecialchars (addslashes($photo));
+    global $connect;
+    $idadresse = mysqli_query($connect, "Select id_adresse from utilisateur where id_utilisateur =.$id");
+    mysqli_query($connect, "update adresse set numerorue = '$numrue', rue = '$rue', ville = '$ville', codepostal = '$codepostal', pays = '$pays' where id_adresse =".$idadresse) or die("MySQL Erreur : " . mysqli_error($connect));  
+    $confmod = 1;
+    mysqli_query($connect, "update utilisateur set nom_u = '$nom', prenom_u = '$prenom', date_de_naissance = '$datenaissance', description = '$description', photo_u = '$photo', mail = '$mail', telephone = '$tel', mot_de_passe = '$mdp', sexe = '$sexe', id_adresse = '$idad', conf_mod_prof = '$confmod'  where id_utilisateur = '$id'") or die("MySQL Erreur : " . mysqli_errno($connect));
+    
+}
+
+
 ?>  
+
