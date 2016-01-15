@@ -10,6 +10,7 @@ session_start();
         <title>Evénement créé</title>
     </head>
     <body>
+	
 		<?php include ("Header.php");
 		//$urlsite
 		require 'fonctions_crea_event.php';
@@ -47,7 +48,12 @@ session_start();
 			}
 		}
 	}
-        header("Location : Accueil.php");
+        header("refresh:5; Location : Accueil.php");
         ?>
+		
+		<div style="text-align:center; back-ground-color:#74DEF1">
+			<h1 style="color:white;">Votre événement a bien été créé !</h1>
+			<h3 style="color:white">Vous allez être redirigé vers la page d'accueil</h3>
+		</div>
     </body>
 </html>
