@@ -12,7 +12,7 @@
     <body>
         
         <?php include ("../Vue/Header.php") ?>
-        <?php require("../Modele/fonction_forum.php") ?>
+        <?php require("fonction_forum.php") ?>
         <div id="body">
             <table id = "table_de_topic">
                 <thead>

@@ -24,10 +24,17 @@ function affichage_topics(){
             
             $tableaureq2=mysqli_fetch_assoc($req2);
             $tableaureq3=mysqli_fetch_assoc($req3);
+			$sujet_topic=$sujet['id_topic'];
             echo '<tr>';
-            echo '<td class="colonne_topics"><a href="../Vue/Topic.php?Topic="'.$sujet['id_topic'].'><div id="Boutonphp">'.$sujet['sujet'].'</div></a></td>';
+            echo '<td class="colonne_topics"><a href="../Vue/Topic.php?Topic='.$sujet_topic.'"><div id="Boutonphp">'.$sujet['sujet'].'</div></a></td>';
             echo '<td class="colonne_messages"><div id="Boutonphp2">'.$tableaureq3['com'].'</div></td>';
-            echo '<td class="colonne_dernier_message"><div id="Boutonphp2"> dernier message le '.$tableaureq2['date'].'</div></td>';
+            echo '<td class="colonne_dernier_message"><div id="Boutonphp2">';
+			if (empty($tableaureq2['date'])){
+				echo 'dernier message le '.$sujet['date_s'].';</div></td>';
+			}
+			else{
+				echo'dernier message le '.$tableaureq2['date'].'</div></td>';
+			}
             echo '</tr>'; 
         }
         
