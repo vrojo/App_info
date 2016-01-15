@@ -416,9 +416,9 @@ function suppression_utilisateur($idutilisateur){
 
 function update_utilisateur($mail){
     global $connect;
-    $admin = 25;
-    $mail = htmlspecialchars (addslashes($mail));
-    mysqli_query($connect, "update utilisateur set admin = $admin where mail = $mail") or die("MsQL Erreur : ".mysqli_errno($connect));
+    $admin = 1;
+    echo $mail;
+    mysqli_query($connect, "update utilisateur set admin = $admin where mail = '$mail'") or die("MsQL Erreur : ".mysqli_errno($connect));
 }
 
 function select_categ($id, $categ){

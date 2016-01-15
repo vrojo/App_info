@@ -25,7 +25,7 @@
                 <br>
                     <div class="titre_gestion_utilisateur">Promouvoir un utilisateur au rang d'administrateur :</div>
                     <br>
-                    <form action="gestion_utilisateur.php">
+                    <form action="../Controler/controleur_gestion_utilisateur.php" method="post">
                         <span id="texte_mail"> Mail de l'utilisateur à promouvoir :</span>
                         <br>
                         <br>
@@ -40,19 +40,4 @@
 </html>
 
 
-
-    <?php 
-    if(isset($_POST["id"]))
-    {
-        if($_POST["action"]=="supprimer")
-        {
-            suppression_utilisateur($_POST['id']); 
-        }
-        
-    }
-    if (isset($_POST["mail"]) && isset($_POST['promouvoir']))
-        {
-            update_utilisateur($_POST['mail']);
-        }
     
-    ?>
