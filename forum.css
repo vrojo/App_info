@@ -194,3 +194,7 @@
         border-left: 1px solid black;
         border-right: 1px solid black;
 }
+
+#paddingfooter{
+    padding-top: 2em;
+}

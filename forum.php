@@ -33,7 +33,7 @@
                         </td>
                     </tr>
                     <?php affichage_topics(); ?>
-                    <tr><td colspan="3"><?php include("footer.php") ?></td></tr>
+                    <tr><td colspan="3" id="paddingfooter"><?php include("footer.php") ?></td></tr>
                 </tbody>
             
             </table>
