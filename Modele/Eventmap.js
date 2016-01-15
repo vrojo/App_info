@@ -73,6 +73,12 @@ function supprcom(i_com){
 		document.body.appendChild(scriptElement);
 		location.reload();
 }
+function supprfor(i_for){
+		var scriptElement = document.createElement('script');
+            scriptElement.src = '../Modele/supprfor.php?i_com='+i_for;
+		document.body.appendChild(scriptElement);
+		location.reload();
+}
 
 function profpic(){
 	var elmts = document.getElementsByClassName('profpic');

@@ -4,7 +4,7 @@ mysqli_set_charset($connect,"utf8");
 function coms ($Topic_id){
 	global $connect;
 	global $id_utilisateur;
-	$result=mysqli_query($connect,"SELECT * from reponse where sujet='$Topic_id'");
+	$result=mysqli_query($connect,"SELECT * from rep_topic where id_topic=$Topic_id");
 while ($data = mysqli_fetch_assoc($result)) {
 	$id_commentateur=$data['id_utilisateur'];
 	$util=mysqli_fetch_assoc(mysqli_query($connect,"SELECT * from utilisateur where id_utilisateur=$id_commentateur"));
@@ -22,7 +22,7 @@ while ($data = mysqli_fetch_assoc($result)) {
 					</div>
 					<div class="bandeaubas" style="height:30%;">
 						<p style="Font-size:0.6em">Signaler ce <br>commentaire:</p> 
-						<img src="https://www.dropbox.com/s/43g64iiwsnat9pw/Point-d-exclamation.png?raw=1" class="report" title="Signaler ce commentaire"/>
+						<img src="https://www.dropbox.com/s/43g64iiwsnat9pw/Point-d-exclamation.png?raw=1" class="report" title="Signaler ce commentaire" onclick="supprfor(<?php echo $data['']?>)"/>
 					</div>
 				</div>
 			</div>

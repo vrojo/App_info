@@ -37,6 +37,8 @@ $id_utilisateur=$_SESSION['id_utilisateur']
 				</form>
 			</div>
 		</div>
+		<script type="text/javascript">
+			profpic();
+		</script>
 	</body>
-	</head>
 </html>

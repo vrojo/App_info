@@ -137,8 +137,8 @@
 					carroussel_sponsors($Event_id);
 				?>
 			</div>
-			<div class="bandeaubas" style="height:auto">
-				<?php carroussel_event($Event_id);?>
+			<div class="bandeaubas" style="height:auto;text-align:center">
+					<?php carroussel_event($Event_id);?>
 			</div>
 		</div>
 		<?php if (verifco($mdp,$id_utilisateur)==TRUE){?>
