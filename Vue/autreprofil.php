@@ -222,12 +222,13 @@
 		<div id="commentaires">
 			<h2>Derniers commentaires : </h2>
 			<?php
-			$commentaires=mysqli_query($connect, "select texte_co, date_co, Nom_e, Event_id, urlimg_event from commente natural join multimedia natural join event where commente.id_utilisateur =".$_GET['id_utilisateur']." order by date_co desc");
+			$commentaires=mysqli_query($connect, "select * from commente inner join multimedia on multimedia.Event_id=commente.Event_id inner join event on event.Event_id=commente.Event_id where commente.id_utilisateur =".$_GET['id_utilisateur']." and principale=1 order by date_co desc");
 			$compteur3=0;
 			$compteur4=0;
-			while ($data=mysqli_fetch_assoc($commentaires) and $compteur3<3) {
+			while (($data=mysqli_fetch_assoc($commentaires)) && $compteur3<3) {
 				$compteur3 ++;
 				if ($data['texte_co']!=NULL) {
+					
 					?>
 					<div class="commentaire">
 					<a href="Events.php?Event_id=<?php echo($data["Event_id"]) ?>">

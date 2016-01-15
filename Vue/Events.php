@@ -134,11 +134,7 @@
 			<div class="bandeauhaut"  style="height:50px;color:grey">
 				<div class="bleft">Sponsorisé par</div>
 				<?php 
-				
-				while(sponsor=")
-				<div class="bright">
-					<img src="https://upload.wikimedia.org/wikipedia/fr/4/47/Isep-Logo.png" style="float:left;display:inline-block;max-height:90%;"/>
-				</div>
+					carroussel_sponsors($Event_id);
 				?>
 			</div>
 			<div class="bandeaubas" style="height:auto">

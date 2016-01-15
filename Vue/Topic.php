@@ -1,6 +1,6 @@
 <?php 
 session_start();
-$id_utilisateur=$_SESSION['ud_utilisateur']
+$id_utilisateur=$_SESSION['id_utilisateur']
 
 ?>
 <!DOCTYPE html>
@@ -21,7 +21,7 @@ $id_utilisateur=$_SESSION['ud_utilisateur']
 		?>
 		<div id="Corps_forum">
 			<?php 
-				
+				coms($_GET['Topic'])
 			?>
 		</div>
 	</body>

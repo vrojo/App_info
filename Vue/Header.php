@@ -65,11 +65,13 @@ require'fonctions_simplevent.php'; ?>
 					</div>
 				
 				<div class="menuderoul" >
-					<a href="../Vue/messagerie.php?but=messages_recus" style="color:inherit"><div class="bandeaubas" style="height:33%;">
+					<a href="../Vue/contacts.php" style="color:inherit"><div class="bandeaubas" style="height:33%;">
 						<p  style="position:relative; display:inline-block; text-align:center">Contacts</p>
 					</div></a>
 					<a href="../Vue/messagerie.php?but=messages_recus" style="color:inherit"><div class="bandeaubas" style="height:33%;">
-						<p  style="position:relative; display:inline-block; text-align:center">Mes messages</p>
+						<p  style="position:relative; display:inline-block; text-align:center">Mes messages (<?php 
+						$nombre_messages = mysqli_query($connect, "select count(*) as count from messagerie where id_destinataire=".$_SESSION['id_utilisateur']." and vue=0");
+						echo (mysqli_fetch_assoc($nombre_messages)['count']) ?>)</p>
 					</div></a>
 					<a href="../Controler/deconnexion.php" style="color:inherit"><div class="bandeaubas" style="height:33%;">
 						<p  style="position:relative; display:inline-block; text-align:center">Se déconnecter</p>
@@ -83,7 +85,7 @@ require'fonctions_simplevent.php'; ?>
 		<div id="menu">
 				<a href="Accueil.php"><div class="Boutonmenu"><p>Accueil</p> 
 				</div></a>
-				<a href="inscription.php"><div class="Boutonmenu"><p>Créer un compte</p> 
+				<a href="connexion.php"><div class="Boutonmenu"><p>Créer un compte</p> 
 				</div></a>
 				<a href="connexion.php"><div class="Boutonmenu"><p>Se connecter </p> 
 				</div></a>
