@@ -1,5 +1,4 @@
-<?php session_start();
-$_SESSION['id_utilisateur']=1; ?>
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -7,6 +6,7 @@ $_SESSION['id_utilisateur']=1; ?>
         <title>Création d'un topic</title>
         <meta charset="utf-8"/>
         <link type="text/css" rel="stylesheet" href="../Style/creation_topic.css"/>
+        <script type="text/javascript" src="../Controler/sujet_forum.js"></script>
     </head>
     
 
@@ -29,14 +29,14 @@ $_SESSION['id_utilisateur']=1; ?>
             
                 <tbody>
                     <tr>
-                        <td class="top_colonne_topics" align="center" colspan='3'><input type="text" name="sujet" id="sujet" placeholder="titre du sujet"></td>
+                        <td class="top_colonne_topics" align="center" colspan='3'><input type="text" name="sujet" id="sujet" placeholder="titre du sujet" onblur="verifNom(this)"> <span id="erreur_nom"></span></td>
                     </tr>
                     <tr><td></td></tr>
                     <tr>
                         <td class="top_colonne_topics" align="center" colspan='3'><textarea name="message" id="message" placeholder="entrez votre message"></textarea></td>
                     </tr>
                     <tr>
-                        <td><input type="submit" value="créer mon topic" id="creer"></td>
+                        <td><input type="submit" value="créer mon topic" name="<?php echo $_SESSION['id_utilisateur'];?>" id="creer"></td>
                     </tr>
                     <tr>
                         <td height="35" align="center">
