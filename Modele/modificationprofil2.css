@@ -1,0 +1,87 @@
+#form_modif_profil {
+	text-align:center;
+	background-color:#74DEF1;
+	width:100%
+}
+
+#form_modif_profil {
+	text-align:center;
+}
+
+fieldset {
+	border-radius:5px;
+	background-color:#80ff80;
+	margin:2% 20% 2% 20%;
+}
+
+.input_form_modif_profil {
+	border-radius:5px;
+	height:20px;
+	border:1px solid grey;
+	margin-bottom:1px;
+}
+
+#description {
+	resize:none;
+	width:60%;
+	height:100px;
+	vertical-align:top;
+}
+
+.checkrecherche {
+	display:inline-block;
+	color:white;
+}
+
+#bouton_modif {
+	font-size:1em;
+	position:relative;
+	background-color:#80ff80;
+	box-shadow: rgba(0,0,0,0.2) 2px 2px;
+	width:200px;
+	height:50px;
+	margin:0;
+	display:inline-block;
+	font-weight:bold;
+	color:white;
+	text-align:center;
+	border-radius:5px;
+	border:1px solid grey;
+}
+
+#bouton_modif:hover {
+	background-color:#87e052;
+	cursor:pointer;
+}
+
+#bouton_desinscrire {
+	font-size:1em;
+	position:relative;
+	background-color:red;
+	box-shadow: rgba(0,0,0,0.2) 2px 2px;
+	width:200px;
+	height:50px;
+	margin:0;
+	display:inline-block;
+	font-weight:bold;
+	color:white;
+	text-align:center;
+	border-radius:5px;
+	border:1px solid grey;
+}
+
+#bouton_desinscrire:hover {
+	cursor:pointer;
+}
+
+label {
+	color:white;
+}
+
+h3 {
+	color:white;
+}
+
+p {
+	color:white;
+}
