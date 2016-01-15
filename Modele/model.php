@@ -409,9 +409,20 @@ function affichage_utilisateur_signales(){
 function suppression_utilisateur($idutilisateur){
     global $connect;
     $id = htmlspecialchars (addslashes($idutilisateur));
-    mysqli_query($connect, 'SET foreign_key_checks = 0;')or die("MsQL Erreur : ".mysqli_errno($connect));
+    $idbanni = 17;
+    mysqli_query($connect, "update commente set id_utilisateur = $idbanni where id_utilisateur = $id");
+    mysqli_query($connect, "update confirmation_inscription set id_utilisateur = $idbanni where id_utilisateur = $id");
+    mysqli_query($connect, "update event set id_utilisateur = $idbanni where id_utilisateur = $id");
+    mysqli_query($connect, "update messagerie set id_destinataire = $idbanni, id_expediteur = $idbanni where id_destinataire = $id or id_expediteur = $id");
+    mysqli_query($connect, "update participation set id_participant = $idbanni where id_participant = $id");
+    mysqli_query($connect, "update preference set id_utilisateur = $idbanni where id_utilisateur = $id");
+    mysqli_query($connect, "update relation_amicale set id_utilisateur = $idbanni, id_ami = $idbanni where id_utilisateur = $id or id_ami = $id");
+    mysqli_query($connect, "update rep_topic set id_utilisateur = $idbanni where id_utilisateur = $id");
+    mysqli_query($connect, "update signaler set id_utilisateur = $idbanni where id_utilisateur = $id");
+    mysqli_query($connect, "update signaler set id_balance = $idbanni where id_balance = $id");
+    mysqli_query($connect, "update sujet set id_utilisateur = $idbanni where id_utilisateur = $id");
     mysqli_query($connect, 'delete from utilisateur where id_utilisateur='.$id) or die("MsQL Erreur : ".mysqli_errno($connect));
-    mysqli_query($connect, 'SET foreign_key_checks = 1;')or die("MsQL Erreur : ".mysqli_errno($connect));
+    
 }
 
 function update_utilisateur($mail){
@@ -466,7 +477,7 @@ function modification_commentaires(){
     while($tableau_commentaires_signales = mysqli_fetch_assoc($commentaires_signales)) {        
         echo "<tr>";
         echo '<td>'.$tableau_commentaires_signales['texte_co'].'</td>';
-        echo '<td><form method="POST" action="gestion_commentaires.php">
+        echo '<td><form method="POST" action="../Controler/controleur_gestion_commentaires.php">
                 <input type="hidden" value="'.$tableau_commentaires_signales['id_commentaire'].'" name="idcom">
                 <input type="submit" name="action" value="supprimmer" id="bouton_suppression_commentaire"/></form></td></tr>';
        

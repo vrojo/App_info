@@ -19,7 +19,7 @@ require 'model.php';
 		<div id="form_crea_event">
 			<h1>Créer un événement:</h1>
 			<p>Créez rapidement un événement privé ou visible par tous en remplissant les champs suivants :</p>
-			<form action="eventcree.php" method="POST" id="form_crea_event_form">
+			<form action="eventcree.php" method="POST" enctype="multipart/form-data" id="form_crea_event_form">
 				<fieldset>
 					<label for="nameevent">Nom de l'événement :</label>
 					<input type="text" name="Nom_e" id="nameevent" placeholder="ex : Technoparade" class="input_form_crea_event" oninput="verifNom(this)"/><span id="erreur_nom"></span>
