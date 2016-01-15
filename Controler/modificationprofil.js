@@ -230,41 +230,49 @@ function verifCompletModif(form){
     codepostal = document.getElementById("codepostal_adresse");
     pays = document.getElementById("pays_adresse");
     telephone = document.getElementById("telephone");
-     
+    valueDate = document.getElementById("date").value;
+    valueDateverif = document.getElementById("verifdate").value;
+    
     if(nom.style.color === "red"){
         return false;
     }
-    if(prenom.style.color === "red"){
+    else if(prenom.style.color === "red"){
         return false;
     }
-    if(mail.style.color === "red"){
+    else if(mail.style.color === "red"){
         return false;
     }
-    if(mdp.style.color === "red"){
+    else if(mdp.style.color === "red"){
         return false;
     }
-    if(mdpc.style.color === "red"){
+    else if(mdpc.style.color === "red"){
         return false;
     }
-    if(numrue.style.color === "red"){
+    else if(numrue.style.color === "red"){
         return false;
     }
-    if(rue.style.color === "red"){
+    else if(rue.style.color === "red"){
         return false;
     }
-    if(ville.style.color === "red"){
+    else if(ville.style.color === "red"){
         return false;
     }
-    if(codepostal.style.color === "red"){
+    else if(codepostal.style.color === "red"){
         return false;
     }
-    if(pays.style.color === "red"){
+    else if(pays.style.color === "red"){
         return false;
     }
-    if(telephone.style.color === "red"){
+    else if(telephone.style.color === "red"){
         return false;
     }    
+    
+    else if(valueDate < valueDateverif){
+        return false;
+    }
     else{
         return true;
     }
 }
+
+

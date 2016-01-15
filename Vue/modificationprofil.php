@@ -111,7 +111,9 @@ require '../Modele/model.php';
                 <div class="input_modifprof">
                     <strong>Date de naissance :</strong>
                     <div class="input_input_modif">
-                        <input type="date" name="date_de_naissance" value="<?php echo $donnees_utilisateur['date_de_naissance'] ?>" id="date"/>
+                        <input type="date" name="date_de_naissance" value="<?php echo $donnees_utilisateur['date_de_naissance'] ?>" id="date" onblur="verifDate(this)"/>
+                        <input type="hidden" id="verifdate" name="verifdate" value="<?php date(DATE_COOKIE);?>">
+                        <span id="erreur_date"></span>
                     </div>
                 </div>
                 <br>
