@@ -1,6 +1,15 @@
 <?php	
 $connect = mysqli_connect("localhost", "root", "", "bddsimplevent");
-mysqli_set_charset($connect,"utf8");			
+mysqli_set_charset($connect,"utf8");
+
+$Topic=mysqli_query($connect,"SELECT * from sujet where id_topic=".$_GET['Topic']);
+$Topic=mysqli_fetch_assoc($Topic);
+$sujet=$Topic['sujet'];
+$texte_s=$Topic['text_s'];
+$date_s=$Topic['date_s'];
+$id_crea=$Topic['id_utilisateur'];
+$crea=mysqli_fetch_assoc(mysqli_query($connect,"SELECT * from utilisateur where id_utilisateur=$id_crea"));
+
 function coms ($Topic_id){
 	global $connect;
 	global $id_utilisateur;
@@ -22,7 +31,7 @@ while ($data = mysqli_fetch_assoc($result)) {
 					</div>
 					<div class="bandeaubas" style="height:30%;">
 						<p style="Font-size:0.6em">Signaler ce <br>commentaire:</p> 
-						<img src="https://www.dropbox.com/s/43g64iiwsnat9pw/Point-d-exclamation.png?raw=1" class="report" title="Signaler ce commentaire" onclick="supprfor(<?php echo $data['']?>)"/>
+						<img src="https://www.dropbox.com/s/43g64iiwsnat9pw/Point-d-exclamation.png?raw=1" class="report" title="Signaler ce commentaire" onclick="report('texte',<?php echo $data['id_msgforum']?>)"/>
 					</div>
 				</div>
 			</div>
@@ -33,7 +42,7 @@ while ($data = mysqli_fetch_assoc($result)) {
 				<?php 
 				if ($id_commentateur==$id_utilisateur or verifadmin($id_utilisateur)==1){?>
 	
-					<img  src="https://www.dropbox.com/s/ug1ko8f86ijv7t4/delete-462216_1280.png?raw=1" class="report" title="Supprimer ce commentaire" style="max-height:25px;cursor:pointer;" />
+					<img  src="https://www.dropbox.com/s/ug1ko8f86ijv7t4/delete-462216_1280.png?raw=1" class="report" title="Supprimer ce commentaire" style="max-height:25px;cursor:pointer;" onclick="supprfor(<?php echo $data['id_msgforum']?>)"/>
 				<?php }?>
 			</div>
 		</div> 

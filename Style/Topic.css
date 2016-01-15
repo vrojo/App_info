@@ -61,7 +61,38 @@
 	z-index:5;
 	
 }
+.Bouton2{
+	width:90%;
+	float:right;
+	clear:both;
+	margin:0;
+	margin-bottom:2px;
+	right:2%;
+	Font-size:1vw;
+	position:relative;
+	background-color:white;
+	box-shadow: rgba(0,0,0,0.2) 2px 2px;
+	display:inline-block;
+	font-weight:normal;
+	color:grey;
+	text-align:center;
+	border-radius: 5px;
 
+}
+.Bouton2:hover{
+	background-color:#e1e1e1;
+	
+	
+}
+.Bouton2 p{
+
+	position:absolute;
+	margin:0;
+	left:50%;
+	top:50%;
+	transform:translate(-50%,-50%);
+	
+}
 #Boutoncom{
 	color:grey;
 	font-size:0.7em;
