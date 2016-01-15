@@ -1,6 +1,6 @@
 #form_modif_profil {
 	text-align:center;
-	background-color:#74DEF1;
+	background-color:#59b7ff;
 	width:100%
 }
 
@@ -10,7 +10,7 @@
 
 fieldset {
 	border-radius:5px;
-	background-color:#80ff80;
+	background-color:#6cdf6c;
 	margin:2% 20% 2% 20%;
 }
 
@@ -36,7 +36,7 @@ fieldset {
 #bouton_modif {
 	font-size:1em;
 	position:relative;
-	background-color:#80ff80;
+	background-color:#6cdf6c;
 	box-shadow: rgba(0,0,0,0.2) 2px 2px;
 	width:200px;
 	height:50px;

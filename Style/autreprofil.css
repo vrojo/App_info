@@ -6,14 +6,14 @@ body{
 #presentation_autre_profil {
 	display:inline-block;
 	text-align:center;
-	background-color:#74DEF1;
+	background-color:#59b7ff;
 	width:100%;
 	color:white
 }
 
 #bloc_envoi_message {
 	text-align:center;
-	background-color:#80ff80;
+	background-color:#6cdf6c;
 	width:50%;
 	border-radius:10px;
 	margin:5px;
@@ -65,7 +65,7 @@ body{
 	font-size:1em;
 	float:left;
 	position:relative;
-	background-color:#80ff80;
+	background-color:#6cdf6c;
 	box-shadow: rgba(0,0,0,0.2) 2px 2px;
 	width:100%;
 	height:50px;
@@ -108,7 +108,7 @@ body{
 #participation_evenements {
 	display:inline-block;
 	text-align:center;
-	background-color:#74DEF1;
+	background-color:#59b7ff;
 	width:100%;
 	padding-top:20px;
 	color:White
@@ -117,7 +117,7 @@ body{
 #evenements_crees {
 	display:inline-block;
 	text-align:center;
-	background-color:#74DEF1;
+	background-color:#59b7ff;
 	width:100%;
 	padding-top:20px;
 	color:White
@@ -126,7 +126,7 @@ body{
 #commentaires {
 	display:inline-block;
 	text-align:center;
-	background-color:#74DEF1;
+	background-color:#59b7ff;
 	width:100%;
 	padding-top:20px;
 	padding-bottom:20px;
@@ -138,12 +138,12 @@ body{
 	text-align:center;
 	width:60%;
 	padding:5px;
-	background-color :#80ff80;
+	background-color :#6cdf6c;
 	border-radius:5px;
 }
 
 .vignette_commentaire {
-	border:1px solid #80ff80;
+	border:1px solid #6cdf6c;
 	display:inline-block;
 	background-color:black;
 	width:30%;
@@ -190,7 +190,7 @@ body{
 }
 
 .vignette {
-	border:1px solid #80ff80;
+	border:1px solid #6cdf6c;
 	background-color:black;
 	height:30vh;
 	border-radius:5px;

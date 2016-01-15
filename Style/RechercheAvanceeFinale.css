@@ -1,6 +1,6 @@
 #titre_recherche{
    text-align: center;
-   background-color: #74def1;
+   background-color: #59b7ff;
    font-size: 40px;
    color:white;
    
@@ -11,7 +11,7 @@ couleur vert: 80ff80*/
 
 
 #formulaire_recherche{
-    background-color: #74def1;
+    background-color: #59b7ff;
     margin-bottom: 50px;
 }
 
@@ -90,7 +90,7 @@ couleur vert: 80ff80*/
     left :50%;
     	font-size:1em;
 	position:relative;
-	background-color:#80ff80;
+	background-color:#6cdf6c;
 	box-shadow: 1px 2px 5px #bfbfbf, 0px -2px 5px #bfbfbf;
 	width: 40%;
 	height:50px;

@@ -4,12 +4,12 @@
 
 #choix_messages {
 	text-align:center;
-	background-color:#74DEF1;
+	background-color:#59b7ff;
 }
 
 #bloc_reponse {
 	text-align:center;
-	background-color:#80ff80;
+	background-color:#6cdf6c;
 	width:50%;
 	border-radius:10px;
 	margin:5px;
@@ -29,7 +29,7 @@
 
 .message_envoye {
 	text-align:center;
-	background-color:#74DEF1;
+	background-color:#59b7ff;
 }
 
 .message_envoye p {
@@ -57,7 +57,7 @@
 	width:80%;
 	height:auto;
 	margin:5px;
-	background-color:#80ff80;
+	background-color:#6cdf6c;
 	border-radius:5px;
 }
 
@@ -67,7 +67,7 @@
 
 #contenant_messages_recus {
 	text-align:center;
-	background-color:#74DEF1;
+	background-color:#59b7ff;
         min-height:300px;
         width:100%;
 }
@@ -113,7 +113,7 @@
 
 .bouton_envoyer {
 	font-size:1em;
-	background-color:#74DEF1;
+	background-color:#59b7ff;
 	box-shadow: rgba(0,0,0,0.2) 2px 2px;
 	height:30px;
 	margin:0;
@@ -154,7 +154,7 @@
 	font-size:1em;
 	float:left;
 	position:relative;
-	background-color:#80ff80;
+	background-color:#6cdf6c;
 	box-shadow: rgba(0,0,0,0.2) 2px 2px;
 	width:100%;
 	height:50px;
@@ -174,7 +174,7 @@
 
 #ecriture_message {
 	text-align:center;
-	background-color:#80ff80;
+	background-color:#6cdf6c;
 	width:50%;
 	border-radius:10px;
 	margin:5px;
@@ -183,7 +183,7 @@
 }
 
 #contenant_envoyer_message {
-	border:1px solid #74DEF1;
+	border:1px solid #59b7ff;
 	display:block;
-	background-color:#74DEF1;
+	background-color:#59b7ff;
 }

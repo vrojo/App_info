@@ -1,5 +1,5 @@
 #body{
-    background-color:#74DEF1;
+    background-color:#59b7ff;
     padding: 10% 0px 0px 0px;
     position:relative;
     margin:0;
@@ -20,7 +20,7 @@
 #entete{
     font-size:1em;
     position:relative;
-    background-color:#80ff80;
+    background-color:#6cdf6c;
     box-shadow: rgba(0,0,0,0.2) 2px 2px;
     border:1px solid #32CD32;
     width: 40%;
@@ -73,7 +73,7 @@
 #creer{
     font-size:1em;
     position:relative;
-    background-color:#80ff80;
+    background-color:#6cdf6c;
     box-shadow: rgba(0,0,0,0.2) 2px 2px;
     border:1px solid #32CD32;
     margin-top:1em;

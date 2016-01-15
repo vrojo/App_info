@@ -32,7 +32,7 @@
                         $lien="localhost/simplevent/ajoutami.php?id_utilisateur=";
 			$texte="".$nom_exp['prenom_u']." souhaite devenir votre ami, veuillez suivre le lien suivant pour accepter ! (Vous pouvez également ignonrer sa demande en supprimant ce message)  <a href=".$lien."".$_SESSION['id_utilisateur']."&id_ami=".$_POST['destinataire'].">Ajouter cet ami</a>";
 			mysqli_query($connect, "insert into messagerie(id_destinataire, id_expediteur, nom_destinataire, nom_expediteur, sujet, texte) values (".$_POST['destinataire'].", ".$_SESSION['id_utilisateur'].", '".$nom_dest['prenom_u']."', '".$nom_exp['prenom_u']."', '".$sujet."', '".$texte."')");
-			echo("<h4 style='background-color:#74DEF1'>La demande d'ami a bien été envoyée</h4>");
+			echo("<h4 style='background-color:#59b7ff'>La demande d'ami a bien été envoyée</h4>");
 		}
 		
 		elseif (isset($_POST['message']) and isset($_SESSION['id_utilisateur'])) {
@@ -66,7 +66,7 @@
 			$nom_dest=mysqli_fetch_assoc(mysqli_query($connect, "select prenom_u from utilisateur where id_utilisateur=".$_POST['destinataire'].""));
 			$nom_exp=mysqli_fetch_assoc(mysqli_query($connect, "select prenom_u from utilisateur where id_utilisateur=".$_SESSION['id_utilisateur'].""));
 			mysqli_query($connect, "insert into messagerie(id_destinataire, id_expediteur, nom_destinataire, nom_expediteur, sujet, texte) values (".$_POST['destinataire'].", ".$_SESSION['id_utilisateur'].", '".$nom_dest['prenom_u']."', '".$nom_exp['prenom_u']."', '".$_POST['sujet']."', '".$_POST['texte']."')");
-			echo("<h4 style='background-color:#74DEF1'>Le message a bien été envoyé</h4>");
+			echo("<h4 style='background-color:#59b7ff'>Le message a bien été envoyé</h4>");
 		}
 		
 		elseif (isset($_POST['signalement']) and isset($_SESSION['id_utilisateur'])) {
@@ -75,7 +75,7 @@
 			$sujet="Signalement de l'utilisateur numéro ".$_GET["id_utilisateur"]."";
 			$texte="".$_SESSION['id_utilisateur']." souhaite signaler cet utilisateur";
 			mysqli_query($connect, "insert into messagerie(id_destinataire, id_expediteur, nom_destinataire, nom_expediteur, sujet, texte) values (1, ".$_SESSION['id_utilisateur'].", '".$nom_dest['prenom_u']."', '".$nom_exp['prenom_u']."', '".$sujet."', '".$texte."')");
-			echo("<h4 style='background-color:#74DEF1'>Le signalement a bien été envoyé à un administrateur</h4>");
+			echo("<h4 style='background-color:#59b7ff'>Le signalement a bien été envoyé à un administrateur</h4>");
 		}
 		
 		else {

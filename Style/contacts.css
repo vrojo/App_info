@@ -1,7 +1,7 @@
 #contenant_contacts {
 	display:inline-block;
 	text-align:center;
-	background-color:#74DEF1;
+	background-color:#59b7ff;
 	width:100%;
 }
 label {
@@ -25,7 +25,7 @@ label {
 }
 
 .vignette_contact {
-	border:1px solid #80ff80;
+	border:1px solid #6cdf6c;
 	background-color:black;
 	height:30vh;
 	border-radius:5px;
@@ -49,7 +49,7 @@ label {
 .bouton_recherche_contact {
 	font-size:1em;
 	position:relative;
-	background-color:#80ff80;
+	background-color:#6cdf6c;
 	box-shadow: rgba(0,0,0,0.2) 2px 2px;
 	height:50px;
 	margin:0;

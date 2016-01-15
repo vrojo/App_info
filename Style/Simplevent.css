@@ -72,7 +72,7 @@ a{
 	position:relative;
     width:100%;
     height:400px;
-    background-color:#74def1;
+    background-color:#59b7ff;
 	float:left;
 	clear:both;
     /*opacity:0.75;*/
@@ -148,7 +148,7 @@ a{
 	top:50%;
 	width:50%;
 	transform:translate(-50%,-50%);
-	background-color:#80ff80;
+	background-color:#6cdf6c;
 	color:White;
 	font-size:1.2em;
 }
@@ -199,7 +199,7 @@ a{
 	font-size:1.2em;
 	position:relative;
 	float:left;
-	background-color:#80ff80;
+	background-color:#6cdf6c;
 	box-shadow: rgba(0,0,0,0.2) 1px 2px;
 	width: 40%;
 	height:50px;
@@ -318,7 +318,7 @@ a{
 }
 #bandeau3 .Bouton{
 	margin-top:25px;
-	background-color:#74def1;
+	background-color:#59b7ff;
 	color:white;
 	width:50%;
 	font-size:0.75em;

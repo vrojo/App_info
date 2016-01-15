@@ -13,7 +13,7 @@
 #bouton_connexion{
     font-size:1em;
     position:relative;
-    background-color:#80FF80;
+    background-color:#6cdf6c;
     box-shadow: 1px 2px 5px #bfbfbf, 0px -2px 5px #bfbfbf;
     width:120px;
     height:30px;
@@ -27,7 +27,7 @@
 #bouton_connexion2{
     font-size:1em;
     position:relative;
-    background-color:#80FF80;
+    background-color:#6cdf6c;
     box-shadow: 1px 2px 5px #bfbfbf, 0px -2px 5px #bfbfbf;
     width:120px;
     height:30px;
@@ -48,7 +48,7 @@
 }
 
 .Inscription{
-    background-color: #74DEF1;
+    background-color: #59b7ff;
     text-align: center;
     height:100%;
 	width:49.5%;
@@ -56,7 +56,7 @@
 }
 
 .Connexion{
-    background-color: #74DEF1;
+    background-color: #59b7ff;
     text-align: center;
     height:100%;
 	width:49.5%;
@@ -66,7 +66,7 @@
 .regroupement_connexion_inscription{
     width:100%;
 	position:relative;
-	background-color:#74DEF1;
+	background-color:#59b7ff;
 }
 
 #erreur_mail{

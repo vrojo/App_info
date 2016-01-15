@@ -20,7 +20,7 @@
 	position:relative;
     width:100%;
     height:400px;
-	background:#74def1;
+	background:#59b7ff;
 	float:left;
 	clear:both;
     /*opacity:0.75;*/
@@ -57,7 +57,7 @@
 }
 #bandeau1 .Bouton{
 	width:50%;
-	background-color:#80ff80;
+	background-color:#6cdf6c;
 	color:white;
 	
 	
@@ -104,7 +104,7 @@
 	font-size:1em;
 	float:left;
 	position:relative;
-	background-color:#80ff80;
+	background-color:#6cdf6c;
 	box-shadow: 1px 2px 5px #bfbfbf, 0px -2px 5px #bfbfbf;
 	width: 40%;
 	height:50px;
@@ -202,7 +202,7 @@
 	font-weight:normal;
 	text-align:left;
 	border-radius:5px;
-	background:#80ff80;
+	background:#6cdf6c;
 	overflow:hidden;
 	color:White;
 }

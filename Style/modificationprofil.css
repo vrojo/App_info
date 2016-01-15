@@ -1,6 +1,6 @@
 #titre_modif_princ{
     color:white;
-    background-color: #74def1;
+    background-color: #59b7ff;
     font-size: 28px;
     text-align: center;
     margin-left: 25%;
@@ -8,7 +8,7 @@
 
 #titre_modif_sec{
     color:white;
-    background-color: #74def1;
+    background-color: #59b7ff;
     font-size: 16px;
     text-align: center;
     margin-left: 25%;
@@ -16,7 +16,7 @@
 
 .input_modifprof{
     color:white;
-    background-color: #74def1;
+    background-color: #59b7ff;
     display: column;
     width: 55%;
    
@@ -30,7 +30,7 @@
 }
 
 #formulaire_modif{
-    background-color: #74def1;
+    background-color: #59b7ff;
     display:inline-block;
     width: 100%
 }
@@ -92,7 +92,7 @@
     	font-size:1em;
 	float:left;
 	position:relative;
-	background-color:#80ff80;
+	background-color:#6cdf6c;
 	box-shadow: 1px 2px 5px #bfbfbf, 0px -2px 5px #bfbfbf;
 	width: 100%;
 	height:50px;
@@ -130,7 +130,7 @@
 }
 
 #formulaire_modif2{
-    background-color: #74def1;
+    background-color: #59b7ff;
     display:inline-block;
     width: 100%
 }
