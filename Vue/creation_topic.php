@@ -40,7 +40,7 @@
                     </tr>
                     <tr>
                         <td height="35" align="center">
-                            <div id="Bouton"><a href="../Vue/forum.php"><span style='color:blue'><u>retour au forum (forum.php)</u></span></a></div>
+                            <div id="Bouton"><a href="../Vue/forum.php"><span style='color:blue'><u>Retour au forum (forum.php)</u></span></a></div>
                         </td>
                     </tr>
                 </tbody>

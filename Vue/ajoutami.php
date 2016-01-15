@@ -34,7 +34,7 @@ session_start();
 			<?php
 		}
 		
-		header ("Refresh: 5 ; URL=simplevent.php");
+		header ("Refresh: 5 ; URL=accueil.php");
 		include('footer.php');
 		?>
 	</body>

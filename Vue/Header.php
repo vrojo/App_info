@@ -83,11 +83,11 @@ require'fonctions_simplevent.php'; ?>
 		else{
 	?>
 		<div id="menu">
-				<a href="Accueil.php"><div class="Boutonmenu"><p>Accueil</p> 
+				<a href="../Vue/Accueil.php"><div class="Boutonmenu"><p>Accueil</p> 
 				</div></a>
-				<a href="connexion.php"><div class="Boutonmenu"><p>Créer un compte</p> 
+				<a href="../Vue/connexion.php"><div class="Boutonmenu"><p>Créer un compte</p> 
 				</div></a>
-				<a href="connexion.php"><div class="Boutonmenu"><p>Se connecter </p> 
+				<a href="../Vue/connexion.php"><div class="Boutonmenu"><p>Se connecter </p> 
 				</div></a>
 		</div>
 	<?php } 

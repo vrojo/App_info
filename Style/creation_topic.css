@@ -1,6 +1,6 @@
 #body{
     background-color:#74DEF1;
-    padding: 10% 10% 10% 0px;
+    padding: 10% 0px 0px 0px;
     position:relative;
     margin:0;
     width:100%;
@@ -11,7 +11,6 @@
     clear: both;
     text-align:center;
     z-index:5;
-    height:400px;
 }
 
 #table_de_topic{
