@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -28,10 +29,11 @@
                 <tbody>
                     <tr>
                         <td height="35" align="center">
-                            <a href="#"><div id="Bouton">créer un topic</div></a>
+                            <a href="creation_topic.php"><div id="Bouton">créer un topic</div></a>
                         </td>
                     </tr>
                     <?php affichage_topics(); ?>
+                   
                 </tbody>
             
             </table>
@@ -39,6 +41,6 @@
         <?php include("footer.php") ?>
     </body>
     
-</htm>
+</html>
 
 

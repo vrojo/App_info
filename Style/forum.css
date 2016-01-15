@@ -1,6 +1,15 @@
 #body{
     background-color:#74DEF1;
-    padding: 20% 10% 10% 10%;
+    padding: 10% 0px 10% 0px;
+    position:relative;
+    margin:0;
+    width:100%;
+    height:250px;
+    /*opacity:0.75;*/
+    float:left;
+    clear: both;
+    text-align:center;
+    z-index:5;
 }
 
 #tdentete{
@@ -172,7 +181,7 @@
 	position:relative;
 	background-color:#00F050;
 	box-shadow: rgba(0,0,0,0.2) 2px 2px;
-	width:100%;
+	width:97%;
 	height:30px;
         margin-top: 5px;
 	margin-left:5px;
@@ -182,4 +191,10 @@
 	color:white;
 	text-align:center;
 	border-top:1px solid #708090;
+        border-left: 1px solid black;
+        border-right: 1px solid black;
+}
+
+#paddingfooter{
+    padding-top: 2em;
 }
