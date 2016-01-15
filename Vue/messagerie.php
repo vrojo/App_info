@@ -57,10 +57,10 @@
 				$nom_dest=mysqli_fetch_assoc(mysqli_query($connect, "select prenom_u from utilisateur where id_utilisateur=".$_POST['destinataire'].""));
 				$id_exp=$_SESSION['id_utilisateur'];
 				$nom_exp=mysqli_fetch_assoc(mysqli_query($connect, "select prenom_u from utilisateur where id_utilisateur=".$_SESSION['id_utilisateur'].""));
-				$sujet=$_POST['sujet'];
-				$texte=$_POST['texte'];
+				$sujet=htmlspecialchars(addslashes($_POST['sujet']));
+				$texte=htmlspecialchars(addslashes($_POST['texte']));
 				mysqli_query($connect, "insert into messagerie(id_destinataire, id_expediteur, nom_destinataire, nom_expediteur, sujet, texte) values (".$id_dest['id_utilisateur'].", ".$id_exp.", '".$nom_dest['prenom_u']."', '".$nom_exp['prenom_u']."', '".$sujet."', '".$texte."')");
-				$message_envoye=mysqli_query($connect, "select exists (select * from messagerie where texte='".$_POST['texte']."')");
+				$message_envoye=mysqli_query($connect, "select exists (select * from messagerie where texte='".$texte."')");
 			}
 			
 			if (isset($_POST["envoye"]) and $texte and $message_envoye) {

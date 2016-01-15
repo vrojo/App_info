@@ -18,10 +18,10 @@
 		$cacher=1;
 		}
 		elseif(isset($_GET['t']) && $_GET['t']=="Search"){
-				$_POST['ville_evenement']=$_POST['mot_clef'];
-				$_POST['departement_evenement']=$_POST['mot_clef'];
-				$_POST['date_debut']=$_POST['mot_clef'];
-				$_POST['date_fin']=$_POST['mot_clef'];
+				$_POST['ville_evenement']=htmlspecialchars(addslashes($_POST['mot_clef']));
+				$_POST['departement_evenement']=htmlspecialchars(addslashes($_POST['mot_clef']));
+				$_POST['date_debut']=htmlspecialchars(addslashes($_POST['mot_clef']));
+				$_POST['date_fin']=htmlspecialchars(addslashes($_POST['mot_clef']));
 				$tout_evenement=mysqli_query($connect, 
 					"select * from event 
 					natural join multimedia 
@@ -48,7 +48,10 @@
 		or description_e like "%'.$_POST['mot_clef'].'%" and ville like "'.$_POST['ville_evenement'].'" and codepostal like "'.$_POST['departement_evenement'].'%" and date_e between "'.$_POST['date_debut'].'" and "'.$_POST['date_fin'].'")');
 		$cacher=0;
 		}
-		else{			
+		else{
+		$_POST['mot_clef']=htmlspecialchars(addslashes($_POST['mot_clef']));
+		$_POST['ville_evenement']=htmlspecialchars(addslashes($_POST['ville_evenement']));
+		$_POST['departement_evenement']=htmlspecialchars(addslashes($_POST['departement_evenement']));
 		$tout_evenement=mysqli_query($connect, 
 		'select * from event 
 		natural join multimedia 
