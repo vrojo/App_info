@@ -78,7 +78,7 @@ var timeoutID;
 function startTimer() {
     // nécessité de pauser une variable bien qu'on puisse lancer directement la fonction setInterval.
 	//la variable permet de la réinitialliser lorsqu'on clique sur un bouton
-    timeoutID = window.setInterval(goToNextItem, 5000);
+    timeoutID = window.setInterval(goToNextItem, 4000);
 }
 
 startTimer();

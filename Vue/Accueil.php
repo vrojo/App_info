@@ -1,6 +1,7 @@
 <?php 
 session_start();
-$connect_e = mysqli_connect("localhost", "root", "", "bddsimplevent");
+$connect= mysqli_connect("localhost", "root", "", "bddsimplevent");
+mysqli_set_charset($connect,"utf8");
 $Accueil=TRUE;
 
 ?>
@@ -9,8 +10,7 @@ $Accueil=TRUE;
 	<head>
 		<meta charset="utf-8" />
 		<link type="text/css" rel="stylesheet" href="../Style/Accueil.css"/>
-		<script type="text/javascript" src="../Vue/carrousel2.js"></script>
-		<link type="text/css" rel="stylesheet" href="../Style/carrousel2.css"/>
+
 		<title>Accueil</title>
 	</head>
 	<body>
@@ -42,15 +42,8 @@ $Accueil=TRUE;
 			</div>
 	    </div>
 	    <div id="bandeau2">
-			<!--<div id="carroussel">
-				<a href="#"><div id="Eventcarr1" class="Eventcarr"><p>Rock en Seine</p></div></a>
-				<a href="#"><div id="Eventcarr2" class="Eventcarr"><p>TomorrowLand</p></div></a>
-				<a href="#"><div id="Eventcarr3" class="Eventcarr"><p>Color Run</p></div></a>  
-				<a href="#"><div id="Eventcarr4" class="Eventcarr"><p>AC/DC Concert</p></div></a>
-			</div>-->
 			<?php 
 			include ('carrousel2.php');
-			
 			?>
 	    </div>
 		<div id="bandeau3">
