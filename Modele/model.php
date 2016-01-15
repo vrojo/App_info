@@ -268,17 +268,17 @@ function enregistrement_centreinterets($idutilisateur, $idcateg){
 }
 
 
-function carrousel_page($event1,$event2,$event3,$event4,$event5,$event6,$event7,$event8,$event9 ){
+function carrousel_page($event1,$event2,$event3,$event4,$event5,$event6,$event7,$event8,$event9){
     global $connect;
-            $result = mysqli_query($connect, "SELECT DISTINCT urlimg_event from multimedia where principale = 1 & Event_id = '$event1'");
-            $result2 = mysqli_query($connect, "SELECT DISTINCT urlimg_event from multimedia where principale = 1 & Event_id = '$event2'");
-            $result3 = mysqli_query($connect, "SELECT DISTINCT urlimg_event from multimedia where principale = 1 & Event_id = '$event3'");
-            $result4 = mysqli_query($connect, "SELECT DISTINCT urlimg_event from multimedia where principale = 1 & Event_id = '$event4'");
-            $result5 = mysqli_query($connect, "SELECT DISTINCT urlimg_event from multimedia where principale = 1 & Event_id = '$event5'");
-            $result6 = mysqli_query($connect, "SELECT DISTINCT urlimg_event from multimedia where principale = 1 & Event_id = '$event6'");
-            $result7 = mysqli_query($connect, "SELECT DISTINCT urlimg_event from multimedia where principale = 1 & Event_id = '$event7'");
-            $result8 = mysqli_query($connect, "SELECT DISTINCT urlimg_event from multimedia where principale = 1 & Event_id = '$event8'");
-            $result9 = mysqli_query($connect, "SELECT DISTINCT urlimg_event from multimedia where principale = 1 & Event_id = '$event9'");
+            $result = mysqli_query($connect, "SELECT DISTINCT urlimg_event from multimedia where principale = 1 and Event_id = '$event1'");
+            $result2 = mysqli_query($connect, "SELECT DISTINCT urlimg_event from multimedia where principale = 1 and Event_id = '$event2'");
+            $result3 = mysqli_query($connect, "SELECT DISTINCT urlimg_event from multimedia where principale = 1 and Event_id = '$event3'");
+            $result4 = mysqli_query($connect, "SELECT DISTINCT urlimg_event from multimedia where principale = 1 and Event_id = '$event4'");
+            $result5 = mysqli_query($connect, "SELECT DISTINCT urlimg_event from multimedia where principale = 1 and Event_id = '$event5'");
+            $result6 = mysqli_query($connect, "SELECT DISTINCT urlimg_event from multimedia where principale = 1 and Event_id = '$event6'");
+            $result7 = mysqli_query($connect, "SELECT DISTINCT urlimg_event from multimedia where principale = 1 and Event_id = '$event7'");
+            $result8 = mysqli_query($connect, "SELECT DISTINCT urlimg_event from multimedia where principale = 1 and Event_id = '$event8'");
+            $result9 = mysqli_query($connect, "SELECT DISTINCT urlimg_event from multimedia where principale = 1 and Event_id = '$event9'");
 
             $tableauResult1 = mysqli_fetch_assoc($result);
             $tableauResult2 = mysqli_fetch_assoc($result2);
@@ -301,25 +301,25 @@ function carrousel_page($event1,$event2,$event3,$event4,$event5,$event6,$event7,
             $urlimg9 = $tableauResult9['urlimg_event'];
             
             
-    echo '  
+    ?>
             
 
                         <div id="contenant_slider">
                             <div id="limitation">
                                     <div class="contenu">
-                                            <a href="Events?id=<?php echo'. $event1.'?><div id="evenement1" class="evenement" style="Background-image:URL=<?php echo '.$urlimg1.' ?>"></div>
-                                            <a href="Events?id=<?php echo '.$event2.'?><div id="evenement2" class="evenement" style="Background-image:URL=<?php echo '.$urlimg2.' ?>></div>
-                                            <a href="Events?id=<?php echo '.$event3.'?><div id="evenement3" class="evenement" style="Background-image:URL=<?php echo '.$urlimg3.' ?>></div>
+                                            <a href="Events?id=<?php echo $event1?>"<div id="evenement1" class="evenement" style="Background-image:URL=<?php echo $urlimg1 ?>"></div>
+                                            <a href="Events?id=<?php echo $event2?>"<div id="evenement2" class="evenement" style="Background-image:URL=<?php echo $urlimg2 ?>"></div>
+                                            <a href="Events?id=<?php echo $event3?>"<div id="evenement3" class="evenement" style="Background-image:URL=<?php echo $urlimg3 ?>"></div>
                                     </div>
                                     <div class="contenu">
-                                            <a href="Events?id=<?php echo '.$event4.'?><div id="evenement4" class="evenement" style="Background-image:URL=<?php echo '.$urlimg4.' ?>></div>
-                                            <a href="Events?id=<?php echo '.$event5.'?><div id="evenement5" class="evenement" style="Background-image:URL=<?php echo '.$urlimg5.' ?>></div>
-                                            <a href="Events?id=<?php echo '.$event6.'?><div id="evenement6" class="evenement" style="Background-image:URL=<?php echo '.$urlimg6.' ?>></div>
+                                            <a href="Events?id=<?php echo $event4?>"<div id="evenement4" class="evenement" style="Background-image:URL=<?php echo $urlimg4 ?>"></div>
+                                            <a href="Events?id=<?php echo $event5?>"<div id="evenement5" class="evenement" style="Background-image:URL=<?php echo $urlimg5 ?>"></div>
+                                            <a href="Events?id=<?php echo $event6?>"<div id="evenement6" class="evenement" style="Background-image:URL=<?php echo $urlimg6 ?>"></div>
                                     </div>
                                     <div class="contenu">
-                                            <a href="Events?id=<?php echo '.$event7.'?><div id="evenement7" class="evenement" style="Background-image:URL=<?php echo '.$urlimg7.' ?>></div>
-                                            <a href="Events?id=<?php echo '.$event8.'?><div id="evenement8" class="evenement" style="Background-image:URL=<?php echo '.$urlimg8.' ?>></div>
-                                            <a href="Events?id=<?php echo '.$event9.'?><div id="evenement9" class="evenement" style="Background-image:URL=<?php echo '.$urlimg9.' ?>></div>
+                                            <a href="Events?id=<?php echo $event7 ?>"<div id="evenement7" class="evenement" style="Background-image:URL=<?php echo $urlimg7 ?>"></div>
+                                            <a href="Events?id=<?php echo $event8 ?>"<div id="evenement8" class="evenement" style="Background-image:URL=<?php echo $urlimg8 ?>"></div>
+                                            <a href="Events?id=<?php echo $event9 ?>"<div id="evenement9" class="evenement" style="Background-image:URL=<?php echo $urlimg9 ?>"></div>
                                     </div>
                             </div>
                     </div>
@@ -332,7 +332,7 @@ function carrousel_page($event1,$event2,$event3,$event4,$event5,$event6,$event7,
                     </div>
                     <script type="text/javascript">
                             Slider();
-                    </script>';
+                    </script><?php
 }
 
 function carrousel_event($event1){

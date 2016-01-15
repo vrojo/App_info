@@ -9,6 +9,8 @@ $Accueil=TRUE;
 	<head>
 		<meta charset="utf-8" />
 		<link type="text/css" rel="stylesheet" href="../Style/Accueil.css"/>
+		<script type="text/javascript" src="../Vue/carrousel2.js"></script>
+		<link type="text/css" rel="stylesheet" href="../Style/carrousel2.css"/>
 		<title>Accueil</title>
 	</head>
 	<body>
@@ -24,6 +26,7 @@ $Accueil=TRUE;
 			session_destroy();
 			exit();
 			}
+			require 'model.php';
 		?>
 	    <div id="bandeau1">
 			<div class="bandeauhaut">
@@ -39,12 +42,16 @@ $Accueil=TRUE;
 			</div>
 	    </div>
 	    <div id="bandeau2">
-			<div id="carroussel">
+			<!--<div id="carroussel">
 				<a href="#"><div id="Eventcarr1" class="Eventcarr"><p>Rock en Seine</p></div></a>
 				<a href="#"><div id="Eventcarr2" class="Eventcarr"><p>TomorrowLand</p></div></a>
 				<a href="#"><div id="Eventcarr3" class="Eventcarr"><p>Color Run</p></div></a>  
 				<a href="#"><div id="Eventcarr4" class="Eventcarr"><p>AC/DC Concert</p></div></a>
-			</div>
+			</div>-->
+			<?php 
+			include ('carrousel2.php');
+			
+			?>
 	    </div>
 		<div id="bandeau3">
 			<div class="blocsresume">
