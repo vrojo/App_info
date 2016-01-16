@@ -4,7 +4,7 @@
 			natural join multimedia 
 			natural join adresse 
 			natural join participation 
-			where (id_utilisateur=$id_utilisateur and principale=1)
+			where (principale=1 and id_utilisateur=$id_utilisateur)
 			GROUP BY event.Event_id");
 		$cacher=1;
 		}
@@ -13,7 +13,7 @@
 			"SELECT * from event 
 			inner join multimedia on event.Event_id = multimedia.Event_id
 			inner join adresse on event.id_adresse=adresse.id_adresse
-			WHERE (id_utilisateur=$id_utilisateur and principale=1)
+			WHERE (principale=1 and id_utilisateur=$id_utilisateur)
 			GROUP BY event.Event_id");
 		$cacher=1;
 		}
@@ -26,11 +26,11 @@
 					"select * from event 
 					natural join multimedia 
 					natural join adresse 
-					where (Nom_e like '%".$_POST['mot_clef']."%' 
+					where (principale=1 and Nom_e like '%".$_POST['mot_clef']."%' 
 					or description_e like '%".$_POST['mot_clef']."%' 
 					or ville like '".$_POST['mot_clef']."' 
 					or codepostal like '".$_POST['mot_clef']."%')
-					and principale=1");
+					");
 
 			$cacher=0;
 			}
