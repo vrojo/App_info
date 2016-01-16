@@ -75,3 +75,10 @@
 #erreur_confirmation_mdp{
     color:red;
 }
+#carrouselinscr{
+	float:left;
+	clear:left;
+	height:300px;
+	width:100%;
+	
+}

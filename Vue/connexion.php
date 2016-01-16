@@ -48,7 +48,10 @@
             </form>
         </div>
         </div>
-        <?php include("Footer.php"); ?>
+		<div id="carrouselinscr">
+			<?php include('carrousel2.php');?>
+        </div>
+		<?php include("Footer.php"); ?>
     </body>
 </html>
 

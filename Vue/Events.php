@@ -36,9 +36,9 @@
 									<?php fonctioncontact($id_utilisateur)?>
 									</div>
 								</div>
-								<a href="https://twitter.com/intent/tweet/?url=<?php  echo $URLevent;?>&text=Je suis intéressé par cet événement &via=SimplEvent"><img src="https://www.dropbox.com/s/33ldf4ajvhvh3hz/EIpgSD2K.png?raw=1" title="Partager sur twitter" style="max-width:100%; max-height:25%"/></a>
-								<a href="https://www.facebook.com/sharer/sharer.php?u=<?php echo $URLevent?>"><img src="https://www.dropbox.com/s/vpzc9y04zixn2lg/fb_icon_325x325.png?raw=1"title="Partager sur facebook" style="max-width:100%; max-height:25%"/></a>
-								<a href="mailto:?subject=Simplevent&body=<?php echo $URLevent; ?>"><img src="https://www.dropbox.com/s/0h0kmbxsicya03r/ajouter-un-nouveau-bouton-plus_318-9157.png?raw=1" title="Partager par mail" style="max-width:100%; max-height:25%"/></a>
+								<a href="https://twitter.com/intent/tweet/?url=<?php  echo $URLevent;?>&text=Je suis intéressé par cet événement &via=SimplEvent"><img src="../reste/images/twittericon.png" title="Partager sur twitter" style="max-width:100%; max-height:25%"/></a>
+								<a href="https://www.facebook.com/sharer/sharer.php?u=<?php echo $URLevent?>"><img src="../reste/images/fbicon.png"title="Partager sur facebook" style="max-width:100%; max-height:25%"/></a>
+								<a href="mailto:?subject=Simplevent&body=<?php echo $URLevent; ?>"><img src="../reste/images/plus.png" title="Partager par mail" style="max-width:100%; max-height:25%"/></a>
 							</div>
 							<div class="bright" style="width:90%">
 								<div class="bandeauhaut" style="height:33%;">
