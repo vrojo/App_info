@@ -15,8 +15,8 @@ session_start();
 		//$urlsite
 		require 'fonctions_crea_event.php';
 		insert_event($_POST['sponsor1'], $_POST['sponsor2'], $_POST['sponsor3'], $_POST['sponsor4'], $_POST['codepostal'], $_POST['numerorue'], 
-		$_POST['pays'], $_POST['rue'], $_POST['ville'], $_POST['date_e'], $_POST['date_f'], $_POST['description_e'], $_POST['heuredebut'], 
-		$_POST['heurefin'], $_POST['nb_max_participant'], $_POST['Nom_e'], $_POST['privacy'], $_POST['prix'], $_POST['urlsite_event']);
+		nl2br(htmlspecialchars (addslashes($_POST['pays']))), nl2br(htmlspecialchars (addslashes($_POST['rue']))), nl2br(htmlspecialchars (addslashes($_POST['ville']))), $_POST['date_e'], $_POST['date_f'], nl2br(htmlspecialchars (addslashes($_POST['description_e']))), $_POST['heuredebut'], 
+		$_POST['heurefin'], nl2br(htmlspecialchars (addslashes($_POST['nb_max_participant']))), nl2br(htmlspecialchars (addslashes($_POST['Nom_e']))), $_POST['privacy'], $_POST['prix'], nl2br(htmlspecialchars (addslashes($_POST['urlsite_event']))));
                 
                 
                 $id_event = mysqli_fetch_assoc(mysqli_query($connect, "select max(Event_id) as max from event"));

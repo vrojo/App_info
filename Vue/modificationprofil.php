@@ -91,7 +91,7 @@ require 'model.php';
 					</br>
 					</br>
 					<label for id="description">Description</label>
-					<textarea value = "<?php echo $donnees_utilisateur['description'] ?>" name="description" id="description" placeholder="entrez une petite description de vous..."></textarea><span id="erreur_description"></span>
+					<textarea name="description" id="description" placeholder="entrez une petite description de vous..."><?php echo $donnees_utilisateur['description'] ?></textarea><span id="erreur_description"></span>
 					</br>
 					</br>
 					<label>Photo de profil :</label>

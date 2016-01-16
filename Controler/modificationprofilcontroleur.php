@@ -22,7 +22,7 @@ if(isset($_POST['enregistrer']) and isset($_POST['nom_u']) and isset($_POST['pre
         else{
             $url= $uploadfile;
         }
-        enregistrement_final($_SESSION['id_utilisateur'], $_POST['nom_u'], $_POST['prenom_u'], $_POST['mail'], $_POST['mot_de_passe'], $_POST['numero_adresse'], $_POST['rue_adresse'], $_POST['ville_adresse'], $_POST['codepostal_adresse'], $_POST['pays_adresse'], $_POST['telephone'], $_POST['date_de_naissance'], $_POST['description'], $url, $sexe);
+        enregistrement_final($_SESSION['id_utilisateur'], nl2br(htmlspecialchars (addslashes($_POST['nom_u']))), nl2br(htmlspecialchars (addslashes($_POST['prenom_u']))), $_POST['mail'], nl2br(htmlspecialchars (addslashes($_POST['mot_de_passe']))), $_POST['numero_adresse'], nl2br(htmlspecialchars (addslashes($_POST['rue_adresse']))), nl2br(htmlspecialchars (addslashes($_POST['ville_adresse']))), $_POST['codepostal_adresse'], nl2br(htmlspecialchars (addslashes($_POST['pays_adresse']))), $_POST['telephone'], $_POST['date_de_naissance'], nl2br(htmlspecialchars (addslashes($_POST['description']))), $url, $sexe);
         while($categorie = mysqli_fetch_assoc($result)) {
 
             if(isset($_POST[$categorie['nomCat']]) && select_categ($_SESSION['id_utilisateur'], $categorie['id_categ'])){

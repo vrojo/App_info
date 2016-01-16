@@ -42,12 +42,9 @@
 	    </div>
 	    
 	    <div id="bandeau1">
-				<div id="carroussel">
-					<a href="#"><div id="Eventcarr1" class="Eventcarr"><span>Rock en Seine</span></div></a>
-					<a href="#"><div id="Eventcarr2" class="Eventcarr"><span>TomorrowLand</span></div></a>
-					<a href="#"><div id="Eventcarr3" class="Eventcarr"><span>Color Run</span></div></a>  
-					<a href="#"><div id="Eventcarr4" class="Eventcarr"><span>AC/DC Concert</span></div></a>
-				</div>
+			<?php 
+			include ('carrousel2.php');
+			?>
 	    </div>
 	    <div id="bandeau2">
 			<div class="bandeauhaut">
