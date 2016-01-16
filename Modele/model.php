@@ -268,117 +268,6 @@ function enregistrement_centreinterets($idutilisateur, $idcateg){
 }
 
 
-function carrousel_page($event1,$event2,$event3,$event4,$event5,$event6,$event7,$event8,$event9){
-    global $connect;
-            $result = mysqli_query($connect, "SELECT DISTINCT urlimg_event from multimedia where principale = 1 and Event_id = '$event1'");
-            $result2 = mysqli_query($connect, "SELECT DISTINCT urlimg_event from multimedia where principale = 1 and Event_id = '$event2'");
-            $result3 = mysqli_query($connect, "SELECT DISTINCT urlimg_event from multimedia where principale = 1 and Event_id = '$event3'");
-            $result4 = mysqli_query($connect, "SELECT DISTINCT urlimg_event from multimedia where principale = 1 and Event_id = '$event4'");
-            $result5 = mysqli_query($connect, "SELECT DISTINCT urlimg_event from multimedia where principale = 1 and Event_id = '$event5'");
-            $result6 = mysqli_query($connect, "SELECT DISTINCT urlimg_event from multimedia where principale = 1 and Event_id = '$event6'");
-            $result7 = mysqli_query($connect, "SELECT DISTINCT urlimg_event from multimedia where principale = 1 and Event_id = '$event7'");
-            $result8 = mysqli_query($connect, "SELECT DISTINCT urlimg_event from multimedia where principale = 1 and Event_id = '$event8'");
-            $result9 = mysqli_query($connect, "SELECT DISTINCT urlimg_event from multimedia where principale = 1 and Event_id = '$event9'");
-
-            $tableauResult1 = mysqli_fetch_assoc($result);
-            $tableauResult2 = mysqli_fetch_assoc($result2);
-            $tableauResult3 = mysqli_fetch_assoc($result3);
-            $tableauResult4 = mysqli_fetch_assoc($result4);
-            $tableauResult5 = mysqli_fetch_assoc($result5);
-            $tableauResult6 = mysqli_fetch_assoc($result6);
-            $tableauResult7 = mysqli_fetch_assoc($result7);
-            $tableauResult8 = mysqli_fetch_assoc($result8);
-            $tableauResult9 = mysqli_fetch_assoc($result9);
-            
-            $urlimg1 = $tableauResult1['urlimg_event'];
-            $urlimg2 = $tableauResult2['urlimg_event'];
-            $urlimg3 = $tableauResult3['urlimg_event'];
-            $urlimg4 = $tableauResult4['urlimg_event'];
-            $urlimg5 = $tableauResult5['urlimg_event'];
-            $urlimg6 = $tableauResult6['urlimg_event'];
-            $urlimg7 = $tableauResult7['urlimg_event'];
-            $urlimg8 = $tableauResult8['urlimg_event'];
-            $urlimg9 = $tableauResult9['urlimg_event'];
-            
-            
-    ?>
-            
-
-                        <div id="contenant_slider">
-                            <div id="limitation">
-                                    <div class="contenu">
-                                            <a href="Events?id=<?php echo $event1?>"<div id="evenement1" class="evenement" style="Background-image:URL=<?php echo $urlimg1 ?>"></div>
-                                            <a href="Events?id=<?php echo $event2?>"<div id="evenement2" class="evenement" style="Background-image:URL=<?php echo $urlimg2 ?>"></div>
-                                            <a href="Events?id=<?php echo $event3?>"<div id="evenement3" class="evenement" style="Background-image:URL=<?php echo $urlimg3 ?>"></div>
-                                    </div>
-                                    <div class="contenu">
-                                            <a href="Events?id=<?php echo $event4?>"<div id="evenement4" class="evenement" style="Background-image:URL=<?php echo $urlimg4 ?>"></div>
-                                            <a href="Events?id=<?php echo $event5?>"<div id="evenement5" class="evenement" style="Background-image:URL=<?php echo $urlimg5 ?>"></div>
-                                            <a href="Events?id=<?php echo $event6?>"<div id="evenement6" class="evenement" style="Background-image:URL=<?php echo $urlimg6 ?>"></div>
-                                    </div>
-                                    <div class="contenu">
-                                            <a href="Events?id=<?php echo $event7 ?>"<div id="evenement7" class="evenement" style="Background-image:URL=<?php echo $urlimg7 ?>"></div>
-                                            <a href="Events?id=<?php echo $event8 ?>"<div id="evenement8" class="evenement" style="Background-image:URL=<?php echo $urlimg8 ?>"></div>
-                                            <a href="Events?id=<?php echo $event9 ?>"<div id="evenement9" class="evenement" style="Background-image:URL=<?php echo $urlimg9 ?>"></div>
-                                    </div>
-                            </div>
-                    </div>
-                    <div id="points_navigation">
-                            <ul>
-                                    <li class="itemLinks" data-pos="0%"></li>
-                                    <li class="itemLinks" data-pos="-33.2%"></li>
-                                    <li class="itemLinks" data-pos="-66.4%"></li>
-                            </ul>
-                    </div>
-                    <script type="text/javascript">
-                            Slider();
-                    </script><?php
-}
-
-function carrousel_event($event1){
-    global $connect;
-    $result = mysqli_query($connect, "SELECT DISTINCT urlimg_event from multimedia where Event_id = '$event1'");       
-    $urlimg =[];
-    while($tableauResult1 = mysqli_fetch_assoc($result)){
-       
-            $urlimg[] = $tableauResult1['urlimg_event'];
-        }
-    
-            
-            
-    echo ' 
-                    <div id="contenant_slider">
-                            <div id="limitation">
-                                    <div class="contenu">
-                                            <a href="Events?id=<?php echo ?><div id="evenement1" class="evenement" style="Background-image:URL=<?php echo '.$urlimg[0].' ?>"></div>
-                                            <a href="Events?id=<?php echo ?><div id="evenement2" class="evenement" style="Background-image:URL=<?php echo '.$urlimg[1].' ?>></div>
-                                            <a href="Events?id=<?php echo ?><div id="evenement3" class="evenement" style="Background-image:URL=<?php echo '.$urlimg[2].' ?>></div>
-                                    </div>
-                                    <div class="contenu">
-                                            <a href="Events?id=<?php echo ?><div id="evenement4" class="evenement" style="Background-image:URL=<?php echo '.$urlimg[3].' ?>></div>
-                                            <a href="Events?id=<?php echo ?><div id="evenement5" class="evenement" style="Background-image:URL=<?php echo '.$urlimg[4].' ?>></div>
-                                            <a href="Events?id=<?php echo ?><div id="evenement6" class="evenement" style="Background-image:URL=<?php echo '.$urlimg[5].' ?>></div>
-                                    </div>
-                                    <div class="contenu">
-                                            <a href="Events?id=<?php echo ?><div id="evenement7" class="evenement" style="Background-image:URL=<?php echo '.$urlimg[6].' ?>></div>
-                                            <a href="Events?id=<?php echo ?><div id="evenement8" class="evenement" style="Background-image:URL=<?php echo '.$urlimg[7].' ?>></div>
-                                            <a href="Events?id=<?php echo ?><div id="evenement9" class="evenement" style="Background-image:URL=<?php echo '.$urlimg[9].' ?>></div>
-                                    </div>
-                            </div>
-                    </div>
-                    <div id="points_navigation">
-                            <ul>
-                                    <li class="itemLinks" data-pos="0%"></li>
-                                    <li class="itemLinks" data-pos="-33.2%"></li>
-                                    <li class="itemLinks" data-pos="-66.4%"></li>
-                            </ul>
-                    </div>
-                    <script type="text/javascript">
-                            Slider();
-                    </script>';
-}
-
-
 function affichage_utilisateur_signales(){
     global $connect;
     $result = mysqli_query($connect, "SELECT utilisateur.id_utilisateur, nom_u, prenom_u, mail, id_balance FROM utilisateur INNER JOIN signaler ON utilisateur.id_utilisateur = signaler.id_utilisateur") or die("MsQL Erreur : ".mysqli_errno($connect));
@@ -389,13 +278,13 @@ function affichage_utilisateur_signales(){
         while($infos = mysqli_fetch_assoc($result)) {
         
         echo "<tr>";
-        echo '<td><a href="autreprofil.php?id_utilisateur='.$infos['id_utilisateur'].'">'.$infos['nom_u'].'</a></td>';
         echo '<td><a href="autreprofil.php?id_utilisateur='.$infos['id_utilisateur'].'">'.$infos['prenom_u'].'</a></td>';
+        echo '<td><a href="autreprofil.php?id_utilisateur='.$infos['id_utilisateur'].'">'.$infos['nom_u'].'</a></td>';
         echo '<td><a href="autreprofil.php?id_utilisateur='.$infos['id_utilisateur'].'">'.$infos['mail'].'</a></td>';
-        echo '<td><a href="autreprofil.php?id_utilisateur='.$infos['id_balance'].'">'.$infos['id_balance'].'</a></td>';
-        echo '<td><form method="POST" action="gestion_utilisateur.php">
+        echo '<td><form method="POST" action="../Controler/controleur_gestion_utilisateur.php">
                 <input type="text" name="id" style="display:none" value='.$infos['id_utilisateur'].'></input>
-                <input type="submit" name="action" value="supprimmer" id="bouton_suppression_utilisateur"/></form></td></tr>';
+                <input type="submit" name="action" value="supprimmer" id="bouton_suppression_utilisateur"/>
+                <input type="submit" name="action" value="Retirer le signalement" id="bouton_suppression_signalement"/></form></td></tr>';
        
 
         }
@@ -410,19 +299,27 @@ function suppression_utilisateur($idutilisateur){
     global $connect;
     $id = htmlspecialchars (addslashes($idutilisateur));
     $idbanni = 17;
-    mysqli_query($connect, "update commente set id_utilisateur = $idbanni where id_utilisateur = $id");
-    mysqli_query($connect, "update confirmation_inscription set id_utilisateur = $idbanni where id_utilisateur = $id");
-    mysqli_query($connect, "update event set id_utilisateur = $idbanni where id_utilisateur = $id");
-    mysqli_query($connect, "update messagerie set id_destinataire = $idbanni, id_expediteur = $idbanni where id_destinataire = $id or id_expediteur = $id");
-    mysqli_query($connect, "update participation set id_participant = $idbanni where id_participant = $id");
-    mysqli_query($connect, "update preference set id_utilisateur = $idbanni where id_utilisateur = $id");
-    mysqli_query($connect, "update relation_amicale set id_utilisateur = $idbanni, id_ami = $idbanni where id_utilisateur = $id or id_ami = $id");
-    mysqli_query($connect, "update rep_topic set id_utilisateur = $idbanni where id_utilisateur = $id");
-    mysqli_query($connect, "update signaler set id_utilisateur = $idbanni where id_utilisateur = $id");
-    mysqli_query($connect, "update signaler set id_balance = $idbanni where id_balance = $id");
-    mysqli_query($connect, "update sujet set id_utilisateur = $idbanni where id_utilisateur = $id");
-    mysqli_query($connect, 'delete from utilisateur where id_utilisateur='.$id) or die("MsQL Erreur : ".mysqli_errno($connect));
+    mysqli_query($connect, "update commente set id_utilisateur = $idbanni where id_utilisateur = $id") or die("Ms1QL Erreur : ".mysqli_errno($connect));
+    mysqli_query($connect, "update confirmation_inscription set id_utilisateur = $idbanni where id_utilisateur = $id")or die("Ms2QL Erreur : ".mysqli_errno($connect));
+    mysqli_query($connect, "update event set id_utilisateur = $idbanni where id_utilisateur = $id")or die("Ms3QL Erreur : ".mysqli_errno($connect));
+    mysqli_query($connect, "update messagerie set id_destinataire = $idbanni, id_expediteur = $idbanni where id_destinataire = $id or id_expediteur = $id")or die("Ms4QL Erreur : ".mysqli_errno($connect));
+    mysqli_query($connect, "update participation set id_participant = $idbanni where id_participant = $id") or die("Ms5QL Erreur : ".mysqli_errno($connect));
+    mysqli_query($connect, "update preference set id_utilisateur = $idbanni where id_utilisateur = $id")or die("Ms6QL Erreur : ".mysqli_errno($connect));
+    mysqli_query($connect, "update rep_topic set id_utilisateur = $idbanni where id_utilisateur = $id")or die("Ms8QL Erreur : ".mysqli_errno($connect));
+    mysqli_query($connect, "update signaler set id_utilisateur = $idbanni where id_utilisateur = $id")or die("Ms9QL Erreur : ".mysqli_errno($connect));
+    mysqli_query($connect, "update signaler set id_balance = $idbanni where id_balance = $id")or die("Ms10QL Erreur : ".mysqli_errno($connect));
+    mysqli_query($connect, "update sujet set id_utilisateur = $idbanni where id_utilisateur = $id")or die("Ms11QL Erreur : ".mysqli_errno($connect));
+    mysqli_query($connect, 'delete from utilisateur where id_utilisateur='.$id) or die("Ms12QL Erreur : ".mysqli_errno($connect));
+    mysqli_query($connect, 'delete from relation_amicale where id_utilisateur='.$id) or die("Ms15QL Erreur : ".mysqli_errno($connect));
+    mysqli_query($connect, 'delete from relation_amicale where id_ami='.$idbanni) or die("Ms16QL Erreur : ".mysqli_errno($connect));  
+    mysqli_query($connect, 'delete from participation where id_participant='.$idbanni) or die("Ms14QL Erreur : ".mysqli_errno($connect));
     
+}
+
+
+function suppression_signalement($idutilisateur){
+    global $connect;
+    mysqli_query($connect, "delete from signaler where id_utilisateur = $idutilisateur") or die("MsQL Erreur : ".mysqli_errno($connect));
 }
 
 function update_utilisateur($mail){

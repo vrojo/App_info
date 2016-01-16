@@ -26,7 +26,7 @@
 
 #tableau_utilisateur_signales{
     position: relative;
-    left:30%;
+    left:15%;
     color:white;
     font-size: 20px;
     text-align:center;
@@ -56,6 +56,30 @@ th{
     display:inline-block;
     font-weight:bold;
     top: 50%;
+    text-align:center;
+    border:none;
+    color:white;
+}
+
+#bouton_suppression_utilisateur{
+    font-size:1em;
+    background-color:red;
+    box-shadow: 1px 2px 5px #bfbfbf, 0px -2px 5px #bfbfbf;
+    width: 150px;
+    height:30px;
+    font-weight:bold;
+    text-align:center;
+    border:none;
+    color:white;
+}
+
+#bouton_suppression_signalement{
+    font-size:1em;
+    background-color:red;
+    box-shadow: 1px 2px 5px #bfbfbf, 0px -2px 5px #bfbfbf;
+    width: 240px;
+    height:30px;
+    font-weight:bold;
     text-align:center;
     border:none;
     color:white;
