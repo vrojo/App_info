@@ -158,6 +158,7 @@
 			</form>
 		</div> <?php } ?>
 		<div id="bandeau3"> 
+			<?php include('carrousel2.php')?>
 		</div>
 		<?php include("Footer.php");?>
 	</body>
