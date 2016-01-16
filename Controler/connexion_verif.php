@@ -16,14 +16,14 @@
     
             if (empty($_POST['adrconnexion']) || empty($_POST['mdpconnexion']) ){ //Oublie d'un champ
 	            ?>
-                <div id="titre_connexion">Erreur de connexion</br> Vous allez être redirigé sur la page de connexion.</br> </br></div>
+                <div style="text-align:center; width: 100%; height: 200px; background:#74DEF1; float:left; clear:both;"><h1 style="color:white;">Erreur de connexion</h1> <h3 style="color:white">Vous allez être redirigé vers la page de connexion.</h3></br> </br></div>
 		<meta http-equiv="refresh"  content="0.5; URL = ../Vue/connexion.php"/>
 					
                 <?php
             }
             elseif (verif_confirmation($_POST['adrconnexion'])== True) {
                 ?>
-		<div id="titre_connexion">Erreur de connexion</br> Vous devez confirmer votre inscrition à partir du lien que vous avez reçu sur votre mail d'inscription.</br> </br></div>
+		<div style="text-align:center; width: 100%; height: 200px; background:#74DEF1; float:left; clear:both;"><h1 style="color:white;">Erreur de connexion</h1> <h3 style="color:white">Vous devez confirmer votre inscrition à partir du lien que vous avez reçu sur votre mail d'inscription.</h3></br> </br></div>
 		<meta http-equiv="refresh"  content="0.5; URL = ../Vue/connexion.php"/>	
                 <?php
         
@@ -37,7 +37,7 @@
                     $_SESSION['mot_de_passe']=$verif['mot_de_passe'];
                     $_SESSION['admin_utilisateur'] = $verif['admin'];
                     ?>
-                    <div id="titre_connexion">Connexion établie</br> Vous allez être redirigé sur la page d'accueil.</br> </br></div>
+                    <div style="text-align:center; width: 100%; height: 200px; background:#74DEF1; float:left; clear:both;"><h1 style="color:white;">Connexion établie</h1> <h3 style="color:white">Vous allez être redirigé vers la page d'accueil.</h3></br> </br></div>
                     <meta http-equiv="refresh"  content="2; URL = ../Vue/accueil.php"/>
 				<?php
 		
@@ -45,7 +45,7 @@
 		else // Acces pas OK !
 		{
                     ?>
-                    <div id="titre_connexion">Erreur de connexion</br> Vous allez être redirigé sur la page de connexion.</br> </br></div>
+                    <div style="text-align:center; width: 100%; height: 200px; background:#74DEF1; float:left; clear:both;"><h1 style="color:white;">Erreur de connexion</h1> <h3 style="color:white">Vous allez être redirigé vers la page de connexion.</h3></br> </br></div>
                     <meta http-equiv="refresh"  content="3; URL = ../Vue/connexion.php"/>
                     <?php
 		}
