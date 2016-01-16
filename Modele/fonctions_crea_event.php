@@ -1,6 +1,7 @@
 <?php
 
 $connect = mysqli_connect('localhost', 'root', '', 'bddsimplevent');
+mysqli_set_charset($connect,"utf8");
 if (!$connect) {
     printf('‰chec de la connexion : %s\n', mysqli_connect_error());
 }

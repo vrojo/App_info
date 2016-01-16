@@ -50,7 +50,7 @@ session_start();
 	}
         ?>
 		
-		<div style="text-align:center; back-ground-color:#74DEF1">
+		<div style="text-align:center; background:#74DEF1; float:left; clear:both;">
 			<h1 style="color:white;">Votre événement a bien été créé !</h1>
 			<h3 style="color:white">Vous allez être redirigé vers la page d'accueil</h3>
 		</div>
