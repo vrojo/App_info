@@ -78,7 +78,7 @@ function carrousselprofiles(){
 		$id_particip=$data['id_participant'];
 		$util=mysqli_fetch_assoc(mysqli_query($connect,"SELECT * from utilisateur where id_utilisateur=$id_particip"));
 		?>			
-			<a href="autreprofil.php?id_utilisateur=<?php echo $util['id_utilisateur']?>"><img src='../reste/photo_profil/<?php echo $util['photo_u']?>' class='profpic' style='height:75%; width:10%;margin-top:5px'/></a>
+			<a href="autreprofil.php?id_utilisateur=<?php echo $util['id_utilisateur']?>"><img src='<?php echo $util['photo_u']?>' class='profpic' style='height:75%; width:10%;margin-top:5px'/></a>
 			
 		<?php
 		$i ++;
@@ -215,7 +215,7 @@ function carroussel_event($Event_id){
 	$result=mysqli_query($connect,"SELECT * from multimedia where Event_id=$Event_id");
 	while($data=mysqli_fetch_assoc($result)){
 		?><div class="photo_car">
-			<img src="../reste/photo_event/<?php echo $data['urlimg_event']?>" class="photo_car2"/>
+			<img src="<?php echo $data['urlimg_event']?>" class="photo_car2"/>
 		</div>
 		<?php
 	}	
