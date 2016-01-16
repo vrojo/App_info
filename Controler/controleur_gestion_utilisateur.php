@@ -7,7 +7,7 @@
             suppression_utilisateur($_POST['id']); 
         }
         else if($_POST["action"] == "Retirer le signalement"){
-            suppression_signalement($_POST['id']);
+            suppression_signalement_utilisateur($_POST['id']);
         }
     }
     if (isset($_POST["mail"]))

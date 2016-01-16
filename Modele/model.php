@@ -283,7 +283,7 @@ function affichage_utilisateur_signales(){
         echo '<td><a href="autreprofil.php?id_utilisateur='.$infos['id_utilisateur'].'">'.$infos['nom_u'].'</a></td>';
         echo '<td><a href="autreprofil.php?id_utilisateur='.$infos['id_utilisateur'].'">'.$infos['mail'].'</a></td>';
         echo '<td><form method="POST" action="../Controler/controleur_gestion_utilisateur.php">
-                <input type="text" name="id" style="display:none" value='.$infos['id_utilisateur'].'></input>
+                <input type="text" name="id" style="display:none" value='.$infos['id_utilisateur'].'></input> 
                 <input type="submit" name="action" value="supprimmer" id="bouton_suppression_utilisateur"/>
                 <input type="submit" name="action" value="Retirer le signalement" id="bouton_suppression_signalement"/></form></td></tr>';
        
@@ -318,7 +318,7 @@ function suppression_utilisateur($idutilisateur){
 }
 
 
-function suppression_signalement($idutilisateur){
+function suppression_signalement_utilisateur($idutilisateur){
     global $connect;
     mysqli_query($connect, "delete from signaler where id_utilisateur = $idutilisateur") or die("MsQL Erreur : ".mysqli_errno($connect));
 }
@@ -377,7 +377,8 @@ function modification_commentaires(){
         echo '<td>'.$tableau_commentaires_signales['texte_co'].'</td>';
         echo '<td><form method="POST" action="../Controler/controleur_gestion_commentaires.php">
                 <input type="hidden" value="'.$tableau_commentaires_signales['id_commentaire'].'" name="idcom">
-                <input type="submit" name="action" value="supprimmer" id="bouton_suppression_commentaire"/></form></td></tr>';
+                <input type="submit" name="action" value="supprimmer" id="bouton_suppression_commentaire"/>
+                <input type="submit" name="action" value="Retirer le signalement" id="bouton_suppression_signalement"/></form></td></tr>';
        
 
         }
@@ -387,10 +388,15 @@ function modification_commentaires(){
     echo'<br>';
 }
 
-function suppresion_commentaire($id){
+function suppression_commentaire($id){
     global $connect;
     mysqli_query($connect, "delete from commente where id_commentaire = '$id'") or die("MsQL Erreur : ".mysqli_errno($connect));
+    mysqli_query($connect, "delete from signaler where id_commentaire = '$id'") or die("MsQL Erreur : ".mysqli_errno($connect));
 }
 
+function suppression_signalement_commentaire($idcom){
+    global $connect;
+    mysqli_query($connect, "delete from signaler where id_commentaire = $idcom") or die("MsQL Erreur : ".mysqli_errno($connect));
+}
 ?>  
 
