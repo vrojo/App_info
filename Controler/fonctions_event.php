@@ -1,7 +1,7 @@
 <?php
 
 $connect = mysqli_connect("localhost", "root", "", "bddsimplevent");
-/*mysqli_set_charset($connect,"utf8");*/
+mysqli_set_charset($connect,"utf8");
 ?>
 	
 <?php
@@ -14,8 +14,7 @@ if(isset($_GET['Event_id'])&&  event_existe($_GET['Event_id'])==TRUE){
 	$Event_id=$_GET['Event_id'];
 		
 }
-else{
-	ob_start(); 
+else{ 
 	?>
 	
 <div style="width:100%;margin:0;text-align:center;display:inline-block;float:left;clear:both;">
@@ -23,10 +22,7 @@ else{
 </div>
 
 	<?php
-	header("Refresh: 3, url=Accueil.php");
-	ob_flush();
-	exit();
-	
+	header("Refresh: 3, url=Accueil.php");	
 }
 function event_existe($Event_id){
 	global $connect;

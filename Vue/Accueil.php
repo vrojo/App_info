@@ -73,6 +73,7 @@ $Accueil=TRUE;
 			
 			</div>
 		</div>
+		<img src="C://wamp/www/App_info/reste/photo_event/130404170223-seymour-roger-ebert-story-top.jpg"/>
 	    <?php include("Footer.php"); ?>
 	    
 	</body>
