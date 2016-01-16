@@ -23,15 +23,9 @@
                  <?php modification_commentaires() ?>
             </div>
         </div>
+        <?php include 'footer.php'; ?>
     </body>
 </html>
-<?php
-        if(isset($_POST["idcom"])){
-            if($_POST["action"]=="supprimer")
-            {
-                suppression_commentaire($_POST['idcom']); 
-            }
-        }
-        ?>
+
 
       
