@@ -8,9 +8,16 @@ if (!$connect) {
 
 function insert_event($url_sponsor1,$url_sponsor2,$url_sponsor3,$url_sponsor4, $codepostal, $numerorue, $pays, $rue, $ville, $date_e, $date_f, $description_e, $heuredebut, $heurefin, $nb_max, $Nom_e, $privacy, $prix, $urlsite) {
     global $connect;
-	/*sponsor/ adresse/ event/ multimedia / sponsorise/ typeevent*/
+	/*sponsor/ adresse/ event/ multimedia / sponsorise/ typeevent*/	
+	
+	mysqli_query($connect, "insert into adresse(codepostal, numerorue, pays, rue, ville) values('$codepostal', '$numerorue', '$pays', '$rue', '$ville')");
+	$id_adresse=mysqli_fetch_assoc(mysqli_query($connect, "select max(id_adresse) as max from adresse"));
+        $idadresse = $id_adresse['max'];
+        $idutilisateur = $_SESSION['id_utilisateur'];
+	mysqli_query($connect, "insert into event(date_e, date_f, description_e, heuredebut, heurefin, id_adresse, id_utilisateur, nb_max_participant, Nom_e, privacy, prix) values('$date_e', '$date_f', '$description_e', '$heuredebut', '$heurefin', '$idadresse', '$idutilisateur', '$nb_max', '$Nom_e', '$privacy', '$prix')"); 
 	$id_event = mysqli_fetch_assoc(mysqli_query($connect, "select max(Event_id) as max from event"));
-	$idevent = $id_event['max'];
+        $idevent=$id_event['max'];
+	
 	if ($url_sponsor1!='') {
 		mysqli_query($connect, "insert into sponsor(img_sponsor) values ('$url_sponsor1')");
 		$sponsor = mysqli_fetch_assoc(mysqli_query($connect, "select max(idSponsor) as max from sponsor "));
@@ -36,14 +43,6 @@ function insert_event($url_sponsor1,$url_sponsor2,$url_sponsor3,$url_sponsor4, $
 			}
 		}
 	}
-	
-	mysqli_query($connect, "insert into adresse(codepostal, numerorue, pays, rue, ville) values('$codepostal', '$numerorue', '$pays', '$rue', '$ville')");
-	$id_adresse=mysqli_fetch_assoc(mysqli_query($connect, "select max(id_adresse) as max from adresse"));
-        $idadresse = $id_adresse['max'];
-        $idutilisateur = $_SESSION['id_utilisateur'];
-	mysqli_query($connect, "insert into event(date_e, date_f, description_e, heuredebut, heurefin, id_adresse, id_utilisateur, nb_max_participant, Nom_e, privacy, prix) values('$date_e', '$date_f', '$description_e', '$heuredebut', '$heurefin', '$idadresse', '$idutilisateur', '$nb_max', '$Nom_e', '$privacy', '$prix')"); 
-	$id_event = mysqli_fetch_assoc(mysqli_query($connect, "select max(Event_id) as max from event"));
-        $idevent=$id_event['max'];
 	
 	if ($urlsite!="") {
         
