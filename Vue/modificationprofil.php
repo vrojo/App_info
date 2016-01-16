@@ -25,7 +25,7 @@ require 'model.php';
 		<div id="form_modif_profil">
 			<h3>Modifiez votre profil et rejoignez le mouvement !!</h3>
 			<p>Enregistrement : *Veillez à bien remplir votre formulaire car il vous permettra d'utiliser de manière optimale SimplEvent.</p>
-			<form enctype="multipart/form-data" id="formulaire_modif" action="modificationprofilcontroleur.php" method="post" onsubmit="return verifCompletModif(this)" id="form_modif_profil_form">
+			<form enctype="multipart/form-data" id="formulaire_modif" action="../Controler/modificationprofilcontroleur.php" method="post" onsubmit="return verifCompletModif(this)" id="form_modif_profil_form">
 				<fieldset>
 					<label>Informations de base :</label>
 					</br>
