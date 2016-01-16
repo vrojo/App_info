@@ -8,24 +8,7 @@ if (!$connect) {
 
 function insert_event($url_sponsor1,$url_sponsor2,$url_sponsor3,$url_sponsor4, $codepostal, $numerorue, $pays, $rue, $ville, $date_e, $date_f, $description_e, $heuredebut, $heurefin, $nb_max, $Nom_e, $privacy, $prix, $urlsite) {
     global $connect;
-	/*sponsor/ adresse/ event/ multimedia / sponsorise/ typeevent*/
-    $compteur=0;
-	if ($url_sponsor1!='') {
-		mysqli_query($connect, "insert into sponsor(img_sponsor) values ('$url_sponsor1')");
-		$compteur=1;
-		if ($url_sponsor2!='') {
-			mysqli_query($connect, "insert into sponsor(img_sponsor) values ('$url_sponsor2')");
-			$compteur=2;
-			if ($url_sponsor3!='') {
-				mysqli_query($connect, "insert into sponsor(img_sponsor) values ('$url_sponsor3')");
-				$compteur=3;
-				if ($url_sponsor4!='') {
-					mysqli_query($connect, "insert into sponsor(img_sponsor) values ('$url_sponsor4')");
-					$compteur=4;
-				}
-			}
-		}
-	}
+	/*sponsor/ adresse/ event/ multimedia / sponsorise/ typeevent*/	
 	
 	mysqli_query($connect, "insert into adresse(codepostal, numerorue, pays, rue, ville) values('$codepostal', '$numerorue', '$pays', '$rue', '$ville')");
 	$id_adresse=mysqli_fetch_assoc(mysqli_query($connect, "select max(id_adresse) as max from adresse"));
@@ -35,21 +18,46 @@ function insert_event($url_sponsor1,$url_sponsor2,$url_sponsor3,$url_sponsor4, $
 	$id_event = mysqli_fetch_assoc(mysqli_query($connect, "select max(Event_id) as max from event"));
         $idevent=$id_event['max'];
 	
+	if ($url_sponsor1!='') {
+		mysqli_query($connect, "insert into sponsor(img_sponsor) values ('$url_sponsor1')");
+		$sponsor = mysqli_fetch_assoc(mysqli_query($connect, "select max(idSponsor) as max from sponsor "));
+        $sponsor = $sponsor['max'];
+		mysqli_query($connect, "insert into sponsorise(Event_id, idSponsor) values ('$idevent', '$sponsor')");
+		
+		if ($url_sponsor2!='') {
+			mysqli_query($connect, "insert into sponsor(img_sponsor) values ('$url_sponsor2')");
+			$sponsor = mysqli_fetch_assoc(mysqli_query($connect, "select max(idSponsor) as max from sponsor "));
+			$sponsor = $sponsor['max'];
+			mysqli_query($connect, "insert into sponsorise(Event_id, idSponsor) values ('$idevent', '$sponsor')");
+			if ($url_sponsor3!='') {
+				mysqli_query($connect, "insert into sponsor(img_sponsor) values ('$url_sponsor3')");
+				$sponsor = mysqli_fetch_assoc(mysqli_query($connect, "select max(idSponsor) as max from sponsor "));
+				$sponsor = $sponsor['max'];
+				mysqli_query($connect, "insert into sponsorise(Event_id, idSponsor) values ('$idevent', '$sponsor')");
+				if ($url_sponsor4!='') {
+					mysqli_query($connect, "insert into sponsor(img_sponsor) values ('$url_sponsor4')");
+					$sponsor = mysqli_fetch_assoc(mysqli_query($connect, "select max(idSponsor) as max from sponsor "));
+					$sponsor = $sponsor['max'];
+					mysqli_query($connect, "insert into sponsorise(Event_id, idSponsor) values ('$idevent', '$sponsor')");
+				}
+			}
+		}
+	}
+	
 	if ($urlsite!="") {
-            
-                $idevent = $id_event['max'];
+        
 		mysqli_query($connect, "insert into multimedia(Event_id, principale, urlsite_event, principale) values ('$idevent', '$urlsite', 0)");
 	}
 	
 	/*sponsor/ adresse/ event/ multimedia / sponsorise/ typeevent*/
 	
-	$i=0;
-	while ($i!=$compteur) {
-		$sponsor = mysqli_fetch_assoc(mysqli_query($connect, "select idSponsor from sponsor where idSponsor=(max(idSponsor)-$i)"));
-                $sponsor = $sponsor['idSponsor'];
-		mysqli_query($connect, "insert into sponsorise(Event_id, idSponsor) values ('$idevent', '$sponsor')");
-		$i++;
-	}
+	// $i=0;
+	// while ($i!=$compteur) {
+		// $sponsor = mysqli_fetch_assoc(mysqli_query($connect, "select idSponsor from sponsor where idSponsor=(max(idSponsor)-$i)"));
+                // $sponsor = $sponsor['idSponsor'];
+		// mysqli_query($connect, "insert into sponsorise(Event_id, idSponsor) values ('$idevent', '$sponsor')");
+		// $i++;
+	// }
 	require("../Modele/model.php");
         
 	$result = affichage_categ_recherche_avancee();
@@ -59,5 +67,17 @@ function insert_event($url_sponsor1,$url_sponsor2,$url_sponsor3,$url_sponsor4, $
 			mysqli_query($connect, "insert into typeevent(Event_id, id_categ) values ('$idevent', '$nomcateg')");
 		}
     }
+}
+function upload($index,$destination,$maxsize=FALSE,$extensions=FALSE)
+{
+   //Test de l'upload
+     if (!isset($_FILES[$index]) OR $_FILES[$index]['error'] > 0) return FALSE;
+   //Test de la taille limite
+     if ($maxsize !== FALSE AND $_FILES[$index]['size'] > $maxsize) return FALSE;
+   //Test de l'extension
+     $ext = substr(strrchr($_FILES[$index]['name'],'.'),1);
+     if ($extensions !== FALSE AND !in_array($ext,$extensions)) return FALSE;
+   //Déplacement du fichier
+     return move_uploaded_file($_FILES[$index]['tmp_name'],$destination);
 }
 ?>
