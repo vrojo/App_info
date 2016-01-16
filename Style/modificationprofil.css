@@ -1,151 +1,86 @@
-#titre_modif_princ{
-    color:white;
-    background-color: #59b7ff;
-    font-size: 28px;
-    text-align: center;
-    margin-left: 25%;
-}
-
-#titre_modif_sec{
-    color:white;
-    background-color: #59b7ff;
-    font-size: 16px;
-    text-align: center;
-    margin-left: 25%;
-}
-
-.input_modifprof{
-    color:white;
-    background-color: #59b7ff;
-    display: column;
-    width: 55%;
-   
-}
-
-
-.adresse{
-    display: column;
-    margin-left: 10%;
-    color:white;
-}
-
-#formulaire_modif{
-    background-color: #59b7ff;
-    display:inline-block;
-    width: 100%
-}
-
-#nom{
-    width: 100px;
-}
-
-#prenom{
-    width: 100px;
-}
-
-#numero_adresse{
-    width: 60px;
-}
-
-#rue_adresse{
-    
-}
-
-#ville_adresse{
-    
-}
-
-#codepostal_adresse{
-    width: 30px;
-}
-
-#pays_adresse{
-    width: 100px;
-}
-
-#mail{
-    width: 200px;
-}
-
-#telephone{
-    width:100px;
-}
-
-#mdp{
-    
-}
-
-#date{
-    
-}
-
-#description{
-    width : 450px;
-    height: 50px;
-}
-
-#ajouterphoto{
-    width:300px;
-}
-
-#bouton_modif{
-    	font-size:1em;
+#form_modif_profil {
+	text-align:center;
+	background-color:#59b7ff;
+	width:100%;
+	text-align:center;
+	color:White;
 	float:left;
+	clear:both;
+		
+}
+
+
+fieldset {
+	border-radius:5px;
+	background-color:#6cdf6c;
+	margin:2% 20% 2% 20%;
+}
+
+.input_form_modif_profil {
+	border-radius:5px;
+	height:20px;
+	border:1px solid grey;
+	margin-bottom:1px;
+}
+
+#description {
+	resize:none;
+	width:60%;
+	height:100px;
+	vertical-align:top;
+}
+
+.checkrecherche {
+	display:inline-block;
+	color:white;
+}
+
+#bouton_modif {
+	font-size:1em;
 	position:relative;
 	background-color:#6cdf6c;
-	box-shadow: 1px 2px 5px #bfbfbf, 0px -2px 5px #bfbfbf;
-	width: 100%;
+	box-shadow: rgba(0,0,0,0.2) 2px 2px;
+	width:200px;
 	height:50px;
+	margin:0;
 	display:inline-block;
 	font-weight:bold;
-	top: 50%;
-        transform: translate(0,-50%);
-	text-align:center;
-	border:none;
 	color:white;
-        border-radius: 5px;
+	text-align:center;
+	border-radius:5px;
+	border:1px solid grey;
 }
 
-#bloc_modif1{
-    float:left;
-    margin-left: 2%;
-    width: 32%;
+#bouton_modif:hover {
+	background-color:#87e052;
+	cursor:pointer;
 }
 
-#bloc_modif2{
-    float:left;
-    width: 32%;   
+#bouton_desinscrire {
+	font-size:1em;
+	position:relative;
+	background-color:red;
+	box-shadow: rgba(0,0,0,0.2) 2px 2px;
+	width:200px;
+	height:50px;
+	margin:0;
+	display:inline-block;
+	font-weight:bold;
+	color:white;
+	text-align:center;
+	border-radius:5px;
+	border:1px solid grey;
 }
 
-#bloc_modif3{
-    float:right;
-    width: 32%;
-    margin-right: 10px;
+#bouton_desinscrire:hover {
+	cursor:pointer;
 }
 
-.checkrecherche{
-    color:white;
-    display: inline-block;
-    width: 150px;
+label {
+	color:white;
 }
 
-#formulaire_modif2{
-    background-color: #59b7ff;
-    display:inline-block;
-    width: 100%
+h3 {
+	color:white;
 }
 
-
-#bouton_desinscrire{
-    font-size:1em;
-    position:relative;
-    background-color:red;
-    box-shadow: 1px 2px 5px #bfbfbf, 0px -2px 5px #bfbfbf;
-    font-weight:bold;
-    color:white;
-    border:none;
-    border-radius:5px;
-    margin-left:34%;
-    width:17%;
-    height: 52px;
-}

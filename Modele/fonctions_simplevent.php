@@ -60,7 +60,7 @@ function blocresum($type,$id){
 					
 				</div>
 				<div class="bandeaubas" style="height:75%">
-					<img src="<?php echo $image_util['photo_u'] ?>" class="imgblocresum" style="border-radius:50px"/>
+					<img src="<?php echo $image_util['photo_u'] ?>" class="imgblocresum" style="width:75px;height:75px;border-radius:100%"/>
 				</div>
 			</div>
 			<div class="bright">
