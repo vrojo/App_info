@@ -274,7 +274,7 @@ function affichage_utilisateur_signales(){
         echo'<div class="titre_gestion_utilisateur">Utilisateurs signalés par la communauté :</div>';
         echo'<br>';
         echo "<div id='tableau_utilisateur_signales'>";
-        echo "<table><thead><tr><th>Nom </th><th>Prenom </th><th>Mail </th></tr></thead>";
+        echo "<table><thead><tr><th>Prenom </th><th>Nom </th><th>Mail </th></tr></thead>";
         while($infos = mysqli_fetch_assoc($result)) {
         
         echo "<tr>";
