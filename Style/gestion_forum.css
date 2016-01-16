@@ -1,0 +1,67 @@
+.gestion_forum{
+    background-color: #59b7ff;
+
+    float:left;
+    clear:both;
+    position:relative;
+    width:100%;
+}
+
+.titre_gestion_forum{
+    color:white;
+    font-size: 20px;
+    text-align:center;
+}
+.titre_gestion_forum_princ{
+    color:white;
+    font-size: 28px;
+    text-align:center;
+}
+
+
+#tableau_topics_signales{
+    position: relative;
+    margin-left:15%;
+    color:white;
+    font-size: 20px;
+    text-align:center;
+}
+
+#tableau_messages_signales{
+    position: relative;
+    margin-left:15%;
+    color:white;
+    font-size: 20px;
+    text-align:center;
+}
+
+
+th{
+    border: 2px solid black;
+    width : 500px;
+}
+
+#bouton_suppression_forum{
+    font-size:1em;
+    background-color:red;
+    box-shadow: 1px 2px 5px #bfbfbf, 0px -2px 5px #bfbfbf;
+    width: 150px;
+    height:30px;
+    font-weight:bold;
+    text-align:center;
+    border:none;
+    color:white;
+}
+
+#bouton_suppression_signalement{
+    font-size:1em;
+    background-color:red;
+    box-shadow: 1px 2px 5px #bfbfbf, 0px -2px 5px #bfbfbf;
+    width: 240px;
+    height:30px;
+    font-weight:bold;
+    text-align:center;
+    border:none;
+    color:white;
+}
+

@@ -468,5 +468,71 @@ function suppression_droits($idutilisateur){
     mysqli_query($connect, "update utilisateur set admin='0' where id_utilisateur = '$idutilisateur'") or die("MsQL Erreur : ".mysqli_errno($connect));
 }
 
+function modification_topic(){
+    global $connect;
+    $topic_signales = mysqli_query($connect, "SELECT sujet.id_topic, sujet FROM sujet INNER JOIN signaler ON signaler.id_topic = sujet.id_topic") or die("MsQL Erreur : ".mysqli_errno($connect));
+    
+    echo'<div class="titre_gestion_forum">Topics signalés par la communauté :</div>';
+    echo'<br>';
+    echo "<div id='tableau_topics_signales'>";
+    echo "<table><thead><tr><th> Nom du topic : </th></thead>";
+    while($tableau_topic_signales = mysqli_fetch_assoc($topic_signales)) {        
+        echo "<tr>";
+        echo '<td><a href="Topic.php?Topic='.$tableau_topic_signales['id_topic'].'">'.$tableau_topic_signales['sujet'].'</a></td>';
+        echo '<td><form method="POST" action="../Controler/controleur_gestion_forum.php">
+                <input type="hidden" value="'.$tableau_topic_signales['id_topic'].'" name="idtopic">
+                <input type="submit" name="action" value="supprimmer" id="bouton_suppression_forum"/>
+                <input type="submit" name="action" value="Retirer le signalement" id="bouton_suppression_signalement"/></form></td></tr>';
+       
+
+        }
+    echo "</table>";
+    echo "</div>";
+    echo'<br>';
+    echo'<br>';
+}
+
+function modification_reponse(){
+    global $connect;
+    $message_signales = mysqli_query($connect, "SELECT rep_topic.id_msgforum, commentaire_r, rep_topic.id_topic FROM rep_topic INNER JOIN signaler ON signaler.id_msgforum = rep_topic.id_msgforum") or die("MsQL Erreur : ".mysqli_errno($connect));
+    
+    echo'<div class="titre_gestion_forum">Messages des topics signalés par la communauté :</div>';
+    echo'<br>';
+    echo "<div id='tableau_messages_signales'>";
+    echo "<table><thead><tr><th> Message du topic : </th></thead>";
+    while($tableau_topic_signales = mysqli_fetch_assoc($message_signales)) {        
+        echo "<tr>";
+        echo '<td><a href="Topic.php?Topic='.$tableau_topic_signales['id_topic'].'">'.$tableau_topic_signales['commentaire_r'].'</a></td>';
+        echo '<td><form method="POST" action="../Controler/controleur_gestion_forum.php">
+                <input type="hidden" value="'.$tableau_topic_signales['id_msgforum'].'" name="idmessage">
+                <input type="submit" name="action" value="supprimmer" id="bouton_suppression_forum"/>
+                <input type="submit" name="action" value="Retirer le signalement" id="bouton_suppression_signalement"/></form></td></tr>';
+       
+
+        }
+    echo "</table>";
+    echo "</div>";
+    echo'<br>';
+    echo'<br>';
+}
+
+function suppression_topic($idtopic){
+    global $connect;
+    mysqli_query($connect, "delete from rep_topic where id_topic = '$idtopic'") or die("MsQL Erreur : ".mysqli_errno($connect));
+    mysqli_query($connect, "delete from sujet where id_topic = '$idtopic'") or die("MsQL Erreur : ".mysqli_errno($connect));
+
+}
+function suppression_message($idmessage){
+    global $connect;
+    mysqli_query($connect, "delete from sujetrep_topic where id_msgforum = '$idmessage'") or die("MsQL Erreur : ".mysqli_errno($connect));
+}
+function suppression_signalement_topic($idtopic){
+    global $connect;
+    mysqli_query($connect, "delete from signaler where id_topic = $idtopic") or die("MsQL Erreur : ".mysqli_errno($connect));
+}
+function suppression_signalement_message($idmessage){
+    global $connect;
+    mysqli_query($connect, "delete from signaler where id_msgforum = $idmessage") or die("MsQL Erreur : ".mysqli_errno($connect));
+}
 ?>  
 
