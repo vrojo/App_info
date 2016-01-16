@@ -131,15 +131,16 @@
 	font-weight:normal;
 	font-size:1em;
 	margin:0;
-	height:0px;
-	width:0px;
-	background-color: white;
+	padding:0;
+	height:0;
+	width:0;
+	background-color: none;
 	color:#59b7ff;
-	overflow-y: scroll;
+	overflow: hidden;
 	transition: 0.1s height 0.3s;
 	transition: 0.1s width 0.3s;
 	border-radius: 0 5px 5px 5px;
-	text-align:center;
+	text-align:center;	
 	z-index:11;
 	}
 .menucontacts .bandeaubas{
@@ -168,13 +169,14 @@
 
 }
 #Contacts:hover .menucontacts{
-	color#59b7ff;
+	color:#59b7ff;
 	background:white;
 	height:200px;
 	width:150px;
+	overflow-y:scroll;
 }
 #Contacts:hover{
-	color#59b7ff;
+	color:#59b7ff;
 	background:white;
 	border-radius:5px 0 0 5px;
 	
