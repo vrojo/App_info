@@ -252,7 +252,7 @@ function enregistrement_final($id, $nom, $prenom, $mail, $mdp, $numrue, $rue, $v
     $codepostal = htmlspecialchars (addslashes($codepostal));
     $pays = htmlspecialchars (addslashes($pays));
     $tel = htmlspecialchars (addslashes($tel));
-    $description = htmlspecialchars (addslashes($description));
+    $description =nl2br(htmlspecialchars (addslashes($description)));
     $photo = htmlspecialchars (addslashes($photo));
     global $connect;
     mysqli_query($connect, "insert into adresse (numerorue, rue, ville, codepostal, pays) values ('$numrue','$rue','$ville','$codepostal','$pays')") or die("MySQL Erreur : " . mysqli_error($connect));  
