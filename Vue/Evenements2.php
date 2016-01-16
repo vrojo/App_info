@@ -83,7 +83,7 @@ session_start();
 				<span onclick="ouvrirfermer(<?php echo("$id_evenement") ?>)">
 				<div class='evenement'>
 					<div class='vignette'>
-						<img src="<?php echo($vignette_evenement) ?>"/>
+						<img src="../reste/photo_event/<?php echo($vignette_evenement) ?>"/>
 					</div>
 					<h3 class='nom_evenement'><?php echo($nom_evenement) ?></h3>
 				</div>
