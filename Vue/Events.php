@@ -105,8 +105,8 @@
 						<div class="bandeauhaut" style="height:25%">
 							Catégorie d'événement:
 						</div>
-						<div class="bandeaubas" style="height:75%; font-weight:normal;">
-							<?php categories($Event_id)?>, 
+						<div class="bandeaubas" style="height:75%; margin-top:5px; font-weight:normal;">
+							<?php categories($Event_id)?>
 						</div>
 					</div>
 					

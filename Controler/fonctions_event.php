@@ -91,7 +91,7 @@ function categories ($Event_id){
 	while ($data = mysqli_fetch_assoc($result)) {
 		$categ=mysqli_query($connect,"SELECT * from categorie where id_categ=".$data['id_categ']);
 		$categ=mysqli_fetch_assoc($categ);
-		echo $categ['nomCat'];
+		echo $categ['nomCat'].' ';
 		
 	}
 }
