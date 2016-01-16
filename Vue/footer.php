@@ -21,10 +21,10 @@
 			<div id="contact">
 				<h4 class="titre_footer">Nous contacter :<h4>
 				<div id="facebook">
-					<a href="#"><img src="https://www.facebookbrand.com/img/fb-art.jpg" id="img_fb"/><br></a>
+					<a href="#"><img src="../reste/images/fbicon.png" id="img_fb"/><br></a>
 				</div>
 				<div id="twitter">
-					<a href="#"><img src="http://www.hawkin.com/blog/wp-content/uploads/2015/04/twitter-ios-logo.png" id="img_twitter"/></br></a>
+					<a href="#"><img src="../reste/images/twittericon.png" id="img_twitter"/></br></a>
 				</div>
 				<div id="mail">
 					<a href="#"><img src="http://www.musiquelepop.com/mail_envelope_blue_icon.png" id="img_mail"/></br></a>

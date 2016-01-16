@@ -15,7 +15,7 @@
 	        <div class="bandeauhaut">
 				<div class="headergauche"> 
 					<div class="bandeauhaut" >
-						<a href="#"><img src="https://www.dropbox.com/s/1yxbj2y807fn5eq/Logo4.png?raw=1" class="imagebandeau"/></a>
+						<a href="#"><img src="../reste/images/Logo.png" class="imagebandeau"/></a>
 					</div>
 					<div class="bandeaubas">
 						<p style="font-size:1.5em;color:White;margin-left:2%">SimplEvent est le site qui vous permettra de créer, partager et de participer à des événements le plus simplement possible</p>
@@ -34,7 +34,7 @@
 				</div>
 				<div class="bandeaubas">		
                     <div class="bandeauhaut"><a href="connexion.php"><div class="Bouton"><p>Créer un événement</p></div></a></div>
-					<div class="bandeaubas"><a href="#bandeau1"><img src="https://www.dropbox.com/s/g65ek8637g0km8o/mince-fleche-vers-le-bas_318-11165.png?raw=1"id="flèchebas" title ='Venez voir en Bas !'/></a></div>
+					<div class="bandeaubas"><a href="#bandeau1"><img src="../reste/images/flechebas.png"id="flèchebas" title ='Venez voir en Bas !'/></a></div>
 				</div>
 			</div>
 			

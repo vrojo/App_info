@@ -8,7 +8,7 @@ require'fonctions_simplevent.php'; ?>
 <div id="header">
 	<div class="bandeauhaut">
 		<div id="headergauche"> 
-			<a href="Accueil.php"><img src="https://www.dropbox.com/s/1yxbj2y807fn5eq/Logo4.png?raw=1" class="imagebandeau"/></a>
+			<a href="Accueil.php"><img src="../reste/images/Logo.png" class="imagebandeau"/></a>
 		</div>
 		<div id="headerdroit">
 			<?php if(isset($Accueil)==FALSE) { ?>				

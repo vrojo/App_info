@@ -26,7 +26,7 @@ a{
     background-color:black;
     z-index:11;
     box-shadow: rgba(0,0,0,0.2) 2px 2px;
-	background-image:url(https://www.dropbox.com/s/yy8muxqh4qhntzh/feuartifices.jpg?raw=1);
+	background-image:url(../reste/images/feuartifices.jpg);
 	background-repeat:no-repeat;
 	background-size:100% 100%;
     }
