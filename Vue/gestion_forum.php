@@ -3,39 +3,40 @@
 <html>
     <head>
         
-        <title>Gestion des commentaires</title>
+        <title>Gestion du forum</title>
         <meta charset="utf-8"/>
     </head>
     
-    <link type="text/css" rel="stylesheet" href="../Style/gestion_commentaires.css"/>
+    <link type="text/css" rel="stylesheet" href="../Style/gestion_forum.css"/>
 
     <body>
         
         <?php include ("Header.php"); ?>
         <?php require("model.php") ?>
-        <div class="gestion_commentaires">
+        <div class="gestion_forum">
         
-            <div id="bloc_gestion_commentaires">
+            <div id="bloc_gestion_forum">
                 <br>
-                <div class="titre_gestion_commentaires_princ">Gestion des commentaires :</div>
+                <div class="titre_gestion_forum_princ">Gestion des topics :</div>
                 <br>
                 <br>
                  <?php modification_topic() ?>
             </div>
         </div>
-        <div class="gestion_commentaires">
+        <div class="gestion_forum">
         
-            <div id="bloc_gestion_commentaires">
+            <div id="bloc_gestion_forum">
                 <br>
-                <div class="titre_gestion_commentaires_princ">Gestion des commentaires :</div>
+                <div class="titre_gestion_forum_princ">Gestion des forum :</div>
                 <br>
                 <br>
-                 <?php modification_topic() ?>
+                 <?php modification_reponse() ?>
             </div>
         </div>
     </body>
 </html>
-<?php
+
+    <?php
         if(isset($_POST["idcom"])){
             if($_POST["action"]=="supprimer")
             {

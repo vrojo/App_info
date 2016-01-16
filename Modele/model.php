@@ -117,7 +117,14 @@ function inscriptionpreleminaire($mail, $mdp, $confinsc, $confmod){
     $result = mysqli_query($connect, "select id_utilisateur from utilisateur where mail='$mail'") or die("MySQL Erreur : " . mysqli_error($connect));
     $tableauResult = mysqli_fetch_assoc($result);
     $id = $tableauResult['id_utilisateur'];
-    mysqli_query($connect, "insert into confirmation_inscription (id_utilisateur) values ('$id')") or die("MySQL Erreur : " . mysqli_error($connect));
+    $alea = rand(1,999999999);
+    while ($compteur = 0){
+        $result = mysqli_query($connect, "select * from confirmation_inscription where id_conf = $alea");
+        if(empty($result)){
+            mysqli_query($connect, "insert into confirmation_inscription (id_conf,id_utilisateur) values ('$alea','$id')") or die("MySQL Erreur : " . mysqli_error($connect)); 
+            $compteur = 1;
+        }
+    }
 }
 
 
