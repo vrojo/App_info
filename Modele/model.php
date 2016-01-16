@@ -398,5 +398,47 @@ function suppression_signalement_commentaire($idcom){
     global $connect;
     mysqli_query($connect, "delete from signaler where id_commentaire = $idcom") or die("MsQL Erreur : ".mysqli_errno($connect));
 }
+
+
+function affichage_event_signales(){
+    global $connect;
+    $event_signales = mysqli_query($connect, "SELECT event.Event_id, Nom_e FROM event INNER JOIN signaler ON signaler.Event_id = event.Event_id") or die("MsQL Erreur : ".mysqli_errno($connect));
+    
+    echo'<div class="titre_gestion_event">Evénements signalés par la communauté :</div>';
+    echo'<br>';
+    echo "<div id='tableau_event_signales'>";
+    echo "<table><thead><tr><th> Nom de l'événement : </th></thead>";
+    while($tableau_event_signales = mysqli_fetch_assoc($event_signales)) {        
+        echo "<tr>";
+        echo '<td><a href="Events.php?Event_id='.$tableau_event_signales['Event_id'].'">'.$tableau_event_signales['Nom_e'].'</a></td>';
+        echo '<td><form method="POST" action="../Controler/controleur_gestion_event.php">
+                <input type="hidden" value="'.$tableau_event_signales['Event_id'].'" name="idevent">
+                <input type="submit" name="action" value="supprimmer" id="bouton_suppression_event"/>
+                <input type="submit" name="action" value="Retirer le signalement" id="bouton_suppression_signalement"/></form></td></tr>';
+       
+
+        }
+    echo "</table>";
+    echo "</div>";
+    echo'<br>';
+    echo'<br>';
+}
+
+function suppression_event($idevent){
+    global $connect;
+    mysqli_query($connect, "delete from commente where Event_id = '$idevent'") or die("Ms1QL Erreur : ".mysqli_errno($connect));
+    mysqli_query($connect, "delete from multimedia where Event_id = '$idevent'") or die("Ms2QL Erreur : ".mysqli_errno($connect));
+    mysqli_query($connect, "delete from participation where Event_id = '$idevent'") or die("Ms3QL Erreur : ".mysqli_errno($connect));
+    mysqli_query($connect, "delete from sponsorise where Event_id = '$idevent'") or die("Ms4QL Erreur : ".mysqli_errno($connect));
+    mysqli_query($connect, "delete from typeevent where Event_id = '$idevent'") or die("Ms5QL Erreur : ".mysqli_errno($connect));
+    mysqli_query($connect, "delete from signaler where Event_id = '$idevent'") or die("Ms6QL Erreur : ".mysqli_errno($connect));
+    mysqli_query($connect, "delete from event where Event_id = '$idevent'") or die("Ms7QL Erreur : ".mysqli_errno($connect));  
+}
+
+function suppression_signalement_event($idevent){
+    global $connect;
+    mysqli_query($connect, "delete from signaler where Event_id = $idevent") or die("MsQL Erreur : ".mysqli_errno($connect));
+}
+
 ?>  
 
