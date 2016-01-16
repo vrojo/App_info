@@ -1,14 +1,13 @@
 <?php 
 session_start();
 $connect= mysqli_connect("localhost", "root", "", "bddsimplevent");
-mysqli_set_charset($connect,"utf8");
 $Accueil=TRUE;
 
 ?>
 <!DOCTYPE html>
 <html>
 	<head>
-		<meta charset="utf-8" />
+		<meta charset="utf8" />
 		<link type="text/css" rel="stylesheet" href="../Style/Accueil.css"/>
 
 		<title>Accueil</title>
@@ -26,7 +25,7 @@ $Accueil=TRUE;
 			session_destroy();
 			exit();
 			}
-			require 'model.php';
+			
 		?>
 	    <div id="bandeau1">
 			<div class="bandeauhaut">

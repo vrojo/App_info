@@ -3,6 +3,7 @@ session_start();
 $id_utilisateur=$_SESSION['id_utilisateur'];
 
 $connect= mysqli_connect("localhost", "root", "", "bddsimplevent");
+mysqli_set_charset($connect,"utf8");
 if (!$connect) {
     printf("Echec de la connexion : %s\n", mysqli_connect_error());
     exit();

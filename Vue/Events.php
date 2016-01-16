@@ -88,7 +88,7 @@
 					<div class="bandeaubas" style="height:60%; text-align: left; padding:5px 0 0 0">
 						<div class="bleft" style="width:65%">
 							<h2> Informations </h2>
-							<p style="font-weight:normal; font-size:0.7em"><?php echo $event['description_e']?></p>
+							<p style="font-weight:normal; font-size:0.7em; word-wrap:break-word"><?php echo $event['description_e']?></p>
 						</div>
 						<div class="bright" style="font-weight:normal; font-size:0.7em;width:35%">
 							<?php
