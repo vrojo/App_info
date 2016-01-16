@@ -100,10 +100,7 @@ function blocresum($type,$id){
 }
 	}
 	elseif($type=='eventparticipe'){
-		$result=mysqli_query($connect,"SELECT * from participation where id_participant=$id_utilisateur order by Event_id desc");
-		$result=mysqli_fetch_assoc($result);
-		$result=$result['Event_id'];
-		$result=mysqli_query($connect,"SELECT * from event where Event_id=$result");
+		$result=mysqli_query($connect,"SELECT * from participation natural join event where id_participant=$id_utilisateur order by Event_id desc");
 		$i=0;
 		while (($data = mysqli_fetch_assoc($result)) && $i!=4) {
 			$image_event=mysqli_query($connect,"SELECT * from multimedia where Event_id=".$data['Event_id']);
