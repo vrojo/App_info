@@ -1,0 +1,9 @@
+.message_erreur{
+    margin-top: 20px;
+    color:white;
+    position:relative;
+    font-size: 28px;
+    background-color: #59b7ff;
+    text-align: center;
+}
+
