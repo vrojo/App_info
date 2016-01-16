@@ -215,7 +215,7 @@ function carroussel_event($Event_id){
 	$result=mysqli_query($connect,"SELECT * from multimedia where Event_id=$Event_id");
 	while($data=mysqli_fetch_assoc($result)){
 		?><div class="photo_car">
-			<img src="<?php echo $data['urlimg_event']?>" class="photo_car2"/>
+			<img style="background-color:white;" src="<?php echo $data['urlimg_event']?>" class="photo_car2"/>
 		</div>
 		<?php
 	}	
