@@ -10,7 +10,11 @@
     <body>        
         <?php session_start(); ?>
         <?php include ("Header.php"); ?>
-        <?php require("model.php") ?>
+        <?php require("model.php");
+              if (verifadmin($id_utilisateur) != 1){
+                  header("Location:../Vue/Simplevent.php");
+              }
+        ?>
         <div class="gestion_event">
         
             <div id="bloc_gestion_event">

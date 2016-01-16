@@ -55,7 +55,6 @@ th{
     height:50px;
     display:inline-block;
     font-weight:bold;
-    top: 50%;
     text-align:center;
     border:none;
     color:white;
@@ -83,4 +82,23 @@ th{
     text-align:center;
     border:none;
     color:white;
+}
+
+#bouton_suppression_admin{
+    font-size:1em;
+    background-color:red;
+    box-shadow: 1px 2px 5px #bfbfbf, 0px -2px 5px #bfbfbf;
+    width: 178px;
+    height:30px;
+    font-weight:bold;
+    text-align:center;
+    border:none;
+    color:white;
+    left: 43%;
+    position:relative;
+}
+
+#select_admin{
+    position:relative;
+    left:43%;
 }

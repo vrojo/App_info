@@ -10,10 +10,14 @@
             suppression_signalement_utilisateur($_POST['id']);
         }
     }
+    
+    if($_POST['action'] == "Retirer les droits"){
+            suppression_droits($_POST["select_admin"]);
+        }
+        
     if (isset($_POST["mail"]))
         {
         update_utilisateur($_POST["mail"]);
         }
-
-    header('Location: ../Vue/gestion_utilisateur.php');
+header('Location: ../Vue/gestion_utilisateur.php');
     ?>

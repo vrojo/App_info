@@ -11,7 +11,11 @@
 
     <body>
         <?php include("Header.php"); ?>
-        <?php require("model.php"); ?> 
+        <?php require("model.php");
+              if (verifadmin($id_utilisateur) != 1){
+                  header("Location:../Vue/Simplevent.php");
+              }
+        ?>
         <div class="formulaire_back_office">
             <form action="gestion_utilisateur.php" method="post">
                 <div class="back">

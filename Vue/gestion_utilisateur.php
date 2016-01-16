@@ -10,7 +10,11 @@
     <body>        
         <?php session_start(); ?>
         <?php include ("Header.php"); ?>
-        <?php require("model.php") ?>
+        <?php require("model.php");
+              if (verifadmin($id_utilisateur) != 1){
+                  header("Location:../Vue/Simplevent.php");
+              }
+        ?>
         <div class="gestion_utilisateur">
         
             <div id="bloc_gestion_utilisateur">
@@ -33,6 +37,13 @@
                         <br>
                         <input type="submit" name="promu" value="Promouvoir" id="bouton_promotion">
                     </form>
+            </div>
+            <div id="bloc_gestion_utilisateur">
+                <br>
+                    <div class="titre_gestion_utilisateur">Liste des administrateurs du site :</div>
+                    <br>
+                    <?php liste_admin() ?>
+                    
             </div>
         </div>
         <?php include("footer.php"); ?> 

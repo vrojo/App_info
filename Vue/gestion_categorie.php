@@ -12,7 +12,11 @@
     <body>
         
         <?php include ("Header.php"); ?>
-        <?php require("model.php") ?>
+        <?php require("model.php");
+              if (verifadmin($id_utilisateur) != 1){
+                  header("Location:../Vue/Simplevent.php");
+              }
+        ?>
         <div class="gestion_categ">
         
         <div id="bloc_gestion_categ">

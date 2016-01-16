@@ -3,7 +3,7 @@
 			<div id="utilisation">
 				<h4 class="titre_footer">Utilisation de SimplEvent :</h4>
 				<a href="aide.php">Aide</br></a>
-				<a href="#">Comment cela fonctionne</br></a>
+				<a href="forum.php">Forum</br></a>
 				<a href="#">Tarifs</br></a>
 				<a href="#">Application mobile</br></a>
 				<a href="#">Places réservées</br></a>

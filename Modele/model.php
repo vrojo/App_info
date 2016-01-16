@@ -440,5 +440,26 @@ function suppression_signalement_event($idevent){
     mysqli_query($connect, "delete from signaler where Event_id = $idevent") or die("MsQL Erreur : ".mysqli_errno($connect));
 }
 
+function liste_admin(){
+    global $connect;
+    $resultadmin = mysqli_query($connect, "select * from utilisateur where admin = 1") or die("MsQL Erreur : ".mysqli_errno($connect));
+    
+    echo '<form action="../Controler/controleur_gestion_utilisateur.php" method="post">';
+    echo'<select name="select_admin" id="select_admin">';
+    while($tableau_resultadmin = mysqli_fetch_assoc($resultadmin)){
+        echo'<option value="'.$tableau_resultadmin['id_utilisateur'].'">'.$tableau_resultadmin['mail'].'</option>'; 
+    }
+    echo '</select>';
+    echo '<br>';
+    echo '<br>';
+    echo'<input type="submit" name="action" value="Retirer les droits" id="bouton_suppression_admin"/>';
+    echo '</form>';
+}
+
+function suppression_droits($idutilisateur){
+    global $connect;
+    mysqli_query($connect, "update utilisateur set admin='0' where id_utilisateur = '$idutilisateur'") or die("MsQL Erreur : ".mysqli_errno($connect));
+}
+
 ?>  
 
