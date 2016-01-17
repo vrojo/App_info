@@ -7,6 +7,7 @@ session_start();
 		<meta charset="utf-8" />
 		<link type="text/css" rel="stylesheet" href="../Style/Evenements2.css"/>
 		<script type="text/javascript" src="Evenements2.js"></script>
+		<!-- appel de l'API google map -->
 		<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBTJ7EKiUmBXBsHrnojWCg36xdAKObOLqM"></script>
 		<script type="text/javascript" src="../Modele/Eventmap.js"></script>
 		<title>Evénements</title>
@@ -33,6 +34,8 @@ session_start();
 		?>
 		
 		<div id="formulaire_page_resultat">
+			
+			<!-- bcp de champs cachés car la recherche en a besoin-->
 			<form method="post" action="Evenements2.php" id="formulaire_resultat">
 				<label for="mot_clef" style="color:white ; font-size:1.5em;">Mot clef : </label>
 				<input type="text" name="mot_clef" id="mot_clef" autofocus placeholder="exemple : Festival"/>
@@ -75,11 +78,17 @@ session_start();
 			<div class="ligne">
 				<?php
 				while ($data=mysqli_fetch_assoc($tout_evenement)) {
+					
+					//crée un liste des adresses a mettre sur la carte
 					$listeadresse[]=$data['numerorue']." ".$data['rue']." ".$data['ville']." ".$data['pays'];
+					
+					//récupération des diverses informations de chaque élément
 					$vignette_evenement=$data["urlimg_event"];
 					$nom_evenement=$data["Nom_e"];
 					$id_evenement=$data["Event_id"];
 					$compteur++;
+					
+					//le compteur permet d'enregistrer les infos des 3 derniers événements
 					if ($compteur==1) {
 						$evenement1=mysqli_fetch_assoc(mysqli_query($connect, "select * from multimedia natural join event where Event_id=$id_evenement"));
 					}
@@ -97,6 +106,8 @@ session_start();
 				</span>
 				<?php
 					if ($compteur==3) {
+						
+						//dès qu'il y a trois événements (une ligne) on  affiche les infos qu'on cache par le JS
 						$evenement3=mysqli_fetch_assoc(mysqli_query($connect, "select * from multimedia natural join event where Event_id=$id_evenement"));
 						?>
 						</div>
@@ -146,9 +157,10 @@ session_start();
 						$compteur=0;
 					}
 				}
-				?>
-				<?php
+
+				
 				if ($compteur!=3) {
+					//le nombre d'events n'est pas forcément multipe de trois
 					if ($compteur==1) {
 						?>
 						</div>
