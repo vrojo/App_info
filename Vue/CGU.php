@@ -9,11 +9,12 @@ include'model.php';
     <head>
     
         <title>Modification du profil</title>
-        
+        <meta charset="utf-8">
         
     
     </head>
     <link type="text/css" rel="stylesheet" href="../Style/CGU.css"/>
+    
     <body>
         
         <div class="gestion_cgu">
