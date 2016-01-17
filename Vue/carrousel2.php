@@ -1,5 +1,7 @@
+<!-- Carrousel affichant les 9 derniers évenements-->
 
 <?php
+//récupère l'id du dernier évenement
 $event_maximum=mysqli_fetch_assoc(mysqli_query($connect, "select max(Event_id) as max from event"));
 $maximum=$event_maximum['max'];
 ?>
@@ -13,6 +15,8 @@ $maximum=$event_maximum['max'];
 						<?php 
 						$evenement=mysqli_fetch_assoc(mysqli_query($connect, "select Event_id, Nom_e, urlimg_event from event natural join multimedia where Event_id=$maximum and principale=1"));
 						?>
+						
+						<!-- affiche la photo et le nom de l'event, et l'entoure d'une balise a avec le lien correspondant -->
 						<a href="Events.php?Event_id=<?php echo $evenement['Event_id']?>"><div class="image_slider"style="background-image:url('<?php echo($evenement['urlimg_event']) ?>')">
 							<p><?php echo $evenement['Nom_e'] ?></p>
 						</div></a>
