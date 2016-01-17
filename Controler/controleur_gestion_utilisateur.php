@@ -2,7 +2,7 @@
     require'model.php';
     if(isset($_POST["id"]))
     {
-        if($_POST["action"]=="supprimmer")
+        if($_POST["action"]=="Supprimer")
         {
             suppression_utilisateur($_POST['id']); 
         }

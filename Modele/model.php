@@ -294,7 +294,7 @@ function affichage_utilisateur_signales(){
         echo '<td><a href="autreprofil.php?id_utilisateur='.$infos['id_utilisateur'].'">'.$infos['mail'].'</a></td>';
         echo '<td><form method="POST" action="../Controler/controleur_gestion_utilisateur.php">
                 <input type="text" name="id" style="display:none" value='.$infos['id_utilisateur'].'></input> 
-                <input type="submit" name="action" value="supprimmer" id="bouton_suppression_utilisateur"/>
+                <input type="submit" name="action" value="Supprimer" id="bouton_suppression_utilisateur"/>
                 <input type="submit" name="action" value="Retirer le signalement" id="bouton_suppression_signalement"/></form></td></tr>';
        
 
@@ -387,7 +387,7 @@ function modification_commentaires(){
         echo '<td>'.$tableau_commentaires_signales['texte_co'].'</td>';
         echo '<td><form method="POST" action="../Controler/controleur_gestion_commentaires.php">
                 <input type="hidden" value="'.$tableau_commentaires_signales['id_commentaire'].'" name="idcom">
-                <input type="submit" name="action" value="supprimmer" id="bouton_suppression_commentaire"/>
+                <input type="submit" name="action" value="Supprimer" id="bouton_suppression_commentaire"/>
                 <input type="submit" name="action" value="Retirer le signalement" id="bouton_suppression_signalement"/></form></td></tr>';
        
 
@@ -423,7 +423,7 @@ function affichage_event_signales(){
         echo '<td><a href="Events.php?Event_id='.$tableau_event_signales['Event_id'].'">'.$tableau_event_signales['Nom_e'].'</a></td>';
         echo '<td><form method="POST" action="../Controler/controleur_gestion_event.php">
                 <input type="hidden" value="'.$tableau_event_signales['Event_id'].'" name="idevent">
-                <input type="submit" name="action" value="supprimmer" id="bouton_suppression_event"/>
+                <input type="submit" name="action" value="Supprimer" id="bouton_suppression_event"/>
                 <input type="submit" name="action" value="Retirer le signalement" id="bouton_suppression_signalement"/></form></td></tr>';
        
 
@@ -484,7 +484,7 @@ function modification_topic(){
         echo '<td><a href="Topic.php?Topic='.$tableau_topic_signales['id_topic'].'">'.$tableau_topic_signales['sujet'].'</a></td>';
         echo '<td><form method="POST" action="../Controler/controleur_gestion_forum.php">
                 <input type="hidden" value="'.$tableau_topic_signales['id_topic'].'" name="idtopic">
-                <input type="submit" name="action" value="supprimmer" id="bouton_suppression_forum"/>
+                <input type="submit" name="action" value="Supprimer" id="bouton_suppression_forum"/>
                 <input type="submit" name="action" value="Retirer le signalement" id="bouton_suppression_signalement"/></form></td></tr>';
        
 
@@ -508,7 +508,7 @@ function modification_reponse(){
         echo '<td><a href="Topic.php?Topic='.$tableau_topic_signales['id_topic'].'">'.$tableau_topic_signales['commentaire_r'].'</a></td>';
         echo '<td><form method="POST" action="../Controler/controleur_gestion_forum.php">
                 <input type="hidden" value="'.$tableau_topic_signales['id_msgforum'].'" name="idmessage">
-                <input type="submit" name="action" value="supprimmer" id="bouton_suppression_forum"/>
+                <input type="submit" name="action" value="Supprimer" id="bouton_suppression_forum"/>
                 <input type="submit" name="action" value="Retirer le signalement" id="bouton_suppression_signalement"/></form></td></tr>';
        
 
@@ -554,6 +554,76 @@ function affichage_choix_recherche(){
     }
 }
 
+function affichage_contenu_cgu(){
+    global $connect;
+    $result = mysqli_query($connect, "select * from cgu") or die("MsQL Erreur : ".mysqli_errno($connect));
+    $tableauresult = mysqli_fetch_assoc($result);
+    if($tableauresult == null){
+        echo'Cette page est vide pour le moment';
+    }
+    else{
+        $compteur = 1;
+        $cgu = mysqli_query($connect, "select * from cgu order by id_paragraphe") or die("MsQL Erreur : ".mysqli_errno($connect));
+        while($affichage_cgu = mysqli_fetch_assoc($result)){
+            echo'<h1>'.$compteur.' '.$affichage_cgu['titre_cgu'].'</h1>';
+            echo'<br>';
+            echo'<div class="paragraphe_cgu">'.$affichage_cgu['paragraphe_cgu'].'</div>';
+            echo'<br>';
+            echo'<br>';
+            $compteur = $compteur + 1;
+        }
+    }
+}
 
+function affichage_mise_en_place_cgu(){
+    global $connect;
+    $result = mysqli_query($connect, "select * from cgu") or die("MsQL Erreur : ".mysqli_errno($connect));
+    
+    echo'<div class="titre_cgu"> Liste des paragraphes de CGU existants :</div>';
+    echo'<br>';
+    echo "<div id='tableau_cgu'>";
+    echo "<table><thead><tr><th> Titre du pragraphe : </th></thead>";
+    while($tableau_cgu = mysqli_fetch_assoc($result)) {        
+        echo "<tr>";
+        echo '<td>'.$tableau_cgu['titre_cgu'].'</td>';
+        echo '<td><form method="POST" action="../Controler/controleur_cgu.php">
+                <input type="hidden" value="'.$tableau_cgu['id_paragraphe'].'" name="idcgu">
+                <input type="submit" name="action" value="Supprimer" id="bouton_suppression_cgu"/>
+                <input type="submit" name="action" value="Editer" id="bouton_edition_cgu"/></form></td></tr>';
+       
+
+        }
+    echo "</table>";
+    echo "</div>";
+    echo'<br>';
+    echo'<br>';
+    
+}
+
+function suppression_cgu($idcgu){
+    global $connect;
+    mysqli_query($connect, "delete from cgu where id_paragraphe = '$idcgu'") or die("MsQL Erreur : ".mysqli_errno($connect));
+}
+function edition_cgu($idcgu){
+    global $connect;
+    $result = mysqli_query($connect, "select * from cgu where id_paragraphe = $idcgu") or die("MsQL Erreur : ".mysqli_errno($connect));
+    $tableau_cgu = mysqli_fetch_assoc($result);
+  
+    echo'<form method="post" action="controleur_cgu.php" id="form_edit_cgu">';
+    echo'<input type="text" value = '.$tableau_cgu['titre_cgu'].'id = "titre_edit_cgu" name="titre_edit_cgu">';
+    echo'<input type="submit" name="action" value="enregistrer" id="bouton_enregistrer_edit">';
+    echo'<input type="hidden" name="idcgu" value="'.$tableau_cgu['id_paragraphe'].'">';
+    echo'</form>';
+    echo'<textarea name="edit_paragraphe" form="form_edit_cgu">'.$tableau_cgu['paragraphe_cgu'].'</textarea>';
+}
+function enreg_cgu($titre, $para){
+    global $connect;
+    mysqli_query($connect, "insert into cgu (titre_cgu, pragraphe_cgu) values ('$titre','$para')") or die("MySQL Erreur : " . mysqli_error($connect));      
+}
+
+function enreg_edit_cgu($titre, $para, $id){
+    global $connect;
+    mysqli_query($connect, "insert update cgu set titre_cgu = '$titre', set pragraphe_cgu = '$para' where id_paragraphe = '$id'") or die("MySQL Erreur : " . mysqli_error($connect));      
+}
 ?>  
 

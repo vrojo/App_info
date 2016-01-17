@@ -2,7 +2,7 @@
     require'model.php';
     if(isset($_POST["idtopic"]))
     {
-        if($_POST["action"]=="supprimmer")
+        if($_POST["action"]=="Supprimer")
         {
             suppression_topic($_POST['idtopic']); 
         }
@@ -12,7 +12,7 @@
     }
     if(isset($_POST["idmessage"]))
     {
-        if($_POST["action"]=="supprimmer")
+        if($_POST["action"]=="Supprimer")
         {
             suppression_message($_POST['idmessage']); 
         }

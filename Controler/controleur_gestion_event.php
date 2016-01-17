@@ -2,7 +2,7 @@
     require'model.php';
     if(isset($_POST["idevent"]))
     {
-        if($_POST["action"]=="supprimmer")
+        if($_POST["action"]=="Supprimer")
         {
             suppression_event($_POST['idevent']); 
         }
