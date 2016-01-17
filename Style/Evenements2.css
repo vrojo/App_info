@@ -106,7 +106,7 @@
 
 .informations {
 	width:70%;
-	height:100%;
+	height:auto;
 	position:absolute;
 	display:inline-block;
 	background-color:#6cdf6c;
@@ -120,10 +120,12 @@
 .texte_information {
 	margin:2%;
 	color:white;
+	height:Auto;
 }
 
 .texte_information p {
 	word-wrap:break-word;
+	height:auto
 }
 
 .Bouton_information {

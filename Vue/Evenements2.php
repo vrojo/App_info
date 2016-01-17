@@ -220,6 +220,7 @@ session_start();
 		</div>
 		<div id="map">
 		</div>
+		<div id="1" ></div>
 		<?php include("footer.php");
 		$jsadresses=json_encode($listeadresse);
 		?>
