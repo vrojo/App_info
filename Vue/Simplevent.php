@@ -2,10 +2,11 @@
 	session_start();
 	require 'fonctions_simplevent.php'; 
 ?>
-
+<!-- Page d'accueil lorsque l'utilisateur n'est pas connecté -->
 <!DOCTYPE html>
 <html>
 	<head>
+		<!-- comme sur toutes nos pages, cette balise meta permet l'utilisation de caractères spéciaux -->
 		<meta charset="utf-8" />
 		<link type="text/css" rel="stylesheet" href="../Style/Simplevent.css"/>
 		<title>Simplevent</title>
@@ -15,6 +16,7 @@
 	        <div class="bandeauhaut">
 				<div class="headergauche"> 
 					<div class="bandeauhaut" >
+							<!-- chemin relatif du logo, qui est hebergé sur le serveur -->
 						<a href="#"><img src="../reste/images/Logo.png" class="imagebandeau"/></a>
 					</div>
 					<div class="bandeaubas">
@@ -37,11 +39,15 @@
 					<div class="bandeaubas"><a href="#bandeau1"><img src="../reste/images/flechebas.png"id="flèchebas" title ='Venez voir en Bas !'/></a></div>
 				</div>
 			</div>
-			
-			
 	    </div>
+		
+		<!-- Le site utilise beaucoup de javascript, cette balise affichera un message si le JS n'est pas activé -->
+		<noscript>
+			<p style="background-color:#74DEF1 ; color:white;">Pour profiter pleinement de cette page, et de l'ensemble du site Internet, veuillez activer l'utilisation de Javascript sur votre navigateur web</p>
+		</noscript>
 	    
 	    <div id="bandeau1">
+			<!-- carrousel souvent utilisé, donc création d'une fonction qu'on appelle quand nécessaire -->
 			<?php 
 			include ('carrousel2.php');
 			?>
@@ -67,6 +73,8 @@
 			<p> Rejoignez Simplevent</p>
                         <a href="connexion.php"><div class="Bouton"><p>S'inscrire/ se connecter</p></div></a>
 		</div>
+		
+		<!-- le footer est tjrs le même sur le site, d'où l'utilisation d'une fonction include -->
 		<?php include("footer.php"); ?>
 	    
 	</body>
