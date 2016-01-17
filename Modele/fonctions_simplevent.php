@@ -5,34 +5,43 @@ if (!$connect) {
     printf("Echec de la connexion : %s\n", mysqli_connectrror());
     exit();
 	}
+//Vérification de la présence d'un utilisateur connecté ou non
+        
 if (isset($_SESSION['id_utilisateur'])==TRUE && isset($_SESSION['mot_de_passe'])==TRUE){
 	$id_utilisateur=$_SESSION['id_utilisateur'];
 	$mdp=$_SESSION['mot_de_passe'];
+//Si il y a déjà une session en cous, on enregistre les paramètre
+        
 }
 else{
 	$id_utilisateur=0;
 	$mdp=0;
+        //Sinon on les initialise à 0
 }
+// Cette fonction vérifie si l'utilisateur connecté est bien connecté comme il faut
 function verifco($mdp,$id_utilisateur){
 	global $connect;
 	$result=mysqli_query($connect, "SELECT * from utilisateur where id_utilisateur=$id_utilisateur");
 	$result=mysqli_fetch_assoc($result);
 	$motpasse=$result['mot_de_passe'];
 	$conf_mod_prof=$result['conf_mod_prof'];
-	if ($id_utilisateur==0){
+	if ($id_utilisateur==0){  //Si pas d'utilisateur connecté, renvoi False
 		return FALSE;
 	}
-	elseif($mdp==$motpasse && $conf_mod_prof==0 && !isset($_GET['modif'])){
+	elseif($mdp==$motpasse && $conf_mod_prof==0 && !isset($_GET['modif'])){ //Si utilisateur connecté, mais pas encore de profil complet, renvoi modif
 		return 'MODIF';
 	}
 	elseif($mdp==$motpasse && $conf_mod_prof==1 OR $mdp==$motpasse && $conf_mod_prof==0 && isset($_GET['modif'])){
-		return 'CONNECTE';
+		return 'CONNECTE'; //Si utilisateur connecté avec profil coplet, ou connecté et en train de compléter profil, renvoi connecté
 	}
 	else{
-		return 'PASCONNECTE';
+		return 'PASCONNECTE';//Sinon renvoi pas connecte
 	}
 	
 }
+
+//Cette fonction vérifie les droits d'un utilisateur connecté.
+
 function verifadmin ($id_utilisateur){
 	global $connect;
 	$admin=mysqli_fetch_assoc(mysqli_query($connect,"SELECT * from utilisateur where id_utilisateur=$id_utilisateur"));
@@ -42,6 +51,7 @@ function verifadmin ($id_utilisateur){
 	else{
 		return 0;
 	}
+        //Si il est admin renvoie 1, sinon renvoie 0.
 }
 function blocresum($type,$id){
 	global $connect;
@@ -129,7 +139,7 @@ function blocresum($type,$id){
 
 
 
-if (verifco($mdp,$id_utilisateur)==TRUE){
+if (verifco($mdp,$id_utilisateur)==TRUE){//Si l'utilisateur est bien connecté, on récupère ses info pour les afficher dans le header
 	global $connect;
 	$result=mysqli_query($connect, "SELECT * from utilisateur where id_utilisateur=$id_utilisateur");
 	$result=mysqli_fetch_assoc($result);
