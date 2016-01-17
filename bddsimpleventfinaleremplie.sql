@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  127.0.0.1
--- Généré le :  Dim 17 Janvier 2016 à 19:30
+-- Généré le :  Dim 17 Janvier 2016 à 22:13
 -- Version du serveur :  5.6.17
 -- Version de PHP :  5.5.12
 
@@ -34,7 +34,7 @@ CREATE TABLE IF NOT EXISTS `adresse` (
   `codepostal` int(5) NOT NULL,
   `pays` text NOT NULL,
   PRIMARY KEY (`id_adresse`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=13 ;
 
 --
 -- Contenu de la table `adresse`
@@ -43,7 +43,16 @@ CREATE TABLE IF NOT EXISTS `adresse` (
 INSERT INTO `adresse` (`id_adresse`, `numerorue`, `rue`, `ville`, `codepostal`, `pays`) VALUES
 (1, 18, 'av pierre grenier', 'Viroflay', 78, 'France'),
 (2, 0, 'hotel de ville', 'Paris', 75, 'France'),
-(3, 0, 'hippodrome de longchamps', 'Paris', 75, 'France');
+(3, 0, 'hippodrome de longchamps', 'Paris', 75, 'France'),
+(4, 0, 'domaine de saint cloud', 'saint-cloud', 75, 'France'),
+(5, 104, 'rue charles laffitte', 'Neuilly', 92, 'France'),
+(6, 12, 'rue de latour', 'Paris', 75, 'france'),
+(7, 0, 'Champ de mars', 'Paris', 75, 'FRANCE'),
+(8, 8, 'Boulevard de bercy', 'Paris', 75, 'France'),
+(9, 12, 'rue de lavande', 'Antibes', 6600, 'France'),
+(10, 104, 'rue charles laffitte', 'Neuilly', 92, 'France'),
+(11, 2, 'rue notre dame des champs', 'Paris', 75, 'France'),
+(12, 10, 'rue de vanves', 'Issy les moulineaux', 92, 'France');
 
 -- --------------------------------------------------------
 
@@ -95,14 +104,15 @@ CREATE TABLE IF NOT EXISTS `commente` (
   `Event_id` int(11) NOT NULL,
   `id_utilisateur` int(11) NOT NULL,
   PRIMARY KEY (`id_commentaire`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
 
 --
 -- Contenu de la table `commente`
 --
 
 INSERT INTO `commente` (`date_co`, `texte_co`, `id_commentaire`, `Event_id`, `id_utilisateur`) VALUES
-('2016-01-17 18:19:19', 'Venez à cet événement, il a l''air génial !', 1, 24, 20);
+('2016-01-17 18:19:19', 'Venez à cet événement, il a l''air génial !', 1, 24, 20),
+('2016-01-17 21:39:51', 'J''ai hâte !!', 2, 27, 21);
 
 -- --------------------------------------------------------
 
@@ -121,6 +131,8 @@ CREATE TABLE IF NOT EXISTS `confirmation_inscription` (
 --
 
 INSERT INTO `confirmation_inscription` (`id_conf`, `id_utilisateur`) VALUES
+(7690430, 22),
+(710357666, 21),
 (733856201, 20);
 
 -- --------------------------------------------------------
@@ -144,7 +156,7 @@ CREATE TABLE IF NOT EXISTS `event` (
   `date_f` date DEFAULT NULL,
   PRIMARY KEY (`Event_id`),
   KEY `id_utilisateur_idx` (`id_utilisateur`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=26 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=33 ;
 
 --
 -- Contenu de la table `event`
@@ -152,7 +164,14 @@ CREATE TABLE IF NOT EXISTS `event` (
 
 INSERT INTO `event` (`Event_id`, `description_e`, `Nom_e`, `date_e`, `prix`, `privacy`, `id_utilisateur`, `heuredebut`, `heurefin`, `nb_max_participant`, `id_adresse`, `date_f`) VALUES
 (24, 'The Color Run™ est la course de 5 kilomètres la plus colorée du monde.<br />\r\nIl ne s''agit pas d''être le plus rapide ou de franchir la ligne d''arrivée en premier. Les mots d''ordre sont couleurs, amusement et plaisir !<br />\r\nEntouré de nombreux autres coureurs, tu vas vivre une journée exceptionnelle que tu n''es pas prêt d''oublier.', 'Color run Paris', '2016-05-27', 0, 0, 20, '09:30:00', '14:00:00', 0, 2, '0000-00-00'),
-(25, 'Chaque année, les recettes du festival permettent d’accompagner et de soutenir les malades et leurs familles dans plus de 20 pays. Précarité, pauvreté grandissante, absence critique de structures de santé, manque de soins et de traitements : les malades du sida ont besoin d’aide. Continuons à les soutenir !<br />\r\n', 'solidays', '2016-06-26', 15, 0, 20, '16:00:00', '04:30:00', 2000, 3, '2016-06-29');
+(25, 'Chaque année, les recettes du festival permettent d’accompagner et de soutenir les malades et leurs familles dans plus de 20 pays. Précarité, pauvreté grandissante, absence critique de structures de santé, manque de soins et de traitements : les malades du sida ont besoin d’aide. Continuons à les soutenir !<br />\r\n', 'solidays', '2016-06-26', 15, 0, 20, '16:00:00', '04:30:00', 2000, 3, '2016-06-29'),
+(26, 'Créé en 2003, Visuel de la cartographie de Rock en Seine 2015Rock en Seine a lieu chaque dernier week-end d’août et s’impose aujourd’hui comme l’un des plus grands rendez-vous rock de l’été en France et compte au nombre des festivals incontournables d’Europe ! Il se déroule le dernier week-end d’août dans le Domaine national de Saint-Cloud, aux portes de Paris.<br />\r\n<br />\r\nLe festival réunit chaque année le meilleur de la scène pop &amp; rock internationale, des têtes d’affiches emblématiques aux découvertes le plus excitantes du moment. 5 scènes, installées au cœur d’un jardin à la française, accueillent les festivaliers dans un cadre champêtre, propice aux découvertes. Rock, pop, électro… toutes les branches du rock sont à Rock en Seine !', 'Rock en Seine', '2016-08-26', 115, 0, 20, '16:00:00', '04:30:00', 2000, 4, '2016-08-28'),
+(27, 'Venez tous à l''anniversaire de vincent rojo', 'Anniversaire de Vincent', '2016-02-21', 0, 1, 20, '18:00:00', '06:00:00', 0, 5, '0000-00-00'),
+(28, 'Venez tous prendre un pique-nique au champ de mars afin de profiter du beau temps ! <br />\r\n<br />\r\nUn moment à ne pas rater', 'Pique nique au champs de mars', '2016-06-06', 0, 0, 21, '11:00:00', '14:00:00', 0, 7, '0000-00-00'),
+(29, 'Maître Gims, de son vrai nom Gandhi Djuna, est né le 6 mai 1986 à Kinshasa (RDC), est un rappeur, chanteur et compositeur congolais1.<br />\r\n<br />\r\nIl est issu d''une famille de musiciens, son père était un chanteur du groupe Viva La Musica de Papa Wemba et il a des frères rappeurs. Membre du groupe Sexion d''Assaut, il sort son premier album solo Subliminal en 2013. L''album connaît un succès commercial avec plus de 1 000 000 d''exemplaires vendus', 'Concert de maitre gims', '2016-03-18', 62, 0, 21, '20:00:00', '23:00:00', 25000, 8, '0000-00-00'),
+(30, 'Venez tous chez Roger ! C''est une barbecue party ouverte à tous amenez juste une saucisse et une bière et vous serez le bienvenue ! ', 'Barbecue chez Roger', '2016-04-27', 0, 0, 21, '10:00:00', '15:00:00', 0, 9, '0000-00-00'),
+(31, 'Venez participer au cours de hip hop avec comme professeur, VINCENT ROJO !! <br />\r\n<br />\r\nIl vous apprendra ses meilleurs moves tirés des meilleures séries de danse espagnoles.', 'Cours de hip hop', '2016-01-20', 0, 0, 22, '16:00:00', '18:30:00', 30, 11, '0000-00-00'),
+(32, 'Soutenance d''APP du groupe G1B. Nous présenterons notre site internet SimplEvent. Un site de création et de partage d''événements à vocation internationale.<br />\r\n<br />\r\nSimplEvent est un site facile d''utilisation, il s''agit de l''outil le plus simple permettant de partager des événements. ', 'Soutenance APP', '2016-01-18', 0, 0, 22, '14:30:00', '16:00:00', 6, 12, '0000-00-00');
 
 -- --------------------------------------------------------
 
@@ -187,7 +206,7 @@ CREATE TABLE IF NOT EXISTS `multimedia` (
   `urlimg_event` text,
   PRIMARY KEY (`id_multimediaevent`),
   KEY `Event_id_idx` (`Event_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=9 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=21 ;
 
 --
 -- Contenu de la table `multimedia`
@@ -201,7 +220,19 @@ INSERT INTO `multimedia` (`id_multimediaevent`, `principale`, `Event_id`, `urlvi
 (5, 0, 25, NULL, 'http://www.solidays.org', NULL),
 (6, 1, 25, NULL, NULL, '../reste/photo_event/ASF2600Â©Anne_Sophie_Fremy.jpg'),
 (7, 0, 25, NULL, NULL, '../reste/photo_event/Solidays2015-1953-Â©AmelieLaurin.jpg'),
-(8, 0, 25, NULL, NULL, '../reste/photo_event/ASF1165Â©Anne_Sophie_Fremy.jpg');
+(8, 0, 25, NULL, NULL, '../reste/photo_event/ASF1165Â©Anne_Sophie_Fremy.jpg'),
+(9, 0, 26, NULL, 'http://www.rockenseine.com/billetterie/', NULL),
+(10, 1, 26, NULL, NULL, '../reste/photo_event/VP2_7163RES-1024x683.jpg'),
+(11, 0, 26, NULL, NULL, '../reste/photo_event/VP2_5828RES.jpg'),
+(12, 0, 26, NULL, NULL, '../reste/photo_event/Kasabian-cOlivier-Hoffschir-111-1024x681.jpg'),
+(13, 1, 27, NULL, NULL, '../reste/photo_event/10600452_10204501765731612_4770971883296226552_n.jpg'),
+(14, 1, 28, NULL, NULL, '../reste/photo_event/pic-nic-paris-2.jpg'),
+(15, 0, 29, NULL, 'http://www.maitre-gims.fr/2302-tournee-concerts-warano-tour-2015', NULL),
+(16, 1, 29, NULL, NULL, '../reste/photo_event/tournee-maitre-gims.jpg'),
+(17, 0, 29, NULL, NULL, '../reste/photo_event/photo.jpg'),
+(18, 1, 30, NULL, NULL, '../reste/photo_event/folding-grill-rack1.jpg'),
+(19, 1, 31, NULL, NULL, '../reste/photo_event/hip-hop.png'),
+(20, 1, 32, NULL, NULL, '../reste/photo_event/Logomini.png');
 
 -- --------------------------------------------------------
 
@@ -223,7 +254,11 @@ CREATE TABLE IF NOT EXISTS `participation` (
 --
 
 INSERT INTO `participation` (`id_participant`, `Event_id`, `Note`) VALUES
-(20, 24, 4);
+(20, 24, 4),
+(21, 27, NULL),
+(21, 29, NULL),
+(22, 31, 5),
+(22, 32, 5);
 
 -- --------------------------------------------------------
 
@@ -243,7 +278,10 @@ CREATE TABLE IF NOT EXISTS `preference` (
 --
 
 INSERT INTO `preference` (`id_utilisateur`, `id_categ`) VALUES
-(20, 35);
+(21, 33),
+(20, 35),
+(22, 35),
+(21, 36);
 
 -- --------------------------------------------------------
 
@@ -300,7 +338,7 @@ CREATE TABLE IF NOT EXISTS `sponsor` (
   `NomSponsor` varchar(45) NOT NULL,
   `img_sponsor` varchar(255) NOT NULL,
   PRIMARY KEY (`idSponsor`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=7 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=12 ;
 
 --
 -- Contenu de la table `sponsor`
@@ -311,7 +349,12 @@ INSERT INTO `sponsor` (`idSponsor`, `NomSponsor`, `img_sponsor`) VALUES
 (3, '', 'http://thecolorrun.fr/uploads/logos/480x260_00000-partner-1.png'),
 (4, '', 'http://www.solidays.org/wp-content/uploads/2013/02/idf.jpg'),
 (5, '', 'http://www.solidays.org/wp-content/uploads/2013/02/banque_postale1.jpg'),
-(6, '', 'http://www.solidays.org/wp-content/uploads/2015/05/Europcar.jpg');
+(6, '', 'http://www.solidays.org/wp-content/uploads/2015/05/Europcar.jpg'),
+(7, '', 'http://www.rockenseine.com/wp-content/uploads/2013/04/logo_ratp.png'),
+(8, '', 'http://www.rockenseine.com/wp-content/uploads/2013/04/logo_saintcloud.png'),
+(9, '', 'http://www.rockenseine.com/wp-content/uploads/2013/04/logo_spotify.png'),
+(10, '', 'http://assets.nrj.fr/nrj/latest/img/nrj.svg'),
+(11, '', 'https://upload.wikimedia.org/wikipedia/fr/4/47/Isep-Logo.png');
 
 -- --------------------------------------------------------
 
@@ -335,7 +378,12 @@ INSERT INTO `sponsorise` (`Event_id`, `idSponsor`) VALUES
 (24, 3),
 (25, 4),
 (25, 5),
-(25, 6);
+(25, 6),
+(26, 7),
+(26, 8),
+(26, 9),
+(29, 10),
+(32, 11);
 
 -- --------------------------------------------------------
 
@@ -377,7 +425,14 @@ CREATE TABLE IF NOT EXISTS `typeevent` (
 --
 
 INSERT INTO `typeevent` (`Event_id`, `id_categ`) VALUES
-(25, 35);
+(26, 33),
+(29, 33),
+(25, 35),
+(26, 35),
+(32, 35),
+(27, 36),
+(28, 37),
+(30, 37);
 
 -- --------------------------------------------------------
 
@@ -401,7 +456,7 @@ CREATE TABLE IF NOT EXISTS `utilisateur` (
   `confirmation_inscription` int(2) NOT NULL,
   `conf_mod_prof` int(11) NOT NULL,
   PRIMARY KEY (`id_utilisateur`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=21 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=23 ;
 
 --
 -- Contenu de la table `utilisateur`
@@ -409,7 +464,9 @@ CREATE TABLE IF NOT EXISTS `utilisateur` (
 
 INSERT INTO `utilisateur` (`id_utilisateur`, `nom_u`, `prenom_u`, `date_de_naissance`, `description`, `photo_u`, `mail`, `telephone`, `mot_de_passe`, `sexe`, `admin`, `id_adresse`, `confirmation_inscription`, `conf_mod_prof`) VALUES
 (17, 'inactif', 'Compte', '0000-00-00', 'Cet utilisateur n''existe plus.', '../reste/photo_profil/bvert.png', 'sitesimplevent@gmail.com', 0, '', NULL, NULL, 0, 0, 0),
-(20, 'Batier', 'Olivier', '1995-07-31', 'Bonjour, je m''appelle Olivier, j''aime beaucoup le cinéma et les sorties entre amis. <br />\r\n', '../reste/photo_profil/photo.jpg', 'olivierbatier@gmail.com', 650852765, 'douze', 1, 1, 1, 1, 1);
+(20, 'Batier', 'Olivier', '1995-07-31', 'Bonjour, je m''appelle Olivier, j''aime beaucoup le cinéma et les sorties entre amis. <br />\r\n', '../reste/photo_profil/photo.jpg', 'olivierbatier@gmail.com', 650852765, 'douze', 1, 1, 1, 1, 1),
+(21, 'Latour', 'Antoine', '2000-02-22', 'SAlut moi c''est antoine latour envoie moi un message si tu veux chatter !', '../reste/photo_profil/12063310_1037537786277911_8204774670410633359_n.jpg', 'ntnlatour@gmail.com', 123456789, 'testdeco', 1, NULL, 6, 1, 1),
+(22, 'Rojo', 'Vincent', '1994-02-21', 'YOYOYOYO ROJO DANS LA PLACE !! <br />\r\n', '../reste/photo_profil/10600452_10204501765731612_4770971883296226552_n.jpg', 'vin.rojo@gmail.com', 234687987, 'Rojo', 1, NULL, 5, 1, 1);
 
 --
 -- Contraintes pour les tables exportées
