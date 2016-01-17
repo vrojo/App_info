@@ -10,7 +10,7 @@
            
 
     <body>
-        
+        <!-- Divers tests permettant de vérifier que l'utlisateur est bien où il a le droit d'être -->
         <?php include("header.php"); ?>
         <?php require("model.php"); ?> 
             <?php
@@ -24,8 +24,8 @@
                             <br>
                             Veuillez réessayer plus tard.
                         </div>
+						<?php include'carrousel2.php'; ?>
                         <?php include'footer.php'; ?>
-                        <?php include'carrousel2.php'; ?>
                         <meta http-equiv="Refresh" content="1; url=../Vue/Simplevent.php">
 
                         <?php
@@ -42,6 +42,7 @@
                         <?php include'carrousel2.php'; ?>
                         <?php include'footer.php'; ?>
                         <meta http-equiv="Refresh" content="2; url=../vue/Simplevent.php">
+						
                         <?php
                     }
                 }
