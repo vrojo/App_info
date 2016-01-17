@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  127.0.0.1
--- Généré le :  Sam 16 Janvier 2016 à 21:27
+-- Généré le :  Dim 17 Janvier 2016 à 13:04
 -- Version du serveur :  5.6.17
 -- Version de PHP :  5.5.12
 
@@ -17,7 +17,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8 */;
 
 --
--- Base de données :  `bddsimplevent`
+-- Base de données :  `bddsimplevent2`
 --
 
 -- --------------------------------------------------------
@@ -55,9 +55,9 @@ CREATE TABLE IF NOT EXISTS `categorie` (
 INSERT INTO `categorie` (`id_categ`, `nomCat`) VALUES
 (23, 'Gratuit'),
 (24, 'Payant'),
-(25, 'Costumé'),
-(33, 'Son'),
-(35, 'Habillé'),
+(25, 'Costumes'),
+(33, 'Concert'),
+(35, 'Spectacle'),
 (36, '-18'),
 (37, 'Gastronomie');
 
@@ -212,8 +212,8 @@ CREATE TABLE IF NOT EXISTS `signaler` (
   `id_utilisateur` int(11) DEFAULT NULL,
   `Event_id` int(11) DEFAULT NULL,
   `id_commentaire` int(11) DEFAULT NULL,
-  `sujet` varchar(45) DEFAULT NULL,
-  `commentaire_r` varchar(767) DEFAULT NULL,
+  `id_topic` int(11) DEFAULT NULL,
+  `id_msgforum` int(11) DEFAULT NULL,
   `id_balance` int(11) DEFAULT NULL,
   PRIMARY KEY (`id_report`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
@@ -295,6 +295,13 @@ CREATE TABLE IF NOT EXISTS `utilisateur` (
   `conf_mod_prof` int(11) NOT NULL,
   PRIMARY KEY (`id_utilisateur`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=20 ;
+
+--
+-- Contenu de la table `utilisateur`
+--
+
+INSERT INTO `utilisateur` (`id_utilisateur`, `nom_u`, `prenom_u`, `date_de_naissance`, `description`, `photo_u`, `mail`, `telephone`, `mot_de_passe`, `sexe`, `admin`, `id_adresse`, `confirmation_inscription`, `conf_mod_prof`) VALUES
+(17, 'inactif', 'Compte', '0000-00-00', 'Cet utilisateur n''existe plus.', '../reste/photo_profil/bvert.png', 'sitesimplevent@gmail.com', 0, '', NULL, NULL, 0, 0, 0);
 
 --
 -- Contraintes pour les tables exportées
