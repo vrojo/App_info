@@ -16,12 +16,12 @@
 		<?php
 		include("Header.php");
 		require'fonctions_event.php';
-		
+		$img=mysqli_fetch_assoc(mysqli_query($connect, "Select urlimg_event from multimedia where principale=1 and Event_id=$Event_id"));
 		?>
 		<title><?php echo $event['Nom_e'] ?></title>	
 		<div id="bandeaupresevent" style="height:auto; min-height:700px">
 			<div class="bleft" style="height:700px" >
-				<div class="bandeauhaut"><div class="Eventpic" style="background-image:url(<?php echo $event['urlimg_event'] ?>)"></div></div>
+				<div class="bandeauhaut"><div class="Eventpic" style="background-image:url(<?php echo $img['urlimg_event']?>)"></div></div>
 				<div class="bandeaubas" ><div id="map" style="transform: translate(-50%,-50%);" ></div></div>
 			</div>
 			<div class="bright" style="height:auto">
