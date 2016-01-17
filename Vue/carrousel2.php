@@ -1,5 +1,7 @@
+<!-- Carrousel affichant les 9 derniers évenements-->
 
 <?php
+//récupère l'id du dernier évenement
 $event_maximum=mysqli_fetch_assoc(mysqli_query($connect, "select max(Event_id) as max from event"));
 $maximum=$event_maximum['max'];
 ?>
@@ -13,6 +15,8 @@ $maximum=$event_maximum['max'];
 						<?php 
 						$evenement=mysqli_fetch_assoc(mysqli_query($connect, "select Event_id, Nom_e, urlimg_event from event natural join multimedia where Event_id=$maximum and principale=1"));
 						?>
+						
+						<!-- affiche la photo et le nom de l'event, et l'entoure d'une balise a avec le lien correspondant -->
 						<a href="Events.php?Event_id=<?php echo $evenement['Event_id']?>"><div class="image_slider"style="background-image:url('<?php echo($evenement['urlimg_event']) ?>')">
 							<p><?php echo $evenement['Nom_e'] ?></p>
 						</div></a>
@@ -89,12 +93,14 @@ $maximum=$event_maximum['max'];
 			</div>
 		</div>
 		<div id="points_navigation">
+			<!-- chaque bouton a une valeur de mouvement préenregistrée, permettant en cliquant dessus, d'aller sur la bonne slide-->
 			<ul>
 				<li class="itemLinks" data-pos="0%"></li>
-				<li class="itemLinks" data-pos="-33.2%"></li>
-				<li class="itemLinks" data-pos="-66.4%"></li>
+				<li class="itemLinks" data-pos="-33.333333%"></li>
+				<li class="itemLinks" data-pos="-66.666666%"></li>
 			</ul>
 		</div>
 		<script type="text/javascript">
+			<!-- appelle la fonction pour l'initialiser-->
 			Slider();
 		</script>

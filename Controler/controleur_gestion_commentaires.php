@@ -2,7 +2,7 @@
         require'model.php';
         
         if(isset($_POST["idcom"])){
-            if($_POST["action"]=="supprimmer")
+            if($_POST["action"]=="Supprimer")
             {
                 suppression_commentaire($_POST['idcom']); 
             }

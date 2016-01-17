@@ -43,7 +43,7 @@
 		
 		<!-- Le site utilise beaucoup de javascript, cette balise affichera un message si le JS n'est pas activé -->
 		<noscript>
-			<p style="background-color:#74DEF1 ; color:white;">Pour profiter pleinement de cette page, et de l'ensemble du site Internet, veuillez activer l'utilisation de Javascript sur votre navigateur web</p>
+			<h3 style="background-color:#74DEF1 ; color:white; text-align:center;">Pour profiter pleinement de cette page, et de l'ensemble du site Internet, veuillez activer l'utilisation de Javascript sur votre navigateur web</h3>
 		</noscript>
 	    
 	    <div id="bandeau1">

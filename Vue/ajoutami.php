@@ -23,7 +23,7 @@ session_start();
 		if (isset($_GET['id_utilisateur']) and isset($_GET['id_ami'])) {
 			
 			//vérfie si la ligne n'existe pas déjà dans la BDD, pour savoir qu'ils ne sont pas déjà amis
-			$exist=mysqli_fetch_assoc(mysqli_query($connect, "select exists (select * from relation_amicale where id_utilisateur=2 and id_ami=7) as exist"));
+			$exist=mysqli_fetch_assoc(mysqli_query($connect, "select exists (select * from relation_amicale where id_utilisateur=".$_GET['id_utilisateur']." and id_ami=".$_GET['id_ami'].") as exist"));
 			
 			//s'ils ne sont pas amis, alors $exist=0
 			if ($exist['exist']==0) {
@@ -58,6 +58,7 @@ session_start();
 			<?php
 		}
 		
+		<?php include('carrousel2.php');?>
 		//utilisation de header pour retourner à la page d'accueil, après 5 secondes
 		header ("Refresh: 5 ; URL=accueil.php");
 		include('footer.php');

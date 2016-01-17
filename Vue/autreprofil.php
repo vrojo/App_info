@@ -95,6 +95,7 @@
 		}
 		
 		else {
+			//si l'utilisateur n'est pas connecté, on le renvoie vers la page de connexion
 			header('Location:connexion.php');
 		}
 	}
@@ -113,6 +114,8 @@
 				<?php 
 				$rel_ami=mysqli_query($connect, "select count(id_utilisateur) as ami from relation_amicale Where id_utilisateur=$id_utilisateur and id_ami=".$_GET['id_utilisateur']);
 				$rel_ami=mysqli_fetch_assoc($rel_ami);
+				
+				//teste si les utilisateurs sont déjà amis ou non
 				if($rel_ami['ami']!=1){	
 				?>
 				<form method="post" action=	"ajoutami.php?id_utilisateur='.$_SESSION['id_utilisateur'].'&id_ami='.$_POST['destinataire'].">
@@ -146,10 +149,14 @@
 			<h2>Evénements futurs : </h2>
 			<?php
 			$date=date("Y-m-d");
+			
+			//ne sélectionne que les évenements dans le futur
 			$evenements=mysqli_query($connect, "select * from event natural join multimedia natural join participation where id_participant=".$_GET['id_utilisateur']." and date_e>'".$date."'");
 			$compteur1=0;
 			while ($data=mysqli_fetch_assoc($evenements)) {
 				$compteur1 ++;
+				
+				//le compteur permet de savoir à partir de quand cacher les entrées. Le reste sera visible grâce au JS
 				if ($compteur1<=3) {
 				?>
 				<a href="Events.php?Event_id=<?php echo($data["Event_id"]) ?>">
@@ -177,6 +184,7 @@
 			}
 			
 			if ($compteur1==0) {
+				//si aucun événement
 				echo("<p>Aucun événement à venir</p>");
 			}
 			
@@ -195,6 +203,8 @@
 		<div id="evenements_crees">
 			<h2>Evénements créés : </h2>
 			<?php
+			
+			//évenements où l'id utilisateur est celui du profil visionné
 			$evenements=mysqli_query($connect, "select * from event natural join multimedia natural join participation where id_utilisateur=".$_GET['id_utilisateur']." order by date_e desc");
 			$compteur2=0;
 			while ($data=mysqli_fetch_assoc($evenements)) {
@@ -244,9 +254,13 @@
 		<div id="commentaires">
 			<h2>Derniers commentaires : </h2>
 			<?php
+			
+			//selectionne les commentaires s'il y en a
 			$commentaires=mysqli_query($connect, "select * from commente inner join multimedia on multimedia.Event_id=commente.Event_id inner join event on event.Event_id=commente.Event_id where commente.id_utilisateur =".$_GET['id_utilisateur']." and principale=1 order by date_co desc");
 			$compteur3=0;
 			$compteur4=0;
+			
+			//n'en affiche que 3
 			while (($data=mysqli_fetch_assoc($commentaires)) && $compteur3<3) {
 				$compteur3 ++;
 				if ($data['texte_co']!=NULL) {
@@ -278,7 +292,7 @@
 		<?php include('footer.php') ?>
 		
 			<script type="text/javascript">
-			profpic();
+		profpic();
 		//<!--
 		fermeture_init("#cache1");
 		fermeture_init("#cache2");

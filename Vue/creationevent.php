@@ -16,18 +16,21 @@ require 'model.php';
 	<body>
 		<?php include ("Header.php"); ?>
 		
+		<!-- chaque champs a une vérification en continue pour être sur que ce qui y est entré est attendu -->
+		
 		<div id="form_crea_event">
 			<h1>Créer un événement:</h1>
 			<p>Créez rapidement un événement privé ou visible par tous en remplissant les champs suivants :</p>
+			<p style="color:red">Les champs marqués d'une * sont obligatoires</p>
 			<form action="../Controler/eventcree.php" method="POST" enctype="multipart/form-data" id="form_crea_event_form">
 				<fieldset>
-					<label for="nameevent">Nom de l'événement :</label>
+					<label for="nameevent">Nom de l'événement <span style="color:red">*</span> :</label>
 					<input type="text" name="Nom_e" id="nameevent" placeholder="ex : Technoparade" class="input_form_crea_event" oninput="verifNom(this)"/><span id="erreur_nom"></span>
 					</br>
 					</br>
-					<label for="adresseevent1">Adresse :</label>
+					<label for="adresseevent1">Adresse <span style="color:red">*</span> :</label>
 					<div style="display:inline-block; vertical-align:top;">
-						<input type="number" name="numerorue" id="adresseevent1" placeholder="n°" class="input_form_crea_event" value='' oninput="verifNumrue(this)"/>
+						<input type="number" name="numerorue" id="adresseevent1" placeholder="n° (non obligatoire)" class="input_form_crea_event" value='' oninput="verifNumrue(this)"/>
 						</br>
 						<input type="text" name="rue" id="adresseevent3" placeholder="rue" class="input_form_crea_event" oninput="verifRue(this)"/>
 						</br>
@@ -46,17 +49,17 @@ require 'model.php';
 				</fieldset>
 				<fieldset>
 					<label for="date_e">Date de l'événement :</label>
-					<label>Début :</label><input type="date" name="date_e" class="input_form_crea_event" id="date_event"/>
+					<label>Début <span style="color:red">*</span> :</label><input type="date" name="date_e" class="input_form_crea_event" id="date_event"/>
 					<label>Fin :</label><input type="date" name="date_f" value='' class="input_form_crea_event" id="date_event"/>
 					</br>
 					</br>
 					<label for="pass2">Horaires :</label>
-					<label>début:</label><input type="time" name="heuredebut" class="input_form_crea_event" id="heureevent"/>
-					<label>fin:</label><input type="time" name="heurefin" class="input_form_crea_event" id="heureevent"/>
+					<label>début <span style="color:red">*</span> :</label><input type="time" name="heuredebut" class="input_form_crea_event" id="heureevent"/>
+					<label>fin <span style="color:red">*</span> :</label><input type="time" name="heurefin" class="input_form_crea_event" id="heureevent"/>
 				</fieldset>
 				<fieldset>
 					<label for="nombre">Nombre maximum de participants :</label>
-					<input type="number" name="nb_max_participant" id="nombre" class="input_form_crea_event" placeholder="25"/>
+					<input type="number" name="nb_max_participant" id="nombre" value="" class="input_form_crea_event" placeholder="25"/>
 					</br>
 					</br>
 					<label for="checkbox">Catégorie de l'event :</label>
@@ -77,7 +80,7 @@ require 'model.php';
 					?>
 					</br>
 					</br>
-					<label for="login">Description :</label>
+					<label for="login">Description <span style="color:red">*</span> :</label>
 					<textarea name="description_e" id="description" class="input_form_crea_event" placeholder="entrez une petite description de l'événement pour inciter les autres utilisateurs à s'inscrire !"></textarea>
 					</br>
 					</br>
@@ -102,7 +105,7 @@ require 'model.php';
 					<input type="text" name="urlsite_event" id="adresseevent" class="input_form_crea_event" placeholder="url du site Internet"/>
 					</br>
 					</br>
-					<label for id="photo_principale">Photo principale de l'événement :</label>
+					<label for id="photo_principale">Photo principale de l'événement <span style="color:red">*</span> :</label>
 					</br>
 					</br>
 					<input type="file" name="photo_principale" id="photo_principale" style="color:white;"/>
