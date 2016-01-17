@@ -31,7 +31,7 @@ while ($data = mysqli_fetch_assoc($result)) {
 					</div>
 					<div class="bandeaubas" style="height:30%;">
 						<p style="Font-size:0.6em">Signaler ce <br>commentaire:</p> 
-						<img src="https://www.dropbox.com/s/43g64iiwsnat9pw/Point-d-exclamation.png?raw=1" class="report" title="Signaler ce commentaire" onclick="report('texte',<?php echo $data['id_msgforum']?>)"/>
+						<img src="../reste/images/exclam.png" class="report" title="Signaler ce commentaire" onclick="report('texte',<?php echo $data['id_msgforum']?>)"/>
 					</div>
 				</div>
 			</div>
@@ -42,7 +42,7 @@ while ($data = mysqli_fetch_assoc($result)) {
 				<?php 
 				if ($id_commentateur==$id_utilisateur or verifadmin($id_utilisateur)==1){?>
 	
-					<img  src="https://www.dropbox.com/s/ug1ko8f86ijv7t4/delete-462216_1280.png?raw=1" class="report" title="Supprimer ce commentaire" style="max-height:25px;cursor:pointer;" onclick="supprfor(<?php echo $data['id_msgforum']?>)"/>
+					<img  src="../reste/images/delete.png" class="report" title="Supprimer ce commentaire" style="max-height:25px;cursor:pointer;" onclick="supprfor(<?php echo $data['id_msgforum']?>)"/>
 				<?php }?>
 			</div>
 		</div> 
