@@ -62,7 +62,7 @@
 									</div>
 								</div>
 								<div class="bandeaubas" style="height:33%;">
-									<?php if ($event['date_e']!=$event['date_f'] && !empty($event['date_e']) && !empty($event['date_f'])){?>
+									<?php if ($event['date_e']!=$event['date_f'] && !empty($event['date_e']) && $event['date_f']!='0000-00-00'){?>
 										<p style="font-weight:normal;font-size:0.7em">Date de début: <?php echo $event['date_e']?></p>
 										<p style="font-weight:normal;font-size:0.7em">Date de fin: <?php echo $event['date_f']?></p>
 									<?php }
