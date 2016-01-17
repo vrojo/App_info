@@ -618,12 +618,12 @@ function edition_cgu($idcgu){
 }
 function enreg_cgu($titre, $para){
     global $connect;
-    mysqli_query($connect, "insert into cgu (titre_cgu, pragraphe_cgu) values ('$titre','$para')") or die("MySQL Erreur : " . mysqli_error($connect));      
+    mysqli_query($connect, "insert into cgu (titre_cgu, paragraphe_cgu) values ('$titre','$para')") or die("MySQL Erreur : " . mysqli_error($connect));      
 }
 
 function enreg_edit_cgu($titre, $para, $id){
     global $connect;
-    mysqli_query($connect, "insert update cgu set titre_cgu = '$titre', set pragraphe_cgu = '$para' where id_paragraphe = '$id'") or die("MySQL Erreur : " . mysqli_error($connect));      
+    mysqli_query($connect, "update cgu set titre_cgu = '$titre',paragraphe_cgu = '$para' where id_paragraphe = '$id'") or die("MySQL Erreur : " . mysqli_error($connect));      
 }
 ?>  
 
