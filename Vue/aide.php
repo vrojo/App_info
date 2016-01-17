@@ -13,6 +13,7 @@
 			<h2 id="titre">Aide générale</h2>
 			<div id="questions">
 				<div id="bloc_question">
+					<!-- le span permet de faire : quand on clique dessus, ça lance la fonction JS et ça affiche la réponse à la question -->
 					<span onclick="ouvrirfermer('reponse1')"><h3 class="question">Je n'arrive pas à me connecter, que faire ?</h3></span>
 					<div class="reponse" id="reponse1">
 						<p>Il suffit pour se connecter de cliquer sur "connexion", puis de renseigner ses identifiants.</p>
@@ -27,11 +28,20 @@
 					</div>
 					<span onclick="ouvrirfermer('reponse4')"><h3 class="question">A quoi servent les centres d'interêts ?</h3></span>
 					<div class="reponse" id="reponse4">
-						<p>SimplEvent met tout en oeuvre pour vous apporter satisfaction, et cela passe par mieux vous connaître.</p>
+						<p>SimplEvent met tout en oeuvre pour vous apporter satisfaction, et cela passe par le fait de mieux vous connaître.</p>
 					</div>
 				</div>
 			</div>
+			<p>Si vous n'avez pas trouvé de réponse à votre question n'hésitez pas à parcourir le forum !</p>
+			<div style="background-color:#62cbcb; text-align:center">
+				<a href="../Vue/forum.php">
+				<div id="bouton_vers_forum">
+					<p>Forum</p>
+				</div>
+				</a>
+			</div>
 		</div>
+		
 		<?php include("footer.php");?>
 	</body>
 		<script type="text/javascript">

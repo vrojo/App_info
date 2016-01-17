@@ -1,3 +1,7 @@
+<!-- page d'accueil de l'utilisateur connecté -->
+<!-- session start permet de garder en mémoire (d'une page à une autre), certains informations telles que l'ID etc -->
+<!-- connexion à la BDD en utilisation le système mysqli -->
+
 <?php 
 session_start();
 $connect= mysqli_connect("localhost", "root", "", "bddsimplevent");
@@ -13,6 +17,7 @@ $Accueil=TRUE;
 		<title>Accueil</title>
 	</head>
 	<body>
+		<!-- vérification que l'utilisateur est bien connecté, sinon retour sur la page simplevent.php -->
 		<?php 
 		include("Header.php");
 		if (!isset($_SESSION['mot_de_passe']) OR !isset($_SESSION['id_utilisateur'])){
@@ -51,6 +56,7 @@ $Accueil=TRUE;
 					<p style="font-size:0.6em; color:grey;margin:0;">Messages</p>
 				</div>
 				<div class="bandeaubas" style="height:90%">
+					<!-- appel d'une fonction permettant l'affichage des derniers messages -->
 					<?php blocresum('message',$id_utilisateur)?>
 				</div>
 			</div>

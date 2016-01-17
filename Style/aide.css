@@ -47,3 +47,27 @@
 	cursor:pointer;
 	color:#e5e5e5;
 }
+
+#bouton_vers_forum {
+	font-size:1em;
+	position:relative;
+	background-color:#6cdf6c;
+	box-shadow: rgba(0,0,0,0.2) 2px 2px;
+	height:50px;
+	margin:0;
+	display:inline-block;
+	font-weight:bold;
+	color:white;
+	text-align:center;
+	border-radius:5px;
+	border:1px solid grey;
+}
+
+#bouton_vers_forum:hover {
+	background-color:#87e052;
+	cursor:pointer;
+}
+
+#bouton_vers_forum p {
+	color:white;
+}
