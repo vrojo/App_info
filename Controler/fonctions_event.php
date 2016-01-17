@@ -227,7 +227,7 @@ function notationphp($Event_id){
 	}
 function carroussel_event($Event_id){
 	global $connect;
-	$result=mysqli_query($connect,"SELECT * from multimedia where Event_id=$Event_id");
+	$result=mysqli_query($connect,"SELECT * from multimedia where Event_id=$Event_id and urlimg_event IS NOT NULL");
 	while($data=mysqli_fetch_assoc($result)){
 		?><div class="photo_car">
 			<img style="background-color:white;" src="<?php echo $data['urlimg_event']?>" class="photo_car2"/>

@@ -4,7 +4,7 @@
 			natural join multimedia 
 			natural join adresse 
 			natural join participation 
-			where (principale=1 and id_utilisateur=$id_utilisateur)
+			where (principale=1 and urlimg_event IS NOT NULL and id_utilisateur=$id_utilisateur)
 			GROUP BY event.Event_id");
 		$cacher=1;
 		}
@@ -13,22 +13,18 @@
 			"SELECT * from event 
 			inner join multimedia on event.Event_id = multimedia.Event_id
 			inner join adresse on event.id_adresse=adresse.id_adresse
-			WHERE (principale=1 and id_utilisateur=$id_utilisateur)
+			WHERE (principale=1 and urlimg_event IS NOT NULL and id_utilisateur=$id_utilisateur)
 			GROUP BY event.Event_id");
 		$cacher=1;
 		}
 		elseif(isset($_GET['t']) && $_GET['t']=="Search"){
-				$_POST['ville_evenement']=htmlspecialchars(addslashes($_POST['mot_clef']));
-				$_POST['departement_evenement']=htmlspecialchars(addslashes($_POST['mot_clef']));
-				$_POST['date_debut']=htmlspecialchars(addslashes($_POST['mot_clef']));
-				$_POST['date_fin']=htmlspecialchars(addslashes($_POST['mot_clef']));
 				$tout_evenement=mysqli_query($connect, 
 					"select * from event 
 					natural join multimedia 
 					natural join adresse 
-					where (principale=1 and Nom_e like '%".$_POST['mot_clef']."%' 
+					where (principale=1 and urlimg_event IS NOT NULL and Nom_e like '%".$_POST['mot_clef']."%' 
 					or description_e like '%".$_POST['mot_clef']."%' 
-					or ville like '".$_POST['mot_clef']."' 
+					or ville like '%".$_POST['mot_clef']."%' 
 					or codepostal like '".$_POST['mot_clef']."%')
 					");
 
@@ -44,8 +40,7 @@
 		'select * from event 
 		natural join multimedia 
 		natural join adresse 
-		where (principale=1 and Nom_e like "%'.$_POST['mot_clef'].'%" 
-		or description_e like "%'.$_POST['mot_clef'].'%" and ville like "'.$_POST['ville_evenement'].'" and codepostal like "'.$_POST['departement_evenement'].'%" and date_e between "'.$_POST['date_debut'].'" and "'.$_POST['date_fin'].'")');
+		where (principale=1 and urlimg_event IS NOT NULL )');
 		$cacher=0;
 		}
 		else{
@@ -56,7 +51,7 @@
 		'select * from event 
 		natural join multimedia 
 		natural join adresse 
-		where (principale=1 and Nom_e like "%'.$_POST['mot_clef'].'%" 
+		where (principale=1 and urlimg_event IS NOT NULL and Nom_e like "%'.$_POST['mot_clef'].'%" 
 		or description_e like "%'.$_POST['mot_clef'].'%" 
 		and ville like "'.$_POST['ville_evenement'].'" and codepostal like "'.$_POST['departement_evenement'].'%" and date_e between "'.$_POST['date_debut'].'" and "'.$_POST['date_fin'].'")');
 		$cacher=0;
