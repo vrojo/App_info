@@ -1,7 +1,7 @@
 <?php	
 $connect = mysqli_connect("localhost", "root", "", "bddsimplevent");
 mysqli_set_charset($connect,"utf8");
-
+//On récupère les données du topic sélectionné ainsi que celles de son créateur
 $Topic=mysqli_query($connect,"SELECT * from sujet where id_topic=".$_GET['Topic']);
 $Topic=mysqli_fetch_assoc($Topic);
 $sujet=$Topic['sujet'];
@@ -10,13 +10,14 @@ $date_s=$Topic['date_s'];
 $id_crea=$Topic['id_utilisateur'];
 $crea=mysqli_fetch_assoc(mysqli_query($connect,"SELECT * from utilisateur where id_utilisateur=$id_crea"));
 
+//Function d'affichage des réponses d'un topic
 function coms ($Topic_id){
 	global $connect;
 	global $id_utilisateur;
 	$result=mysqli_query($connect,"SELECT * from rep_topic where id_topic=$Topic_id");
 while ($data = mysqli_fetch_assoc($result)) {
 	$id_commentateur=$data['id_utilisateur'];
-	$util=mysqli_fetch_assoc(mysqli_query($connect,"SELECT * from utilisateur where id_utilisateur=$id_commentateur"));
+	$util=mysqli_fetch_assoc(mysqli_query($connect,"SELECT * from utilisateur where id_utilisateur=$id_commentateur")); //Récupération des données de la personne à qui appartient la réponse
 	?> <div class="bandeaucom">
 			<div class="bleft" style="display:block;width:30%;height:125px;">
 				<div class="bleft" style="width:50%;height:100%;">
@@ -39,8 +40,8 @@ while ($data = mysqli_fetch_assoc($result)) {
 				<p style="position:relative;display:inline-block;height:auto;width:100%;margin: 0;margin-top:10px; text-align:left;word-wrap: break-word;"><?php echo $data['commentaire_r']; ?> </p>
 			</div>
 			<div class="bright" style="width:20%; height:125px;">
-				<?php 
-				if ($id_commentateur==$id_utilisateur or verifadmin($id_utilisateur)==1){?>
+				<?php //Si l'utilisateur connecté est admin ou la personne à qui appartient le commentaire, un bouton de suppression est affiché.
+				if ($id_commentateur==$id_utilisateur or verifadmin($id_utilisateur)==1){?> 
 	
 					<img  src="../reste/images/delete.png" class="report" title="Supprimer ce commentaire" style="max-height:25px;cursor:pointer;" onclick="supprfor(<?php echo $data['id_msgforum']?>)"/>
 				<?php }?>
