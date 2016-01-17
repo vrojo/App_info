@@ -1,6 +1,5 @@
 <?php
 session_start();
-include'Header.php';
 include'model.php';
 ?>
     <!DOCTYPE html>
@@ -10,12 +9,12 @@ include'model.php';
     
         <title>Modification du profil</title>
         
-        
+        <meta charset="utf8"/>
     
     </head>
     <link type="text/css" rel="stylesheet" href="../Style/CGU.css"/>
     <body>
-        
+        <?php include'Header.php';?>
         <div class="gestion_cgu">
 <?php
 if (verifadmin($id_utilisateur) != 1){

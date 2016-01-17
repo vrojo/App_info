@@ -19,7 +19,7 @@
 		
 		?>
 		<title><?php echo $event['Nom_e'] ?></title>	
-		<div id="bandeaupresevent" style="height:auto; min-height:300px">
+		<div id="bandeaupresevent" style="height:auto; min-height:700px">
 			<div class="bleft" style="height:700px" >
 				<div class="bandeauhaut"><div class="Eventpic" style="background-image:url(<?php echo $event['urlimg_event'] ?>)"></div></div>
 				<div class="bandeaubas" ><div id="map" style="transform: translate(-50%,-50%);" ></div></div>

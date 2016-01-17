@@ -46,7 +46,7 @@ function insert_event($url_sponsor1,$url_sponsor2,$url_sponsor3,$url_sponsor4, $
 	
 	if ($urlsite!="") {
         
-		mysqli_query($connect, "insert into multimedia(Event_id, principale, urlsite_event, principale) values ('$idevent', '$urlsite', 0)");
+		mysqli_query($connect, "insert into multimedia(Event_id, urlsite_event, principale) values ('$idevent', '$urlsite', 0)");
 	}
 	
 	/*sponsor/ adresse/ event/ multimedia / sponsorise/ typeevent*/
