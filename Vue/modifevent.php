@@ -29,7 +29,7 @@ require 'model.php';
 		
 		<div id="form_crea_event">
 			<h1>Modifier un événement:</h1>
-			<form action="eventmodifie.php" method="POST" enctype="multipart/form-data" id="form_crea_event_form">
+			<form action="eventmodifie.php?id_event=<?php echo($_GET['id_event']) ?>" method="POST" enctype="multipart/form-data" id="form_crea_event_form">
 				<fieldset>
 					<label for="nameevent">Nom de l'événement :</label>
 					<input type="text" name="Nom_e" id="nameevent" placeholder="ex : Technoparade" value="<?php echo($event['Nom_e']) ?>" class="input_form_crea_event" oninput="verifNom(this)"/><span id="erreur_nom"></span>
