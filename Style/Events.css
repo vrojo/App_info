@@ -84,7 +84,7 @@
 	transform:translate(-50%,-50%);
 }
 .rating {
-   direction: rtl;
+   direction: rtl; /*Right to left: la première étoile est à droite*/
    text-align:center;
 }
 
@@ -99,7 +99,7 @@
 .rating a:focus,
 .rating a:hover ~ a,
 .rating a:focus ~ a {
-   color: orange;
+   color: orange; /*On sélectionne toutes les étoiles après celle survolée et on change leur couleur */
    cursor: pointer;
 }
 

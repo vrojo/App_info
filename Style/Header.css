@@ -24,7 +24,7 @@ a{
     z-index:12;
     box-shadow: rgba(0,0,0,0.2) 1px 2px;
     position: relative;
-	background-image:url(https://www.dropbox.com/s/yy8muxqh4qhntzh/feuartifices.jpg?raw=1);
+	background-image:url(../reste/images/feuartifices.jpg);
 	background-repeat:no-repeat;
     float:left;
 
@@ -115,7 +115,7 @@ a{
 	background-color: white;
 	color:#59b7ff;
 	overflow: hidden;
-	transition: 0.1s height 0.3s;
+	transition: 0.1s height 0.3s; /*Permettra de faire dérouler le menu de manière fluide*/
 	border-radius: 0 0 5px 5px;
 	text-align:center;
 	z-index:11;
