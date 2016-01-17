@@ -90,10 +90,10 @@ session_start();
 					
 					//le compteur permet d'enregistrer les infos des 3 derniers événements
 					if ($compteur==1) {
-						$evenement1=mysqli_fetch_assoc(mysqli_query($connect, "select * from multimedia natural join event where Event_id=$id_evenement"));
+						$evenement1=mysqli_fetch_assoc(mysqli_query($connect, "select * from multimedia natural join event where Event_id=$id_evenement and principale=1"));
 					}
 					if ($compteur==2) {
-						$evenement2=mysqli_fetch_assoc(mysqli_query($connect, "select * from multimedia natural join event where Event_id=$id_evenement"));
+						$evenement2=mysqli_fetch_assoc(mysqli_query($connect, "select * from multimedia natural join event where Event_id=$id_evenement and principale=1"));
 					}
 				?>
 				<span onclick="ouvrirfermer(<?php echo("$id_evenement") ?>)">
@@ -108,7 +108,7 @@ session_start();
 					if ($compteur==3) {
 						
 						//dès qu'il y a trois événements (une ligne) on  affiche les infos qu'on cache par le JS
-						$evenement3=mysqli_fetch_assoc(mysqli_query($connect, "select * from multimedia natural join event where Event_id=$id_evenement"));
+						$evenement3=mysqli_fetch_assoc(mysqli_query($connect, "select * from multimedia natural join event where Event_id=$id_evenement and principale=1"));
 						?>
 						</div>
 						<div class="contenant_informations">
@@ -225,10 +225,8 @@ session_start();
 		?>
 		<script type="text/javascript">
 			Eventmap(<?php echo $jsadresses ?>,"Paris");
-			
-			//<!--
 			fermeture_init();
-			//-->
+			
 		</script>
 		
 	</body>
