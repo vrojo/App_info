@@ -22,7 +22,7 @@
 					"select * from event 
 					natural join multimedia 
 					natural join adresse 
-					where (principale=1 and urlimg_event IS NOT NULL and Nom_e like '%".$_POST['mot_clef']."%' 
+					where principale=1 and urlimg_event IS NOT NULL and (Nom_e like '%".$_POST['mot_clef']."%' 
 					or description_e like '%".$_POST['mot_clef']."%' 
 					or ville like '%".$_POST['mot_clef']."%' 
 					or codepostal like '".$_POST['mot_clef']."%')

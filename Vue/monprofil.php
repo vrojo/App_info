@@ -149,7 +149,7 @@ session_start();
 		<div id="evenements_passes">
 			<h2>Evénements passés : </h2>
 			<?php
-			$evenements_passes=mysqli_query($connect, "select * from event natural join multimedia natural join participation where id_participant=".$_SESSION['id_utilisateur']." and principale = 1 and date_e<'".$date."'");
+			$evenements_passes=mysqli_query($connect, "select * from event natural join multimedia natural join participation where id_participant=".$_SESSION['id_utilisateur']." and principale=1 and date_e<'".$date."'");
 			$compteur3=0;
 			while ($data=mysqli_fetch_assoc($evenements_passes)) {
 				$compteur3 ++;

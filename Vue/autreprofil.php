@@ -119,7 +119,7 @@
 				//teste si les utilisateurs sont déjà amis ou non
 				if($rel_ami['ami']!=1){	
 				?>
-				<form method="post" action=	"ajoutami.php?id_utilisateur='.$_SESSION['id_utilisateur'].'&id_ami='.$_POST['destinataire'].">
+				<form method="post" action=	"ajoutami.php?id_utilisateur=<?php echo $_SESSION['id_utilisateur'].'&id_ami='.$_GET['id_utilisateur']?>">
 					<input type="hidden" name="requete" value="oui">
 					<input type="hidden" name="ajout" value="oui">
 					<input type="hidden" name="destinataire" value="<?php echo($profil['id_utilisateur']) ?>">
@@ -152,7 +152,7 @@
 			$date=date("Y-m-d");
 			
 			//ne sélectionne que les évenements dans le futur
-			$evenements=mysqli_query($connect, "select * from event natural join multimedia natural join participation where id_participant=".$_GET['id_utilisateur']." and date_e>'".$date."'");
+			$evenements=mysqli_query($connect, "select * from event natural join multimedia natural join participation where id_participant=".$_GET['id_utilisateur']." and principale=1 and date_e>'".$date."'");
 			$compteur1=0;
 			while ($data=mysqli_fetch_assoc($evenements)) {
 				$compteur1 ++;
@@ -206,7 +206,7 @@
 			<?php
 			
 			//évenements où l'id utilisateur est celui du profil visionné
-			$evenements=mysqli_query($connect, "select * from event natural join multimedia natural join participation where id_utilisateur=".$_GET['id_utilisateur']." order by date_e desc");
+			$evenements=mysqli_query($connect, "select * from event natural join multimedia natural join participation where id_utilisateur=".$_GET['id_utilisateur']." and principale=1 order by date_e desc");
 			$compteur2=0;
 			while ($data=mysqli_fetch_assoc($evenements)) {
 				$compteur2 ++;
@@ -279,12 +279,9 @@
 						</div>
 					</div>
 					<?php
-					
-				}
-				else {
 					$compteur4=$compteur4-1;
-					
 				}
+
 			}
 			
 			if ($compteur4==3) {

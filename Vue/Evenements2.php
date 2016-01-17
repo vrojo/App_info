@@ -36,7 +36,7 @@ session_start();
 		<div id="formulaire_page_resultat">
 			
 			<!-- bcp de champs cachés car la recherche en a besoin-->
-			<form method="post" action="Evenements2.php" id="formulaire_resultat">
+			<form method="post" action="Evenements2.php?t=Search" id="formulaire_resultat">
 				<label for="mot_clef" style="color:white ; font-size:1.5em;">Mot clef : </label>
 				<input type="text" name="mot_clef" id="mot_clef" autofocus placeholder="exemple : Festival"/>
 				<input type="hidden" name="ville_evenement" value="%" />
