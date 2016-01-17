@@ -72,7 +72,7 @@ require 'model.php';
 					<input type="tel" name="telephone" class="input_form_modif_profil" id="telephone" placeholder="0612345678" value="0<?php echo $donnees_utilisateur['telephone']?>" oninput="verifTelephone(this)"/><span id="erreur_telephone"></span>
 					</br>
 					<label for id="date">Date de naissance :</label>
-					<input type="date" class="input_form_modif_profil" name="date_de_naissance" value="<?php echo $donnees_utilisateur['date_de_naissance'] ?>" id="date" onblur="verifDate(this)"/>
+					<input type="date" class="input_form_modif_profil" name="date_de_naissance" value="<?php echo $donnees_utilisateur['date_de_naissance'] ?>" id="date" />
                     <input type="hidden" class="input_form_modif_profil" id="verifdate" name="verifdate" value="<?php echo $date = date(DATE_ATOM);?>">
                     <span id="erreur_date"></span>
 					</br>
