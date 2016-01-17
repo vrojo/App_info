@@ -2,7 +2,7 @@
 session_start();
 
 $id_utilisateur=$_SESSION['id_utilisateur'];
-
+// Même principe que pour les commentaire
 $connect_e = mysqli_connect("localhost", "root", "", "bddsimplevent");
 $topic=$_POST['Topic'];
 $topic=htmlspecialchars (addslashes($topic));

@@ -13,7 +13,7 @@
             <?php
 	
             include("Header.php");
-    
+			
             if (empty($_POST['adrconnexion']) || empty($_POST['mdpconnexion']) ){ //Oublie d'un champ
 	            ?>
                 <div style="text-align:center; width: 100%; height: 200px; background:#59b7ff; float:left; clear:both;"><h1 style="color:white;">Erreur de connexion</h1> <h3 style="color:white">Vous allez être redirigé vers la page de connexion.</h3></br> </br></div>

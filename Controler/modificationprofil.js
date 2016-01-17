@@ -2,12 +2,14 @@ function affiche(champ, type_erreur, message_erreur, erreur)
 {
     compteur = 0;
     if(erreur){
+		// si une erreur est faite dans le champ, on change le fond en rouge clair et la couleur de police en rouge
       champ.style.backgroundColor = "#fba";
       champ.style.color = "red";
       document.getElementById(type_erreur).innerHTML = message_erreur;
       document.getElementById(type_erreur).style.color = "red";
     }
    else{
+	   // Sinon on n'affiche rien
       champ.style.backgroundColor = "";
       champ.style.color = "";
       document.getElementById(type_erreur).innerHTML = message_erreur;
@@ -25,6 +27,7 @@ function verifMail(mail)
    var regex = /^[a-zA-Z0-9._-]+@[a-z0-9._-]{2,}\.[a-z]{2,4}$/;
    if(!regex.test(mail.value))
    {
+	   // On vérifie l'adresse mail si elle n'ets pas valide on renvoie un message d'erreur
       erreur = "erreur_mail";
       message ="<br>Veuillez entrer une adresse mail valide pour continuer l'enregistrement.";
       affiche(mail, erreur, message, true);
@@ -45,6 +48,7 @@ function verifMdpconf(mdpverif){
     cmdp = document.getElementById("mdpconfmodif").value;
     if(cmdp!==mdp)
    {
+	   // On vérifie que les deux mots de passes entrés soient identiques s'il ne le sont pas on affiche un message d'erreur
       message = "<br>Les mots de passe ne sont pas identiques.";
       erreur = "erreur_confirmation_mdp";
       affiche(mdpverif, erreur, message, true);
@@ -58,7 +62,7 @@ function verifMdpconf(mdpverif){
       return true;
    }
 }
-
+// Les fonctions suivantes ont la même structure que les précédentes
 function verifNom(nom){    
     var regex = /^[a-zA-Z-]{2,30}$/;
     if(!regex.test(nom.value))
@@ -240,7 +244,7 @@ function verifDate(date){
     }
 }
 
-
+// Fonction vérifiant que tous les champs sont corrects
 
 function verifCompletModif(){
     nom = document.getElementById("nom");

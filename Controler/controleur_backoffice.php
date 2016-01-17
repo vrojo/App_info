@@ -1,5 +1,6 @@
 <?php include("model.php")?>
 <?php
+		// On fait des tests sur la valeur des posts pour renvoyer vers les bonnes Vues
         if (isset($_POST['ajout_categ'])){
             insert_categ($_POST['nom_add_categorie']);
             include("gestion_categorie.php");
