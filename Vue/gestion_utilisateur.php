@@ -11,6 +11,7 @@
         <?php session_start(); ?>
         <?php include ("Header.php"); ?>
         <?php require("model.php");
+		//vérification administrateur
               if (verifadmin($id_utilisateur) != 1){
                   header("Location:../Vue/Simplevent.php");
               }

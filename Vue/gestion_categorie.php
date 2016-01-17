@@ -13,6 +13,7 @@
         
         <?php include ("Header.php"); ?>
         <?php require("model.php");
+				//nouvelle vérification que l'utilisateur est admin
               if (verifadmin($id_utilisateur) != 1){
                   header("Location:../Vue/Simplevent.php");
               }
@@ -54,6 +55,8 @@
 
 
 <?php
+		// le post revient sur lui même
+		//si on a rempli le formulaire :
         if (isset($_POST['ajout_categ'])){
             insert_categ($_POST['nom_add_categorie']);
                 echo'<meta http-equiv="refresh" content="0; url="gestion_categorie.php" />';

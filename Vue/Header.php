@@ -1,4 +1,3 @@
-
 <link type="text/css" rel="stylesheet" href="../Style/Header.css"/>
 
 <?php 
@@ -39,6 +38,7 @@ require'fonctions_simplevent.php'; ?>
 							<p>Evénements</p>
 					</div>
 				</a>
+				<!-- menu déroulant -->
 				<div class="menuderoul" >
 					<a href="Evenements2.php?t=Eventscrees" style="color:inherit"><div class="bandeaubas" style="height:33%">
 						<p style="display:inline-block; float:left; position:absolute;left:5%">Evénements créés</p>
@@ -63,13 +63,14 @@ require'fonctions_simplevent.php'; ?>
 							</div>
 						</a>
 					</div>
-				
+				<!-- menu déroulant -->
 				<div class="menuderoul" >
 					<a href="../Vue/contacts.php" style="color:inherit"><div class="bandeaubas" style="height:33%;">
 						<p  style="position:relative; display:inline-block; text-align:center">Contacts</p>
 					</div></a>
 					<a href="../Vue/messagerie.php?but=messages_recus" style="color:inherit"><div class="bandeaubas" style="height:33%;">
 						<p  style="position:relative; display:inline-block; text-align:center">Mes messages (<?php 
+						//compte le nombre de messages non lu de l'utilisateur
 						$nombre_messages = mysqli_query($connect, "select count(*) as count from messagerie where id_destinataire=".$_SESSION['id_utilisateur']." and vue=0");
 						echo (mysqli_fetch_assoc($nombre_messages)['count']) ?>)</p>
 					</div></a>

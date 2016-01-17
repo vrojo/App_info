@@ -17,7 +17,7 @@ require 'fonctions_inscription.php';
         <?php include ("Header.php"); ?>
         <form action="inscriptionfaite.php" method="POST">
 
-            <table cellspacing="30"  align="center" id="table1">                           <!-- revoir cette ligne pour aligner le block complet-->
+            <table cellspacing="30"  align="center" id="table1">                     <!-- revoir cette ligne pour aligner le block complet-->
             
             <td>
                 <img src="https://www.plug-it.com/assets/img/owncloud/owncloud3.png" border="3"/><br>
@@ -33,14 +33,14 @@ require 'fonctions_inscription.php';
                 <tr>
             
                 <td height=25 align="center"><label for="login"><strong>Nom :</strong></label></td>
-                <td align="left"><?php echo'<input type="text" name="nom_u" id="name" placeholder="Dutronc">'; ?></td>
+                <td align="left"><input type="text" name="nom_u" id="name" placeholder="Dutronc"></td>
             
                 </tr>
                 <td></td>
                 <tr>
             
                 <td height=25 align="center"><label for="login"><strong>Prénom :</strong></label></td>
-                <td align="left"><?php echo'<input type="text" name="prenom_u" id="firstname" placeholder="Jacques">'; ?></td>
+                <td align="left"><input type="text" name="prenom_u" id="firstname" placeholder="Jacques"></td>
             
                 </tr>
                 <td></td>
@@ -54,7 +54,7 @@ require 'fonctions_inscription.php';
                 <tr>
             
                 <td height=25 align="center"><label for="login"><strong>Adresse e-mail :</strong></label></td>
-                <td align="left"><?php echo'<input type="email" name="mail" id="mail" placeholder="...................@.............."  value='.$_POST['mail'].'>'; ?></td>
+                <td align="left"><input type="email" name="mail" id="mail" placeholder="...................@.............."  value=".$_POST['mail']."></td>
             
                 </tr>
                 <td></td>
@@ -90,10 +90,10 @@ require 'fonctions_inscription.php';
                 <td height=25 align="center"><label for="login"><strong>Centres d'intérêt :</strong></label></td>
                                         <td align="left"><table ><tr><td><!--<input type="text" name="login" id="login"/>-->
                                         <FORM class="miseenforme">
-                                                            <INPUT type="checkbox" name="sport" value="1">sport &nbsp; &nbsp; &nbsp;
-							    <INPUT type="checkbox" name="repas" value="2">repas &nbsp; &nbsp; &nbsp;
-							    <INPUT type="checkbox" name="cinéma" value="3">cinéma &nbsp; &nbsp; &nbsp;
-                                                            <INPUT type="checkbox" name="danse" value="6">danse
+                                            <INPUT type="checkbox" name="sport" value="1">sport &nbsp; &nbsp; &nbsp;
+											<INPUT type="checkbox" name="repas" value="2">repas &nbsp; &nbsp; &nbsp;
+											<INPUT type="checkbox" name="cinéma" value="3">cinéma &nbsp; &nbsp; &nbsp;
+                                            <INPUT type="checkbox" name="danse" value="6">danse
                                         </FORM>
                                         <br>
 					<br><FORM class="miseenforme">	 
