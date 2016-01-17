@@ -7,9 +7,10 @@ if (!$connect_e) {
     printf("Echec de la connexion : %s\n", mysqli_connect_error());
     exit();
 }
-
+//FOnction pour afficher les topics sur la page de forum
 function affichage_topics(){
     global $connect_e;
+	//On récupère tous les topics, et on les classe par date, du plus récent au plus ancien.
     $req= mysqli_query($connect_e, "SELECT * FROM sujet ORDER BY date_s DESC") OR  die("MsQL Erreur : ".mysqli_error($connect_e));
     $compteur = 1;
     
@@ -21,7 +22,7 @@ function affichage_topics(){
 //    printf("Error: %s\n", mysqli_error($connect_e));
 //    exit();
 //}
-            
+            //On récupère la date u dernier message du topic ainsi que son nombre de commentaires
             $tableaureq2=mysqli_fetch_assoc($req2);
             $tableaureq3=mysqli_fetch_assoc($req3);
 			$sujet_topic=$sujet['id_topic'];
@@ -37,7 +38,7 @@ function affichage_topics(){
 			}
             echo '</tr>'; 
         }
-        
+        //Les données sont affichées dans un tableau.
         $compteur= 0 ;
     }
 }
