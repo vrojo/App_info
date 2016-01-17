@@ -225,24 +225,7 @@ function verifTelephone(tel){
     }
 }
 
-function verifDate(date){
-    dateverif = document.getElementById("verifdate").value;
-   
-    if(date.value !== dateverif)
-    {
-        erreur = "erreur_date";
-        message ="<br>Veuillez entrer une date de naissance valide pour continuer l'enregistrement.";
-        affiche(date, erreur, message, true);
-        return false;
-    }
-    else
-    {
-        message ="";
-        erreur = "erreur_date";
-        affiche(tel, erreur, message, false);
-        return true;
-    }
-}
+
 
 // Fonction vérifiant que tous les champs sont corrects
 
