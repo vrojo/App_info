@@ -94,12 +94,18 @@
 				<p><?php echo($profil['description'])?></p>
 			</div>
 			<div id="boutons_autre_profil">
+				<?php 
+				$rel_ami=mysqli_query($connect, "select count(id_utilisateur) as ami from relation_amicale Where id_utilisateur=$id_utilisateur and id_ami=".$_GET['id_utilisateur']);
+				$rel_ami=mysqli_fetch_assoc($rel_ami);
+				if($rel_ami['ami']!=1){	
+				?>
 				<form method="post" action=	"ajoutami.php?id_utilisateur='.$_SESSION['id_utilisateur'].'&id_ami='.$_POST['destinataire'].">
 					<input type="hidden" name="requete" value="oui">
 					<input type="hidden" name="ajout" value="oui">
 					<input type="hidden" name="destinataire" value="<?php echo($profil['id_utilisateur']) ?>">
 					<input type="submit" value="Demander en ami" class="bouton_autre_profil">
 				</form>
+				<?php }?>
 				</br>
 				</br>
 				</br>
@@ -242,14 +248,12 @@
 						</div>
 					</div>
 					<?php
-				}
-				
-				else {
 					$compteur4 ++;
 				}
+				
 			}
 			
-			if ($compteur4==3) {
+			if ($compteur4==0) {
 				echo("<p>Aucun commentaire récent à afficher</p>");
 			}
 			?>
