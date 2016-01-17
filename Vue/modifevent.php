@@ -8,9 +8,9 @@ require 'model.php';
  
     <head>
         <meta charset="UTF-8">
-           <link type="text/css" rel="stylesheet" href="../Style/creationevent.css"/>
+           <link type="text/css" rel="stylesheet" href="modifevent.css"/>
            <script type="text/javascript" src="creationevent.js"></script>
-        <title>Création d'événement</title>
+        <title>Modification d'événement</title>
     </head>
 	
 	<body>
@@ -19,8 +19,8 @@ require 'model.php';
 		mysqli_set_charset($connect,"utf8");
 		include ("Header.php"); 
 		
-		if (isset($_GET['id_event']) {
-			$event=mysqli_fetch_assoc(mysqli_query($connect, "select * from event join multimedia join adresse where principale=1 and Event_id=".$_GET['id_event'].""));
+		if (isset($_GET['id_event'])) {
+			$event=mysqli_fetch_assoc(mysqli_query($connect, "select * from event join multimedia join adresse where principale=1 and event.Event_id=".$_GET['id_event'].""));
 			
 			if ($event['id_utilisateur']==$_SESSION['id_utilisateur']) {
 		?>
@@ -69,47 +69,23 @@ require 'model.php';
 					<input type="number" name="nb_max_participant" value="<?php echo($event['nb_max_participant']) ?>" id="nombre" value="" class="input_form_crea_event" placeholder="25"/>
 					</br>
 					</br>
-					<label for="checkbox">Catégorie de l'event :</label>
-					<?php 
-					
-					//récupère les catégories, qui ne sont pas fixées
-					
-					$result = affichage_categ_recherche_avancee();
-                                 $compteur = 0;
-								 
-								 //affiche autant de checkbox que nécessaire
-                                 while($categorie = mysqli_fetch_assoc($result)) {
-                                     if($compteur != 4){
-                                        echo'<div class="checkrecherche"><input type="checkbox" class="input_form_crea_event" value='.$categorie['id_categ'].' name='.$categorie['nomCat'].'><label>'.$categorie['nomCat'].'</label></div>&nbsp; &nbsp; &nbsp;';                               
-                                        $compteur = $compteur +1;
-                                 }
-                                     else{
-                                         echo'<br> <br>';
-                                         $compteur = 0;
-                                        }
-                                 }
-								
-								mysqli_free_result($result); 
-					?>
-					</br>
-					</br>
-					<label for="login">Description <span style="color:red">*</span> :</label>
-					<textarea name="description_e" value="<?php echo($event['description_e']) ?>" id="description" class="input_form_crea_event" placeholder="entrez une petite description de l'événement pour inciter les autres utilisateurs à s'inscrire !"></textarea>
+					<label for="login">Description :</label>
+					<textarea name="description_e" value="<?php echo($event['description_e']) ?>" id="description" class="input_form_crea_event" placeholder="entrez une petite description de l'événement pour inciter les autres utilisateurs à s'inscrire !"><?php echo($event['description_e']) ?></textarea>
 					</br>
 					</br>
 					<label>Image du/des sponsor(s):</label>
 					<div style="display:inline-block; vertical-align:top;">
 					<?php
-					$sponsors=mysqli_fetch_assoc(mysqli_query($connect, "select * from sponsor join sponsorise where Event_id=".$_GET['event_id'].""));
+					$sponsors=mysqli_fetch_assoc(mysqli_query($connect, "select * from sponsor join sponsorise where Event_id=".$_GET['id_event'].""));
 					$compteur=1;
 					while($data=$sponsors) {
 						$image=$data['img_sponsor'];
-						echo("<input type='text' name='sponsor$compteur' class='input_form_crea_event' placeholder='url de l\'image' value='$image'>
+						echo("<input type='text' name='sponsor$compteur' class='input_form_crea_event' placeholder='url de l&acute;image' value='$image'>
 						</br>");
 						$compteur++;
 					}
-					while ($compteur!=4) {
-						echo("<input type='text' name='sponsor$compteur' class='input_form_crea_event' placeholder='url de l\'image'>
+					while ($compteur!=5) {
+						echo("<input type='text' name='sponsor$compteur' class='input_form_crea_event' placeholder='url de l&acute;image'>
 						</br>");
 						$compteur++;
 					}
@@ -135,11 +111,11 @@ require 'model.php';
 				<fieldset>
 					<label for id="adresseevent">Si l'événement a son propre site Internet :</label>
 					<?php
-					$site_existant=mysqli_fetch_assoc(mysqli_query($connect, "select exists (select urlsite_event from multimedia where Event_id=".$_GET['id_event']." and urlsite_event!=NULL"));
+					$site_existant=mysqli_query($connect, "select exists (select urlsite_event from multimedia where event.Event_id=".$_GET['id_event']." and urlsite_event!=NULL");
 					if ($site_existant==1) {
 						$site=mysqli_fetch_assoc(mysqli_query($connect, "select urlsite_event from multimedia where Event_id=".$_GET['id_event'].""));
-						$site=$site['urlsite_event']
-						echo("<input type='text' name='urlsite_event' value='$site' id='adresseevent' class='input_form_crea_event' placeholder='url du site Internet'/>")
+						$site=$site['urlsite_event'];
+						echo("<input type='text' name='urlsite_event' value='$site' id='adresseevent' class='input_form_crea_event' placeholder='url du site Internet'/>");
 					}
 					elseif ($site_existant==0) {
 						echo("<input type='text' name='urlsite_event' id='adresseevent' class='input_form_crea_event' placeholder='url du site Internet'/>");
@@ -159,9 +135,9 @@ require 'model.php';
 					</br>
 					<div style="display:inline-block; vertical-align:top;">
 					<?php
-					$photos=mysqli_fetch_assoc(mysqli_query($connect, "select * from multimedia where Event_id=".$_GET['id_event']." where principale=0"));
+					$photos=mysqli_fetch_assoc(mysqli_query($connect, "select * from multimedia where multimedia.Event_id=".$_GET['id_event']." and principale=0"));
 					$compteur=1;
-					while ($data=$photos) {
+					while ($data=$photos and $compteur!=4) {
 						if ($compteur==1) {
 							echo("<input type='file' name='photo_secondaire'  value=".$data['urlimg_event']." id='photo_secondaire' style='color:white;'/>
 							</br>");
@@ -204,9 +180,9 @@ require 'model.php';
 			}
 			else {
 				?>
-				<h3 style="background-color:#59b7ff; color:white; text-align:center">Vous ne pouvez pas modifier cet événement, vous n'en êtes pas le créateur</h3>
+				<h3 style="background-color:#59b7ff; color:white; text-align:center">Vous ne pouvez pas modifier cet événement, vous n'en êtes pas le créateur</h3>				
+				<meta http-equiv="refresh" content="5; URL=Accueil.php" />
 				<?php
-				header(refresh:5; "location:accueil.php");
 			}
 			
 		}
