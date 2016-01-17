@@ -4,13 +4,7 @@
 				<h4 class="titre_footer">Utilisation de SimplEvent :</h4>
 				<a href="aide.php">Aide</br></a>
 				<a href="forum.php">Forum</br></a>
-				<a href="#">Tarifs</br></a>
-				<a href="#">Application mobile</br></a>
-				<a href="#">Places réservées</br></a>
-				<a href="#">Programme de recommandation</br></a>
-				<a href="#">Partenaires</br></a>
-				<a href="#">Sécurité</br></a>
-				<a href="#">Plan du site</br></a>
+                                <a href="CGU.php">CGU</br></a>
 				<p></p>
 			</div>
 			<?php 
@@ -21,13 +15,13 @@
 			<div id="contact">
 				<h4 class="titre_footer">Nous contacter :<h4>
 				<div id="facebook">
-					<a href="#"><img src="../reste/images/fbicon.png" id="img_fb"/><br></a>
+					<a href="https://www.facebook.com/SimpEevent/?fref=ts"><img src="../reste/images/fbicon.png" id="img_fb"/><br></a>
 				</div>
 				<div id="twitter">
-					<a href="#"><img src="../reste/images/twittericon.png" id="img_twitter"/></br></a>
+					<a href="https://twitter.com/Simplevent2"><img src="../reste/images/twittericon.png" id="img_twitter"/></br></a>
 				</div>
 				<div id="mail">
-					<a href="#"><img src="http://www.musiquelepop.com/mail_envelope_blue_icon.png" id="img_mail"/></br></a>
+					<a href="sitesimplevent@gmail.com"><img src="http://www.musiquelepop.com/mail_envelope_blue_icon.png" id="img_mail"/></br></a>
 				</div>
 			</div>
 		</div>
