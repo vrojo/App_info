@@ -6,6 +6,7 @@
 	$connect = mysqli_connect("localhost", "root", "", "bddsimplevent");
 	mysqli_set_charset($connect,"utf8");
 	
+	//récupération des informations de l'utilisateur
 	$profil = mysqli_fetch_assoc(mysqli_query($connect, "select * from utilisateur where id_utilisateur=".$_GET['id_utilisateur'].""));
 	?>
 
@@ -15,6 +16,8 @@
 		<meta charset="utf-8" />
 		<link type="text/css" rel="stylesheet" href="../Style/autreprofil.css"/>
 		<script type="text/javascript" src="monprofil.js"></script>
+		
+		<!-- le titre de la page changera en fonction de l'utilisateur -->
 		<title><?php echo($profil['prenom_u'])?> <?php echo($profil['nom_u'])?></title>
 	</head>
 	
@@ -24,17 +27,24 @@
 	?>
 	<div id="presentation_autre_profil">
 	<?php
+	
+	//si l'utilisateur clique sur "ajouter en ami", cela envoie un message avec le lien vers le script
 	if (isset($_POST['requete'])) {
 		if (isset($_POST['ajout']) and isset($_SESSION['id_utilisateur'])) {
+			
+			//récupération des infos nécessaires à l'ajout des lignes dans la BDD
 			$nom_dest=mysqli_fetch_assoc(mysqli_query($connect, "select prenom_u from utilisateur where id_utilisateur=".$_POST['destinataire'].""));
 			$nom_exp=mysqli_fetch_assoc(mysqli_query($connect, "select prenom_u from utilisateur where id_utilisateur=".$_SESSION['id_utilisateur'].""));
 			$sujet="Demande d'ajout en ami";
-                        $lien="localhost/simplevent/ajoutami.php?id_utilisateur=";
+            $lien="localhost/simplevent/ajoutami.php?id_utilisateur=";
+			
+			//création du texte et des variables devant transiter dans le lien
 			$texte="".$nom_exp['prenom_u']." souhaite devenir votre ami, veuillez suivre le lien suivant pour accepter ! (Vous pouvez également ignonrer sa demande en supprimant ce message)  <a href=".$lien."".$_SESSION['id_utilisateur']."&id_ami=".$_POST['destinataire'].">Ajouter cet ami</a>";
 			mysqli_query($connect, "insert into messagerie(id_destinataire, id_expediteur, nom_destinataire, nom_expediteur, sujet, texte) values (".$_POST['destinataire'].", ".$_SESSION['id_utilisateur'].", '".$nom_dest['prenom_u']."', '".$nom_exp['prenom_u']."', '".$sujet."', '".$texte."')");
 			echo("<h4 style='background-color:#59b7ff'>La demande d'ami a bien été envoyée</h4>");
 		}
 		
+		//si l'utilisateur a cliqué sur "envoyer un message"
 		elseif (isset($_POST['message']) and isset($_SESSION['id_utilisateur'])) {
 			?>
 			<div id="bloc_envoi_message">
@@ -62,13 +72,19 @@
 			<?php
 		}
 		
+		//après avoir cliqué sur "envoyer un message" il l'a écrit et envoyé, ces lignes l'ajoutent à la BDD
 		elseif (isset($_POST['envoye'])) {
+			
+			//récupération des noms du destinataire et de l'expéditeur
 			$nom_dest=mysqli_fetch_assoc(mysqli_query($connect, "select prenom_u from utilisateur where id_utilisateur=".$_POST['destinataire'].""));
 			$nom_exp=mysqli_fetch_assoc(mysqli_query($connect, "select prenom_u from utilisateur where id_utilisateur=".$_SESSION['id_utilisateur'].""));
+			
+			//ajout de la ligne dans la BDD
 			mysqli_query($connect, "insert into messagerie(id_destinataire, id_expediteur, nom_destinataire, nom_expediteur, sujet, texte) values (".$_POST['destinataire'].", ".$_SESSION['id_utilisateur'].", '".$nom_dest['prenom_u']."', '".$nom_exp['prenom_u']."', '".$_POST['sujet']."', '".$_POST['texte']."')");
 			echo("<h4 style='background-color:#59b7ff'>Le message a bien été envoyé</h4>");
 		}
 		
+		//si l'utilisateur signale le profil
 		elseif (isset($_POST['signalement']) and isset($_SESSION['id_utilisateur'])) {
 			$nom_dest=mysqli_fetch_assoc(mysqli_query($connect, "select prenom_u from utilisateur where id_utilisateur=1"));
 			$nom_exp=mysqli_fetch_assoc(mysqli_query($connect, "select prenom_u from utilisateur where id_utilisateur=".$_SESSION['id_utilisateur'].""));
