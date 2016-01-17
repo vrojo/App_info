@@ -63,8 +63,14 @@ require 'model.php';
 					</br>
 					</br>
 					<label for="checkbox">Catégorie de l'event :</label>
-					<?php $result = affichage_categ_recherche_avancee();
+					<?php 
+					
+					//récupère les catégories, qui ne sont pas fixées
+					
+					$result = affichage_categ_recherche_avancee();
                                  $compteur = 0;
+								 
+								 //affiche autant de checkbox que nécessaire
                                  while($categorie = mysqli_fetch_assoc($result)) {
                                      if($compteur != 4){
                                         echo'<div class="checkrecherche"><input type="checkbox" class="input_form_crea_event" value='.$categorie['id_categ'].' name='.$categorie['nomCat'].'><label>'.$categorie['nomCat'].'</label></div>&nbsp; &nbsp; &nbsp;';                               
@@ -106,6 +112,7 @@ require 'model.php';
 					</br>
 					</br>
 					<label for id="photo_principale">Photo principale de l'événement <span style="color:red">*</span> :</label>
+					<label for id="photo_principale">taille maximale de l'image : 20 mo</label>
 					</br>
 					</br>
 					<input type="file" name="photo_principale" id="photo_principale" style="color:white;"/>
