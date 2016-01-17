@@ -12,7 +12,6 @@ session_start();
 
     <body>
         <?php include ("Header.php"); ?>
-        <?php require("model.php") ?>
      
         
         
@@ -29,23 +28,9 @@ session_start();
                         <br/>
                         <br/>
                     <div id="liste_categ"> 
-                        
-                            <?php $result = affichage_categ_recherche_avancee();
-                                 $compteur = 0;
-                                 while($categorie = mysqli_fetch_assoc($result)) {
-                                     if($compteur != 4){
-                                        echo'<div class="checkrecherche"><input type="checkbox" value='.$categorie['id_categ'].'>'.$categorie['nomCat'].'</div>&nbsp; &nbsp; &nbsp;';                               
-                                        $compteur = $compteur +1;
-                                 }
-                                     else{
-                                         echo'<br> <br>';
-                                         $compteur = 0;
-                                        }
-                                 }
-                                    ?>
-                            <?php mysqli_free_result($result); ?>
+                                  <?php require("model.php") ?>
+                            <?php affichage_choix_recherche();?>
   
-                        </select>
                     </div>
                         <br/>
                         <br/>

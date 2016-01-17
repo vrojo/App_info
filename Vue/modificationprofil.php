@@ -15,7 +15,7 @@ require 'model.php';
     
     </head>
     <link type="text/css" rel="stylesheet" href="../Style/modificationprofil.css"/>
-    <script type="text/javascript" src="modificationprofil.js"></script>
+    <script type="text/javascript" src="../Controler/modificationprofil.js"></script>
 	
 	<body>
         <?php include ("Header.php"); ?>
@@ -25,7 +25,7 @@ require 'model.php';
 		<div id="form_modif_profil">
 			<h3>Modifiez votre profil et rejoignez le mouvement !!</h3>
 			<p>Enregistrement : *Veillez à bien remplir votre formulaire car il vous permettra d'utiliser de manière optimale SimplEvent.</p>
-			<form enctype="multipart/form-data" id="formulaire_modif" action="../Controler/modificationprofilcontroleur.php" method="post" onsubmit="return verifCompletModif(this)" id="form_modif_profil_form">
+			<form onsubmit="return verifCompletModif()" enctype="multipart/form-data" id="formulaire_modif" action="../Controler/modificationprofilcontroleur.php" method="post"  id="form_modif_profil_form">
 				<fieldset>
 					<label>Informations de base :</label>
 					</br>
@@ -73,7 +73,7 @@ require 'model.php';
 					</br>
 					<label for id="date">Date de naissance :</label>
 					<input type="date" class="input_form_modif_profil" name="date_de_naissance" value="<?php echo $donnees_utilisateur['date_de_naissance'] ?>" id="date" onblur="verifDate(this)"/>
-                    <input type="hidden" class="input_form_modif_profil" id="verifdate" name="verifdate" value="<?php date(DATE_COOKIE);?>">
+                    <input type="hidden" class="input_form_modif_profil" id="verifdate" name="verifdate" value="<?php echo $date = date(DATE_ATOM);?>">
                     <span id="erreur_date"></span>
 					</br>
 					<label>Sexe :</label>

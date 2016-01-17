@@ -215,10 +215,28 @@ function verifTelephone(tel){
     }
 }
 
+function verifDate(date){
+    dateverif = document.getElementById("verifdate").value;
+   
+    if(date.value !== dateverif)
+    {
+        erreur = "erreur_date";
+        message ="<br>Veuillez entrer une date de naissance valide pour continuer l'enregistrement.";
+        affiche(date, erreur, message, true);
+        return false;
+    }
+    else
+    {
+        message ="";
+        erreur = "erreur_date";
+        affiche(tel, erreur, message, false);
+        return true;
+    }
+}
 
 
 
-function verifCompletModif(form){
+function verifCompletModif(){
     nom = document.getElementById("nom");
     prenom = document.getElementById("prenom");
     mail = document.getElementById("mail");
@@ -233,46 +251,42 @@ function verifCompletModif(form){
     valueDate = document.getElementById("date").value;
     valueDateverif = document.getElementById("verifdate").value;
     
-    if(nom.style.color === "red"){
+    if(nom.style.Color === "red"){
         return false;
     }
-    else if(prenom.style.color === "red"){
+   if(prenom.style.Color === "red"){
         return false;
     }
-    else if(mail.style.color === "red"){
+   if(mail.style.Color === "red"){
         return false;
     }
-    else if(mdp.style.color === "red"){
+   if(mdp.style.Color === "red"){
         return false;
     }
-    else if(mdpc.style.color === "red"){
+   if(mdpc.style.Color === "red"){
         return false;
     }
-    else if(numrue.style.color === "red"){
+   if(numrue.style.Color === "red"){
         return false;
     }
-    else if(rue.style.color === "red"){
+   if(rue.style.Color === "red"){
         return false;
     }
-    else if(ville.style.color === "red"){
+   if(ville.style.Color === "red"){
         return false;
     }
-    else if(codepostal.style.color === "red"){
+   if(codepostal.style.Color === "red"){
         return false;
     }
-    else if(pays.style.color === "red"){
+   if(pays.style.Color === "red"){
         return false;
     }
-    else if(telephone.style.color === "red"){
+   if(telephone.style.Color === "red"){
         return false;
     }    
     
-    else if(valueDate < valueDateverif){
-        return false;
-    }
-    else{
         return true;
-    }
+   
 }
 
 

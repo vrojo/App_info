@@ -537,5 +537,23 @@ function suppression_signalement_message($idmessage){
     global $connect;
     mysqli_query($connect, "delete from signaler where id_msgforum = $idmessage") or die("MsQL Erreur : ".mysqli_errno($connect));
 }
+
+function affichage_choix_recherche(){
+    global $connect;
+    $result = mysqli_query($connect, "select * from categorie order by nomCat") or die("MsQL Erreur : ".mysqli_errno($connect));
+    $compteur = 0;
+    while($categorie = mysqli_fetch_assoc($result)) {
+        if($compteur != 4){
+            echo'<div class="checkrecherche"><input type="checkbox" value='.$categorie['id_categ'].'>'.$categorie['nomCat'].'</div>&nbsp; &nbsp; &nbsp;';                               
+            $compteur = $compteur +1;
+        }
+        else{
+            echo'<br> <br>';
+            $compteur = 0;
+        }
+    }
+}
+
+
 ?>  
 

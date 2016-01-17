@@ -34,28 +34,28 @@ couleur vert: 80ff80*/
 
 #police_categ{
     position:relative;
-    left:15%;
+    margin-left:15%;
     color:white;
     font-size: 28px;
 }
 
 #police_date{
     position:relative;
-    left:15%;
+    margin-left:15%;
     color:white;
     font-size: 28px;
 }
 
 #police_lieu{
     position:relative;
-    left:15%;
+    margin-left:15%;
     color:white;
     font-size: 28px;
 }
 
 #police_motscles{
     position:relative;
-    left:15%;
+    margin-left:15%;
     color:white;
     font-size: 28px;
 } 
@@ -63,36 +63,36 @@ couleur vert: 80ff80*/
 
 #input_motscles{
     position:relative;
-    left:40%;
+    margin-left:40%;
     top:50%;
 }
 
 #input_categ{
     position:relative;
-    left:40%;
+    margin-left:40%;
     top:50%;
 }
 
 #input_lieu{
     position:relative;
-    left:40%;
+    margin-left:40%;
     color:white;    
 }
 
 #input_date{
     position:relative;
-    left:40%;
+    margin-left:40%;
     top:50%;
     color: #FFFFFF;
 }
 
 #input_recherche{
-    left :50%;
+    margin-left :45%;
     	font-size:1em;
 	position:relative;
 	background-color:#6cdf6c;
 	box-shadow: 1px 2px 5px #bfbfbf, 0px -2px 5px #bfbfbf;
-	width: 40%;
+	width: 200px;
 	height:50px;
 	display:inline-block;
 	font-weight:bold;
@@ -111,7 +111,7 @@ couleur vert: 80ff80*/
 
 #liste_categ{
      position:relative;
-    left:40%;
+    margin-left:40%;
     top:50%;
 }
 
