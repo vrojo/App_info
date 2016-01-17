@@ -1,7 +1,9 @@
 <?php 
     require'model.php';
+	 // On vérifie que la variable POST id existe
     if(isset($_POST["id"]))
-    {
+    {	
+// On fais des test sur l'action réalisée et on exécute la fonction associée
         if($_POST["action"]=="supprimmer")
         {
             suppression_utilisateur($_POST['id']); 

@@ -1,6 +1,6 @@
 <?php
 session_start();
-
+// Connexion à la BDD
 $connect = mysqli_connect("localhost", "root", "root", "bddsimplevent");
 if (!$connect) {
     printf("Ã‰chec de la connexion : %s\n", mysqli_connect_error());

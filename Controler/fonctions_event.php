@@ -1,20 +1,22 @@
 <?php
-
+// Connexion à la BDD
 $connect = mysqli_connect("localhost", "root", "", "bddsimplevent");
 mysqli_set_charset($connect,"utf8");
 ?>
 	
 <?php
+// Message d'erreur si a connexion n'aboutit pas
 if (!$connect) {
     printf("Echec de la connexion : %s\n", mysqli_connectrror());
     exit();
 	}
-
+// On vérifie si l'id de l'événement présent dans l'url corrspond à un événement de la BDD
 if(isset($_GET['Event_id'])&&  event_existe($_GET['Event_id'])==TRUE){
 	$Event_id=$_GET['Event_id'];
-		
+	// Si c'est le cas on attribue cet ID à la variable $Event_id
 }
-else{ 
+else{
+// Si ce n'est pas le cas on redirige l'utilisateur vers la page d'acuueil en lui affichant un message d'erreur	
 	?>
 	
 <div style="width:100%;margin:0;text-align:center;display:inline-block;float:left;clear:both;">
@@ -22,8 +24,9 @@ else{
 </div>
 
 	<?php
-	header("Refresh: 3, url=Accueil.php");	
+	header("Refresh: 2, url=Accueil.php");	
 }
+// Fonction vérifiant l'existance de l'événement renvoie TRUE s'il existe et FALSE sinon
 function event_existe($Event_id){
 	global $connect;
 	$result=mysqli_query($connect,"select * from event where Event_id=".$Event_id);
@@ -39,15 +42,17 @@ else
 return $existe;
 }
 
-
+// Fonction selectionnant tous les éléments d'un événement
 function select_event($Event_id) {
     global $connect;
      $result=mysqli_query($connect,"select * from event natural join adresse natural join multimedia where Event_id=".$Event_id) or die("MySQL Erreur : " . mysqli_error());
      return $result;
 }
-
+// On créé un tableau associatif de l'événement
 $result = select_event($_GET['Event_id']);
 $event = mysqli_fetch_assoc($result);
+
+// On récupère L'url de l'événement, l'adresse associée à l'événement, le nom, la desciption, le prix,etc...
 $URLevent=("http://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']);
 $adresse="'".$event['numerorue'].' '.$event['rue'].' '.$event['ville']."'";
 $nom_e = $event['Nom_e'];
@@ -55,8 +60,10 @@ $description = $event['description_e'];
 $prix =$event['prix'];
 $privacy=$event['privacy'];
 $Id_crea=$event['id_utilisateur'];
+// On regarde si l'utilisateur participe à l'événement (renvoie 1 si oui et 0 dans l'autre cas)
 $particip=mysqli_query($connect,"select * from participation WHERE (Event_id=$Event_id AND id_participant=$id_utilisateur)")->num_rows;
 
+// Fonction permettant de modifier le bouton d'inscription
 function des_inscrire(){
 	global $particip;
 	if($particip!=0){
@@ -67,13 +74,15 @@ function des_inscrire(){
 	}
 	
 }
-
+// Fonction affichant els utilisateur participant à l'événement un maximu de 6 ets affiché
 function carrousselprofiles(){
 	global $connect;
 	global $Event_id;
 	$i=0;
+	// On sélectionne tous les participants
 	$result=mysqli_query($connect,"select id_participant from participation where Event_id=".$Event_id);
 	if ($result->num_rows>0 ){
+		// On parcourt la liste des participants puis on récupère les informations des participants
 		while (($data = mysqli_fetch_assoc($result))&& $i!=6){
 		$id_particip=$data['id_participant'];
 		$util=mysqli_fetch_assoc(mysqli_query($connect,"SELECT * from utilisateur where id_utilisateur=$id_particip"));
@@ -85,6 +94,7 @@ function carrousselprofiles(){
 	}
 	}
 }
+// Fonction permettant d'afficher toutes les catégories de l'événement
 function categories ($Event_id){
 	global $connect;
 	$result=mysqli_query($connect,"SELECT * from typeevent where Event_id=$Event_id");
@@ -95,10 +105,11 @@ function categories ($Event_id){
 		
 	}
 }
-
+// Fonction permettant d'afficher la liste des contacts pour le partage de l'événement
 function fonctioncontact($id_utilisateur){
 	global $connect;
 	global $Event_id;
+	// On sélectionne tous les contacts puis leurs informations
 	$result=mysqli_query($connect,"SELECT * from relation_amicale where id_utilisateur=$id_utilisateur");
 		while ($data = mysqli_fetch_assoc($result)) {
 			$ami=mysqli_query($connect,"SELECT * from utilisateur where id_utilisateur=".$data['id_ami']);
@@ -108,6 +119,7 @@ function fonctioncontact($id_utilisateur){
 						<div class="bleft" style="width:40%">
 							<a href="autreprofil.php?id_utilisateur=<?php echo $ami['id_utilisateur'];?>"><img src="<?php echo $ami['photo_u'];?>" class="profpic" style="height:100%"/></a>
 						</div>
+						<!--Si l'on clique sur ce div on éxécute la fonction de partage d'événement --> 
 							<div class="bright" style="width:60%; color:inherit; cursor:pointer;" onclick="partage(<?php echo $Event_id ?>,<?php echo $ami['id_utilisateur']?>)">
 								<p style="left:5%; font-size:0.4em"><?php echo $ami['prenom_u'].' '.$ami['nom_u'];?></p>
 							</div>	
@@ -115,12 +127,13 @@ function fonctioncontact($id_utilisateur){
 
 					<?php }
 }
+// Fonction permettant d'afficher tous les commentaires d'un événement
 function coms ($Event_id){
 	global $connect;
 	global $id_utilisateur;
 	global $Id_crea;
 	$result=mysqli_query($connect,"SELECT * from commente where Event_id=$Event_id");
-	
+	// On sélectionne tous les commentaires puis les informations des commentateurs
 while ($data = mysqli_fetch_assoc($result)) {
 	$id_commentateur=$data['id_utilisateur'];
 	$util=mysqli_fetch_assoc(mysqli_query($connect,"SELECT * from utilisateur where id_utilisateur=$id_commentateur"));
@@ -138,7 +151,8 @@ while ($data = mysqli_fetch_assoc($result)) {
 					</div>
 					<div class="bandeaubas" style="height:30%;">
 						<p style="Font-size:0.6em">Signaler ce <br>commentaire:</p> 
-						<img src="https://www.dropbox.com/s/43g64iiwsnat9pw/Point-d-exclamation.png?raw=1" class="report" title="Signaler ce commentaire" onclick="report('com',<?php echo $data['id_commentaire']?>)"/>
+						<!-- Si on clique sur cette image on éxecute la fonction de signalement e commentaire -->
+						<img src="../reste/images/exclam.png" class="report" title="Signaler ce commentaire" onclick="report('com',<?php echo $data['id_commentaire']?>)"/>
 					</div>
 				</div>
 			</div>
@@ -147,9 +161,10 @@ while ($data = mysqli_fetch_assoc($result)) {
 			</div>
 			<div class="bright" style="width:20%; height:125px;">
 				<?php 
+				// On vérifie que l'utilisateur soit un admin, le créateur de l'événement ou ai écrit le commentaire pour qu'en cliquant sur l'image il puisse supprimer son commentaire
 				if ($id_commentateur==$id_utilisateur or verifadmin($id_utilisateur)==1 or $id_utilisateur==$Id_crea){?>
 	
-					<img onclick="supprcom(<?php echo $data['id_commentaire']?>)" src="https://www.dropbox.com/s/ug1ko8f86ijv7t4/delete-462216_1280.png?raw=1" class="report" title="Supprimer ce commentaire" style="max-height:25px;cursor:pointer;" />
+					<img onclick="supprcom(<?php echo $data['id_commentaire']?>)" src="../reste/images/delete.png" class="report" title="Supprimer ce commentaire" style="max-height:25px;cursor:pointer;" />
 				<?php }?>
 			</div>
 		</div> 

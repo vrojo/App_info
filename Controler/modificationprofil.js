@@ -16,6 +16,12 @@ function affiche(champ, type_erreur, message_erreur, erreur)
 
 function verifMail(mail)
 {
+// / : "instancie" le début de la  "structure" de la chaîne de caractère à tester
+// ^: signifie que l'on commencera les tests dès le debut de la valeur de ton input.
+// [ ] : contient ce que peut contenir la chaîne de caractère que l'on testera
+// {Taillemin,taillemax} : taille de la chaîne que l'on souhaite pour celle testée
+// $: signifie qu'on va jusqu'au bout de la chaîne de caractère à tester pour faire l'évaluation.
+// /: on ferme la structure
    var regex = /^[a-zA-Z0-9._-]+@[a-z0-9._-]{2,}\.[a-z]{2,4}$/;
    if(!regex.test(mail.value))
    {
