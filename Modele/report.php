@@ -7,6 +7,7 @@ if (!$connect_e) {
     printf("Echec de la connexion : %s\n", mysqli_connect_error());
     exit();
 	}
+        //Selectione le type de signalement fait par l'utilisateur et l'insère dans la bonne base
 	$idrep=$_GET['id'];
 	$typerep=$_GET['type'];
 	if ($typerep=="util"){

@@ -8,6 +8,7 @@ if (!$connect) {
     printf("Echec de la connexion : %s\n", mysqli_connect_error());
     exit();
 	}
+        //Envoi de message sur un événement particuliers à un autre utilisateur
 	$idevent=$_GET['event'];
 	$ami=$_GET['ami'];
 	$nom_e=mysqli_fetch_assoc(mysqli_query($connect, "select Nom_e from event where Event_id=$idevent"));
@@ -16,8 +17,8 @@ if (!$connect) {
 	$nom_dest=$nom_dest['prenom_u'];
 	$nom_exp=mysqli_fetch_assoc(mysqli_query($connect, "select prenom_u from utilisateur where id_utilisateur=$id_utilisateur"));
 	$nom_exp=$nom_exp['prenom_u'];
-	$sujet=addslashes("Invitation Ã  l'Ã©vÃ©nement:".$nom_e);
-	$texte=addslashes("Cet Ã©vÃ©nement pourrait vous intÃ©resser:<a href=../Vue/Events.php?Event_id=".$idevent.">".$nom_e."</a>");
+	$sujet=addslashes("Invitation à  l'événement:".$nom_e);
+	$texte=addslashes("Cet événement pourrait vous intéresser:<a href=../Vue/Events.php?Event_id=".$idevent.">".$nom_e."</a>");
 	mysqli_query($connect, 
 	"insert into messagerie (id_destinataire, id_expediteur, nom_destinataire, nom_expediteur, sujet, texte)
 	values ('$ami','$id_utilisateur','$nom_dest','$nom_exp','$sujet','$texte')");

@@ -11,34 +11,34 @@ mysqli_set_charset($connect,"utf-8");
 function affichage_categ_recherche_avancee(){
     global $connect;
     $result = mysqli_query($connect, "select * from categorie order by nomCat") or die("MsQL Erreur : ".mysqli_errno($connect));
-    return $result;
+    return $result; //Selectionne les categorie d'event
 }
 
 function insert_categ($nomCat) {
     $nomCat = htmlspecialchars (addslashes($nomCat));
     global $connect;
     mysqli_query($connect, "insert into categorie (nomCat) values ('$nomCat')") or die("MySQL Erreur : " . mysqli_error($connect));
-}
+}//Ajoute une categorie d'event
 
 function delete_categ($id_categ) {
     $id_categ = htmlspecialchars (addslashes($id_categ));
     global $connect;
     mysqli_query($connect, "delete from categorie where id_categ ='$id_categ'") or die("MySQL Erreur : " . mysqli_error($connect));
-}
+}//Supprime une catégorie d'event
 
 function update_categ($nouveauNom, $idcateg){
     $nouveauNom = htmlspecialchars (addslashes($nouveauNom));
     $idcateg = htmlspecialchars (addslashes($idcateg)); 
     global $connect;
     mysqli_query($connect, "update categorie set nomCat='$nouveauNom' where id_categ=".$idcateg) or die("MySQL Erreur : " . mysqli_error($connect));
-}
+}//Modifie une categorie d'event
 
 function verification_mdp($adrentre){
     $adrentre = htmlspecialchars (addslashes($adrentre));
     global $connect;
     $result = mysqli_query($connect, "select mot_de_passe,id_utilisateur,admin from utilisateur where mail='$adrentre'") or die("MsQL Erreur : ".mysqli_errno($connect));
     $resultat = mysqli_fetch_assoc($result);
-    return $resultat;   
+    return $resultat;//Verif que le mot de passe est bien celui lié à l'adresse mail
 }
 
 
@@ -66,7 +66,7 @@ function modification_categorie(){
                        
                     }
                     $compteur = 0;
-                }
+                } //AFfiche les categories dans le backoffice gestion categ
     }
 
 
@@ -77,39 +77,13 @@ function modification_categorie(){
 function affichage_utilisateurs(){
     global $connect;
     $result = mysqli_query($connect, "select mail from utilisateur order by mail") or die("MsQL Erreur : ".mysqli_errno($connect));
-    return $result;
+    return $result; //Affiche les utilisateur de la BDD
 }
 
 
-function affichage_topics(){
-    global $connect;
-    $result = mysqli_query($connect, "select * from sujet") or die("MsQL Erreur : ".mysqli_errno($connect));
-                $compteur = 1;
-                
-                
-                if($compteur==1){
-                    while($topic = mysqli_fetch_assoc($result)) {
-                        
-                        // ici inclure requete recup reponse par rapport au sujet
-                        //recup nombre message
-                        //recup derniere 
-                        
-                        
-                        echo '<tr>';
-                        echo '<td class="colonne_topics">'.$topic['sujet'].'</td>';
-                        echo '<td class="colonne_messages">'.$nb_messages.'</td>';
-                        echo '<td class="colonne_dernier_message">'.$date_dernier_message.'</td>';
-                        echo '</tr>';
-                        }
-                    echo'</div>';
-                    
-                    
-                   
-                    $compteur = 0;
-                }        
-}        
+     
 
-function inscriptionpreleminaire($mail, $mdp, $confinsc, $confmod){
+function inscriptionpreleminaire($mail, $mdp, $confinsc, $confmod){//Inscrit l'utilisateur depuis la page connexion/inscription
     $mail = htmlspecialchars (addslashes($mail));
     $mdp = htmlspecialchars (addslashes($mdp));
     global $connect;
@@ -117,7 +91,7 @@ function inscriptionpreleminaire($mail, $mdp, $confinsc, $confmod){
     $result = mysqli_query($connect, "select id_utilisateur from utilisateur where mail='$mail'") or die("MySQL Erreur : " . mysqli_error($connect));
     $tableauResult = mysqli_fetch_assoc($result);
     $id = $tableauResult['id_utilisateur'];
-    $alea = rand(1,999999999);
+    $alea = rand(1,999999999); 
     $compteur = 0;
     
     while ($compteur == 0){
@@ -128,7 +102,7 @@ function inscriptionpreleminaire($mail, $mdp, $confinsc, $confmod){
             $compteur = 1;
         }
     }
-}
+}//CReation d'un id_conf solide pour le lien d'activation du compte
 
 
 
@@ -144,10 +118,11 @@ function verif_confirmation($mail){
     else{
         return false;
     }
+    //Fonction qui vérifie que l'utilisateur a bien validé son compte, qu'il est actif sur le site.
 }
 
 
-function envoimail_confirmation($maildestinataire){
+function envoimail_confirmation($maildestinataire){ //Fonction qui initialise l'envoi d'un mail de confirmation d'inscription
     $maildestinataire = htmlspecialchars (addslashes($maildestinataire));
     $mail = new PHPMailer;
  
@@ -178,7 +153,7 @@ function envoimail_confirmation($maildestinataire){
 }
 
 
-function lien_inscription($mail){
+function lien_inscription($mail){ //Fonction qui crée le lien d'activation de compte
     $mail = htmlspecialchars (addslashes($mail));
     global $connect;
     $result = mysqli_query($connect, "select id_utilisateur from utilisateur where mail='$mail'") or die("MySQL Erreur : " . mysqli_error($connect));
@@ -191,7 +166,7 @@ function lien_inscription($mail){
     return $message;
 }
 
-function confirmation_inscription(){
+function confirmation_inscription(){ //Fonction qui confirle l'inscription d'un utilisateur après activation du lien
     if(isset($_GET['id']) && $_GET['id'] != 0){
         global $connect;
         $id = $_GET['id'];
@@ -208,7 +183,7 @@ function confirmation_inscription(){
     }
 }
 
-function verif_id($id, $idconf){
+function verif_id($id, $idconf){//Fonction qui vérifie que le lien de confirmation d'inscription n'ait pas été altéré
     $id = htmlspecialchars (addslashes($id));
     $idconf = htmlspecialchars (addslashes($idconf));
     global $connect;
@@ -222,7 +197,7 @@ function verif_id($id, $idconf){
     }
 }
 
-function verfifMailEx($mail){
+function verfifMailEx($mail){//Fonction qui vérifie l'existance d'une adresse mail dans la base de données
     $mail =  htmlspecialchars (addslashes($mail));
     global $connect;
     $result = mysqli_query($connect, "select id_utilisateur from utilisateur where mail='$mail'") or die("MySQL Erreur : " . mysqli_error($connect));
@@ -235,7 +210,7 @@ function verfifMailEx($mail){
     }
 }
 
-function affichage_centre_interet(){
+function affichage_centre_interet(){//Fonction qui affiche les categorie possible de centre interet pour un utilisateur sur la page modif profil
     $result = affichage_categ_recherche_avancee();
     $compteur = 0;
     while($categorie = mysqli_fetch_assoc($result)) {
@@ -265,6 +240,7 @@ function enregistrement_final($id, $nom, $prenom, $mail, $mdp, $numrue, $rue, $v
     $description = nl2br(htmlspecialchars (addslashes($description)));
     $photo = htmlspecialchars (addslashes($photo));
     global $connect;
+    //On enregistrera au fur et à mesure dans l'ordre les informations fourni par le client sur la page modifprofil
     mysqli_query($connect, "insert into adresse (numerorue, rue, ville, codepostal, pays) values ('$numrue','$rue','$ville','$codepostal','$pays')") or die("MySQL Erreur : " . mysqli_error($connect));  
     $idadresse = mysqli_query($connect, "select id_adresse from adresse where numerorue='$numrue' and rue ='$rue' and ville='$ville' and codepostal='$codepostal' and pays='$pays'") or die("MySQL Erreur : " . mysqli_error($connect));
     $tableauidadresse = mysqli_fetch_assoc($idadresse);
@@ -274,15 +250,16 @@ function enregistrement_final($id, $nom, $prenom, $mail, $mdp, $numrue, $rue, $v
 }
 
 function enregistrement_centreinterets($idutilisateur, $idcateg){
+    //Enregistreent des centre d'interet d'un utilisateur dans la base
     global $connect;
     mysqli_query($connect, "insert into preference (id_utilisateur, id_categ) values ('$idutilisateur','$idcateg')") or die("MySQL Erreur : " . mysqli_error($connect));      
 }
 
 
-function affichage_utilisateur_signales(){
+function affichage_utilisateur_signales(){//Tableau du back office pour les utilisateur signalés
     global $connect;
     $result = mysqli_query($connect, "SELECT utilisateur.id_utilisateur, nom_u, prenom_u, mail, id_balance FROM utilisateur INNER JOIN signaler ON utilisateur.id_utilisateur = signaler.id_utilisateur") or die("MsQL Erreur : ".mysqli_errno($connect));
-        echo'<div class="titre_gestion_utilisateur">Utilisateurs signalÃ©s par la communautÃ© :</div>';
+        echo'<div class="titre_gestion_utilisateur">Utilisateurs signalés par la communauté :</div>';
         echo'<br>';
         echo "<div id='tableau_utilisateur_signales'>";
         echo "<table><thead><tr><th>Prenom </th><th>Nom </th><th>Mail </th></tr></thead>";
@@ -306,7 +283,7 @@ function affichage_utilisateur_signales(){
 
 } 
 
-function suppression_utilisateur($idutilisateur){
+function suppression_utilisateur($idutilisateur){//Fonction de suppression d'un utilisateur, beaucoup de requete dans un ordre précis
     global $connect;
     $id = htmlspecialchars (addslashes($idutilisateur));
     $idbanni = 17;
@@ -328,19 +305,19 @@ function suppression_utilisateur($idutilisateur){
 }
 
 
-function suppression_signalement_utilisateur($idutilisateur){
+function suppression_signalement_utilisateur($idutilisateur){//DEscativation d'un signalement dans le backoffice
     global $connect;
     mysqli_query($connect, "delete from signaler where id_utilisateur = $idutilisateur") or die("MsQL Erreur : ".mysqli_errno($connect));
 }
 
-function update_utilisateur($mail){
+function update_utilisateur($mail){//Fonction pour donnner des droit à un utilisateur (back office)
     global $connect;
     $admin = 1;
     echo $mail;
     mysqli_query($connect, "update utilisateur set admin = $admin where mail = '$mail'") or die("MsQL Erreur : ".mysqli_errno($connect));
 }
 
-function select_categ($id, $categ){
+function select_categ($id, $categ){//Verifie l'existance d'une liaison entre utilisateur et categorie
     global $connect;
     $result = mysqli_query($connect, 'select * from preference where id_utilisateur = '.$id.' and id_categ='.$categ) or die("MsQL Erreur : ".mysqli_errno($connect));
     $tableauresult = mysqli_fetch_assoc($result);
@@ -353,18 +330,18 @@ function select_categ($id, $categ){
     }
 }
 
-function suppression_categ($id, $categ){
+function suppression_categ($id, $categ){//Supprime la preference d'un utilisateur pour une categorie
     global $connect;
     mysqli_query($connect, "delete from preference where id_utilisateur = '$id' and id_categ='$categ'") or die("MsQL Erreur : ".mysqli_errno($connect));
 }
 
-function remplissage_modifprofil($id){
+function remplissage_modifprofil($id){//Pour remplir le formulaire de modification du profil
     global $connect;
     $resultutilisateur = mysqli_query($connect, 'select * from utilisateur where id_utilisateur = '.$id) or die("MsQL Erreur : ".mysqli_errno($connect));
     $tableauresultutilisateur = mysqli_fetch_assoc($resultutilisateur);
     return $tableauresultutilisateur;
 }
-function remplissage_modifprofil_adresse($id){
+function remplissage_modifprofil_adresse($id){//Pour remplir le formulaire au niveau des adresses
     global $connect;
     $resultutilisateur = mysqli_query($connect, 'select * from utilisateur where id_utilisateur = '.$id) or die("MsQL Erreur : ".mysqli_errno($connect));
     $tableauresultutilisateur = mysqli_fetch_assoc($resultutilisateur);
@@ -374,14 +351,14 @@ function remplissage_modifprofil_adresse($id){
 }
 
 
-function modification_commentaires(){
+function modification_commentaires(){//Tableau du back office pour les commentaires signalés
     global $connect;
     $commentaires_signales = mysqli_query($connect, "SELECT commente.id_commentaire, texte_co FROM commente INNER JOIN signaler ON signaler.id_commentaire = commente.id_commentaire") or die("MsQL Erreur : ".mysqli_errno($connect));
     
-    echo'<div class="titre_gestion_commentaires">Commentaires signalÃ©s par la communautÃ© :</div>';
+    echo'<div class="titre_gestion_commentaires">Commentaires signalés par la communauté :</div>';
     echo'<br>';
     echo "<div id='tableau_commentaires_signales'>";
-    echo "<table><thead><tr><th>DÃ©tails du commentaire </th></thead>";
+    echo "<table><thead><tr><th>Détails du commentaire </th></thead>";
     while($tableau_commentaires_signales = mysqli_fetch_assoc($commentaires_signales)) {        
         echo "<tr>";
         echo '<td>'.$tableau_commentaires_signales['texte_co'].'</td>';
@@ -398,26 +375,26 @@ function modification_commentaires(){
     echo'<br>';
 }
 
-function suppression_commentaire($id){
+function suppression_commentaire($id){//Fonction de suppression d'un commentaire
     global $connect;
     mysqli_query($connect, "delete from commente where id_commentaire = '$id'") or die("MsQL Erreur : ".mysqli_errno($connect));
     mysqli_query($connect, "delete from signaler where id_commentaire = '$id'") or die("MsQL Erreur : ".mysqli_errno($connect));
 }
 
-function suppression_signalement_commentaire($idcom){
+function suppression_signalement_commentaire($idcom){//Fonction de suppression du signalement d'un com
     global $connect;
     mysqli_query($connect, "delete from signaler where id_commentaire = $idcom") or die("MsQL Erreur : ".mysqli_errno($connect));
 }
 
 
-function affichage_event_signales(){
+function affichage_event_signales(){//Tableau du back office pour les events signalés
     global $connect;
     $event_signales = mysqli_query($connect, "SELECT event.Event_id, Nom_e FROM event INNER JOIN signaler ON signaler.Event_id = event.Event_id") or die("MsQL Erreur : ".mysqli_errno($connect));
     
-    echo'<div class="titre_gestion_event">EvÃ©nements signalÃ©s par la communautÃ© :</div>';
+    echo'<div class="titre_gestion_event">EvÃ©nements signalés par la communauté :</div>';
     echo'<br>';
     echo "<div id='tableau_event_signales'>";
-    echo "<table><thead><tr><th> Nom de l'Ã©vÃ©nement : </th></thead>";
+    echo "<table><thead><tr><th> Nom de l'événement : </th></thead>";
     while($tableau_event_signales = mysqli_fetch_assoc($event_signales)) {        
         echo "<tr>";
         echo '<td><a href="Events.php?Event_id='.$tableau_event_signales['Event_id'].'">'.$tableau_event_signales['Nom_e'].'</a></td>';
@@ -434,7 +411,7 @@ function affichage_event_signales(){
     echo'<br>';
 }
 
-function suppression_event($idevent){
+function suppression_event($idevent){//Suppression d'un event
     global $connect;
     mysqli_query($connect, "delete from commente where Event_id = '$idevent'") or die("Ms1QL Erreur : ".mysqli_errno($connect));
     mysqli_query($connect, "delete from multimedia where Event_id = '$idevent'") or die("Ms2QL Erreur : ".mysqli_errno($connect));
@@ -445,12 +422,12 @@ function suppression_event($idevent){
     mysqli_query($connect, "delete from event where Event_id = '$idevent'") or die("Ms7QL Erreur : ".mysqli_errno($connect));  
 }
 
-function suppression_signalement_event($idevent){
+function suppression_signalement_event($idevent){//Suppression du signalement d'un event
     global $connect;
     mysqli_query($connect, "delete from signaler where Event_id = $idevent") or die("MsQL Erreur : ".mysqli_errno($connect));
 }
 
-function liste_admin(){
+function liste_admin(){//Affiche une lise d'admin
     global $connect;
     $resultadmin = mysqli_query($connect, "select * from utilisateur where admin = 1") or die("MsQL Erreur : ".mysqli_errno($connect));
     
@@ -466,16 +443,16 @@ function liste_admin(){
     echo '</form>';
 }
 
-function suppression_droits($idutilisateur){
+function suppression_droits($idutilisateur){//REtire les droits d'un admin
     global $connect;
     mysqli_query($connect, "update utilisateur set admin='0' where id_utilisateur = '$idutilisateur'") or die("MsQL Erreur : ".mysqli_errno($connect));
 }
 
-function modification_topic(){
+function modification_topic(){//Tableau du back office pour les topics signalés
     global $connect;
     $topic_signales = mysqli_query($connect, "SELECT sujet.id_topic, sujet FROM sujet INNER JOIN signaler ON signaler.id_topic = sujet.id_topic") or die("MsQL Erreur : ".mysqli_errno($connect));
     
-    echo'<div class="titre_gestion_forum">Topics signalÃ©s par la communautÃ© :</div>';
+    echo'<div class="titre_gestion_forum">Topics signalés par la communauté :</div>';
     echo'<br>';
     echo "<div id='tableau_topics_signales'>";
     echo "<table><thead><tr><th> Nom du topic : </th></thead>";
@@ -499,7 +476,7 @@ function modification_reponse(){
     global $connect;
     $message_signales = mysqli_query($connect, "SELECT rep_topic.id_msgforum, commentaire_r, rep_topic.id_topic FROM rep_topic INNER JOIN signaler ON signaler.id_msgforum = rep_topic.id_msgforum") or die("MsQL Erreur : ".mysqli_errno($connect));
     
-    echo'<div class="titre_gestion_forum">Messages des topics signalÃ©s par la communautÃ© :</div>';
+    echo'<div class="titre_gestion_forum">Messages des topics signalés par la communauté :</div>';
     echo'<br>';
     echo "<div id='tableau_messages_signales'>";
     echo "<table><thead><tr><th> Message du topic : </th></thead>";
