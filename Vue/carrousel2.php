@@ -93,12 +93,14 @@ $maximum=$event_maximum['max'];
 			</div>
 		</div>
 		<div id="points_navigation">
+			<!-- chaque bouton a une valeur de mouvement préenregistrée, permettant en cliquant dessus, d'aller sur la bonne slide-->
 			<ul>
 				<li class="itemLinks" data-pos="0%"></li>
-				<li class="itemLinks" data-pos="-33.2%"></li>
-				<li class="itemLinks" data-pos="-66.4%"></li>
+				<li class="itemLinks" data-pos="-33.333333%"></li>
+				<li class="itemLinks" data-pos="-66.666666%"></li>
 			</ul>
 		</div>
 		<script type="text/javascript">
+			<!-- appelle la fonction pour l'initialiser-->
 			Slider();
 		</script>
