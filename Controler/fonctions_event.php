@@ -224,7 +224,7 @@ function carroussel_sponsors($Event_id){
 	global $connect;
 	$result=mysqli_query($connect,"SELECT * from sponsor natural join sponsorise where Event_id=$Event_id");
 	while($data=mysqli_fetch_assoc($result)){
-		?><div style="height:100%; width:25%; display:inline-block; position:relative">
+		?><div style="height:100%; width:20%; display:inline-block; position:relative">
 			<img src="<?php echo $data['img_sponsor']?>" class="photo_car2"/>
 		</div>
 		<?php

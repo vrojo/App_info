@@ -27,7 +27,7 @@ require 'model.php';
 					</br>
 					<label for="adresseevent1">Adresse :</label>
 					<div style="display:inline-block; vertical-align:top;">
-						<input type="number" name="numerorue" id="adresseevent1" placeholder="n°" class="input_form_crea_event" oninput="verifNumrue(this)"/>
+						<input type="number" name="numerorue" id="adresseevent1" placeholder="n°" class="input_form_crea_event" value='' oninput="verifNumrue(this)"/>
 						</br>
 						<input type="text" name="rue" id="adresseevent3" placeholder="rue" class="input_form_crea_event" oninput="verifRue(this)"/>
 						</br>
@@ -42,12 +42,12 @@ require 'model.php';
 					</br>
 					</br>
 					<label for="prix">Prix :</label>
-					<input type="number" name="prix" id="prix" placeholder="10€" class="input_form_crea_event" oninput="verifPrix(this)"/> <span id="erreur_prix"></span>
+					<input type="number" name="prix" id="prix" placeholder="10€"  value='' class="input_form_crea_event" oninput="verifPrix(this)"/> <span id="erreur_prix"></span>
 				</fieldset>
 				<fieldset>
 					<label for="date_e">Date de l'événement :</label>
 					<label>Début :</label><input type="date" name="date_e" class="input_form_crea_event" id="date_event"/>
-					<label>Fin :</label><input type="date" name="date_f" class="input_form_crea_event" id="date_event"/>
+					<label>Fin :</label><input type="date" name="date_f" value='' class="input_form_crea_event" id="date_event"/>
 					</br>
 					</br>
 					<label for="pass2">Horaires :</label>
