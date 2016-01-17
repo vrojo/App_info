@@ -26,12 +26,14 @@ else{
     affichage_mise_en_place_cgu();
     ?>
 <form method="post" action="../Controler/controleur_cgu.php" id="form_cgu">
-        Titre :<input type="text" name="titre_cgu" id="titre_cgu">
+        <label for id="titre_cgu">Titre :</label>
+		<input type="text" name="titre_cgu" id="titre_cgu">
         <input type="submit" name="action" value="enregistrer" id="bouton_enregistrer">
         <br>
         <br>
         <br>
-        <label>Paragraphe :</label><textarea name="paragraphe" form="form_cgu"></textarea>
+        <label style="vertical-align:top">Paragraphe :</label>
+		<textarea name="paragraphe" form="form_cgu"></textarea>
     </form>    
     <?php
 }
