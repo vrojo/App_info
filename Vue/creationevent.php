@@ -16,6 +16,8 @@ require 'model.php';
 	<body>
 		<?php include ("Header.php"); ?>
 		
+		<!-- chaque champs a une vérification en continue pour être sur que ce qui y est entré est attendu -->
+		
 		<div id="form_crea_event">
 			<h1>Créer un événement:</h1>
 			<p>Créez rapidement un événement privé ou visible par tous en remplissant les champs suivants :</p>

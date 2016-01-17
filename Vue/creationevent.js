@@ -1,3 +1,5 @@
+//tous ces tests vérifient les champs renseignées sur la page creationevent.php
+
 function affiche(champ, type_erreur, message_erreur, erreur)
 {
     compteur = 0;
@@ -13,6 +15,14 @@ function affiche(champ, type_erreur, message_erreur, erreur)
       document.getElementById(type_erreur).innerHTML = message_erreur;
     }
 }
+
+//pour toutes les fonctions qui suivent :
+//   / : "instancie" le début de la  "structure" de la chaîne de caractère à tester
+//   ^: signifie que l'on commencera les tests dès le debut de la valeur de ton input.
+//   [ ] : contient ce que peut contenir la chaîne de caractère que l'on testera
+//   {Taillemin,taillemax} : taille de la chaîne que l'on souhaite pour celle testée
+//   $: signifie qu'on va jusqu'au bout de la chaîne de caractère à tester pour faire l'évaluation.
+//   /: on ferme la structure
 
 function verifNom(nom){    
     var regex = /^[0-9-a-zA-Z- ]{2,30}$/;
