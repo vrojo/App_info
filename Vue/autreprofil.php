@@ -259,12 +259,12 @@
 			//selectionne les commentaires s'il y en a
 			$commentaires=mysqli_query($connect, "select * from commente inner join multimedia on multimedia.Event_id=commente.Event_id inner join event on event.Event_id=commente.Event_id where commente.id_utilisateur =".$_GET['id_utilisateur']." and principale=1 order by date_co desc");
 			$compteur3=0;
-			$compteur4=0;
+			$compteur4=3;
 			
 			//n'en affiche que 3
 			while (($data=mysqli_fetch_assoc($commentaires)) && $compteur3<3) {
 				$compteur3 ++;
-				if ($data['texte_co']!=NULL) {
+				if (!empty($data['texte_co'])) {
 					
 					?>
 					<div class="commentaire">
@@ -279,12 +279,15 @@
 						</div>
 					</div>
 					<?php
-					$compteur4 ++;
+					
 				}
-				
+				else {
+					$compteur4=$compteur4-1;
+					
+				}
 			}
 			
-			if ($compteur4==0) {
+			if ($compteur4==3) {
 				echo("<p>Aucun commentaire récent à afficher</p>");
 			}
 			?>

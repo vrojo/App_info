@@ -19,15 +19,15 @@
 		
 		?>
 		<title><?php echo $event['Nom_e'] ?></title>	
-		<div id="bandeaupresevent" style="height:<?php echo $hbandeaupres ?>px">
-			<div class="bleft" >
+		<div id="bandeaupresevent" style="height:auto; min-height:300px">
+			<div class="bleft" style="height:700px" >
 				<div class="bandeauhaut"><div class="Eventpic" style="background-image:url(<?php echo $event['urlimg_event'] ?>)"></div></div>
 				<div class="bandeaubas" ><div id="map" style="transform: translate(-50%,-50%);" ></div></div>
 			</div>
-			<div class="bright">
-				<div class="bandeauhaut" style="height:10%;"><p style="font-size:1.4em; transform:translateY(-50%)"><?php echo $nom_e ?></p></div>
-				<div class="bandeaumilieu" style="height:70%">
-					<div class="bandeauhaut" style="height:40%">
+			<div class="bright" style="height:auto">
+				<div class="bandeauhaut" style="height:100px;"><p style="font-size:1.4em; transform:translateY(-50%)"><?php echo $nom_e ?></p></div>
+				<div class="bandeaumilieu" style="height:auto">
+					<div class="bandeauhaut" style="height:300px">
 						<div class="bleft" style="width:50%;">
 							<div class="bleft" style="width:10%">
 								<div id="Contacts">
@@ -87,8 +87,8 @@
 							?><a href="#"><div class="Bouton2" style="height:<?php echo $h ?>%"><p>Modifier l'événement</p></div></a><?php }?>
 						</div>
 					</div>
-					<div class="bandeaubas" style="height:60%; text-align: left; padding:5px 0 0 0">
-						<div class="bleft" style="width:65%">
+					<div class="bandeaubas" style="height:auto; text-align: left; padding:5px 0 0 0">
+						<div class="bleft" style="width:65%; height:auto">
 							<h2> Informations </h2>
 							<p style="font-weight:normal; font-size:0.7em; word-wrap:break-word"><?php echo $event['description_e']?></p>
 						</div>
@@ -103,7 +103,7 @@
 				</div>
 				<!-- on ne peut pas commenter si on n'est pas connecté -->
 				<?php if (verifco($mdp,$id_utilisateur)==TRUE){?>
-				<div class="bandeaubas" style="height:20%;text-align:left;">
+				<div class="bandeaubas" style="height:175px;text-align:left;">
 					<div class="bandeauhaut" style="height:50%">
 						<div class="bandeauhaut" style="height:25%">
 							Catégorie d'événement:

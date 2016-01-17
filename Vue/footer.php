@@ -7,12 +7,17 @@
                 <a href="CGU.php">CGU</br></a>
 				<p></p>
 			</div>
+			<div id="administrateur">
 			<?php 
 			//cette section ne s'affiche que si l'utilisateur est un admin
                         if(isset($_SESSION['admin_utilisateur'])&& $_SESSION['admin_utilisateur'] ==1){
-                        echo'<div id="administrateur"> <h4 class="titre_footer">Administrateur :</h4> <a href="backoffice.php">Accéder au panneau de configuration</br></a>				<p></p>			</div>';
+                        echo' <h4 class="titre_footer">Administrateur :</h4> <a href="backoffice.php">Accéder au panneau de configuration</br></a>				<p></p>';
                         }
+						else{
                         ?>
+						<img src="../reste/images/logomini.png" style="heigth:200px;width:200px"/>
+						<?php }?>
+			</div>
 			<div id="contact">
 				<h4 class="titre_footer">Nous contacter :<h4>
 				<div id="facebook">
