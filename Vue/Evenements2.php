@@ -23,7 +23,14 @@ session_start();
 		require "fonctions_recherche_events.php";
 		$compteur=0;
 		
-	if($cacher==0){?>
+		?>
+		<!-- Le site utilise beaucoup de javascript, cette balise affichera un message si le JS n'est pas activé -->
+		<noscript>
+			<h3 style="background-color:#74DEF1 ; color:white; text-align:center;">Pour profiter pleinement de cette page, et de l'ensemble du site Internet, veuillez activer l'utilisation de Javascript sur votre navigateur web</h3>
+		</noscript>
+		<?php
+	if($cacher==0){
+		?>
 		
 		<div id="formulaire_page_resultat">
 			<form method="post" action="Evenements2.php" id="formulaire_resultat">
