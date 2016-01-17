@@ -4,7 +4,7 @@
     if(isset($_POST["id"]))
     {	
 // On fais des test sur l'action réalisée et on exécute la fonction associée
-        if($_POST["action"]=="supprimmer")
+        if($_POST["action"]=="Supprimmer")
         {
             suppression_utilisateur($_POST['id']); 
         }
