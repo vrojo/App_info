@@ -9,6 +9,7 @@
 	<?php
 	session_start();
 	$connect = mysqli_connect("localhost", "root", "", "bddsimplevent");
+	//permet de lire la BDD avec des caratères spéciaux
 	mysqli_set_charset($connect,"utf8");
 	?>
 	
@@ -16,7 +17,7 @@
 		<?php 
 		include("Header.php");
 		?>
-		
+		<!-- trois catégories, trois boutons pour y accéder -->
 		<div id="choix_messages">
 			<form method="get" action="messagerie.php" class="choix">
 				</br>
@@ -39,8 +40,10 @@
 		</div>
 		
 		<?php
+		//si l'utilisateur supprime le message, l'id du message est envoyé
 		if (isset($_POST['id_suppr'])) {
 			if ($_POST['type']=="recus") {
+				//supprime l'id du destinataire, mais pas le message, permet que l'expéditeur le voit encore
 				mysqli_query($connect, "update messagerie set id_destinataire=0 where id_message=".$_POST['id_suppr']."");
 			}
 			else {
@@ -52,6 +55,8 @@
 			?>
 			<div id="contenant_envoyer_message">
 			<?php
+			//si l'utilisateur a envoyé un message
+			//addslashes et htmlspecialchars permet de sécuriser ce qui est écrit
 			if (isset($_POST["envoye"]) and $_POST["envoye"]=="oui" and $_POST["texte"]!="") {
 				$id_dest=mysqli_fetch_assoc(mysqli_query($connect, "select id_utilisateur from utilisateur where id_utilisateur=".$_POST['destinataire'].""));
 				$nom_dest=mysqli_fetch_assoc(mysqli_query($connect, "select prenom_u from utilisateur where id_utilisateur=".$_POST['destinataire'].""));
@@ -60,9 +65,11 @@
 				$sujet=htmlspecialchars(addslashes($_POST['sujet']));
 				$texte=htmlspecialchars(addslashes($_POST['texte']));
 				mysqli_query($connect, "insert into messagerie(id_destinataire, id_expediteur, nom_destinataire, nom_expediteur, sujet, texte) values (".$id_dest['id_utilisateur'].", ".$id_exp.", '".$nom_dest['prenom_u']."', '".$nom_exp['prenom_u']."', '".$sujet."', '".$texte."')");
+				//vérifie que la ligne a bien été ajoutée
 				$message_envoye=mysqli_query($connect, "select exists (select * from messagerie where texte='".$texte."')");
 			}
 			
+			//si la ligne a bien été ajoutée, le message a été envoyé
 			if (isset($_POST["envoye"]) and $texte and $message_envoye) {
 				?>
 				<div class="message_envoye">
@@ -70,6 +77,7 @@
 				</div>
 				<?php
 			}
+			//sinon
 			if (isset($_POST["envoye"]) and $message_envoye==false) {
 				?>
 				<div class="message_envoye">
@@ -85,6 +93,7 @@
 					<label for="destinataire">Contact : </label>
 					<select name="destinataire" id="destinataire">
 						<?php
+						//sélectionne les amis, et affiche leurs noms
 						$amis=mysqli_query($connect, "select id_ami from relation_amicale where id_utilisateur=".$_SESSION['id_utilisateur']."");
 						while ($data=mysqli_fetch_assoc($amis)) {
 							$noms=mysqli_fetch_assoc(mysqli_query($connect, "select prenom_u, nom_u from utilisateur natural join relation_amicale where id_utilisateur=".$data['id_ami'].""));
@@ -113,10 +122,12 @@
 			<?php
 		}
 		
+		//si on choisit messages reçus
 		if ($_GET["but"]=="messages_recus") {
 			$messages_recus=mysqli_query($connect, "select * from messagerie where id_destinataire=".$_SESSION['id_utilisateur']." order by id_message desc");
 			$vus= mysqli_query($connect, "select id_message from messagerie where id_destinataire=".$_SESSION['id_utilisateur']);
 			while ($data=mysqli_fetch_assoc($vus)) {
+				//boucle permettant de mettre les messages comme étant vus
 				mysqli_query($connect, "update messagerie set vue=1 where id_message=".$data['id_message']);
 				}
 
@@ -126,6 +137,7 @@
 			<div id="contenant_messages_recus">
 				<?php
 				while ($data=mysqli_fetch_assoc($messages_recus)) {
+					//sélectionne l'utilisateur qui a envoyé le message
 				$profil=mysqli_fetch_assoc(mysqli_query($connect, "select photo_u, prenom_u from utilisateur where id_utilisateur=".$data['id_expediteur'].""))
 				?>
 				
@@ -160,6 +172,7 @@
 			}
 			
 			if (isset($_POST['id_reponse'])) {
+				// si l'utilisateur répond à un message, le sujet et le destinataire sont déjà enregitrés.
 				?>
 				<div id="bloc_reponse">
 					</br>

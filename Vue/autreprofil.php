@@ -78,9 +78,10 @@
 			//récupération des noms du destinataire et de l'expéditeur
 			$nom_dest=mysqli_fetch_assoc(mysqli_query($connect, "select prenom_u from utilisateur where id_utilisateur=".$_POST['destinataire'].""));
 			$nom_exp=mysqli_fetch_assoc(mysqli_query($connect, "select prenom_u from utilisateur where id_utilisateur=".$_SESSION['id_utilisateur'].""));
-			
+			$sujet=htmlspecialchars(addslashes($_POST['sujet']));
+			$texte=htmlspecialchars(addslashes($_POST['texte']));
 			//ajout de la ligne dans la BDD
-			mysqli_query($connect, "insert into messagerie(id_destinataire, id_expediteur, nom_destinataire, nom_expediteur, sujet, texte) values (".$_POST['destinataire'].", ".$_SESSION['id_utilisateur'].", '".$nom_dest['prenom_u']."', '".$nom_exp['prenom_u']."', '".$_POST['sujet']."', '".$_POST['texte']."')");
+			mysqli_query($connect, "insert into messagerie(id_destinataire, id_expediteur, nom_destinataire, nom_expediteur, sujet, texte) values (".$_POST['destinataire'].", ".$_SESSION['id_utilisateur'].", '".$nom_dest['prenom_u']."', '".$nom_exp['prenom_u']."', '$sujet', '$texte')");
 			echo("<h4 style='background-color:#59b7ff'>Le message a bien été envoyé</h4>");
 		}
 		
