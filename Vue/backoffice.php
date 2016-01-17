@@ -12,9 +12,11 @@
     <body>
         <?php include("Header.php"); ?>
         <?php require("model.php");
-              if (verifadmin($id_utilisateur) != 1){
-                  header("Location:../Vue/Simplevent.php");
-              }
+		
+			//vérifie que celui qui y accède est bien admin
+            if (verifadmin($id_utilisateur) != 1){
+                header("Location:../Vue/Simplevent.php");
+            }
         ?>
         <div class="formulaire_back_office">
             <form action="gestion_utilisateur.php" method="post">
@@ -25,6 +27,7 @@
             <br>
             </form>
             
+			<!-- plusieurs boutons renvoyant vers des sections différentes -->
             <form action="gestion_commentaires.php" method="post">
                 <div class="back">
                     <div id="titre_back"><p>Gestion des commentaires :</p></div>
