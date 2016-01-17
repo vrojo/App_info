@@ -5,7 +5,7 @@ mysqli_set_charset($connect,"utf8");
 if (!$connect) {
     printf('‰chec de la connexion : %s\n', mysqli_connect_error());
 }
-
+//On insère les informations saisies dans les tables correspondantes, dans un ordre précis
 function insert_event($url_sponsor1,$url_sponsor2,$url_sponsor3,$url_sponsor4, $codepostal, $numerorue, $pays, $rue, $ville, $date_e, $date_f, $description_e, $heuredebut, $heurefin, $nb_max, $Nom_e, $privacy, $prix, $urlsite) {
     global $connect;
 	/*sponsor/ adresse/ event/ multimedia / sponsorise/ typeevent*/	
@@ -17,7 +17,7 @@ function insert_event($url_sponsor1,$url_sponsor2,$url_sponsor3,$url_sponsor4, $
 	mysqli_query($connect, "insert into event(date_e, date_f, description_e, heuredebut, heurefin, id_adresse, id_utilisateur, nb_max_participant, Nom_e, privacy, prix) values('$date_e', '$date_f', '$description_e', '$heuredebut', '$heurefin', '$idadresse', '$idutilisateur', '$nb_max', '$Nom_e', '$privacy', '$prix')"); 
 	$id_event = mysqli_fetch_assoc(mysqli_query($connect, "select max(Event_id) as max from event"));
         $idevent=$id_event['max'];
-	
+	//Une suite de vérification sur les url de sponsor, si un des champs est vide, on pase au suivant.
 	if ($url_sponsor1!='') {
 		mysqli_query($connect, "insert into sponsor(img_sponsor) values ('$url_sponsor1')");
 		$sponsor = mysqli_fetch_assoc(mysqli_query($connect, "select max(idSponsor) as max from sponsor "));
@@ -44,7 +44,7 @@ function insert_event($url_sponsor1,$url_sponsor2,$url_sponsor3,$url_sponsor4, $
 		}
 	}
 	
-	if ($urlsite!="") {
+	if ($urlsite!="") { //Si un lien vers un site est fourni, on l'insère dans la base
         
 		mysqli_query($connect, "insert into multimedia(Event_id, urlsite_event, principale) values ('$idevent', '$urlsite', 0)");
 	}
@@ -59,7 +59,7 @@ function insert_event($url_sponsor1,$url_sponsor2,$url_sponsor3,$url_sponsor4, $
 		// $i++;
 	// }
 	require("../Modele/model.php");
-        
+        //On récupère les catégories cochées pour les insérer dans la table typeevent
 	$result = affichage_categ_recherche_avancee();
     while($categorie = mysqli_fetch_assoc($result)) {
 		if (isset($_POST[$categorie['nomCat']])) {
