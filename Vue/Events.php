@@ -42,6 +42,7 @@
 							</div>
 							<div class="bright" style="width:90%">
 								<div class="bandeauhaut" style="height:33%;">
+								<!-- en fonction du prix on n'affiche pas la même chose -->
 									<?php if ($prix==0)
 										{
 											echo "<p> Gratuit </p>";
@@ -53,6 +54,7 @@
 									?>
 								</div>
 								<div class="bandeaumilieu" style="height:33%; text-align:left;">
+									<!-- permet la notation des evenements -->
 									<div class="rating">
 										<a id="star5" title="Donner 5 étoiles" onclick="noter(5,<?php echo $Event_id ?>)">★</a>
 										<a id="star4" title="Donner 4 étoiles" onclick="noter(4,<?php echo $Event_id ?>)">★</a>
@@ -99,6 +101,7 @@
 						</div>
 					</div>
 				</div>
+				<!-- on ne peut pas commenter si on n'est pas connecté -->
 				<?php if (verifco($mdp,$id_utilisateur)==TRUE){?>
 				<div class="bandeaubas" style="height:20%;text-align:left;">
 					<div class="bandeauhaut" style="height:50%">
