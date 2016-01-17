@@ -6,7 +6,7 @@ session_start();
 	<head>
 		<meta charset="utf-8" />
 		<link type="text/css" rel="stylesheet" href="../Style/Evenements2.css"/>
-		<script type="text/javascript" src="Evenements2.js"></script>
+		<script type="text/javascript" src="Evenements2.js"></script>	
 		<!-- appel de l'API google map -->
 		<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBTJ7EKiUmBXBsHrnojWCg36xdAKObOLqM"></script>
 		<script type="text/javascript" src="../Modele/Eventmap.js"></script>

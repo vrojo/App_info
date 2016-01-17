@@ -88,7 +88,7 @@ function blocresum($type,$id){
 		$result=mysqli_query($connect,"SELECT * from event where id_utilisateur=$id_utilisateur order by Event_id desc");
 		$i=0;
 		while (($data = mysqli_fetch_assoc($result)) && $i!=4) {
-			$image_event=mysqli_query($connect,"SELECT * from multimedia where Event_id=".$data['Event_id']);
+			$image_event=mysqli_query($connect,"SELECT * from multimedia where principale=1 and Event_id=".$data['Event_id']);
 			$image_event=mysqli_fetch_assoc($image_event);
 			?>
 		<a href="Events.php?Event_id=<?php echo $data['Event_id']?>"><div class="petitblocresum">
@@ -113,7 +113,7 @@ function blocresum($type,$id){
 		$result=mysqli_query($connect,"SELECT * from participation natural join event where id_participant=$id_utilisateur order by Event_id desc");
 		$i=0;
 		while (($data = mysqli_fetch_assoc($result)) && $i!=4) {
-			$image_event=mysqli_query($connect,"SELECT * from multimedia where Event_id=".$data['Event_id']);
+			$image_event=mysqli_query($connect,"SELECT * from multimedia where principale=1 and Event_id=".$data['Event_id']);
 			$image_event=mysqli_fetch_assoc($image_event);
 			
 			?>
