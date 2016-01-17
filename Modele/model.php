@@ -610,7 +610,7 @@ function edition_cgu($idcgu){
     $tableau_cgu = mysqli_fetch_assoc($result);
   
     echo'<form method="post" action="controleur_cgu.php" id="form_edit_cgu">';
-    echo'<input type="text" value = '.$tableau_cgu['titre_cgu'].'id = "titre_edit_cgu" name="titre_edit_cgu">';
+    echo'<input type="text" value = "'.$tableau_cgu['titre_cgu'].'" id = "titre_edit_cgu" name="titre_edit_cgu">';
     echo'<input type="submit" name="action" value="enregistrer" id="bouton_enregistrer_edit">';
     echo'<input type="hidden" name="idcgu" value="'.$tableau_cgu['id_paragraphe'].'">';
     echo'</form>';
