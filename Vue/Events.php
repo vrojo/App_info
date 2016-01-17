@@ -133,9 +133,11 @@
 		<div id="bandeau1">
 			<div class="bandeauhaut"  style="height:50px;color:grey; border-bottom:1px solid #e1e1e1;">
 				<div class="bleft">Sponsorisé par</div>
+				<div class="bright">
 				<?php 
 					carroussel_sponsors($Event_id);
 				?>
+				</div>
 			</div>
 			<div class="bandeaubas" style="height:auto;text-align:center">
 					<?php carroussel_event($Event_id);?>
