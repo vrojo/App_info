@@ -1,5 +1,6 @@
 <?php 
     require'model.php';
+	// On récupère l'id du topic ou du message signalé et on éxécute l'action décidée
     if(isset($_POST["idtopic"]))
     {
         if($_POST["action"]=="Supprimer")
