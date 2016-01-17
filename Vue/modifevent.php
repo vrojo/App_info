@@ -8,8 +8,7 @@ require 'model.php';
  
     <head>
         <meta charset="UTF-8">
-           <link type="text/css" rel="stylesheet" href="modifevent.css"/>
-           <script type="text/javascript" src="creationevent.js"></script>
+           <link type="text/css" rel="stylesheet" href="../Style/modifevent.css"/>
         <title>Modification d'événement</title>
     </head>
 	
@@ -73,26 +72,6 @@ require 'model.php';
 					<textarea name="description_e" value="<?php echo($event['description_e']) ?>" id="description" class="input_form_crea_event" placeholder="entrez une petite description de l'événement pour inciter les autres utilisateurs à s'inscrire !"><?php echo($event['description_e']) ?></textarea>
 					</br>
 					</br>
-					<label>Image du/des sponsor(s):</label>
-					<div style="display:inline-block; vertical-align:top;">
-					<?php
-					$sponsors=mysqli_fetch_assoc(mysqli_query($connect, "select * from sponsor join sponsorise where Event_id=".$_GET['id_event'].""));
-					$compteur=1;
-					while($data=$sponsors) {
-						$image=$data['img_sponsor'];
-						echo("<input type='text' name='sponsor$compteur' class='input_form_crea_event' placeholder='url de l&acute;image' value='$image'>
-						</br>");
-						$compteur++;
-					}
-					while ($compteur!=5) {
-						echo("<input type='text' name='sponsor$compteur' class='input_form_crea_event' placeholder='url de l&acute;image'>
-						</br>");
-						$compteur++;
-					}
-					?>
-					</div>
-					</br>
-					</br>
 					<?php
 					if ($event['privacy']==1) {
 						?>
@@ -121,54 +100,6 @@ require 'model.php';
 						echo("<input type='text' name='urlsite_event' id='adresseevent' class='input_form_crea_event' placeholder='url du site Internet'/>");
 					}
 					?>
-					</br>
-					</br>
-					<label for id="photo_principale">Photo principale de l'événement :</label>
-					<label for id="photo_principale">taille maximale de l'image : 20 mo</label>
-					</br>
-					</br>
-					<input type="file" value="<?php echo($event['urlimg_event']) ?>" name="photo_principale" id="photo_principale" style="color:white;"/>
-					</br>
-					</br>
-					<label for id="photo_secondaire">Autres photos de l'événement :</label>
-					</br>
-					</br>
-					<div style="display:inline-block; vertical-align:top;">
-					<?php
-					$photos=mysqli_fetch_assoc(mysqli_query($connect, "select * from multimedia where multimedia.Event_id=".$_GET['id_event']." and principale=0"));
-					$compteur=1;
-					while ($data=$photos and $compteur!=4) {
-						if ($compteur==1) {
-							echo("<input type='file' name='photo_secondaire'  value=".$data['urlimg_event']." id='photo_secondaire' style='color:white;'/>
-							</br>");
-						}
-						if ($compteur==2) {
-							echo("<input type='file' name='photo_trois' value=".$data['urlimg_event']." id='photo_secondaire' style='color:white;'/>
-							</br>");
-						}
-						if ($compteur==3) {
-							echo("<input type='file' name='photo_quatre' value=".$data['urlimg_event']." id='photo_secondaire' style='color:white;'/>
-							</br>");
-						}
-						$compteur++;
-					}
-					while ($compteur!=3) {
-						if ($compteur==1) {
-							echo("<input type='file' name='photo_secondaire' id='photo_secondaire' style='color:white;'/>
-							</br>");
-						}
-						if ($compteur==2) {
-							echo("<input type='file' name='photo_trois' id='photo_secondaire' style='color:white;'/>
-							</br>");
-						}
-						if ($compteur==3) {
-							echo("<input type='file' name='photo_quatre' id='photo_secondaire' style='color:white;'/>
-							</br>");
-						}
-						$compteur++;
-					}
-					?>
-					</div>
 					</br>
 				</fieldset>
 				<input type="submit" value="Modifier l'événement" id="bouton_creer_event"/>

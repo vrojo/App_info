@@ -84,7 +84,7 @@
 							<?php if (!empty($event['urlsite_event'])){?><a href="<?php echo $event['urlsite_event'] ?>"><div class="Bouton2" style="height:<?php echo $h ?>%"><p>Site internet de l'événement</p></div></a>
 							<?php }
 							if ($Id_crea==$id_utilisateur) {
-							?><a href="#"><div class="Bouton2" style="height:<?php echo $h ?>%"><p>Modifier l'événement</p></div></a><?php }?>
+							?><a href="../Vue/modifevent.php?id_event=<?php echo($event['Event_id'])?>"><div class="Bouton2" style="height:<?php echo $h ?>%"><p>Modifier l'événement</p></div></a><?php }?>
 						</div>
 					</div>
 					<div class="bandeaubas" style="height:auto; text-align: left; padding:5px 0 0 0">

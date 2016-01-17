@@ -63,6 +63,8 @@ require 'model.php';
 					</br>
 					</br>
 					<label for="checkbox">Catégorie de l'event :</label>
+					</br>
+					<label for="checkbox" style="font-size:0.5em;">Attention, les catégories ne seront pas modifiables plus tard.</label>
 					<?php 
 					
 					//récupère les catégories, qui ne sont pas fixées
@@ -91,6 +93,8 @@ require 'model.php';
 					</br>
 					</br>
 					<label>Image du/des sponsor(s):</label>
+					</br>
+					<label style="font-size:0.5em;">Attention, les sponsors ne seront pas modifiables plus tard.</label>
 					<div style="display:inline-block; vertical-align:top;">
 						<input type="text" name="sponsor1" class="input_form_crea_event" placeholder="url de l'image">
 						</br>
@@ -112,7 +116,10 @@ require 'model.php';
 					</br>
 					</br>
 					<label for id="photo_principale">Photo principale de l'événement <span style="color:red">*</span> :</label>
+					</br>
 					<label for id="photo_principale">taille maximale de l'image : 20 mo</label>
+					</br>
+					<label for id="photo_principale" style="font-size:0.5em;">Attention, les photos ne seront pas modifiables plus tard.</label>
 					</br>
 					</br>
 					<input type="file" name="photo_principale" id="photo_principale" style="color:white;"/>
